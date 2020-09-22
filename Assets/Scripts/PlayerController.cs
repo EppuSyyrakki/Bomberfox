@@ -7,8 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] 
     private float speed = 10f;
-    [SerializeField, Tooltip("In seconds")]
-    private float bombTimer = 2f;
+
     [SerializeField] 
     private GameObject bombPrefab;
 
@@ -38,12 +37,11 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector2(newX, newY);
     }
 
-    private void ProcessFire()
+    public void ProcessFire()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
-            Destroy(bomb, bombTimer);
         }
     }
 }
