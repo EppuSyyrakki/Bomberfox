@@ -1,37 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+namespace Bomberfox
 {
-    [SerializeField, Tooltip("In seconds")]
-    private float bombTimer = 2f;
-
-    [SerializeField, Tooltip("How far the explosion goes")] [Range(1, 10)]
-    private int range = 1;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Bomb : MonoBehaviour
     {
+        [SerializeField, Tooltip("How far the explosion goes"), Range(1, 10)]
+        public int range = 1;
 
-    }
+        [SerializeField, Tooltip("Speed of the explosion, n:th of a second"), Range(10, 100)]
+        public float speed = 10;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (bombTimer > 0)
+        [SerializeField, Tooltip("In seconds"), Range(0.1f, 2f)]
+        public float fadeOutTime = 1f;
+        
+        [SerializeField, Tooltip("In seconds"), Range(0, 1f)]
+        public float fadeDelay = 0.5f;
+
+        [SerializeField, Tooltip("In seconds")]
+        private float bombTimer = 2f;
+        
+        [SerializeField]
+        private GameObject explosionPrefab = null;
+
+        // Update is called once per frame
+        void Update()
         {
-            bombTimer -= Time.deltaTime;
+            if (bombTimer > 0)
+            {
+                bombTimer -= Time.deltaTime;
+            }
+            else
+            {
+                Explode();
+            }
         }
-        else
-        {
-            Explode();
-        }
-    }
 
-    // Destroys the bomb
-    private void Explode()
-    {
-        Destroy(this.gameObject);
+        // Creates the explosion that destroys this gameObject
+        private void Explode()
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+        }
     }
 }
