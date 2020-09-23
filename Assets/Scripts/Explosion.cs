@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Bomberfox
 {
@@ -15,12 +16,18 @@ namespace Bomberfox
         private float speed;
         private float fadeDelay;
         private float fadeOutTime;
-        private Vector3[] direction = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+        private float totalTime;
+        private float timer;
+        private Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
         private List<ShockWave> shockWaves = new List<ShockWave>();
+        private SpriteRenderer sr;
+        private float lerpTime;
+        private BoxCollider2D boxCollider;
 
         private void Awake()
         {
             parentBomb = transform.parent.gameObject;
+            sr = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
@@ -30,6 +37,25 @@ namespace Bomberfox
             Destroy(parentBomb);
             BeginExploding();
             StartCoroutine(nameof(ContinueShocks));
+            totalTime = speed * range + fadeDelay + fadeOutTime;    // time to wait before destroying gameObject
+        }
+
+        private void Update()
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= fadeDelay)
+            {
+                float alpha = Mathf.Lerp(1f, 0f, lerpTime);
+                Color color = sr.color;
+                color.a = alpha;
+                sr.color = color;
+                lerpTime += Time.deltaTime / fadeOutTime;
+            }
+            else if (timer > totalTime)
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void FetchBombParameters()
@@ -42,18 +68,18 @@ namespace Bomberfox
         }
 
         /// <summary>
-        /// Loops 4 directions, creates shocks and gives them direction to continue in. Adds the initial shocks to list.
+        /// Loops 4 directions, creates shocks and gives them directions to continue in. Adds the initial shocks to list.
         /// </summary>
         private void BeginExploding()
         {
             for (int i = 0; i < 4; i++)
             {
                 GameObject obj = Instantiate(shockWavePrefab,
-                    transform.position + direction[i],
+                    transform.position + directions[i],
                     Quaternion.identity,
                     transform);
                 ShockWave s = obj.GetComponent<ShockWave>();
-                s.SetDirection(direction[i]);
+                s.SetDirection(directions[i]);
                 s.SetTimes(fadeDelay, fadeOutTime);
                 shockWaves.Add(s);
             }

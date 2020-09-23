@@ -20,26 +20,19 @@ namespace Bomberfox
         private void Awake()
         {
             sr = GetComponent<SpriteRenderer>();
-            timer = 0;
         }
 
         private void Update()
         {
+            timer += Time.deltaTime;
+
             if (timer >= fadeDelay)
             {
                 float alpha = Mathf.Lerp(1f, 0f, lerpTime);
-                print(lerpTime);
                 Color color = sr.color;
                 color.a = alpha;
                 sr.color = color;
-            }
-
-            lerpTime += Time.deltaTime / fadeOutTime;
-            timer += Time.deltaTime;
-
-            if (lerpTime > 1)
-            {
-                Destroy(gameObject);
+                lerpTime += Time.deltaTime / fadeOutTime;
             }
         }
 

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502653654207275188}
-  - component: {fileID: 3469082011756479804}
   - component: {fileID: 4990535661042964309}
+  - component: {fileID: 3469082011756479804}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -32,6 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4990535661042964309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775296925383206451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fa106b59ce64a44a9e065a63fc29a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 4
+  speed: 40
+  fadeOutTime: 0.4
+  fadeDelay: 0.25
+  bombTimer: 2
+  explosionPrefab: {fileID: 383260934503833478, guid: e68b3510c1abb9f42a8c3e57e2d7c721, type: 3}
 --- !u!212 &3469082011756479804
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -83,21 +101,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4990535661042964309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4775296925383206451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fa106b59ce64a44a9e065a63fc29a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  speed: 35
-  fadeOutTime: 1
-  fadeDelay: 1
-  bombTimer: 2
-  explosionPrefab: {fileID: 383260934503833478, guid: e68b3510c1abb9f42a8c3e57e2d7c721, type: 3}
