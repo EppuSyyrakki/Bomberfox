@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -7,15 +8,27 @@ namespace Bomberfox
 {
     public class PlayerController : MonoBehaviour
     {
+        public enum Direction
+        {
+            Down,
+            Left,
+            Up,
+            Right
+        }
+
         [SerializeField]
         private float speed = 10f;
 
         [SerializeField]
         private GameObject bombPrefab = null;
-        
+
+        private Animator animator;
+
+        private Direction direction;
+
         void Start()
         {
-            
+            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -44,6 +57,11 @@ namespace Bomberfox
             {
                 GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
             }
+        }
+
+        private void UpdateAnimator()
+        {
+
         }
     }
 }
