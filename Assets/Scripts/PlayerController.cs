@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 namespace Bomberfox
@@ -10,10 +8,11 @@ namespace Bomberfox
     {
         public enum Direction
         {
-            Down,
+            Right,
             Left,
             Up,
-            Right
+            Down,
+            None
         }
 
         [SerializeField]
@@ -23,8 +22,8 @@ namespace Bomberfox
         private GameObject bombPrefab = null;
 
         private Animator animator;
-
-        private Direction direction;
+        private Vector3 moveTarget;
+        private Direction moveDirection;
 
         void Start()
         {
@@ -33,10 +32,79 @@ namespace Bomberfox
 
         void Update()
         {
-            ProcessMovement();
+            if (transform.position == moveTarget)
+            {
+                // if we are at target position, define new target
+                moveTarget = DefineNextPosition();
+                moveDirection = DefineMoveDirection();
+            }
+            else
+            {
+                // if we are not at target position, move towards it
+                MoveToTarget(moveTarget);
+            }
             ProcessFire();
+            UpdateAnimator();
         }
 
+        /// <summary>
+        /// Defines a new position for player to move to according to input.
+        /// TODO collision check - can the player move to the new position?
+        /// </summary>
+        /// <returns>Current transform plus a single moveDirection Vector.</returns>
+        private Vector3 DefineNextPosition()
+        {
+            Vector3 direction = new Vector3();
+            if (Input.GetAxis("Horizontal") > 0) direction = Vector3.right;
+            else if (Input.GetAxis("Horizontal") < 0) direction = Vector3.left;
+            else if (Input.GetAxis("Vertical") > 0) direction = Vector3.up;
+            else if (Input.GetAxis("Vertical") < 0) direction = Vector3.down;
+            else direction = Vector3.zero;
+            
+            return transform.position + direction;
+        }
+
+        /// <summary>
+        /// Sets the moveDirection animation helper according to input
+        /// </summary>
+        /// <returns>the direction which the player should be facing</returns>
+        private Direction DefineMoveDirection()
+        {
+            if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
+            else if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
+            else if (Input.GetAxis("Vertical") > 0) return Direction.Up;
+            else if (Input.GetAxis("Vertical") < 0) return Direction.Down;
+            else return Direction.None;
+        }
+
+        private void MoveToTarget(Vector3 target)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position, 
+                moveTarget, 
+                speed * Time.deltaTime);
+        }
+
+        public void ProcessFire()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            }
+        }
+
+        /// <summary>
+        /// Updates animator component by setting triggers that define which direction player is facing.
+        /// </summary>
+        private void UpdateAnimator()
+        {
+            if (moveDirection == Direction.Right) animator.SetTrigger("FacingRight");
+            if (moveDirection == Direction.Left) animator.SetTrigger("FacingLeft");
+            if (moveDirection == Direction.Up) animator.SetTrigger("FacingUp");
+            if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
+        }
+
+        // Old method for movement. Obsolete but saved here just in case.
         private void ProcessMovement()
         {
             // Get input values and calculate offsets to previous position
@@ -49,19 +117,6 @@ namespace Bomberfox
 
             // Move "player"
             transform.position = new Vector2(newX, newY);
-        }
-
-        public void ProcessFire()
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
-            }
-        }
-
-        private void UpdateAnimator()
-        {
-
         }
     }
 }
