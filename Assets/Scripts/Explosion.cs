@@ -35,6 +35,7 @@ namespace Bomberfox
             FetchBombParameters();
             transform.parent = null;
             Destroy(parentBomb);
+            PlayerController.currentBombs -= 1;
             BeginExploding();
             StartCoroutine(nameof(ContinueShocks));
             totalTime = speed * range + fadeDelay + fadeOutTime;    // time to wait before destroying gameObject

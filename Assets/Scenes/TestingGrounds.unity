@@ -2321,5 +2321,9 @@ PrefabInstance:
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4221481442910844423, guid: 3e09df83c59b9fe488c621506b833dfb, type: 3}
+      propertyPath: bombCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e09df83c59b9fe488c621506b833dfb, type: 3}

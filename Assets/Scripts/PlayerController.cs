@@ -19,6 +19,12 @@ namespace Bomberfox
         [SerializeField]
         private float speed = 10f;
 
+        // How many bombs the player can drop at the same time
+        private int bombCount = 3;
+
+        // The amount of bombs currently in the game
+        public static int currentBombs;
+
         [SerializeField]
         private GameObject bombPrefab = null;
 
@@ -97,13 +103,14 @@ namespace Bomberfox
 
         public void ProcessFire()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && currentBombs < bombCount)
             {
                 Vector3Int pos = new Vector3Int(
                     Mathf.RoundToInt(transform.position.x),
                     Mathf.RoundToInt(transform.position.y),
                     0);
                 GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
+                currentBombs += 1;
             }
         }
 
