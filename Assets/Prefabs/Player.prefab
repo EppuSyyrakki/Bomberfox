@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  bombCount: 1
   bombPrefab: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
+  playerBombs: {fileID: 0}
 --- !u!212 &4221481442910844421
 SpriteRenderer:
   m_ObjectHideFlags: 0
