@@ -50,7 +50,8 @@ namespace Bomberfox
                 sr.color = color;
                 lerpTime += Time.deltaTime / fadeOutTime;
             }
-            else if (timer > totalTime)
+            
+            if (timer > totalTime)
             {
                 Destroy(gameObject);
             }

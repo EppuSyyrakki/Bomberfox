@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Bomberfox
 {
     public class PlayerController : MonoBehaviour
     {
-        public enum Direction
+        private enum Direction  // helper for animator to decide which facing to use
         {
             Right,
             Left,
@@ -61,7 +62,33 @@ namespace Bomberfox
             else if (Input.GetAxis("Vertical") < 0) direction = Vector3.down;
             else direction = Vector3.zero;
             
-            return transform.position + direction;
+            Vector3 nextPos = transform.position + direction;
+
+            // if the next position is not own position, and is free, return it
+            if (nextPos != transform.position && CheckNextPosition(nextPos)) return nextPos;
+            
+            // otherwise return own position
+            return transform.position;
+        }
+
+        /// <summary>
+        /// Check all colliders in nextPos for tag "Block"
+        /// </summary>
+        /// <returns>true if no Block tag, false if tag found</returns>
+        private bool CheckNextPosition(Vector3 nextPos)
+        {
+            Vector2 nextPosVector2 = new Vector2(nextPos.x, nextPos.y);
+            Collider2D[] cols = Physics2D.OverlapCircleAll(nextPosVector2, 0.25f);
+
+            if ((cols ).Length > 0)
+            {
+                foreach (var col in cols)
+                {
+                    if (col.gameObject.CompareTag("Block")) return false;
+                }
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -89,7 +116,11 @@ namespace Bomberfox
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+                Vector3Int pos = new Vector3Int(
+                    Mathf.RoundToInt(transform.position.x),
+                    Mathf.RoundToInt(transform.position.y),
+                    0);
+                GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
             }
         }
 
