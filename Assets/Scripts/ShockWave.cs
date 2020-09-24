@@ -10,12 +10,14 @@ namespace Bomberfox
         private float fadeOutTime;
         private float fadeDelay;
         private float timer;
-        private SpriteRenderer sr;
+        private SpriteRenderer spriteRenderer;
         private float lerpTime;
+        private CollisionChecker collisionChecker;
 
         private void Awake()
         {
-            sr = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            collisionChecker = GetComponent<CollisionChecker>();
         }
 
         private void Update()
@@ -25,9 +27,9 @@ namespace Bomberfox
             if (timer >= fadeDelay)
             {
                 float alpha = Mathf.Lerp(1f, 0f, lerpTime);
-                Color color = sr.color;
+                Color color = spriteRenderer.color;
                 color.a = alpha;
-                sr.color = color;
+                spriteRenderer.color = color;
                 lerpTime += Time.deltaTime / fadeOutTime;
             }
         }
@@ -50,8 +52,13 @@ namespace Bomberfox
         public void Continue(int distance, GameObject shockWavePrefab)
         {
             Vector3 position = dir * distance + transform.position;
-            GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
-            obj.GetComponent<ShockWave>().SetTimes(fadeDelay, fadeOutTime);
+
+            if (collisionChecker.CheckPosition(position))
+            {
+                GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
+                obj.GetComponent<ShockWave>().SetTimes(fadeDelay, fadeOutTime);
+            }
+            
         }
     }
 }

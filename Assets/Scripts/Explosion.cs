@@ -18,14 +18,16 @@ namespace Bomberfox
         private float timer;
         private Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
         private List<ShockWave> shockWaves = new List<ShockWave>();
-        private SpriteRenderer sr;
+        private SpriteRenderer spriteRenderer;
         private float lerpTime;
         private BoxCollider2D boxCollider;
+        private CollisionChecker collisionChecker;
 
         private void Awake()
         {
             parentBomb = transform.parent.gameObject;
-            sr = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            collisionChecker = GetComponent<CollisionChecker>();
         }
 
         private void Start()
@@ -45,9 +47,9 @@ namespace Bomberfox
             if (timer >= fadeDelay)
             {
                 float alpha = Mathf.Lerp(1f, 0f, lerpTime);
-                Color color = sr.color;
+                Color color = spriteRenderer.color;
                 color.a = alpha;
-                sr.color = color;
+                spriteRenderer.color = color;
                 lerpTime += Time.deltaTime / fadeOutTime;
             }
             
@@ -73,14 +75,16 @@ namespace Bomberfox
         {
             for (int i = 0; i < 4; i++)
             {
-                GameObject obj = Instantiate(shockWavePrefab,
-                    transform.position + directions[i],
-                    Quaternion.identity,
-                    transform);
-                ShockWave s = obj.GetComponent<ShockWave>();
-                s.SetDirection(directions[i]);
-                s.SetTimes(fadeDelay, fadeOutTime);
-                shockWaves.Add(s);
+                Vector3 position = transform.position + directions[i];
+
+                if (collisionChecker.CheckPosition(position))   // check if the position is free
+                {
+                    GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
+                    ShockWave s = obj.GetComponent<ShockWave>();
+                    s.SetDirection(directions[i]);
+                    s.SetTimes(fadeDelay, fadeOutTime);
+                    shockWaves.Add(s);
+                }
             }
         }
 

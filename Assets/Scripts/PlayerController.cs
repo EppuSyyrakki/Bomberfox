@@ -25,10 +25,12 @@ namespace Bomberfox
         private Animator animator;
         private Vector3 moveTarget;
         private Direction moveDirection;
+        private CollisionChecker collisionChecker;
 
         void Start()
         {
             animator = GetComponent<Animator>();
+            collisionChecker = GetComponent<CollisionChecker>();
         }
 
         void Update()
@@ -50,7 +52,6 @@ namespace Bomberfox
 
         /// <summary>
         /// Defines a new position for player to move to according to input.
-        /// TODO collision check - can the player move to the new position?
         /// </summary>
         /// <returns>Current transform plus a single moveDirection Vector.</returns>
         private Vector3 DefineNextPosition()
@@ -65,31 +66,13 @@ namespace Bomberfox
             Vector3 nextPos = transform.position + direction;
 
             // if the next position is not own position, and is free, return it
-            if (nextPos != transform.position && CheckNextPosition(nextPos)) return nextPos;
+            if (nextPos != transform.position && collisionChecker.CheckPosition(nextPos)) return nextPos;
             
             // otherwise return own position
             return transform.position;
         }
 
-        /// <summary>
-        /// Check all colliders in nextPos for tag "Block"
-        /// </summary>
-        /// <returns>true if no Block tag, false if tag found</returns>
-        private bool CheckNextPosition(Vector3 nextPos)
-        {
-            Vector2 nextPosVector2 = new Vector2(nextPos.x, nextPos.y);
-            Collider2D[] cols = Physics2D.OverlapCircleAll(nextPosVector2, 0.25f);
-
-            if ((cols ).Length > 0)
-            {
-                foreach (var col in cols)
-                {
-                    if (col.gameObject.CompareTag("Block")) return false;
-                }
-            }
-
-            return true;
-        }
+        
 
         /// <summary>
         /// Sets the moveDirection animation helper according to input

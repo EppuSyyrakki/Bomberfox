@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4221481442910844422}
   - component: {fileID: 4221481442910844423}
+  - component: {fileID: -8475925279940206486}
   - component: {fileID: 4221481442910844421}
   - component: {fileID: 456974189}
   - component: {fileID: 3048716565554641131}
@@ -48,6 +49,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   bombPrefab: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
+--- !u!114 &-8475925279940206486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221481442910844420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311d3b1eeba62014ba61f67ff80c70a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &4221481442910844421
 SpriteRenderer:
   m_ObjectHideFlags: 0
