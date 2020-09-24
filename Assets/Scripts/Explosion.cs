@@ -16,18 +16,19 @@ namespace Bomberfox
         private float fadeOutTime;
         private float totalTime;
         private float timer;
-        private Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+        private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+        private bool[] directionsFree = {true, true, true, true};
         private List<ShockWave> shockWaves = new List<ShockWave>();
         private SpriteRenderer spriteRenderer;
         private float lerpTime;
         private BoxCollider2D boxCollider;
-        private CollisionChecker collisionChecker;
+        private CollisionHandler collisionHandler;
 
         private void Awake()
         {
             parentBomb = transform.parent.gameObject;
             spriteRenderer = GetComponent<SpriteRenderer>();
-            collisionChecker = GetComponent<CollisionChecker>();
+            collisionHandler = GetComponent<CollisionHandler>();
         }
 
         private void Start()
@@ -78,14 +79,15 @@ namespace Bomberfox
             {
                 Vector3 position = transform.position + directions[i];
 
-                if (collisionChecker.CheckPosition(position))   // check if the position is free
+                if (collisionHandler.CheckPosition(position)) // check if the position is free
                 {
-                    GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
-                    ShockWave s = obj.GetComponent<ShockWave>();
-                    s.SetDirection(directions[i]);
-                    s.SetTimes(fadeDelay, fadeOutTime);
-                    shockWaves.Add(s);
+	                GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
+	                ShockWave sw = obj.GetComponent<ShockWave>();
+	                sw.SetDirection(directions[i]);
+	                sw.SetTimes(fadeDelay, fadeOutTime);
+	                shockWaves.Add(sw);
                 }
+                else directionsFree[i] = false;
             }
         }
 

@@ -20,6 +20,7 @@ namespace Bomberfox
         private float speed = 10f;
 
         // How many bombs the player can drop at the same time
+        [SerializeField] 
         private int bombCount = 3;
 
         // The amount of bombs currently in the game
@@ -31,12 +32,12 @@ namespace Bomberfox
         private Animator animator;
         private Vector3 moveTarget;
         private Direction moveDirection;
-        private CollisionChecker collisionChecker;
+        private CollisionHandler collisionHandler;
 
         void Start()
         {
             animator = GetComponent<Animator>();
-            collisionChecker = GetComponent<CollisionChecker>();
+            collisionHandler = GetComponent<CollisionHandler>();
         }
 
         void Update()
@@ -69,16 +70,15 @@ namespace Bomberfox
             else if (Input.GetAxis("Vertical") < 0) direction = Vector3.down;
             else direction = Vector3.zero;
             
+            // add new direction to current location
             Vector3 nextPos = transform.position + direction;
 
-            // if the next position is not own position, and is free, return it
-            if (nextPos != transform.position && collisionChecker.CheckPosition(nextPos)) return nextPos;
-            
+            // if the new position is not own position, doesn't have collider and tag "Block", return it
+            if (nextPos != transform.position && collisionHandler.CheckPosition(nextPos)) return nextPos;
+	        
             // otherwise return own position
             return transform.position;
         }
-
-        
 
         /// <summary>
         /// Sets the moveDirection animation helper according to input
@@ -125,19 +125,19 @@ namespace Bomberfox
             if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
         }
 
-        // Old method for movement. Obsolete but saved here just in case.
-        private void ProcessMovement()
-        {
-            // Get input values and calculate offsets to previous position
-            float xOffset = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            float yOffset = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        //Old method for movement. Obsolete but saved here just in case.
+        //private void ProcessMovement()
+        //{
+        //    // Get input values and calculate offsets to previous position
+        //    float xOffset = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        //    float yOffset = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-            // Restrict "player" from moving out of screen, numbers from pixels per unit of graphic. Temporary fix.
-            float newX = Mathf.Clamp(transform.position.x + xOffset, 0.5f, 15.5f);
-            float newY = Mathf.Clamp(transform.position.y + yOffset, 0.5f, 8.5f);
+        //    // Restrict "player" from moving out of screen, numbers from pixels per unit of graphic. Temporary fix.
+        //    float newX = Mathf.Clamp(transform.position.x + xOffset, 0.5f, 15.5f);
+        //    float newY = Mathf.Clamp(transform.position.y + yOffset, 0.5f, 8.5f);
 
-            // Move "player"
-            transform.position = new Vector2(newX, newY);
-        }
+        //    // Move "player"
+        //    transform.position = new Vector2(newX, newY);
+        //}
     }
 }

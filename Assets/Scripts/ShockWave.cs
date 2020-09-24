@@ -12,12 +12,12 @@ namespace Bomberfox
         private float timer;
         private SpriteRenderer spriteRenderer;
         private float lerpTime;
-        private CollisionChecker collisionChecker;
+        private CollisionHandler collisionHandler;
 
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            collisionChecker = GetComponent<CollisionChecker>();
+            collisionHandler = GetComponent<CollisionHandler>();
         }
 
         private void Update()
@@ -53,12 +53,11 @@ namespace Bomberfox
         {
             Vector3 position = dir * distance + transform.position;
 
-            if (collisionChecker.CheckPosition(position))
+            if (collisionHandler.CheckPosition(position))
             {
                 GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
                 obj.GetComponent<ShockWave>().SetTimes(fadeDelay, fadeOutTime);
             }
-            
         }
     }
 }

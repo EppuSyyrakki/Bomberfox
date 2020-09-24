@@ -38,7 +38,7 @@ namespace Bomberfox
         }
 
         // Creates the explosion that destroys this gameObject
-        private void Explode()
+        public void Explode()
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
         }
