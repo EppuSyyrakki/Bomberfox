@@ -58,9 +58,9 @@ namespace Bomberfox
         }
 
         /// <summary>
-        /// Defines a new position for player to move to according to input.
+        /// Defines a new position for player to move to according to input. Checks if new position is free.
         /// </summary>
-        /// <returns>Current transform plus a single moveDirection Vector.</returns>
+        /// <returns>Current transform plus a direction vector.</returns>
         private Vector3 DefineNextPosition()
         {
             Vector3 direction = new Vector3();
@@ -100,7 +100,9 @@ namespace Bomberfox
                 moveTarget, 
                 speed * Time.deltaTime);
         }
-
+		/// <summary>
+        /// Checks input and creates a bomb if bombCount allows.
+        /// </summary>
         public void ProcessFire()
         {
             if (Input.GetButtonDown("Fire1") && currentBombs < bombCount)

@@ -17,7 +17,6 @@ namespace Bomberfox
         private float totalTime;
         private float timer;
         private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
-        private bool[] directionsFree = {true, true, true, true};
         private List<ShockWave> shockWaves = new List<ShockWave>();
         private SpriteRenderer spriteRenderer;
         private float lerpTime;
@@ -87,13 +86,13 @@ namespace Bomberfox
 	                sw.SetTimes(fadeDelay, fadeOutTime);
 	                shockWaves.Add(sw);
                 }
-                else directionsFree[i] = false;
             }
         }
 
         /// <summary>
         /// Waits for 'speed' amount of time and creates new shocks from the initial shocks. Sends a distance to the
-        /// initial shocks to instantiate at. Loops for 'range' amount of cycles.
+        /// initial shocks to instantiate at. Loops for 'range' amount of cycles. The check for blocking objects is done
+        /// inside the Continue method in ShockWave script.
         /// </summary>
         /// <returns>To update for 'speed' amount of seconds</returns>
         private IEnumerator ContinueShocks()

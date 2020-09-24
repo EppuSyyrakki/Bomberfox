@@ -43,16 +43,15 @@ namespace Bomberfox
 
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return false;
 
-            if (o.CompareTag("Bomb") && gameObject.CompareTag("Explosion")) return ExplodeBomb(o);
+            if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
 
 	        if (o.CompareTag("Enemy") && gameObject.CompareTag("Explosion")) return KillEnemy(o);
 
 	        return true;
         }
         
-        private bool ExplodeBomb(GameObject o)
+        private bool KillBomb(GameObject o)
         {
-            print("Explosion found a bomb");
 	        o.GetComponent<Bomb>().Explode();
 	        return false;
         }
