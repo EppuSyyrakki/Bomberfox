@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: b58396a5b30349049ac955072bd6d515
+ScriptedImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5929405817864647190
+    second: thorns_0
+  - first:
+      213: -2010917458671493427
+    second: thorns_1
+  - first:
+      213: 7391444822214289219
+    second: thorns_2
+  - first:
+      213: -1169521843657391632
+    second: thorns_3
+  - first:
+      213: -6218418147159095372
+    second: thorns_4
+  - first:
+      213: -4454367897960526327
+    second: thorns_5
+  - first:
+      213: -3542230098568340954
+    second: thorns_6
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 256
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    ignorePngGamma: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Root2 Front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 626
+      width: 105
+      height: 191
+    spriteID: 96cb2cc1e77025043bf560fa28567964
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -97, y: 562}
+  - name: Root3 Front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 825
+      width: 166
+      height: 109
+    spriteID: 7cc5e6420bcc5234b99f0d0d11a26320
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -81, y: 820}
+  - name: Grass Front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 4
+      width: 240
+      height: 26
+    spriteID: 9179cfcd55e7b654eae8d1fa9b6b70cc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 216, y: 3}
+  - name: Root1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 210
+      height: 214
+    spriteID: 353427fc3e01e5249860b84dcbae9c7b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -10, y: 3}
+  - name: Root2 Back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 226
+      width: 170
+      height: 247
+    spriteID: acb133cce7a51f545b52fd3ecdc87d0e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -52, y: 221}
+  - name: Root3 Back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 481
+      width: 174
+      height: 137
+    spriteID: 321dfd08e7d78b7479441e6dc8c6620e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -56, y: 478}
+  - name: Grass Back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 942
+      width: 195
+      height: 45
+    spriteID: 0f6b8ae4a4a09444f9e9b08d94d89573
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -23, y: 941}
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 512
+  importedTextureHeight: 1024
+  documentSize: {x: 256, y: 256}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 512
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Root2 Front
+    spriteName: Root2 Front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 96cb2cc1e77025043bf560fa28567964
+    layerID: 9
+    mosaicPosition: {x: 4, y: 626}
+  - name: Root3 Front
+    spriteName: Root3 Front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7cc5e6420bcc5234b99f0d0d11a26320
+    layerID: 8
+    mosaicPosition: {x: 4, y: 825}
+  - name: Grass Front
+    spriteName: Grass Front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9179cfcd55e7b654eae8d1fa9b6b70cc
+    layerID: 7
+    mosaicPosition: {x: 222, y: 4}
+  - name: Root1
+    spriteName: Root1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 353427fc3e01e5249860b84dcbae9c7b
+    layerID: 6
+    mosaicPosition: {x: 4, y: 4}
+  - name: Root2 Back
+    spriteName: Root2 Back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: acb133cce7a51f545b52fd3ecdc87d0e
+    layerID: 5
+    mosaicPosition: {x: 4, y: 226}
+  - name: Root3 Back
+    spriteName: Root3 Back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 321dfd08e7d78b7479441e6dc8c6620e
+    layerID: 4
+    mosaicPosition: {x: 4, y: 481}
+  - name: Grass Back
+    spriteName: Grass Back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0f6b8ae4a4a09444f9e9b08d94d89573
+    layerID: 3
+    mosaicPosition: {x: 4, y: 942}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: thorns Texture
+  prefabAssetName: thorns Prefab
+  spriteLibAssetName: thorns Sprite Lib
+  secondarySpriteTextures: []
