@@ -11,9 +11,6 @@ namespace Bomberfox
 
         [SerializeField, Tooltip("Speed of the explosion, n:th of a second"), Range(10, 100)]
         public float speed = 10;
-
-        [SerializeField, Tooltip("In seconds"), Range(0.1f, 2f)]
-        public float fadeOutTime = 1f;
         
         [SerializeField, Tooltip("In seconds"), Range(0, 1f)]
         public float fadeDelay = 0.5f;

@@ -6,19 +6,17 @@ namespace Bomberfox
 {
     public class ShockWave : MonoBehaviour
     {
-        private Vector3 direction;
-        private float fadeOutTime;
+        public Vector3 Direction { get; set; }
+        public bool Blocked { get; set; }
         private float fadeDelay;
         private float timer;
-        private SpriteRenderer spriteRenderer;
-        private float lerpTime;
         private CollisionHandler collisionHandler;
-        private bool blocked;
+        private Fader fader;
 
         private void Awake()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            collisionHandler = GetComponent<CollisionHandler>();
+	        collisionHandler = GetComponent<CollisionHandler>();
+            fader = GetComponent<Fader>();
         }
 
         private void Update()
@@ -27,23 +25,13 @@ namespace Bomberfox
 
             if (timer >= fadeDelay)
             {
-                float alpha = Mathf.Lerp(1f, 0f, lerpTime);
-                Color color = spriteRenderer.color;
-                color.a = alpha;
-                spriteRenderer.color = color;
-                lerpTime += Time.deltaTime / fadeOutTime;
+	            fader.Fade = true;
             }
         }
-
-        public void SetDirection(Vector3 direction)
-        {
-            this.direction = direction;
-        }
-
-        public void SetTimes(float fadeDelay, float fadeOutTime)
+        
+        public void SetDelay(float fadeDelay)
         {
             this.fadeDelay = fadeDelay;
-            this.fadeOutTime = fadeOutTime;
         }
         
         /// <summary>
@@ -53,14 +41,14 @@ namespace Bomberfox
         /// <param name="distance">Distance from the original explosion</param>
         public void Continue(int distance, GameObject shockWavePrefab)
         {
-            Vector3 position = direction * distance + transform.position;
+            Vector3 position = Direction * distance + transform.position;
 
-            if (collisionHandler.CheckPosition(position) && !blocked)
+            if (!Blocked && collisionHandler.CheckPosition(position))
             {
 	            GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
-	            obj.GetComponent<ShockWave>().SetTimes(fadeDelay, fadeOutTime);
+	            obj.GetComponent<ShockWave>().SetDelay(fadeDelay);
             }
-            else blocked = true;
+            else Blocked = true;
         }
     }
 }

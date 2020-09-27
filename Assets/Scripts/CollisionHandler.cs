@@ -38,18 +38,31 @@ namespace Bomberfox
 	        GameObject o = collider.gameObject;
 
 	        if (o.CompareTag("Block")) return false;
-
+            
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Player")) return false;
-
+	        
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return false;
 
             if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
 
 	        if (o.CompareTag("Enemy") && gameObject.CompareTag("Explosion")) return KillEnemy(o);
 
-	        return true;
+	        if (o.CompareTag("Obstacle") && gameObject.CompareTag("ShockWave")) return KillObstacle(o);
+
+	        if (o.CompareTag("Obstacle") && gameObject.CompareTag("Explosion")) return KillObstacle(o);
+
+            if (o.CompareTag("Obstacle") && gameObject.CompareTag("Player")) return false;
+
+            return true;
         }
-        
+
+        private bool KillObstacle(GameObject o)
+        {
+	        Obstacle obstacle = o.GetComponent<Obstacle>();
+	        obstacle.BlowUp();
+	        return false;
+        }
+
         private bool KillBomb(GameObject o)
         {
 	        o.GetComponent<Bomb>().Explode();
