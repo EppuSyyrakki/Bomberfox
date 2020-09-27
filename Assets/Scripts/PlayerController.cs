@@ -47,11 +47,13 @@ namespace Bomberfox
                 // if we are at target position, define new target
                 moveTarget = DefineNextPosition();
                 moveDirection = DefineMoveDirection();
+                animator.SetBool("Running", false);
             }
             else
             {
                 // if we are not at target position, move towards it
                 MoveToTarget(moveTarget);
+                animator.SetBool("Running", true);
             }
             ProcessFire();
             UpdateAnimator();
