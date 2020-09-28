@@ -44,6 +44,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1999804167
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Non-Destructible
+    uniqueID: 259732169
+    locked: 0
+  - name: Destructible
+    uniqueID: 1733409701
+    locked: 0
+  - name: Player
+    uniqueID: 1018266871
+    locked: 0
+  - name: Explosion
+    uniqueID: 3605335827
     locked: 0
