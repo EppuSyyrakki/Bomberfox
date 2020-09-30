@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 1acb75304d199fa4f9fab4263bc2d552
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6445761853256425615
+    second: hood
+  - first:
+      213: -7640052780680688239
+    second: rightLeg
+  - first:
+      213: 5470614768621351153
+    second: rightHand
+  - first:
+      213: -8968419586996082848
+    second: foxFrontFull
+  - first:
+      213: 8486734051199896468
+    second: leftHand
+  - first:
+      213: -3696180890995383388
+    second: leftLeg
+  - first:
+      213: 5994889321007741178
+    second: tail
+  - first:
+      213: -2369448708035685635
+    second: head
+  - first:
+      213: -2931888702498417891
+    second: rightPaw
+  - first:
+      213: 9112835286247558461
+    second: torso
+  - first:
+      213: -2697401137184956216
+    second: cloak
+  - first:
+      213: 7050079429898109718
+    second: bag
+  - first:
+      213: -7076624171460067989
+    second: leftPaw
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +80,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +112,294 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: hood
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 185
+        width: 139
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80ec122142f37950800000000000000
+      internalID: 6445761853256425615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightLeg
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 188
+        width: 56
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5201928, y: 0.83053964}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19dca46897419f590800000000000000
+      internalID: -7640052780680688239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightHand
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 161
+        width: 47
+        height: 85
+      alignment: 9
+      pivot: {x: 0.23534572, y: 0.9124076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f07ea2c5278beb40800000000000000
+      internalID: 5470614768621351153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foxFrontFull
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 256
+        height: 280
+      alignment: 9
+      pivot: {x: 0.47349703, y: 0.4474988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067617007e5c98380800000000000000
+      internalID: -8968419586996082848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftHand
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 162
+        width: 56
+        height: 83
+      alignment: 9
+      pivot: {x: 0.7826985, y: 0.89509696}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b4bf8a7afe6c570800000000000000
+      internalID: 8486734051199896468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftLeg
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 172
+        width: 56
+        height: 65
+      alignment: 9
+      pivot: {x: 0.47980717, y: 0.83053964}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a322a6101784bcc0800000000000000
+      internalID: -3696180890995383388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 81
+        width: 134
+        height: 161
+      alignment: 9
+      pivot: {x: 0.1371328, y: 0.12775089}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8f27e3310223350800000000000000
+      internalID: 5994889321007741178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 54
+        width: 156
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2560434f60e1fd0800000000000000
+      internalID: -2369448708035685635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightPaw
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 134
+        width: 47
+        height: 31
+      alignment: 9
+      pivot: {x: 0.52405924, y: 0.6823853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13d99642c6df47d0800000000000000
+      internalID: -2931888702498417891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: torso
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 4
+        width: 152
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d4e65396b477e70800000000000000
+      internalID: 9112835286247558461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloak
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 10
+        width: 162
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c02b5905f7e09ad0800000000000000
+      internalID: -2697401137184956216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bag
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 76
+        width: 105
+        height: 57
+      alignment: 9
+      pivot: {x: 0.6830816, y: 0.40080744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6138d5973e9e6d160800000000000000
+      internalID: 7050079429898109718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftPaw
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 88
+        width: 47
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5000013, y: 0.6459087}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6dfd234fc7cacd90800000000000000
+      internalID: -7076624171460067989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
