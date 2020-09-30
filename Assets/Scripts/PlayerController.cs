@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Bomberfox
 {
@@ -31,6 +34,7 @@ namespace Bomberfox
 
         private Animator animator;
         private Vector3 moveTarget;
+        private Vector3 currentTarget;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
 
@@ -42,19 +46,22 @@ namespace Bomberfox
 
         void Update()
         {
-            if (transform.position == moveTarget)
+            float dist = Vector3.Distance(moveTarget, transform.position);
+            float distance = Mathf.Abs(dist);
+            float skipCorners = 0.2f;
+
+            MoveToTarget(currentTarget);
+            animator.SetBool("Running", true);
+
+            if (distance <= skipCorners || transform.position == moveTarget)
             {
                 // if we are at target position, define new target
                 moveTarget = DefineNextPosition();
+                currentTarget = moveTarget;
                 moveDirection = DefineMoveDirection();
                 animator.SetBool("Running", false);
             }
-            else
-            {
-                // if we are not at target position, move towards it
-                MoveToTarget(moveTarget);
-                animator.SetBool("Running", true);
-            }
+
             ProcessFire();
             UpdateAnimator();
         }
@@ -73,13 +80,13 @@ namespace Bomberfox
             else direction = Vector3.zero;
             
             // add new direction to current location
-            Vector3 nextPos = transform.position + direction;
+            Vector3 nextPos = moveTarget + direction;
 
             // if the new position is not own position, doesn't have collider and tag "Block", return it
-            if (nextPos != transform.position && collisionHandler.CheckPosition(nextPos)) return nextPos;
+            if (nextPos != moveTarget && collisionHandler.CheckPosition(nextPos)) return nextPos;
 	        
             // otherwise return own position
-            return transform.position;
+            return moveTarget;
         }
 
         /// <summary>
