@@ -35,7 +35,7 @@ namespace Bomberfox
         /// <returns>True if the gameObject can be moved over, false if movement blocked</returns>
         private bool CompareTags(Collider2D collider)
         {
-	        GameObject o = collider.gameObject;
+	        GameObject o = collider.gameObject; // what we collided with
 
 	        if (o.CompareTag("Block")) return false;
             
@@ -45,7 +45,7 @@ namespace Bomberfox
 
             if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
 
-	        if (o.CompareTag("Enemy") && gameObject.CompareTag("Explosion")) return KillEnemy(o);
+	        if (o.CompareTag("Enemy") && gameObject.CompareTag("ShockWave")) return KillEnemy(o);
 
 	        if (o.CompareTag("Obstacle") && gameObject.CompareTag("ShockWave")) return KillObstacle(o);
 
@@ -59,8 +59,11 @@ namespace Bomberfox
         private bool KillObstacle(GameObject o)
         {
 	        Obstacle obstacle = o.GetComponent<Obstacle>();
-	        obstacle.BlowUp();
-	        return false;
+	        ShockWave shockWave = gameObject.GetComponent<ShockWave>();
+
+            obstacle.BlowUp(shockWave.Direction);
+	        shockWave.Blocked = true;
+	        return true;
         }
 
         private bool KillBomb(GameObject o)
@@ -71,8 +74,11 @@ namespace Bomberfox
 
         private bool KillEnemy(GameObject o)
         {
-	        // Get the enemy script and call a kill method
-	        return true;
+	        Enemy enemy = o.GetComponent<Enemy>();
+	        ShockWave shockWave = gameObject.GetComponent<ShockWave>();
+            enemy.Kill();
+            shockWave.Blocked = true;
+            return true;
         }
     }
 }

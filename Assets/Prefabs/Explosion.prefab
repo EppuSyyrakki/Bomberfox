@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d17fcd01d7257b44a5eabe6915bd668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shockWavePrefab: {fileID: 383260934503833478, guid: fbb9971b44b5fe94cbc34934109ccbc7, type: 3}
+  initialShockPrefab: {fileID: 5684702702482413121, guid: 41835366a78966349874b28f957e6e63, type: 3}
 --- !u!114 &-927668280650007657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -689631469
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e969fe3d5cc0e884889ad279398324ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -120,7 +120,11 @@ namespace Bomberfox
                     Mathf.RoundToInt(transform.position.x),
                     Mathf.RoundToInt(transform.position.y),
                     0);
-                GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
+                
+                if (collisionHandler.CheckPosition(pos))
+                {
+	                Instantiate(bombPrefab, pos, Quaternion.identity);
+                }
                 currentBombs += 1;
             }
         }

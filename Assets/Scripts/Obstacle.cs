@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour
 	    boxCollider2D = GetComponent<BoxCollider2D>();
     }
 	
-    public void BlowUp()
+    public void BlowUp(Vector3 direction)
     {
 	    float waitTime = 1f;
 		Destroy(boxCollider2D);
@@ -30,8 +30,11 @@ public class Obstacle : MonoBehaviour
 
 	    foreach (Rigidbody2D rb in childRbs)
 	    {
-		    Vector2 dir = new Vector2(Random.Range(-200f, 200f), Random.Range(-200f, 200f));
-			rb.AddForce(dir);
+			Vector2 explosionDir = new Vector2(direction.x, direction.y);
+		    Vector2 dir = new Vector2(
+			    Random.Range(-200f, 200f), 
+			    Random.Range(-200f, 200f));
+			rb.AddForce(dir + explosionDir * Random.Range(100f, 200f));
 		}
 
 		Invoke(nameof(Remove), waitTime * 1.1f);
