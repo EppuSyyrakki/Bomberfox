@@ -21,6 +21,8 @@ namespace Bomberfox
         [SerializeField]
         private GameObject explosionPrefab = null;
 
+        private PlayerController owner = null;
+
         // Update is called once per frame
         void Update()
         {
@@ -37,7 +39,14 @@ namespace Bomberfox
         // Creates the explosion that destroys this gameObject
         public void Explode()
         {
+            owner.CurrentBombs -= 1;
             Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+        }
+
+        public void SetOwner(PlayerController owner)
+        {
+            this.owner = owner;
+            owner.CurrentBombs += 1;
         }
     }
 }

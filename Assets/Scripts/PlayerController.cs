@@ -27,7 +27,7 @@ namespace Bomberfox
         private int bombCount = 3;
 
         // The amount of bombs currently in the game
-        public static int currentBombs;
+        public int CurrentBombs { get; set; } = 0;
 
         [SerializeField]
         private GameObject bombPrefab = null;
@@ -46,6 +46,7 @@ namespace Bomberfox
 
         void Update()
         {
+            print(CurrentBombs);
             float dist = Vector3.Distance(moveTarget, transform.position);
             float distance = Mathf.Abs(dist);
             float skipCorners = 0.2f;
@@ -114,7 +115,7 @@ namespace Bomberfox
         /// </summary>
         public void ProcessFire()
         {
-            if (Input.GetButtonDown("Fire1") && currentBombs < bombCount)
+            if (Input.GetButtonDown("Fire1") && CurrentBombs < bombCount)
             {
                 Vector3Int pos = new Vector3Int(
                     Mathf.RoundToInt(transform.position.x),
@@ -123,9 +124,9 @@ namespace Bomberfox
                 
                 if (collisionHandler.CheckPosition(pos))
                 {
-	                Instantiate(bombPrefab, pos, Quaternion.identity);
+                    GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
+                    bomb.GetComponent<Bomb>().SetOwner(this);
                 }
-                currentBombs += 1;
             }
         }
 

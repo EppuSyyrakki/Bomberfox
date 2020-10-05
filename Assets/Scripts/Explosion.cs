@@ -32,7 +32,6 @@ namespace Bomberfox
             FetchBombParameters();
             transform.parent = null;
             Destroy(parentBomb);
-            PlayerController.currentBombs -= 1;
             totalTime = speed * range + fadeDelay + fader.fadeOutTime;    // time to wait before destroying gameObject
 
             GameObject shockCenter = Instantiate(initialShockPrefab, transform);
