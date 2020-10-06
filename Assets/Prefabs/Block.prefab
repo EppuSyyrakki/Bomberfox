@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_normal
       objectReference: {fileID: 0}
+    - target: {fileID: 248273299412773913, guid: b9891c49a278155489be1da719aeabf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5163597904312775155, guid: b9891c49a278155489be1da719aeabf7, type: 3}
       propertyPath: m_SortingLayerID
       value: 259732169
