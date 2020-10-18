@@ -46,13 +46,12 @@ namespace Bomberfox
 
         void Update()
         {
-            print(CurrentBombs);
+            // print(CurrentBombs);
             float dist = Vector3.Distance(moveTarget, transform.position);
             float distance = Mathf.Abs(dist);
             float skipCorners = 0.2f;
 
             MoveToTarget(currentTarget);
-            animator.SetBool("Running", true);
 
             if (distance <= skipCorners || transform.position == moveTarget)
             {
@@ -60,7 +59,15 @@ namespace Bomberfox
                 moveTarget = DefineNextPosition();
                 currentTarget = moveTarget;
                 moveDirection = DefineMoveDirection();
-                animator.SetBool("Running", false);
+            }
+
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+	            animator.SetBool("Running", true);
+            }
+            else
+            {
+	            animator.SetBool("Running", false);
             }
 
             ProcessFire();
