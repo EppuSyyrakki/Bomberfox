@@ -30,9 +30,6 @@ namespace Bomberfox
 		private void FadeOut()
 		{
 			float alpha = Mathf.Lerp(1f, 0f, lerpTime);
-			Color color = spriteRenderer.color;
-			color.a = alpha;
-			spriteRenderer.color = color;
 			lerpTime += Time.deltaTime / fadeOutTime;
 		}
 	}
