@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
 namespace Bomberfox
 {
@@ -24,10 +21,9 @@ namespace Bomberfox
 
         // How many bombs the player can drop at the same time
         [SerializeField] 
-        private int bombCount = 3;
-
-        // The amount of bombs currently in the game
-        public int CurrentBombs { get; set; } = 0;
+        private int maxBombs = 3;
+        [SerializeField]
+        private int currentBombs = 0;   // The amount of bombs currently in the game
 
         [SerializeField]
         private GameObject bombPrefab = null;
@@ -38,29 +34,14 @@ namespace Bomberfox
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
 
-        void Start()
+        private void Start()
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
         }
 
-        void Update()
+        private void Update()
         {
-            // print(CurrentBombs);
-            float dist = Vector3.Distance(moveTarget, transform.position);
-            float distance = Mathf.Abs(dist);
-            float skipCorners = 0.2f;
-
-            MoveToTarget(currentTarget);
-
-            if (distance <= skipCorners || transform.position == moveTarget)
-            {
-                // if we are at target position, define new target
-                moveTarget = DefineNextPosition();
-                currentTarget = moveTarget;
-                moveDirection = DefineMoveDirection();
-            }
-
             if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
             {
 	            animator.SetBool("Running", true);
@@ -70,35 +51,13 @@ namespace Bomberfox
 	            animator.SetBool("Running", false);
             }
 
+            ProcessMovement();
             ProcessFire();
             UpdateAnimator();
         }
 
         /// <summary>
-        /// Defines a new position for player to move to according to input. Checks if new position is free.
-        /// </summary>
-        /// <returns>Current transform plus a direction vector.</returns>
-        private Vector3 DefineNextPosition()
-        {
-            Vector3 direction = new Vector3();
-            if (Input.GetAxis("Horizontal") > 0) direction = Vector3.right;
-            else if (Input.GetAxis("Horizontal") < 0) direction = Vector3.left;
-            else if (Input.GetAxis("Vertical") > 0) direction = Vector3.up;
-            else if (Input.GetAxis("Vertical") < 0) direction = Vector3.down;
-            else direction = Vector3.zero;
-            
-            // add new direction to current location
-            Vector3 nextPos = moveTarget + direction;
-
-            // if the new position is not own position, doesn't have collider and tag "Block", return it
-            if (nextPos != moveTarget && collisionHandler.CheckPosition(nextPos)) return nextPos;
-	        
-            // otherwise return own position
-            return moveTarget;
-        }
-
-        /// <summary>
-        /// Sets the moveDirection animation helper according to input
+        /// Sets the moveDirection animation helper according to input.
         /// </summary>
         /// <returns>the direction which the player should be facing</returns>
         private Direction DefineMoveDirection()
@@ -110,19 +69,29 @@ namespace Bomberfox
             else return Direction.None;
         }
 
-        private void MoveToTarget(Vector3 target)
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position, 
-                moveTarget, 
-                speed * Time.deltaTime);
-        }
-		/// <summary>
-        /// Checks input and creates a bomb if bombCount allows.
+        /// <summary>
+        /// Process player movement according to input
         /// </summary>
-        public void ProcessFire()
+        private void ProcessMovement()
         {
-            if (Input.GetButtonDown("Fire1") && CurrentBombs < bombCount)
+	        // Get input values and calculate offsets to previous position
+	        float xOffset = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+	        float yOffset = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+
+	        // Restrict "player" from moving out of screen, numbers from pixels per unit of graphic. Temporary fix.
+	        float newX = Mathf.Clamp(transform.position.x + xOffset, -6f, 6f);
+	        float newY = Mathf.Clamp(transform.position.y + yOffset, -4f, 4f);
+
+	        // Move "player"
+	        transform.position = new Vector2(newX, newY);
+        }
+
+        /// <summary>
+        /// Checks input and creates a bomb if maxBombs allows.
+        /// </summary>
+        private void ProcessFire()
+        {
+            if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
                 Vector3Int pos = new Vector3Int(
                     Mathf.RoundToInt(transform.position.x),
@@ -132,7 +101,7 @@ namespace Bomberfox
                 if (collisionHandler.CheckPosition(pos))
                 {
                     GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
-                    bomb.GetComponent<Bomb>().SetOwner(this);
+                    bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
                 }
             }
         }
@@ -148,19 +117,9 @@ namespace Bomberfox
             if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
         }
 
-        //Old method for movement. Obsolete but saved here just in case.
-        //private void ProcessMovement()
-        //{
-        //    // Get input values and calculate offsets to previous position
-        //    float xOffset = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        //    float yOffset = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-
-        //    // Restrict "player" from moving out of screen, numbers from pixels per unit of graphic. Temporary fix.
-        //    float newX = Mathf.Clamp(transform.position.x + xOffset, 0.5f, 15.5f);
-        //    float newY = Mathf.Clamp(transform.position.y + yOffset, 0.5f, 8.5f);
-
-        //    // Move "player"
-        //    transform.position = new Vector2(newX, newY);
-        //}
+        public void ChangeCurrentBombs(int change)
+        {
+	        currentBombs += change;
+        }
     }
 }

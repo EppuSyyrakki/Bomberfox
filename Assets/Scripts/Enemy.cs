@@ -21,6 +21,7 @@ namespace Bomberfox
         [SerializeField]
         public float speed = 10f;
 
+        [NonSerialized]
         public int randomDirection;
 
         // public Animator animator;

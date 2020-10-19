@@ -15,8 +15,7 @@ namespace Bomberfox
         private float fadeDelay;
         private float totalTime;
         private float timer;
-        
-        
+
         private BoxCollider2D boxCollider;
         
         private Fader fader;

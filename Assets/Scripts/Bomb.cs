@@ -39,14 +39,14 @@ namespace Bomberfox
         // Creates the explosion that destroys this gameObject
         public void Explode()
         {
-            owner.CurrentBombs -= 1;
+            owner.ChangeCurrentBombs(-1);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
         }
 
-        public void SetOwner(PlayerController owner)
+        public void SetOwnerAndInit(PlayerController owner)
         {
             this.owner = owner;
-            owner.CurrentBombs += 1;
+            owner.ChangeCurrentBombs(1);
         }
     }
 }
