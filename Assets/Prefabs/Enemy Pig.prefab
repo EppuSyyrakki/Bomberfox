@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9575125e87a6cf4a86dad3b7b87cad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  randomDirection: 0
+  speed: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &3440760863645409371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21,13 +23,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
+      propertyPath: m_HasRenderer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
+      propertyPath: m_InstanceId
+      value: -139502
+      objectReference: {fileID: 0}
     - target: {fileID: 4128634002596581914, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4128634002596581914, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4128634002596581914, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_LocalPosition.z

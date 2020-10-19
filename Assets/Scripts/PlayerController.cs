@@ -29,44 +29,27 @@ namespace Bomberfox
         private GameObject bombPrefab = null;
 
         private Animator animator;
-        private Vector3 moveTarget;
-        private Vector3 currentTarget;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
+        private Rigidbody2D rb;
+        private Vector2 movement;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
+            rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-            {
-	            animator.SetBool("Running", true);
-            }
-            else
-            {
-	            animator.SetBool("Running", false);
-            }
-
-            ProcessMovement();
-            ProcessFire();
+            ProcessInput();
             UpdateAnimator();
         }
 
-        /// <summary>
-        /// Sets the moveDirection animation helper according to input.
-        /// </summary>
-        /// <returns>the direction which the player should be facing</returns>
-        private Direction DefineMoveDirection()
+        private void FixedUpdate()
         {
-            if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
-            else if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
-            else if (Input.GetAxis("Vertical") > 0) return Direction.Up;
-            else if (Input.GetAxis("Vertical") < 0) return Direction.Down;
-            else return Direction.None;
+	        ProcessMovement();
         }
 
         /// <summary>
@@ -74,23 +57,17 @@ namespace Bomberfox
         /// </summary>
         private void ProcessMovement()
         {
-	        // Get input values and calculate offsets to previous position
-	        float xOffset = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-	        float yOffset = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-
-	        // Restrict "player" from moving out of screen, numbers from pixels per unit of graphic. Temporary fix.
-	        float newX = Mathf.Clamp(transform.position.x + xOffset, -6f, 6f);
-	        float newY = Mathf.Clamp(transform.position.y + yOffset, -4f, 4f);
-
-	        // Move "player"
-	        transform.position = new Vector2(newX, newY);
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         }
 
         /// <summary>
         /// Checks input and creates a bomb if maxBombs allows.
         /// </summary>
-        private void ProcessFire()
+        private void ProcessInput()
         {
+	        movement.x = Input.GetAxis("Horizontal");
+	        movement.y = Input.GetAxis("Vertical");
+
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
                 Vector3Int pos = new Vector3Int(
@@ -111,10 +88,30 @@ namespace Bomberfox
         /// </summary>
         private void UpdateAnimator()
         {
+	        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+		        animator.SetBool("Running", true);
+	        else
+		        animator.SetBool("Running", false);
+	        
+	        moveDirection = DefineMoveDirection();
+
             if (moveDirection == Direction.Right) animator.SetTrigger("FacingRight");
             if (moveDirection == Direction.Left) animator.SetTrigger("FacingLeft");
             if (moveDirection == Direction.Up) animator.SetTrigger("FacingUp");
             if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
+        }
+
+        /// <summary>
+        /// Sets the moveDirection animation helper according to input.
+        /// </summary>
+        /// <returns>the direction which the player should be facing</returns>
+        private Direction DefineMoveDirection()
+        {
+	        if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
+	        else if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
+	        else if (Input.GetAxis("Vertical") > 0) return Direction.Up;
+	        else if (Input.GetAxis("Vertical") < 0) return Direction.Down;
+	        else return Direction.None;
         }
 
         public void ChangeCurrentBombs(int change)

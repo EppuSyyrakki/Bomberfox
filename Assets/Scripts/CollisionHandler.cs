@@ -53,6 +53,8 @@ namespace Bomberfox
 
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Player")) return false;
 
+            if (o.CompareTag("Obstacle") && gameObject.CompareTag("Enemy")) return false;
+
             return true;
         }
 
