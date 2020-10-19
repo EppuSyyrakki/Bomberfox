@@ -31,6 +31,14 @@ namespace Bomberfox
         private CollisionHandler collisionHandler;
         private Animator animator;
 
+        [SerializeField] 
+        private LayerMask layerMask;
+
+        private RaycastHit2D checkLeft;
+        private RaycastHit2D checkRight;
+        private RaycastHit2D checkUp;
+        private RaycastHit2D checkDown;
+
         private void Awake()
         {
 	        collisionHandler = GetComponent<CollisionHandler>();
@@ -59,15 +67,25 @@ namespace Bomberfox
         /// </summary>
         public void Move()
         {
+            // animator.SetBool("Running", true);
+
             if (transform.position == moveTarget)
             {
-                if (IsDirectionFree())
+
+                if (IsTherePlayer())
+                {
+                    Debug.Log("Player is there!");
+                    moveTarget += currentDirection;
+                }
+                else if (IsDirectionFree())
                 {
                     moveTarget += currentDirection;
                 }
                 else
                 {
                     moveTarget = DefineNextPosition();
+                    // moveDirection = DefineMoveDirection()
+                    // animator.SetBool("Running", false);
                 }
             }
             else
@@ -126,6 +144,41 @@ namespace Bomberfox
             else if (randomDirection == 2) return Direction.Up;
             else if (randomDirection == 3) return Direction.Down;
             else return Direction.None;
+        }
+
+        /// <summary>
+        /// Changes the enemy's moving direction if it sees the player.
+        /// </summary>
+        /// <returns> Direction vector and info if the enemy has seen the player or not </returns>
+        private bool IsTherePlayer()
+        {
+            checkLeft = Physics2D.Raycast(transform.position, Vector3.left, 5, layerMask);
+            checkRight = Physics2D.Raycast(transform.position, Vector3.right, 5, layerMask);
+            checkUp = Physics2D.Raycast(transform.position, Vector3.up, 5, layerMask);
+            checkDown = Physics2D.Raycast(transform.position, Vector3.down, 5, layerMask);
+
+            if (checkLeft && checkLeft.collider.CompareTag("Player"))
+            {
+                currentDirection = Vector3.left;
+                return true;
+            }
+            else if (checkRight && checkRight.transform.CompareTag("Player"))
+            {
+                currentDirection = Vector3.right;
+                return true;
+            }
+            else if (checkUp && checkUp.transform.CompareTag("Player"))
+            {
+                currentDirection = Vector3.up;
+                return true;
+            }
+            else if (checkDown && checkDown.transform.CompareTag("Player"))
+            {
+                currentDirection = Vector3.down;
+                return true;
+            }
+
+            return false;
         }
 
         private void MoveToTarget(Vector3 target)
