@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Bomberfox
 {
+    [RequireComponent(typeof(CollisionHandler))]
     public class Enemy : MonoBehaviour
     {
-        public enum Direction  // helper for animator to decide which facing to use
+	    public enum Direction  // helper for animator to decide which facing to use
         {
             Right,
             Left,
@@ -24,11 +27,30 @@ namespace Bomberfox
         private Vector3 moveTarget;
         private Vector3 currentDirection;
         private Direction moveDirection;
-        public CollisionHandler collisionHandler;
+        private CollisionHandler collisionHandler;
+        private Animator animator;
 
-        public void SetStartingPoint(Vector3 start)
+        private void Awake()
         {
-            moveTarget = start;
+	        collisionHandler = GetComponent<CollisionHandler>();
+	        animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+	        moveTarget = transform.position;
+            animator.SetBool("Moving", true);
+        }
+
+        private void Update()
+        {
+            Move();
+	        UpdateAnimator();
+        }
+
+        private void UpdateAnimator()
+        {
+	        // if the moving direction changes, tell the animator so it can swap to another state
         }
 
         /// <summary>
@@ -36,8 +58,6 @@ namespace Bomberfox
         /// </summary>
         public void Move()
         {
-            // animator.SetBool("Running", true);
-
             if (transform.position == moveTarget)
             {
                 if (IsDirectionFree())
@@ -47,8 +67,6 @@ namespace Bomberfox
                 else
                 {
                     moveTarget = DefineNextPosition();
-                    // moveDirection = DefineMoveDirection()
-                    // animator.SetBool("Running", false);
                 }
             }
             else
