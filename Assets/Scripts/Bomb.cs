@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace Bomberfox
         private PlayerController owner = null;
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (bombTimer > 0)
             {
@@ -36,11 +37,15 @@ namespace Bomberfox
             }
         }
 
+        private void OnDestroy()
+        {
+	        owner.ChangeCurrentBombs(-1);
+        }
+
         // Creates the explosion that destroys this gameObject
         public void Explode()
         {
-            owner.ChangeCurrentBombs(-1);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+	        Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
         }
 
         public void SetOwnerAndInit(PlayerController owner)

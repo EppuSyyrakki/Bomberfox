@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4128634002596581915}
   - component: {fileID: 4128634002596581919}
   - component: {fileID: 1241987280838392269}
+  - component: {fileID: 8343055715835442111}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -169,3 +170,16 @@ MonoBehaviour:
   m_ShapePathHash: -393662043
   m_Mesh: {fileID: 0}
   m_InstanceId: -11250
+--- !u!114 &8343055715835442111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4128634002596581917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6419b949fb193f94c83ecf1cb352ed17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: 1
