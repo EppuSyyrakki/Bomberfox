@@ -50,8 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   randomDirection: 0
-  collisionHandler: {fileID: 0}
-  startingPoint: {x: 6, y: 2, z: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &4128634002596581912
 MonoBehaviour:
   m_ObjectHideFlags: 0
