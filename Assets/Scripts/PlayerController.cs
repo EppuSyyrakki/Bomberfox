@@ -49,15 +49,7 @@ namespace Bomberfox
 
         private void FixedUpdate()
         {
-	        ProcessMovement();
-        }
-
-        /// <summary>
-        /// Process player movement according to input
-        /// </summary>
-        private void ProcessMovement()
-        {
-            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
 
         /// <summary>
