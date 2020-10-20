@@ -91,8 +91,8 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: FRONT_lowerArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.23266494, y: 0.21464178}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -113,8 +113,8 @@ ScriptedImporter:
     uvTransform: {x: -13, y: 159}
   - name: FRONT_lowerArmRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7335337, y: 0.19561768}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -135,8 +135,8 @@ ScriptedImporter:
     uvTransform: {x: 119, y: 403}
   - name: FRONT_head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5393748, y: 0.1250127}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -179,8 +179,8 @@ ScriptedImporter:
     uvTransform: {x: -66, y: 636}
   - name: FRONT_upperArmRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.31529486, y: 0.45544112}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -201,8 +201,8 @@ ScriptedImporter:
     uvTransform: {x: 73, y: 502}
   - name: FRONT_upperArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.18645789, y: 0.8203187}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -223,8 +223,8 @@ ScriptedImporter:
     uvTransform: {x: 142, y: 79}
   - name: FRONT_upperLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4999985, y: 0.69167113}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -245,8 +245,8 @@ ScriptedImporter:
     uvTransform: {x: 132, y: 859}
   - name: FRONT_upperLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.632791}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -267,8 +267,8 @@ ScriptedImporter:
     uvTransform: {x: 31, y: 917}
   - name: FRONT_lowerLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3361472, y: 0.7660601}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -289,8 +289,8 @@ ScriptedImporter:
     uvTransform: {x: 183, y: 553}
   - name: FRONT_lowerLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.64512414, y: 0.77388585}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -311,8 +311,8 @@ ScriptedImporter:
     uvTransform: {x: 104, y: 358}
   - name: BACK_upperLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.458703, y: 0.6881228}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -333,8 +333,8 @@ ScriptedImporter:
     uvTransform: {x: 131, y: 730}
   - name: BACK_upperLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5403123, y: 0.66279835}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -355,8 +355,8 @@ ScriptedImporter:
     uvTransform: {x: 26, y: 787}
   - name: BACK_lowerLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.33068746, y: 0.81443524}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -377,14 +377,14 @@ ScriptedImporter:
     uvTransform: {x: 72, y: 350}
   - name: BACK_lowerLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6830403, y: 0.74537903}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 251
-      y: 266
-      width: 35
+      y: 268
+      width: 37
       height: 69
     spriteID: bf6fecc7297608c409058774cfc6775e
     internalID: 0
@@ -399,8 +399,8 @@ ScriptedImporter:
     uvTransform: {x: 101, y: 261}
   - name: BACK_head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.51312494, y: 0.14773928}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -443,8 +443,8 @@ ScriptedImporter:
     uvTransform: {x: -67, y: 768}
   - name: BACK_upperArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7154863, y: 0.72879887}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -465,8 +465,8 @@ ScriptedImporter:
     uvTransform: {x: 251, y: -103}
   - name: BACK_lowerArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7116394, y: 0.12374946}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -487,8 +487,8 @@ ScriptedImporter:
     uvTransform: {x: 110, y: 693}
   - name: BACK_upperArmRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.22294201, y: 0.68303865}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -509,8 +509,8 @@ ScriptedImporter:
     uvTransform: {x: 142, y: -55}
   - name: BACK_upperArmLeft_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.28835908, y: 0.20230673}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -531,8 +531,8 @@ ScriptedImporter:
     uvTransform: {x: -73, y: 563}
   - name: LEFT_upperArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.25372592, y: 0.6410912}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -553,8 +553,8 @@ ScriptedImporter:
     uvTransform: {x: 164, y: 193}
   - name: LEFT_upperLegleft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.53937405, y: 0.6627972}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -575,13 +575,13 @@ ScriptedImporter:
     uvTransform: {x: 62, y: 623}
   - name: LEFT_lowerLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6991896, y: 0.7944548}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 141
-      y: 199
+      x: 143
+      y: 202
       width: 34
       height: 69
     spriteID: 5c66fbd9b7608a548b9facd79166dc30
@@ -597,14 +597,14 @@ ScriptedImporter:
     uvTransform: {x: 22, y: 199}
   - name: LEFT_head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5305063, y: 0.30080894}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 174
+      width: 111
       height: 187
     spriteID: cbd45eabf7927fb47b67d3af14d36671
     internalID: 0
@@ -619,8 +619,8 @@ ScriptedImporter:
     uvTransform: {x: -58, y: -77}
   - name: LEFT_upperArmRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7462708, y: 0.77455884}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -641,8 +641,8 @@ ScriptedImporter:
     uvTransform: {x: 234, y: 5}
   - name: LEFT_lowerArmRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.76733506, y: 0.15757014}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -670,8 +670,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 186
       y: 4
-      width: 38
-      height: 27
+      width: 105
+      height: 124
     spriteID: 8e445dae056989e49a5fb07a6b35f9a7
     internalID: 0
     spriteBone: []
@@ -685,8 +685,8 @@ ScriptedImporter:
     uvTransform: {x: 110, y: -29}
   - name: LEFT_lowerLegLeft_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.30649936, y: 0.77388537}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -707,8 +707,8 @@ ScriptedImporter:
     uvTransform: {x: 161, y: 453}
   - name: LEFT_uperLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.49999964, y: 0.62777996}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -729,8 +729,8 @@ ScriptedImporter:
     uvTransform: {x: -72, y: 890}
   - name: RIGHT_upperArmRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7154863, y: 0.7287985}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -751,8 +751,8 @@ ScriptedImporter:
     uvTransform: {x: 233, y: 59}
   - name: RIGHT_upperLegRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.69167227}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -773,8 +773,8 @@ ScriptedImporter:
     uvTransform: {x: 99, y: 684}
   - name: RIGHT_lowerLegRIght
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.24346554, y: 0.7944548}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -795,15 +795,15 @@ ScriptedImporter:
     uvTransform: {x: 40, y: 276}
   - name: RIGHT_head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.25594607, y: 0.13952833}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 513
-      width: 174
-      height: 187
+      width: 111
+      height: 155
     spriteID: 4a7eafb9e82de1844a8dec7f68f8e806
     internalID: 0
     spriteBone: []
@@ -817,8 +817,8 @@ ScriptedImporter:
     uvTransform: {x: -81, y: 393}
   - name: RIGHT_upperArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.21781187, y: 0.68303823}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -839,8 +839,8 @@ ScriptedImporter:
     uvTransform: {x: 163, y: 140}
   - name: RIGHT_lowerArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.29207277, y: 0.23366521}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -868,8 +868,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 186
       y: 135
-      width: 39
-      height: 27
+      width: 105
+      height: 125
     spriteID: 68449a3f6d177f246a1e6f05e582b76a
     internalID: 0
     spriteBone: []
@@ -883,8 +883,8 @@ ScriptedImporter:
     uvTransform: {x: 112, y: 102}
   - name: RIGHT_lowerLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6934989, y: 0.74898666}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -905,8 +905,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 892}
   - name: RIGHT_upperLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.49999875, y: 0.62777996}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -927,8 +927,8 @@ ScriptedImporter:
     uvTransform: {x: -80, y: 890}
   - name: RIGHT_lowerArmRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7376294, y: 0.1956163}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
