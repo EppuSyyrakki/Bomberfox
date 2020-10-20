@@ -89,7 +89,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: "vasen kyyn\xE4rvarsi"
+  - name: FRONT_lowerArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 339
+      y: 266
       width: 57
       height: 89
     spriteID: e087ba909ce36424395026cc31d03787
@@ -110,16 +110,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -13, y: 232}
-  - name: "oikea kyyn\xE4rvarsi"
+    uvTransform: {x: -13, y: 159}
+  - name: FRONT_lowerArmRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
-      y: 242
+      x: 119
+      y: 513
       width: 58
       height: 89
     spriteID: c275c36a88b9a2a4fa9c189c800c6542
@@ -132,8 +132,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 186, y: 132}
-  - name: "p\xE4\xE4"
+    uvTransform: {x: 119, y: 403}
+  - name: FRONT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -141,7 +141,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 394
+      y: 199
       width: 129
       height: 149
     spriteID: 44f56d53a08f6bf4cbae5d128fb36422
@@ -154,8 +154,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -56, y: 275}
-  - name: vartalo
+    uvTransform: {x: -56, y: 80}
+  - name: FRONT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -163,7 +163,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 708
+      y: 669
       width: 116
       height: 124
     spriteID: 06de0877d5f31b94bb76e801881d2e73
@@ -176,16 +176,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -66, y: 675}
-  - name: "oikea k\xE4sivarsi"
+    uvTransform: {x: -66, y: 636}
+  - name: FRONT_upperArmRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 971
+      x: 119
+      y: 610
       width: 55
       height: 38
     spriteID: d57eea19228925a46a66bfecb14940cb
@@ -198,8 +198,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -42, y: 863}
-  - name: "vasen k\xE4sivarsi"
+    uvTransform: {x: 73, y: 502}
+  - name: FRONT_upperArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -221,15 +221,15 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 142, y: 79}
-  - name: oikea reisi
+  - name: FRONT_upperLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 237
-      y: 630
+      x: 186
+      y: 897
       width: 41
       height: 53
     spriteID: a65becb013cf3b64d837994a13ade074
@@ -242,16 +242,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 183, y: 592}
-  - name: vasen reisi
+    uvTransform: {x: 132, y: 859}
+  - name: FRONT_upperLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 237
-      y: 691
+      x: 186
+      y: 958
       width: 42
       height: 51
     spriteID: a7a5edccc22028d4dbc7abe210a6ab50
@@ -264,8 +264,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 82, y: 650}
-  - name: "oikea s\xE4\xE4ri"
+    uvTransform: {x: 31, y: 917}
+  - name: FRONT_lowerLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -273,7 +273,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 251
-      y: 533
+      y: 557
       width: 31
       height: 70
     spriteID: c441807e501c278419fb96113ee51286
@@ -286,16 +286,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 183, y: 529}
-  - name: "vasen s\xE4\xE4ri"
+    uvTransform: {x: 183, y: 553}
+  - name: FRONT_lowerLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 252
-      y: 242
+      x: 251
+      y: 363
       width: 35
       height: 68
     spriteID: abcb554f55ff33e4986bcbc9dc36b65d
@@ -308,8 +308,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 105, y: 237}
-  - name: vasen reisi_1
+    uvTransform: {x: 104, y: 358}
+  - name: BACK_upperLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -317,7 +317,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 873
+      y: 775
       width: 41
       height: 54
     spriteID: 0d61a9dd51766bd40bcd07062d8dd2cd
@@ -330,8 +330,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 131, y: 828}
-  - name: oikea reisi_1
+    uvTransform: {x: 131, y: 730}
+  - name: BACK_upperLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -339,7 +339,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 935
+      y: 837
       width: 42
       height: 52
     spriteID: c0ad2eeba2b8b6744b31c3cb97ba92d4
@@ -352,8 +352,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 26, y: 885}
-  - name: "vasen s\xE4\xE4ri_1"
+    uvTransform: {x: 26, y: 787}
+  - name: BACK_lowerLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 141
-      y: 551
+      y: 356
       width: 30
       height: 70
     spriteID: 25693a748acf5314cb1607403b6b0e97
@@ -374,16 +374,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 72, y: 545}
-  - name: "oikea s\xE4\xE4ri_1"
+    uvTransform: {x: 72, y: 350}
+  - name: BACK_lowerLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 128
-      y: 938
+      x: 251
+      y: 266
       width: 35
       height: 69
     spriteID: bf6fecc7297608c409058774cfc6775e
@@ -396,8 +396,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -22, y: 933}
-  - name: "p\xE4\xE4_1"
+    uvTransform: {x: 101, y: 261}
+  - name: BACK_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -405,7 +405,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 551
+      y: 356
       width: 129
       height: 149
     spriteID: f3bba499dc8ec2e41aa248c90ee24b8e
@@ -418,8 +418,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -57, y: 432}
-  - name: vartalo_1
+    uvTransform: {x: -57, y: 237}
+  - name: BACK_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -427,7 +427,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 840
+      y: 801
       width: 116
       height: 123
     spriteID: a86bfc91bb02b7342ad970d4cee97713
@@ -440,8 +440,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -67, y: 807}
-  - name: "vasen k\xE4sivarsi_1"
+    uvTransform: {x: -67, y: 768}
+  - name: BACK_upperArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -463,7 +463,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 251, y: -103}
-  - name: "vasen kyyn\xE4rvarsi_1"
+  - name: BACK_lowerArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -471,7 +471,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 128
-      y: 840
+      y: 801
       width: 40
       height: 90
     spriteID: 80b274512624eea4386447986a8ba43c
@@ -484,8 +484,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 110, y: 732}
-  - name: "oikea k\xE4siavrsi"
+    uvTransform: {x: 110, y: 693}
+  - name: BACK_upperArmRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -507,7 +507,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 142, y: -55}
-  - name: "oikea kyyn\xE4rvarsi_1"
+  - name: BACK_upperArmLeft_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -515,7 +515,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 128
-      y: 708
+      y: 669
       width: 40
       height: 91
     spriteID: e91e20c899b2379439fdc8c765432af4
@@ -528,8 +528,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -73, y: 602}
-  - name: "oikea k\xE4sivari"
+    uvTransform: {x: -73, y: 563}
+  - name: LEFT_upperArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -551,7 +551,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 164, y: 193}
-  - name: oikea reisi_2
+  - name: LEFT_upperLegleft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -559,7 +559,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 752
+      y: 654
       width: 43
       height: 52
     spriteID: c2b41f982ca938e4d878d9bf2a579f88
@@ -572,8 +572,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 62, y: 721}
-  - name: "oikea s\xE4\xE4ri_2"
+    uvTransform: {x: 62, y: 623}
+  - name: LEFT_lowerLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -581,7 +581,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 141
-      y: 394
+      y: 199
       width: 34
       height: 69
     spriteID: 5c66fbd9b7608a548b9facd79166dc30
@@ -594,8 +594,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 22, y: 394}
-  - name: "p\xE4\xE4_2"
+    uvTransform: {x: 22, y: 199}
+  - name: LEFT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -617,29 +617,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -58, y: -77}
-  - name: vartalo_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 186
-      y: 4
-      width: 104
-      height: 111
-    spriteID: 0dc1065a4d2e2854dbdb97662916a622
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 110, y: -41}
-  - name: "oikea k\xE4sivarsi_1"
+  - name: LEFT_upperArmRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -661,7 +639,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 234, y: 5}
-  - name: "vasen kyyn\xE4rvarsi_2"
+  - name: LEFT_lowerArmRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -669,7 +647,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 436
+      y: 363
       width: 57
       height: 89
     spriteID: 5d2a6966d1ffaca4c8ae51a17205e19b
@@ -682,16 +660,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 168, y: 346}
-  - name: "h\xE4nt\xE4"
+    uvTransform: {x: 168, y: 273}
+  - name: LEFT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 237
-      y: 750
+      x: 186
+      y: 4
       width: 38
       height: 27
     spriteID: 8e445dae056989e49a5fb07a6b35f9a7
@@ -704,8 +682,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 132, y: 717}
-  - name: "vasen s\xE4\xE4ri_2"
+    uvTransform: {x: 110, y: -29}
+  - name: LEFT_lowerLegLeft_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -713,7 +691,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 251
-      y: 339
+      y: 460
       width: 35
       height: 68
     spriteID: 04bf6ff4321b6574c9271b142753ce30
@@ -726,16 +704,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 161, y: 332}
-  - name: vasen reisi_2
+    uvTransform: {x: 161, y: 453}
+  - name: LEFT_uperLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
-      y: 630
+      x: 4
+      y: 932
       width: 43
       height: 53
     spriteID: 143edb2d1f61ce04dae6ce84959f8c57
@@ -748,8 +726,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 110, y: 588}
-  - name: "oikea k\xE4sivari_1"
+    uvTransform: {x: -72, y: 890}
+  - name: RIGHT_upperArmRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -771,7 +749,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 233, y: 59}
-  - name: oikea reisi_3
+  - name: RIGHT_upperLegRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -779,7 +757,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 812
+      y: 714
       width: 42
       height: 53
     spriteID: f4d5175b6e7b5bc40bf9db8e5c034e2c
@@ -792,8 +770,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 99, y: 782}
-  - name: "oikea s\xE4\xE4ri_3"
+    uvTransform: {x: 99, y: 684}
+  - name: RIGHT_lowerLegRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -801,7 +779,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 141
-      y: 471
+      y: 276
       width: 33
       height: 69
     spriteID: 39685f3084462754ebddc19d58484f8e
@@ -814,8 +792,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 40, y: 471}
-  - name: "p\xE4\xE4_3"
+    uvTransform: {x: 40, y: 276}
+  - name: RIGHT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -823,7 +801,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 199
+      y: 513
       width: 174
       height: 187
     spriteID: 4a7eafb9e82de1844a8dec7f68f8e806
@@ -836,30 +814,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -14, y: 118}
-  - name: vartalo_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 186
-      y: 123
-      width: 103
-      height: 111
-    spriteID: 90ea881f8cdac7140932449e08070fc8
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 112, y: 78}
-  - name: "oikea k\xE4sivarsi_2"
+    uvTransform: {x: -81, y: 393}
+  - name: RIGHT_upperArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -881,7 +837,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 163, y: 140}
-  - name: "vasen kyyn\xE4rvarsi_3"
+  - name: RIGHT_lowerArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -889,7 +845,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 186
-      y: 533
+      y: 557
       width: 57
       height: 89
     spriteID: 3746856f7029f504ead27da93a28cd04
@@ -902,16 +858,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 7, y: 443}
-  - name: "h\xE4nt\xE4_1"
+    uvTransform: {x: 7, y: 467}
+  - name: RIGHT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 67
-      y: 971
+      x: 186
+      y: 135
       width: 39
       height: 27
     spriteID: 68449a3f6d177f246a1e6f05e582b76a
@@ -924,16 +880,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -43, y: 938}
-  - name: "vasen s\xE4\xE4ri_3"
+    uvTransform: {x: 112, y: 102}
+  - name: RIGHT_lowerLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 251
-      y: 436
+      x: 128
+      y: 899
       width: 35
       height: 68
     spriteID: 5b434c1e2c95c3b4f89110a95eed2380
@@ -946,16 +902,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 123, y: 429}
-  - name: vasen reisi_3
+    uvTransform: {x: 0, y: 892}
+  - name: RIGHT_upperLegLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 186
-      y: 691
+      x: 55
+      y: 932
       width: 43
       height: 53
     spriteID: bb92e3b80a2eb3a4382c4c5e1f097016
@@ -968,7 +924,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 51, y: 649}
+    uvTransform: {x: -80, y: 890}
+  - name: RIGHT_lowerArmRight
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 460
+      width: 57
+      height: 89
+    spriteID: 2799be60871d29c438d29f4ccdf98387
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 167, y: 380}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -995,76 +973,76 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 74
     mosaicPosition: {x: 0, y: 0}
-  - name: "vasen kyyn\xE4rvarsi"
-    spriteName: "vasen kyyn\xE4rvarsi"
+  - name: FRONT_lowerArmLeft
+    spriteName: FRONT_lowerArmLeft
     isGroup: 0
     parentIndex: 0
     spriteID: e087ba909ce36424395026cc31d03787
     layerID: 73
-    mosaicPosition: {x: 186, y: 339}
-  - name: "oikea kyyn\xE4rvarsi"
-    spriteName: "oikea kyyn\xE4rvarsi"
+    mosaicPosition: {x: 186, y: 266}
+  - name: FRONT_lowerArmRIght
+    spriteName: FRONT_lowerArmRIght
     isGroup: 0
     parentIndex: 0
     spriteID: c275c36a88b9a2a4fa9c189c800c6542
     layerID: 72
-    mosaicPosition: {x: 186, y: 242}
-  - name: "p\xE4\xE4"
-    spriteName: "p\xE4\xE4"
+    mosaicPosition: {x: 119, y: 513}
+  - name: FRONT_head
+    spriteName: FRONT_head
     isGroup: 0
     parentIndex: 0
     spriteID: 44f56d53a08f6bf4cbae5d128fb36422
     layerID: 71
-    mosaicPosition: {x: 4, y: 394}
-  - name: vartalo
-    spriteName: vartalo
+    mosaicPosition: {x: 4, y: 199}
+  - name: FRONT_body
+    spriteName: FRONT_body
     isGroup: 0
     parentIndex: 0
     spriteID: 06de0877d5f31b94bb76e801881d2e73
     layerID: 70
-    mosaicPosition: {x: 4, y: 708}
-  - name: "oikea k\xE4sivarsi"
-    spriteName: "oikea k\xE4sivarsi"
+    mosaicPosition: {x: 4, y: 669}
+  - name: FRONT_upperArmRIght
+    spriteName: FRONT_upperArmRIght
     isGroup: 0
     parentIndex: 0
     spriteID: d57eea19228925a46a66bfecb14940cb
     layerID: 69
-    mosaicPosition: {x: 4, y: 971}
-  - name: "vasen k\xE4sivarsi"
-    spriteName: "vasen k\xE4sivarsi"
+    mosaicPosition: {x: 119, y: 610}
+  - name: FRONT_upperArmLeft
+    spriteName: FRONT_upperArmLeft
     isGroup: 0
     parentIndex: 0
     spriteID: 7a2dbfdaddd6b52458562eaff802a3f5
     layerID: 68
     mosaicPosition: {x: 298, y: 184}
-  - name: oikea reisi
-    spriteName: oikea reisi
+  - name: FRONT_upperLegRight
+    spriteName: FRONT_upperLegRight
     isGroup: 0
     parentIndex: 0
     spriteID: a65becb013cf3b64d837994a13ade074
     layerID: 67
-    mosaicPosition: {x: 237, y: 630}
-  - name: vasen reisi
-    spriteName: vasen reisi
+    mosaicPosition: {x: 186, y: 897}
+  - name: FRONT_upperLegLeft
+    spriteName: FRONT_upperLegLeft
     isGroup: 0
     parentIndex: 0
     spriteID: a7a5edccc22028d4dbc7abe210a6ab50
     layerID: 66
-    mosaicPosition: {x: 237, y: 691}
-  - name: "oikea s\xE4\xE4ri"
-    spriteName: "oikea s\xE4\xE4ri"
+    mosaicPosition: {x: 186, y: 958}
+  - name: FRONT_lowerLegRight
+    spriteName: FRONT_lowerLegRight
     isGroup: 0
     parentIndex: 0
     spriteID: c441807e501c278419fb96113ee51286
     layerID: 65
-    mosaicPosition: {x: 251, y: 533}
-  - name: "vasen s\xE4\xE4ri"
-    spriteName: "vasen s\xE4\xE4ri"
+    mosaicPosition: {x: 251, y: 557}
+  - name: FRONT_lowerLegLeft
+    spriteName: FRONT_lowerLegLeft
     isGroup: 0
     parentIndex: 0
     spriteID: abcb554f55ff33e4986bcbc9dc36b65d
     layerID: 64
-    mosaicPosition: {x: 252, y: 242}
+    mosaicPosition: {x: 251, y: 363}
   - name: BACK
     spriteName: 
     isGroup: 1
@@ -1072,76 +1050,76 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 62
     mosaicPosition: {x: 0, y: 0}
-  - name: vasen reisi
-    spriteName: vasen reisi_1
+  - name: BACK_upperLegLeft
+    spriteName: BACK_upperLegLeft
     isGroup: 0
     parentIndex: 11
     spriteID: 0d61a9dd51766bd40bcd07062d8dd2cd
     layerID: 61
-    mosaicPosition: {x: 186, y: 873}
-  - name: oikea reisi
-    spriteName: oikea reisi_1
+    mosaicPosition: {x: 186, y: 775}
+  - name: BACK_upperLegRight
+    spriteName: BACK_upperLegRight
     isGroup: 0
     parentIndex: 11
     spriteID: c0ad2eeba2b8b6744b31c3cb97ba92d4
     layerID: 60
-    mosaicPosition: {x: 186, y: 935}
-  - name: "vasen s\xE4\xE4ri"
-    spriteName: "vasen s\xE4\xE4ri_1"
+    mosaicPosition: {x: 186, y: 837}
+  - name: BACK_lowerLegLeft
+    spriteName: BACK_lowerLegLeft
     isGroup: 0
     parentIndex: 11
     spriteID: 25693a748acf5314cb1607403b6b0e97
     layerID: 59
-    mosaicPosition: {x: 141, y: 551}
-  - name: "oikea s\xE4\xE4ri"
-    spriteName: "oikea s\xE4\xE4ri_1"
+    mosaicPosition: {x: 141, y: 356}
+  - name: BACK_lowerLegRight
+    spriteName: BACK_lowerLegRight
     isGroup: 0
     parentIndex: 11
     spriteID: bf6fecc7297608c409058774cfc6775e
     layerID: 58
-    mosaicPosition: {x: 128, y: 938}
-  - name: "p\xE4\xE4"
-    spriteName: "p\xE4\xE4_1"
+    mosaicPosition: {x: 251, y: 266}
+  - name: BACK_head
+    spriteName: BACK_head
     isGroup: 0
     parentIndex: 11
     spriteID: f3bba499dc8ec2e41aa248c90ee24b8e
     layerID: 57
-    mosaicPosition: {x: 4, y: 551}
-  - name: vartalo
-    spriteName: vartalo_1
+    mosaicPosition: {x: 4, y: 356}
+  - name: BACK_body
+    spriteName: BACK_body
     isGroup: 0
     parentIndex: 11
     spriteID: a86bfc91bb02b7342ad970d4cee97713
     layerID: 56
-    mosaicPosition: {x: 4, y: 840}
-  - name: "vasen k\xE4sivarsi"
-    spriteName: "vasen k\xE4sivarsi_1"
+    mosaicPosition: {x: 4, y: 801}
+  - name: BACK_upperArmLeft
+    spriteName: BACK_upperArmLeft
     isGroup: 0
     parentIndex: 11
     spriteID: 77d316bb1a0b82044845cf73eec4276a
     layerID: 55
     mosaicPosition: {x: 298, y: 4}
-  - name: "vasen kyyn\xE4rvarsi"
-    spriteName: "vasen kyyn\xE4rvarsi_1"
+  - name: BACK_lowerArmLeft
+    spriteName: BACK_lowerArmLeft
     isGroup: 0
     parentIndex: 11
     spriteID: 80b274512624eea4386447986a8ba43c
     layerID: 54
-    mosaicPosition: {x: 128, y: 840}
-  - name: "oikea k\xE4siavrsi"
-    spriteName: "oikea k\xE4siavrsi"
+    mosaicPosition: {x: 128, y: 801}
+  - name: BACK_upperArmRIght
+    spriteName: BACK_upperArmRIght
     isGroup: 0
     parentIndex: 11
     spriteID: c753468a1f620724fbf1e1eecc1090b8
     layerID: 53
     mosaicPosition: {x: 298, y: 49}
-  - name: "oikea kyyn\xE4rvarsi"
-    spriteName: "oikea kyyn\xE4rvarsi_1"
+  - name: BACK_upperArmLeft
+    spriteName: BACK_upperArmLeft_1
     isGroup: 0
     parentIndex: 11
     spriteID: e91e20c899b2379439fdc8c765432af4
     layerID: 52
-    mosaicPosition: {x: 128, y: 708}
+    mosaicPosition: {x: 128, y: 669}
   - name: LEFT
     spriteName: 
     isGroup: 1
@@ -1149,76 +1127,69 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 50
     mosaicPosition: {x: 0, y: 0}
-  - name: "oikea k\xE4sivari"
-    spriteName: "oikea k\xE4sivari"
+  - name: LEFT_upperArmLeft
+    spriteName: LEFT_upperArmLeft
     isGroup: 0
     parentIndex: 22
     spriteID: 31adb1a35c11c9443b37f887d0b0007f
     layerID: 49
     mosaicPosition: {x: 298, y: 274}
-  - name: oikea reisi
-    spriteName: oikea reisi_2
+  - name: LEFT_upperLegleft
+    spriteName: LEFT_upperLegleft
     isGroup: 0
     parentIndex: 22
     spriteID: c2b41f982ca938e4d878d9bf2a579f88
     layerID: 48
-    mosaicPosition: {x: 186, y: 752}
-  - name: "oikea s\xE4\xE4ri"
-    spriteName: "oikea s\xE4\xE4ri_2"
+    mosaicPosition: {x: 186, y: 654}
+  - name: LEFT_lowerLegLeft
+    spriteName: LEFT_lowerLegLeft
     isGroup: 0
     parentIndex: 22
     spriteID: 5c66fbd9b7608a548b9facd79166dc30
     layerID: 47
-    mosaicPosition: {x: 141, y: 394}
-  - name: "p\xE4\xE4"
-    spriteName: "p\xE4\xE4_2"
+    mosaicPosition: {x: 141, y: 199}
+  - name: LEFT_head
+    spriteName: LEFT_head
     isGroup: 0
     parentIndex: 22
     spriteID: cbd45eabf7927fb47b67d3af14d36671
     layerID: 46
     mosaicPosition: {x: 4, y: 4}
-  - name: vartalo
-    spriteName: vartalo_2
+  - name: LEFT_body
+    spriteName: LEFT_body
     isGroup: 0
     parentIndex: 22
-    spriteID: 0dc1065a4d2e2854dbdb97662916a622
-    layerID: 45
+    spriteID: 8e445dae056989e49a5fb07a6b35f9a7
+    layerID: 42
     mosaicPosition: {x: 186, y: 4}
-  - name: "oikea k\xE4sivarsi"
-    spriteName: "oikea k\xE4sivarsi_1"
+  - name: LEFT_upperArmRight
+    spriteName: LEFT_upperArmRight
     isGroup: 0
     parentIndex: 22
     spriteID: c75445cc3fe26a7469639a3db76b60fa
     layerID: 44
     mosaicPosition: {x: 298, y: 94}
-  - name: "vasen kyyn\xE4rvarsi"
-    spriteName: "vasen kyyn\xE4rvarsi_2"
+  - name: LEFT_lowerArmRight
+    spriteName: LEFT_lowerArmRight
     isGroup: 0
     parentIndex: 22
     spriteID: 5d2a6966d1ffaca4c8ae51a17205e19b
     layerID: 43
-    mosaicPosition: {x: 186, y: 436}
-  - name: "h\xE4nt\xE4"
-    spriteName: "h\xE4nt\xE4"
-    isGroup: 0
-    parentIndex: 22
-    spriteID: 8e445dae056989e49a5fb07a6b35f9a7
-    layerID: 42
-    mosaicPosition: {x: 237, y: 750}
-  - name: "vasen s\xE4\xE4ri"
-    spriteName: "vasen s\xE4\xE4ri_2"
+    mosaicPosition: {x: 186, y: 363}
+  - name: LEFT_lowerLegLeft
+    spriteName: LEFT_lowerLegLeft_1
     isGroup: 0
     parentIndex: 22
     spriteID: 04bf6ff4321b6574c9271b142753ce30
     layerID: 41
-    mosaicPosition: {x: 251, y: 339}
-  - name: vasen reisi
-    spriteName: vasen reisi_2
+    mosaicPosition: {x: 251, y: 460}
+  - name: LEFT_uperLegRight
+    spriteName: LEFT_uperLegRight
     isGroup: 0
     parentIndex: 22
     spriteID: 143edb2d1f61ce04dae6ce84959f8c57
     layerID: 40
-    mosaicPosition: {x: 186, y: 630}
+    mosaicPosition: {x: 4, y: 932}
   - name: RIGHT
     spriteName: 
     isGroup: 1
@@ -1226,76 +1197,76 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 37
     mosaicPosition: {x: 0, y: 0}
-  - name: "oikea k\xE4sivari"
-    spriteName: "oikea k\xE4sivari_1"
+  - name: RIGHT_upperArmRIght
+    spriteName: RIGHT_upperArmRIght
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: 6ec2bca5cfbb82b4b9648cb75b3b62b5
     layerID: 35
     mosaicPosition: {x: 298, y: 139}
-  - name: oikea reisi
-    spriteName: oikea reisi_3
+  - name: RIGHT_upperLegRIght
+    spriteName: RIGHT_upperLegRIght
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: f4d5175b6e7b5bc40bf9db8e5c034e2c
     layerID: 33
-    mosaicPosition: {x: 186, y: 812}
-  - name: "oikea s\xE4\xE4ri"
-    spriteName: "oikea s\xE4\xE4ri_3"
+    mosaicPosition: {x: 186, y: 714}
+  - name: RIGHT_lowerLegRIght
+    spriteName: RIGHT_lowerLegRIght
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: 39685f3084462754ebddc19d58484f8e
     layerID: 32
-    mosaicPosition: {x: 141, y: 471}
-  - name: "p\xE4\xE4"
-    spriteName: "p\xE4\xE4_3"
+    mosaicPosition: {x: 141, y: 276}
+  - name: RIGHT_head
+    spriteName: RIGHT_head
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: 4a7eafb9e82de1844a8dec7f68f8e806
     layerID: 30
-    mosaicPosition: {x: 4, y: 199}
-  - name: vartalo
-    spriteName: vartalo_3
+    mosaicPosition: {x: 4, y: 513}
+  - name: RIGHT_body
+    spriteName: RIGHT_body
     isGroup: 0
-    parentIndex: 33
-    spriteID: 90ea881f8cdac7140932449e08070fc8
-    layerID: 16
-    mosaicPosition: {x: 186, y: 123}
-  - name: "oikea k\xE4sivarsi"
-    spriteName: "oikea k\xE4sivarsi_2"
+    parentIndex: 32
+    spriteID: 68449a3f6d177f246a1e6f05e582b76a
+    layerID: 5
+    mosaicPosition: {x: 186, y: 135}
+  - name: RIGHT_upperArmLeft
+    spriteName: RIGHT_upperArmLeft
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: fd5d69aef9e2ab74bab57de4aa6f0649
     layerID: 11
     mosaicPosition: {x: 298, y: 229}
-  - name: "vasen kyyn\xE4rvarsi"
-    spriteName: "vasen kyyn\xE4rvarsi_3"
+  - name: RIGHT_lowerArmRight
+    spriteName: RIGHT_lowerArmRight
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
+    spriteID: 2799be60871d29c438d29f4ccdf98387
+    layerID: 75
+    mosaicPosition: {x: 186, y: 460}
+  - name: RIGHT_lowerArmLeft
+    spriteName: RIGHT_lowerArmLeft
+    isGroup: 0
+    parentIndex: 32
     spriteID: 3746856f7029f504ead27da93a28cd04
     layerID: 8
-    mosaicPosition: {x: 186, y: 533}
-  - name: "h\xE4nt\xE4"
-    spriteName: "h\xE4nt\xE4_1"
+    mosaicPosition: {x: 186, y: 557}
+  - name: RIGHT_lowerLegLeft
+    spriteName: RIGHT_lowerLegLeft
     isGroup: 0
-    parentIndex: 33
-    spriteID: 68449a3f6d177f246a1e6f05e582b76a
-    layerID: 5
-    mosaicPosition: {x: 67, y: 971}
-  - name: "vasen s\xE4\xE4ri"
-    spriteName: "vasen s\xE4\xE4ri_3"
-    isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: 5b434c1e2c95c3b4f89110a95eed2380
     layerID: 3
-    mosaicPosition: {x: 251, y: 436}
-  - name: vasen reisi
-    spriteName: vasen reisi_3
+    mosaicPosition: {x: 128, y: 899}
+  - name: RIGHT_upperLegLeft
+    spriteName: RIGHT_upperLegLeft
     isGroup: 0
-    parentIndex: 33
+    parentIndex: 32
     spriteID: bb92e3b80a2eb3a4382c4c5e1f097016
     layerID: 2
-    mosaicPosition: {x: 186, y: 691}
+    mosaicPosition: {x: 55, y: 932}
   characterData:
     bones: []
     parts: []

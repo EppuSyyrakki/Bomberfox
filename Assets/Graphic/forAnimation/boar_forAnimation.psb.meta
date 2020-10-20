@@ -89,7 +89,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Haarniska
+  - name: BACK_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -111,7 +111,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -52, y: 229}
-  - name: "P\xE4\xE4"
+  - name: BACK_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -133,7 +133,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 120, y: -11}
-  - name: vasen jalka
+  - name: BACK_legLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -155,7 +155,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 270, y: 860}
-  - name: oikea jalka
+  - name: BACK_legRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -177,7 +177,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 299, y: 469}
-  - name: "vasen k\xE4si"
+  - name: BACK_armLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -199,7 +199,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 180, y: 375}
-  - name: "oikea k\xE4si"
+  - name: BACK_armRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -221,7 +221,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 170, y: 76}
-  - name: "P\xE4\xE4_1"
+  - name: FRONT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -243,7 +243,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 116, y: 135}
-  - name: "vasen k\xE4si_1"
+  - name: FRONT_armLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -265,7 +265,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 169, y: 248}
-  - name: "oikea k\xE4si_1"
+  - name: FRONT_armRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -287,7 +287,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 182, y: 542}
-  - name: Haarniska_1
+  - name: FRONT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -309,7 +309,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -54, y: 386}
-  - name: vasen jalka_1
+  - name: FRONT_legLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -331,7 +331,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 298, y: 140}
-  - name: oikea jalka_1
+  - name: FRONT_legRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -353,7 +353,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 373, y: 309}
-  - name: "P\xE4\xE4_2"
+  - name: RIGHT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -375,7 +375,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -47, y: -144}
-  - name: "oikea k\xE4si_2"
+  - name: RIGHT_armRIght
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -397,7 +397,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 308, y: 433}
-  - name: Haarniska_2
+  - name: RIGHT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -419,7 +419,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 134, y: -67}
-  - name: vasen jalka_2
+  - name: RIGHT_legLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -441,7 +441,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -119, y: 903}
-  - name: oikea jalka_2
+  - name: RIGHT_legRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -463,7 +463,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 269, y: 645}
-  - name: "vasen k\xE4si_2"
+  - name: RIGHT_armLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -485,7 +485,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -93, y: 548}
-  - name: "P\xE4\xE4_3"
+  - name: LEFT_head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -507,7 +507,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -32, y: 8}
-  - name: "oikea k\xE4si_3"
+  - name: LEFT_armLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -529,7 +529,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 42, y: 731}
-  - name: Haarniska_3
+  - name: LEFT_body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -551,7 +551,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 259, y: -69}
-  - name: vasen jalka_3
+  - name: LEFT_legRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -573,7 +573,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 9, y: 903}
-  - name: oikea jalka_3
+  - name: LEFT_legLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -595,7 +595,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 196, y: 756}
-  - name: "vasen k\xE4si_3"
+  - name: LEFT_armRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -643,43 +643,43 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 204
     mosaicPosition: {x: 0, y: 0}
-  - name: Haarniska
-    spriteName: Haarniska
+  - name: BACK_body
+    spriteName: BACK_body
     isGroup: 0
     parentIndex: 0
     spriteID: 489aeb4d037d5ff4fb4770b85b435323
     layerID: 203
     mosaicPosition: {x: 4, y: 309}
-  - name: "P\xE4\xE4"
-    spriteName: "P\xE4\xE4"
+  - name: BACK_head
+    spriteName: BACK_head
     isGroup: 0
     parentIndex: 0
     spriteID: c3a1e26b3cdd35a4c8fccf382f5945c8
     layerID: 196
     mosaicPosition: {x: 182, y: 143}
-  - name: vasen jalka
-    spriteName: vasen jalka
+  - name: BACK_legLeft
+    spriteName: BACK_legLeft
     isGroup: 0
     parentIndex: 0
     spriteID: 694f218f90acd404d97ad594bc10a873
     layerID: 189
     mosaicPosition: {x: 329, y: 867}
-  - name: oikea jalka
-    spriteName: oikea jalka
+  - name: BACK_legRight
+    spriteName: BACK_legRight
     isGroup: 0
     parentIndex: 0
     spriteID: 9dc2ea5c7e31f6f4488360f892d1cb53
     layerID: 184
     mosaicPosition: {x: 433, y: 477}
-  - name: "vasen k\xE4si"
-    spriteName: "vasen k\xE4si"
+  - name: BACK_armLeft
+    spriteName: BACK_armLeft
     isGroup: 0
     parentIndex: 0
     spriteID: 66ad884d89247a845804d725cdce0ca7
     layerID: 175
     mosaicPosition: {x: 182, y: 436}
-  - name: "oikea k\xE4si"
-    spriteName: "oikea k\xE4si"
+  - name: BACK_armRight
+    spriteName: BACK_armRight
     isGroup: 0
     parentIndex: 0
     spriteID: 7dfb3aeefb4a87249b08cee41bf39910
@@ -692,43 +692,43 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 101
     mosaicPosition: {x: 0, y: 0}
-  - name: "P\xE4\xE4"
-    spriteName: "P\xE4\xE4_1"
+  - name: FRONT_head
+    spriteName: FRONT_head
     isGroup: 0
     parentIndex: 7
     spriteID: 4a5b93164808f924ea9a60c64ffafa1f
     layerID: 100
     mosaicPosition: {x: 182, y: 290}
-  - name: "vasen k\xE4si"
-    spriteName: "vasen k\xE4si_1"
+  - name: FRONT_armLeft
+    spriteName: FRONT_armLeft
     isGroup: 0
     parentIndex: 7
     spriteID: 53ed8ad3cc102b548886494f422a39dc
     layerID: 93
     mosaicPosition: {x: 329, y: 309}
-  - name: "oikea k\xE4si"
-    spriteName: "oikea k\xE4si_1"
+  - name: FRONT_armRight
+    spriteName: FRONT_armRight
     isGroup: 0
     parentIndex: 7
     spriteID: d95fd13465513cf4cb0a09539bdedd38
     layerID: 88
     mosaicPosition: {x: 182, y: 605}
-  - name: Haarniska
-    spriteName: Haarniska_1
+  - name: FRONT_body
+    spriteName: FRONT_body
     isGroup: 0
     parentIndex: 7
     spriteID: e77e232c6286b2f41a77e9395188c76d
     layerID: 79
     mosaicPosition: {x: 4, y: 466}
-  - name: vasen jalka
-    spriteName: vasen jalka_1
+  - name: FRONT_legLeft
+    spriteName: FRONT_legLeft
     isGroup: 0
     parentIndex: 7
     spriteID: 257f2afd734162d45bf25acafccefcaa
     layerID: 68
     mosaicPosition: {x: 433, y: 141}
-  - name: oikea jalka
-    spriteName: oikea jalka_1
+  - name: FRONT_legRight
+    spriteName: FRONT_legRight
     isGroup: 0
     parentIndex: 7
     spriteID: be1941649f848b74a8b12460c8f1cdd8
@@ -741,43 +741,43 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 156
     mosaicPosition: {x: 0, y: 0}
-  - name: "P\xE4\xE4"
-    spriteName: "P\xE4\xE4_2"
+  - name: RIGHT_head
+    spriteName: RIGHT_head
     isGroup: 0
     parentIndex: 14
     spriteID: 04041b2448980df42bf3bf5d3bb9b197
     layerID: 155
     mosaicPosition: {x: 4, y: 4}
-  - name: "oikea k\xE4si"
-    spriteName: "oikea k\xE4si_2"
+  - name: RIGHT_armRIght
+    spriteName: RIGHT_armRIght
     isGroup: 0
     parentIndex: 14
     spriteID: d2288fd642ef247459dd9943aa35fb18
     layerID: 143
     mosaicPosition: {x: 329, y: 477}
-  - name: Haarniska
-    spriteName: Haarniska_2
+  - name: RIGHT_body
+    spriteName: RIGHT_body
     isGroup: 0
     parentIndex: 14
     spriteID: d976c5f47b7c66d409d0857613e5ed66
     layerID: 136
     mosaicPosition: {x: 182, y: 4}
-  - name: vasen jalka
-    spriteName: vasen jalka_2
+  - name: RIGHT_legLeft
+    spriteName: RIGHT_legLeft
     isGroup: 0
     parentIndex: 14
     spriteID: c795b2915d67e614cb1ee8c4cdb07ffb
     layerID: 128
     mosaicPosition: {x: 4, y: 912}
-  - name: oikea jalka
-    spriteName: oikea jalka_2
+  - name: RIGHT_legRight
+    spriteName: RIGHT_legRight
     isGroup: 0
     parentIndex: 14
     spriteID: 5d5e0f110c107f548b4ad79bd0890c7d
     layerID: 121
     mosaicPosition: {x: 329, y: 645}
-  - name: "vasen k\xE4si"
-    spriteName: "vasen k\xE4si_2"
+  - name: RIGHT_armLeft
+    spriteName: RIGHT_armLeft
     isGroup: 0
     parentIndex: 14
     spriteID: e2cd701babb3f6847b19054020041e1d
@@ -790,43 +790,43 @@ ScriptedImporter:
     spriteID: 00000000000000000000000000000000
     layerID: 103
     mosaicPosition: {x: 0, y: 0}
-  - name: "P\xE4\xE4"
-    spriteName: "P\xE4\xE4_3"
+  - name: LEFT_head
+    spriteName: LEFT_head
     isGroup: 0
     parentIndex: 21
     spriteID: 2e289bfeb512ad74fbd79c50813120c4
     layerID: 50
     mosaicPosition: {x: 4, y: 157}
-  - name: "oikea k\xE4si"
-    spriteName: "oikea k\xE4si_3"
+  - name: LEFT_armLeft
+    spriteName: LEFT_armLeft
     isGroup: 0
     parentIndex: 21
     spriteID: 1f404ac681ba59d478f7725ac62a6de1
     layerID: 38
     mosaicPosition: {x: 182, y: 774}
-  - name: Haarniska
-    spriteName: Haarniska_3
+  - name: LEFT_body
+    spriteName: LEFT_body
     isGroup: 0
     parentIndex: 21
     spriteID: 1b1557dce2e88bf4aae17de8653ca64a
     layerID: 31
     mosaicPosition: {x: 329, y: 4}
-  - name: vasen jalka
-    spriteName: vasen jalka_3
+  - name: LEFT_legRight
+    spriteName: LEFT_legRight
     isGroup: 0
     parentIndex: 21
     spriteID: a4193a17536d31344a675cfd0782fbf1
     layerID: 23
     mosaicPosition: {x: 77, y: 912}
-  - name: oikea jalka
-    spriteName: oikea jalka_3
+  - name: LEFT_legLeft
+    spriteName: LEFT_legLeft
     isGroup: 0
     parentIndex: 21
     spriteID: c3abd7dc4d145fa499a782ca70c281ec
     layerID: 16
     mosaicPosition: {x: 329, y: 756}
-  - name: "vasen k\xE4si"
-    spriteName: "vasen k\xE4si_3"
+  - name: LEFT_armRight
+    spriteName: LEFT_armRight
     isGroup: 0
     parentIndex: 21
     spriteID: 71186691c1c3f6f4382e3cce4444ae9b
