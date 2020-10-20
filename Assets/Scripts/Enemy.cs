@@ -37,12 +37,16 @@ namespace Bomberfox
 	        // check if we can see the player somewhere
 			playerLastSeen = LookForPlayer();	
             
-			// if we are at target, get new target
-	        if (transform.position == currentTarget) SetNewTarget();
+			// if we are at target, get new target and update the animator according to target's direction
+			if (transform.position == currentTarget)
+			{
+				SetNewTarget();
+				UpdateAnimator();
+			}
 	        
 			// move to our current target
             MoveToCurrentTarget();
-            UpdateAnimator();
+            
         }
 
         private Vector3 LookForPlayer()
@@ -115,7 +119,8 @@ namespace Bomberfox
 		        transform.position,
 		        currentTarget,
 		        speed * Time.deltaTime);
-        }
+	        
+		}
 
         private void DefineRandomDirection()
         {
@@ -144,15 +149,18 @@ namespace Bomberfox
 	        {
 				animator.SetTrigger("FacingUp");
 	        }
-			else if (currentTarget.x > pos.x)
+			
+	        if (currentTarget.x > pos.x)
 	        {
 		        animator.SetTrigger("FacingRight");
 	        }
-			else if (currentTarget.y < pos.y)
+			
+	        if (currentTarget.y < pos.y)
 	        {
 		        animator.SetTrigger("FacingDown");
 	        }
-			else if (currentTarget.x < pos.x)
+			
+	        if (currentTarget.x < pos.x)
 	        {
 		        animator.SetTrigger("FacingLeft");
 	        }
