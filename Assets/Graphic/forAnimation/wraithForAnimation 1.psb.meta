@@ -91,8 +91,8 @@ ScriptedImporter:
   rigSpriteImportData:
   - name: FRONT_lower arm left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.15431656, y: 0.22770889}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -113,8 +113,8 @@ ScriptedImporter:
     uvTransform: {x: 428, y: 273}
   - name: FRONT_lower arm right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.87905365, y: 0.33383265}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -179,8 +179,8 @@ ScriptedImporter:
     uvTransform: {x: 124, y: 281}
   - name: FRONT_upper arm right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.59984046, y: 0.8646333}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -201,8 +201,8 @@ ScriptedImporter:
     uvTransform: {x: 278, y: 199}
   - name: FRONT_upper arm left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.25150892, y: 0.81767344}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -223,8 +223,8 @@ ScriptedImporter:
     uvTransform: {x: 163, y: 692}
   - name: BACK_upper arm right
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.12559973, y: 0.32928094}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -311,8 +311,8 @@ ScriptedImporter:
     uvTransform: {x: 278, y: 297}
   - name: BACK_upper arm left
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.31363255, y: 0.8017897}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -443,8 +443,8 @@ ScriptedImporter:
     uvTransform: {x: 341, y: 169}
   - name: RIGHT_upper arm back
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.30939692, y: 0.8213248}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -465,8 +465,8 @@ ScriptedImporter:
     uvTransform: {x: 577, y: 718}
   - name: RIGHT_lower arm back
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.17019139, y: 0.24150984}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -575,8 +575,8 @@ ScriptedImporter:
     uvTransform: {x: 291, y: 446}
   - name: LEFT_upper arm back
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6906038, y: 0.8534567}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -597,8 +597,8 @@ ScriptedImporter:
     uvTransform: {x: 193, y: 94}
   - name: LEFT_lower arm back
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.8298086, y: 0.24150984}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
