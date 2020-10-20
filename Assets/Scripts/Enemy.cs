@@ -9,7 +9,9 @@ namespace Bomberfox
     [RequireComponent(typeof(CollisionHandler))]
     public class Enemy : MonoBehaviour
     {
-	    public enum Direction  // helper for animator to decide which facing to use
+	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+
+        public enum Direction  // helper for animator to decide which facing to use
         {
             Right,
             Left,
@@ -18,27 +20,22 @@ namespace Bomberfox
             None
         }
 
-        [SerializeField]
-        public float speed = 10f;
+	    [SerializeField] private float speed = 10f, lookDistance = 5f;
 
         [NonSerialized]
         public int randomDirection;
 
-        // public Animator animator;
         private Vector3 moveTarget;
+        private Vector3 playerLastSeen; // point where player was detected. own position if not detected
         private Vector3 currentDirection;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
         private Animator animator;
+        private float lookTimer;
 
         [SerializeField] 
         private LayerMask layerMask;
-
-        private RaycastHit2D checkLeft;
-        private RaycastHit2D checkRight;
-        private RaycastHit2D checkUp;
-        private RaycastHit2D checkDown;
-
+        
         private void Awake()
         {
 	        collisionHandler = GetComponent<CollisionHandler>();
@@ -53,8 +50,52 @@ namespace Bomberfox
 
         private void Update()
         {
+	        lookTimer += Time.deltaTime;
+
+	        if (lookTimer > 0.5f)
+	        {
+		        playerLastSeen = LookForPlayer();
+		        lookTimer = 0;
+	        }
+
             Move();
 	        UpdateAnimator();
+        }
+
+        /// <summary>
+        /// Searches for tag Player in layerMask field.
+        /// </summary>
+        /// <returns>Position of player rounded to int if found, or own position if not found </returns>
+        private Vector3 LookForPlayer()
+        {
+	        for (int i = 0; i < 4; i++)
+	        {
+		        var check = Physics2D.Raycast(
+			        transform.position + directions[i],
+			        directions[i],
+			        lookDistance);
+                Debug.DrawLine(transform.position + directions[i], transform.position + directions[i] * (lookDistance + 1), Color.cyan, 0.25f);
+
+		        if (check && check.transform.CompareTag("Player"))
+		        {
+                    print("found player");
+			        Vector3 pos = new Vector3(
+				        Mathf.RoundToInt(check.transform.position.x),
+				        Mathf.RoundToInt(check.transform.position.y),
+				        0);
+			        return pos;
+		        }
+	        }
+
+	        return transform.position;
+        }
+
+        private void Move()
+        {
+	        if (transform.position == playerLastSeen)
+	        {
+		        // MoveToTarget();
+	        }
         }
 
         private void UpdateAnimator()
@@ -65,33 +106,7 @@ namespace Bomberfox
         /// <summary>
         /// Checks if the enemy should move to the same direction or switch direction. Moves the enemy.
         /// </summary>
-        public void Move()
-        {
-            // animator.SetBool("Running", true);
 
-            if (transform.position == moveTarget)
-            {
-
-                if (IsTherePlayer())
-                {
-	                moveTarget += currentDirection;
-                }
-                else if (IsDirectionFree())
-                {
-                    moveTarget += currentDirection;
-                }
-                else
-                {
-                    moveTarget = DefineNextPosition();
-                    // moveDirection = DefineMoveDirection()
-                    // animator.SetBool("Running", false);
-                }
-            }
-            else
-            {
-                MoveToTarget(moveTarget);
-            }
-        }
 
         /// <summary>
         /// Checks if the enemy can still move to the same direction.
@@ -108,7 +123,7 @@ namespace Bomberfox
         /// Defines a new random position for the enemy to move. Checks if new position is free.
         /// </summary>
         /// <returns>Current transform plus a direction vector.</returns>
-        private Vector3 DefineNextPosition()
+        private Vector3 MoveRandom()
         {
             randomDirection = Random.Range(0, 4);
 
@@ -143,41 +158,6 @@ namespace Bomberfox
             else if (randomDirection == 2) return Direction.Up;
             else if (randomDirection == 3) return Direction.Down;
             else return Direction.None;
-        }
-
-        /// <summary>
-        /// Changes the enemy's moving direction if it sees the player.
-        /// </summary>
-        /// <returns> Direction vector and info if the enemy has seen the player or not </returns>
-        private bool IsTherePlayer()
-        {
-            checkLeft = Physics2D.Raycast(transform.position, Vector3.left, 5, layerMask);
-            checkRight = Physics2D.Raycast(transform.position, Vector3.right, 5, layerMask);
-            checkUp = Physics2D.Raycast(transform.position, Vector3.up, 5, layerMask);
-            checkDown = Physics2D.Raycast(transform.position, Vector3.down, 5, layerMask);
-
-            if (checkLeft && checkLeft.collider.CompareTag("Player"))
-            {
-                currentDirection = Vector3.left;
-                return true;
-            }
-            else if (checkRight && checkRight.transform.CompareTag("Player"))
-            {
-                currentDirection = Vector3.right;
-                return true;
-            }
-            else if (checkUp && checkUp.transform.CompareTag("Player"))
-            {
-                currentDirection = Vector3.up;
-                return true;
-            }
-            else if (checkDown && checkDown.transform.CompareTag("Player"))
-            {
-                currentDirection = Vector3.down;
-                return true;
-            }
-
-            return false;
         }
 
         private void MoveToTarget(Vector3 target)
