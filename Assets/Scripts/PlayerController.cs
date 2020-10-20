@@ -9,11 +9,11 @@ namespace Bomberfox
     {
         private enum Direction  // helper for animator to decide which facing to use
         {
-            Right,
-            Left,
+            None,
             Up,
+            Right,
             Down,
-            None
+            Left
         }
 
         [SerializeField]
@@ -87,10 +87,10 @@ namespace Bomberfox
 	        
 	        moveDirection = DefineMoveDirection();
 
+	        if (moveDirection == Direction.Up) animator.SetTrigger("FacingUp");
             if (moveDirection == Direction.Right) animator.SetTrigger("FacingRight");
-            if (moveDirection == Direction.Left) animator.SetTrigger("FacingLeft");
-            if (moveDirection == Direction.Up) animator.SetTrigger("FacingUp");
             if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
+            if (moveDirection == Direction.Left) animator.SetTrigger("FacingLeft");
         }
 
         /// <summary>
@@ -99,11 +99,12 @@ namespace Bomberfox
         /// <returns>the direction which the player should be facing</returns>
         private Direction DefineMoveDirection()
         {
-	        if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
-	        else if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
-	        else if (Input.GetAxis("Vertical") > 0) return Direction.Up;
-	        else if (Input.GetAxis("Vertical") < 0) return Direction.Down;
-	        else return Direction.None;
+	        if (Input.GetAxis("Vertical") > 0) return Direction.Up;
+            if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
+            if (Input.GetAxis("Vertical") < 0) return Direction.Down;
+            if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
+
+            return Direction.None;
         }
 
         public void ChangeCurrentBombs(int change)

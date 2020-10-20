@@ -23,6 +23,12 @@ namespace Bomberfox
         private GameObject explosionPrefab = null;
 
         private PlayerController owner = null;
+        private Collider2D collider2d;
+
+        private void Awake()
+        {
+	        collider2d = GetComponent<Collider2D>();
+        }
 
         // Update is called once per frame
         private void Update()
@@ -41,6 +47,11 @@ namespace Bomberfox
         {
 	        owner.ChangeCurrentBombs(-1);
         }
+        
+        private void OnTriggerExit2D(Collider2D other)
+        {
+	        collider2d.isTrigger = false;
+        }
 
         // Creates the explosion that destroys this gameObject
         public void Explode()
@@ -50,8 +61,8 @@ namespace Bomberfox
 
         public void SetOwnerAndInit(PlayerController owner)
         {
-            this.owner = owner;
-            owner.ChangeCurrentBombs(1);
+	        this.owner = owner;
+	        owner.ChangeCurrentBombs(1);
         }
     }
 }

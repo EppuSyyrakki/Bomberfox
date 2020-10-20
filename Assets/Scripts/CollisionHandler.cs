@@ -38,7 +38,7 @@ namespace Bomberfox
 	        GameObject o = collider.gameObject; // what we collided with
 
 	        if (o.CompareTag("Block")) return false;
-            
+	        
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Player")) return false;
 	        
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return false;
@@ -54,6 +54,8 @@ namespace Bomberfox
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Player")) return false;
 
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Enemy")) return false;
+
+            if (o.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return false;
 
             return true;
         }
