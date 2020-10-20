@@ -74,8 +74,7 @@ namespace Bomberfox
 
                 if (IsTherePlayer())
                 {
-                    Debug.Log("Player is there!");
-                    moveTarget += currentDirection;
+	                moveTarget += currentDirection;
                 }
                 else if (IsDirectionFree())
                 {

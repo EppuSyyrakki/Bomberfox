@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b098bf549baab214eaea7807e385e5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1001 &217077813332355959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,7 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_InstanceId
-      value: -138664
+      value: -18152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4128634002596581914, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_LocalPosition.x

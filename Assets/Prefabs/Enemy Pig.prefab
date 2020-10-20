@@ -15,7 +15,7 @@ MonoBehaviour:
   speed: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1001 &3440760863645409371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,7 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_InstanceId
-      value: -139502
+      value: -12234
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4128634002596581914, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_LocalPosition.x
