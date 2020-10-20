@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -59,6 +59,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1018266871
+    locked: 0
+  - name: Enemy
+    uniqueID: 3549416119
     locked: 0
   - name: Tree Leaves
     uniqueID: 3938967133
