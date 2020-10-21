@@ -62,17 +62,22 @@ namespace Bomberfox
 
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
-                Vector3Int pos = new Vector3Int(
-                    Mathf.RoundToInt(transform.position.x),
-                    Mathf.RoundToInt(transform.position.y),
-                    0);
-                
-                if (collisionHandler.CheckPosition(pos))
-                {
-                    GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
-                    bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
-                }
+	            CreateBomb();
             }
+        }
+
+        private void CreateBomb()
+        {
+	        Vector3 pos = new Vector3(
+		        Mathf.RoundToInt(transform.position.x),
+		        Mathf.RoundToInt(transform.position.y),
+		        0);
+
+	        if (collisionHandler.CheckPosition(pos))
+	        {
+		        GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
+		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
+	        }
         }
 
         /// <summary>

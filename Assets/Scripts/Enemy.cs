@@ -1,27 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Bomberfox
 {
     [RequireComponent(typeof(CollisionHandler))]
     public class Enemy : MonoBehaviour
     {
-		private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
-
 	    [SerializeField] private float speed = 10f, lookDistance = 5f;
-	    [SerializeField] private GameObject reservedSpace;
+	    [SerializeField] private GameObject reservedSpace = null;
 
-	    private bool spaceIsReserved;
+	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+		private readonly Vector3 nowhere = Vector2.one * 1000;
+		private bool spaceIsReserved;
 	    private GameObject space;
 		private Vector3 playerLastSeen;
         private Vector3 randomDirection;
         private Vector3 currentTarget;
-        private readonly Vector3 nowhere = Vector2.one * 1000;
         private CollisionHandler collisionHandler;
         private Animator animator;
-        
 
         private void Awake()
         {
@@ -138,67 +135,50 @@ namespace Bomberfox
         {
 	        int i = 0;
 
-			// TODO while loop is not very good. Come up with something else if possible.
 	        while (i < 10) // limit searches to avoid endless loop if no free direction found
 	        {
 		        int directionIndex = Random.Range(0, 4);
                 Vector3 direction = directions[directionIndex];
 
+				// if we find a free direction, assign that and exit this method
 		        if (collisionHandler.CheckPosition(transform.position + direction))
 		        {
 			        randomDirection = direction;
-			        break;
+			        return;
 		        }
 
 		        i++;
-
-		        if (i == 10)
-		        {
-			        randomDirection = Vector3.zero;
-		        }
 	        }
-        }
+
+			// if we got this far, we can't move anywhere so assign a zero vector
+	        randomDirection = Vector3.zero;
+		}
 
         private void UpdateAnimator()
         {
 			// change current target into a direction (with magnitude of 1) relative to our location 
 	        Vector3 target = transform.InverseTransformPoint(currentTarget).normalized;
 
-	        if (target == Vector3.up)
-	        {
-				animator.SetTrigger("FacingUp");
-				animator.ResetTrigger("FacingDown");
-				animator.ResetTrigger("FacingRight");
-				animator.ResetTrigger("FacingLeft");
-			}
-			
-	        if (target == Vector3.right)
-	        {
-		        animator.SetTrigger("FacingRight");
-				animator.ResetTrigger("FacingLeft");
-				animator.ResetTrigger("FacingDown");
-				animator.ResetTrigger("FacingUp");
-			}
-			
-	        if (target == Vector3.down)
-	        {
-		        animator.SetTrigger("FacingDown");
-		        animator.ResetTrigger("FacingLeft");
-		        animator.ResetTrigger("FacingRight");
-		        animator.ResetTrigger("FacingUp");
-			}
-			
-	        if (target == Vector3.left)
-	        {
-		        animator.SetTrigger("FacingLeft");
-				animator.ResetTrigger("FacingDown");
-				animator.ResetTrigger("FacingUp");
-				animator.ResetTrigger("FacingRight");
-			}
+	        if (target == Vector3.up) SetTrigger("FacingUp");
+	        if (target == Vector3.right) SetTrigger("FacingRight");
+			if (target == Vector3.down) SetTrigger("FacingDown");
+			if (target == Vector3.left) SetTrigger("FacingLeft");
+        }
+
+		// Set one facing trigger and reset others
+        private void SetTrigger(string triggerToSet)
+        {
+			animator.SetTrigger(triggerToSet);
+
+			if (triggerToSet != "FacingUp") animator.ResetTrigger("FacingUp");
+			if (triggerToSet != "FacingRight") animator.ResetTrigger("FacingRight");
+			if (triggerToSet != "FacingDown") animator.ResetTrigger("FacingDown");
+			if (triggerToSet != "FacingLeft") animator.ResetTrigger("FacingLeft");
 		}
 
         public void Kill()
         {
+	        if (space != null) Destroy(space);
             Destroy(gameObject);
         }
     }
