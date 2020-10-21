@@ -137,8 +137,8 @@ namespace Bomberfox
         {
 	        int i = 0;
 
-			// TODO while loop is not very good. Make up something else.
-	        while (i < 30) // limit searches to avoid endless loop if no free direction found
+			// TODO while loop is not very good. Come up with something else if possible.
+	        while (i < 10) // limit searches to avoid endless loop if no free direction found
 	        {
 		        int directionIndex = Random.Range(0, 4);
                 Vector3 direction = directions[directionIndex];
@@ -151,9 +151,8 @@ namespace Bomberfox
 
 		        i++;
 
-		        if (i == 30)
+		        if (i == 10)
 		        {
-					print("Couldn't find a free direction, stopping");
 			        randomDirection = Vector3.zero;
 		        }
 	        }
