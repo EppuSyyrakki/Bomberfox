@@ -13,8 +13,8 @@ namespace Bomberfox
         /// <returns>true if position is free</returns>
         public bool CheckPosition(Vector3 position)
         {
-            Vector2 nextPosVector2 = new Vector2(position.x, position.y);
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(nextPosVector2, 0.25f);
+            Vector2 positionToCheck = new Vector2(position.x, position.y);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(positionToCheck, 0.25f);
 
             // draw debug line to checked place TODO remove debug tool
             Debug.DrawLine(transform.position, position, Color.red, 0.1f);  
@@ -26,6 +26,8 @@ namespace Bomberfox
                 foreach (Collider2D collider in colliders)
                 {
 	                isFree = CompareTags(collider);
+
+	                if (!isFree) break; // if a non-free object found, don't look further
                 }
             }
 
@@ -42,9 +44,9 @@ namespace Bomberfox
 	        GameObject o = collider.gameObject; // what we collided with
 
 	        if (o.CompareTag("Block")) return false;
-	        
+
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Player")) return false;
-	        
+	        	        
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return false;
 
             if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
