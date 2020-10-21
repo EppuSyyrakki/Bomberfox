@@ -119,18 +119,19 @@ namespace Bomberfox
 
         private void MoveToCurrentTarget()
         {
-	        if (!spaceIsReserved)
-	        {
-		        space = Instantiate(reservedSpace, currentTarget, Quaternion.identity, transform.parent);
-		        spaceIsReserved = true;
-	        }
-	        else
-	        {
-		        transform.position = Vector3.MoveTowards(
-			        transform.position,
-			        currentTarget,
-			        speed * Time.deltaTime);
+			// if we haven't reserved a space and it's free, do that and exit this method
+	        if (!spaceIsReserved && collisionHandler.CheckPosition(currentTarget))
+			{
+				space = Instantiate(reservedSpace, currentTarget, Quaternion.identity, transform.parent);
+				spaceIsReserved = true;
+				return;
 			}
+			
+			// if we got this far, we've reserved a space. Now move toward it
+			transform.position = Vector3.MoveTowards(
+				transform.position,
+				currentTarget,
+				speed * Time.deltaTime);
         }
 
         private void DefineRandomDirection()
@@ -160,6 +161,7 @@ namespace Bomberfox
 
         private void UpdateAnimator()
         {
+			// change current target into a direction (with magnitude of 1) relative to our location 
 	        Vector3 target = transform.InverseTransformPoint(currentTarget).normalized;
 
 	        if (target == Vector3.up)
