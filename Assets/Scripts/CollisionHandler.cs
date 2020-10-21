@@ -15,6 +15,10 @@ namespace Bomberfox
         {
             Vector2 nextPosVector2 = new Vector2(position.x, position.y);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(nextPosVector2, 0.25f);
+
+            // draw debug line to checked place
+            Debug.DrawLine(transform.position, position, Color.red, 0.1f);  
+            
             bool isFree = true;
 
             if ((colliders).Length > 0)

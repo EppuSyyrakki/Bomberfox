@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Bomberfox
 {
@@ -10,13 +11,15 @@ namespace Bomberfox
 		private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
 
 	    [SerializeField] private float speed = 10f, lookDistance = 5f;
+	    [SerializeField] private GameObject reservedSpace;
 
-        private Vector3 playerLastSeen;
+		private Vector3 playerLastSeen;
         private Vector3 randomDirection;
         private Vector3 currentTarget;
         private readonly Vector3 nowhere = Vector2.one * 1000;
         private CollisionHandler collisionHandler;
         private Animator animator;
+        
 
         private void Awake()
         {
@@ -58,13 +61,16 @@ namespace Bomberfox
 			        transform.position + directions[i],
 			        directions[i],
 			        lookDistance);
-
-                // showing debug lines for the raycasts
-                Debug.DrawLine(transform.position + directions[i], transform.position + directions[i] * (lookDistance + 1), Color.cyan);
-
+		        
+		        // draw debug line for the ray TODO remove debug lines
+		        if (check)
+		        {
+			        Debug.DrawLine(transform.position + directions[i], check.transform.position, Color.cyan);
+				}
+		        
 		        if (check && check.transform.CompareTag("Player"))
 		        {
-					// if we see the player, return the players position rounded to whole numbers
+			        // if we see the player, return the players position rounded to whole numbers
 			        Vector3 pos = new Vector3(
 				        Mathf.RoundToInt(check.transform.position.x),
 				        Mathf.RoundToInt(check.transform.position.y),
@@ -87,34 +93,32 @@ namespace Bomberfox
 		        // check that position in case the player left a bomb on the way
 				if (collisionHandler.CheckPosition(nextTarget))	
 				{
-					// if it's free, change the target
+					// if it's free, change the target and return
 					currentTarget = transform.position + nextTarget;
-				}
-				else
-				{
-					// if the player left a bomb in front of us, get a new random target
-					DefineRandomDirection();
-					currentTarget = transform.position + randomDirection;
+					return;
 				}
 	        }
-	        else
+	        else // if we haven't seen the player
 	        {
 				// check in the previous random direction if we can move
 		        if (collisionHandler.CheckPosition((transform.position + randomDirection)))
 		        {
 			        currentTarget = transform.position + randomDirection;
+			        return;
 		        }
-		        else
-		        {
-					// if we can't move, get a new random direction and set it as current target
-					DefineRandomDirection();
-					currentTarget = transform.position + randomDirection;
-				}
 	        }
+
+			// if we got this far we can't move, so create a new random direction
+	        DefineRandomDirection();
+	        currentTarget = transform.position + randomDirection;
         }
 
         private void MoveToCurrentTarget()
         {
+	        if (reservedSpace == null)
+	        {
+		        
+	        }
 	        transform.position = Vector3.MoveTowards(
 		        transform.position,
 		        currentTarget,
@@ -126,14 +130,15 @@ namespace Bomberfox
         {
 	        int i = 0;
 
-	        while (i < 10) // limit searches to avoid endless loop if no free direction found
+			// TODO while loop is not very good. Make up something else.
+	        while (i < 30) // limit searches to avoid endless loop if no free direction found
 	        {
 		        int directionIndex = Random.Range(0, 4);
                 Vector3 direction = directions[directionIndex];
 
 		        if (collisionHandler.CheckPosition(transform.position + direction))
 		        {
-			        randomDirection = directions[directionIndex];
+			        randomDirection = direction;
 			        break;
 		        }
 
