@@ -148,27 +148,40 @@ namespace Bomberfox
 
         private void UpdateAnimator()
         {
-	        Vector3 pos = transform.position;
+	        Vector3 target = transform.InverseTransformPoint(currentTarget).normalized;
+			print(target);
 
-	        if (currentTarget.y > pos.y)
+	        if (target == Vector3.up)
 	        {
 				animator.SetTrigger("FacingUp");
-	        }
+				animator.ResetTrigger("FacingDown");
+				animator.ResetTrigger("FacingRight");
+				animator.ResetTrigger("FacingLeft");
+			}
 			
-	        if (currentTarget.x > pos.x)
+	        if (target == Vector3.right)
 	        {
 		        animator.SetTrigger("FacingRight");
-	        }
+				animator.ResetTrigger("FacingLeft");
+				animator.ResetTrigger("FacingDown");
+				animator.ResetTrigger("FacingUp");
+			}
 			
-	        if (currentTarget.y < pos.y)
+	        if (target == Vector3.down)
 	        {
 		        animator.SetTrigger("FacingDown");
-	        }
+		        animator.ResetTrigger("FacingLeft");
+		        animator.ResetTrigger("FacingRight");
+		        animator.ResetTrigger("FacingUp");
+			}
 			
-	        if (currentTarget.x < pos.x)
+	        if (target == Vector3.left)
 	        {
 		        animator.SetTrigger("FacingLeft");
-	        }
+				animator.ResetTrigger("FacingDown");
+				animator.ResetTrigger("FacingUp");
+				animator.ResetTrigger("FacingRight");
+			}
 		}
 
         public void Kill()
