@@ -16,7 +16,7 @@ namespace Bomberfox
             Vector2 nextPosVector2 = new Vector2(position.x, position.y);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(nextPosVector2, 0.25f);
 
-            // draw debug line to checked place
+            // draw debug line to checked place TODO remove debug tool
             Debug.DrawLine(transform.position, position, Color.red, 0.1f);  
             
             bool isFree = true;
@@ -60,6 +60,8 @@ namespace Bomberfox
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Enemy")) return false;
 
             if (o.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return false;
+
+            if (o.CompareTag("Reserved") && gameObject.CompareTag("Enemy")) return false;
 
             return true;
         }

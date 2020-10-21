@@ -13,6 +13,8 @@ namespace Bomberfox
 	    [SerializeField] private float speed = 10f, lookDistance = 5f;
 	    [SerializeField] private GameObject reservedSpace;
 
+	    private bool spaceIsReserved;
+	    private GameObject space;
 		private Vector3 playerLastSeen;
         private Vector3 randomDirection;
         private Vector3 currentTarget;
@@ -43,6 +45,8 @@ namespace Bomberfox
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == currentTarget)
 			{
+				Destroy(space);
+				spaceIsReserved = false;
 				SetNewTarget();
 				UpdateAnimator();
 			}
@@ -115,16 +119,19 @@ namespace Bomberfox
 
         private void MoveToCurrentTarget()
         {
-	        if (reservedSpace == null)
+	        if (!spaceIsReserved)
 	        {
-		        
+		        space = Instantiate(reservedSpace, currentTarget, Quaternion.identity, transform.parent);
+		        spaceIsReserved = true;
 	        }
-	        transform.position = Vector3.MoveTowards(
-		        transform.position,
-		        currentTarget,
-		        speed * Time.deltaTime);
-	        
-		}
+	        else
+	        {
+		        transform.position = Vector3.MoveTowards(
+			        transform.position,
+			        currentTarget,
+			        speed * Time.deltaTime);
+			}
+        }
 
         private void DefineRandomDirection()
         {
@@ -143,13 +150,18 @@ namespace Bomberfox
 		        }
 
 		        i++;
+
+		        if (i == 30)
+		        {
+					print("Couldn't find a free direction, stopping");
+			        randomDirection = Vector3.zero;
+		        }
 	        }
         }
 
         private void UpdateAnimator()
         {
 	        Vector3 target = transform.InverseTransformPoint(currentTarget).normalized;
-			print(target);
 
 	        if (target == Vector3.up)
 	        {
