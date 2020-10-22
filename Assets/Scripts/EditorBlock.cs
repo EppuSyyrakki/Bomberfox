@@ -7,11 +7,12 @@ using UnityEngine;
 public class EditorBlock : MonoBehaviour
 {
     [SerializeField] private int gridSize = 1;
-    
+#if UNITY_EDITOR
     // Update is called once per frame
     private void Update()
     {
-	    if (!EditorApplication.isPlaying)
+
+        if (!EditorApplication.isPlaying)
 	    {
 		    transform.position = new Vector3(
 			    Mathf.RoundToInt(transform.position.x / gridSize) * gridSize,
@@ -20,4 +21,5 @@ public class EditorBlock : MonoBehaviour
 
 	    }
     }
+#endif
 }
