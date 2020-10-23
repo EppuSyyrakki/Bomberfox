@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
@@ -9,8 +11,17 @@ public class Obstacle : MonoBehaviour
 	private List<Rigidbody2D> childRbs;
 	private BoxCollider2D boxCollider2D;
 
+    [SerializeField] 
+    private GameObject levelEndKey = null;
+
+    public bool IsKey
+    {
+        private get; 
+        set;
+    }
+
 	// Start is called before the first frame update
-    void Start()
+	void Start()
     {
 	    childFaders = new List<Fader>(GetComponentsInChildren<Fader>());
 	    childRbs = new List<Rigidbody2D>(GetComponentsInChildren<Rigidbody2D>());
@@ -37,7 +48,12 @@ public class Obstacle : MonoBehaviour
 			rb.AddForce(dir + explosionDir * Random.Range(100f, 200f));
 		}
 
-		Invoke(nameof(Remove), waitTime * 1.1f);
+        if (IsKey)
+        {
+            Instantiate(levelEndKey, transform.position, Quaternion.identity);
+        }
+
+        Invoke(nameof(Remove), waitTime * 1.1f);
     }
 
     private void Remove() => Destroy(gameObject);

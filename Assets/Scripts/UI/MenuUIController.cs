@@ -10,7 +10,7 @@ namespace Bomberfox.UI
         public void StartGame()
         {
             Debug.Log("Start pressed");
-            GameManager.ChangeLevel(GameManager.Level.InGame);
+            GameManager.ChangeLevel(1);
         }
 
         // Update is called once per frame
