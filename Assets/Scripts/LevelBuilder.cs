@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
@@ -26,7 +27,7 @@ public class LevelBuilder : MonoBehaviour
 	
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
-	private List<Vector3> reserved = new List<Vector3>();
+	private HashSet<Vector3> reserved = new HashSet<Vector3>();
 
 	[SerializeField] private GameObject[] blockPrefabs;
 	[SerializeField] private GameObject[] obstaclePrefabs;
@@ -63,7 +64,8 @@ public class LevelBuilder : MonoBehaviour
 	private void CreatePlayer()
 	{
 		Quaternion q = Quaternion.identity;
-		Vector3 v = reserved[Random.Range(0, reserved.Count)];
+		Vector3[] reservedLocations = reserved.ToArray();
+		Vector3 v = reservedLocations[Random.Range(0, reservedLocations.Length)];
 		Instantiate(playerPrefab, v, q, null);
 	}
 
