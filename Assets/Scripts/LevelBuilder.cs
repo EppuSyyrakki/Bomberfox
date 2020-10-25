@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
-	// include mid directions to avoid no-go places in level
 	private readonly Vector3[] directions =
 	{
 		Vector3.up, 
@@ -17,6 +15,14 @@ public class LevelBuilder : MonoBehaviour
 		Vector3.left,
 		Vector3.left + Vector3.up
 	};
+	private readonly Vector3[] directionsSimple =
+	{
+		Vector3.up,
+		Vector3.right,
+		Vector3.down,
+		Vector3.left,
+	};
+
 	private Transform blocksParent = null;
 	private Transform obstaclesParent = null;
 	private Transform enemiesParent = null;
@@ -27,23 +33,29 @@ public class LevelBuilder : MonoBehaviour
 	
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
-	private HashSet<Vector3> reserved = new HashSet<Vector3>();
+	private int randomBlockChance = 50;
+	private int randomObstacleChance = 75;
+	private List<Vector3> freePositions = new List<Vector3>();
 
-	[SerializeField] private GameObject[] blockPrefabs;
-	[SerializeField] private GameObject[] obstaclePrefabs;
-	[SerializeField] private GameObject[] enemyPrefabs;
-	[SerializeField] private GameObject playerPrefab;
+	[SerializeField] private GameObject[] blockPrefabs = null;
+	[SerializeField] private GameObject[] obstaclePrefabs = null;
+	[SerializeField] private GameObject[] enemyPrefabs = null;
+	[SerializeField] private GameObject playerPrefab = null;
 
 	private void Awake()
 	{
 		FindParentObjects();
+		freePositions.Clear();
 	}
 
 	private void Start()
 	{
-		AddReservedLocations();
+		CreateFreePositions();
 		CreatePlayer();
-		CreateBlocks();
+		CreateNormalBlocks();
+		CreateRandomBlocks(randomBlockChance);
+		CheckForDeadEnds();
+		CreateObstacles(randomObstacleChance);
 	}
 
 	private void FindParentObjects()
@@ -52,83 +64,148 @@ public class LevelBuilder : MonoBehaviour
 		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
 	}
-	
-	private void AddReservedLocations()
-	{
-		for (int i = 0; i < transform.childCount; i++)
-		{
-			reserved.Add(transform.GetChild(i).position);
-		}
-	}
 
-	private void CreatePlayer()
-	{
-		Quaternion q = Quaternion.identity;
-		Vector3[] reservedLocations = reserved.ToArray();
-		Vector3 v = reservedLocations[Random.Range(0, reservedLocations.Length)];
-		Instantiate(playerPrefab, v, q, null);
-	}
-
-	private void CreateBlocks()
+	/// <summary>
+	/// Populate the free positions list with all coordinates
+	/// </summary>
+	private void CreateFreePositions()
 	{
 		for (int y = min.y; y <= max.y; y++)
 		{
 			for (int x = min.x; x <= max.x; x++)
 			{
-				CreateNormalBlock(x, y);
-				CreateRandomBlock(x, y);
-				CreateObstacles(x, y);
+				Vector3 pos = new Vector3(x, y);
+				freePositions.Add(pos);
 			}
 		}
 	}
 
-	private void CreateObstacles(int x, int y)
+	/// <summary>
+	/// Instantiate the player to the position of a random child of this game object
+	/// and remove the child positions from free positions.
+	/// </summary>
+	private void CreatePlayer()
 	{
+		// create player
 		Quaternion q = Quaternion.identity;
-		Vector3 v = new Vector3(x, y, 0);
+		Vector3 v = transform.GetChild(Random.Range(0, transform.childCount)).position;
+		Instantiate(playerPrefab, v, q, null);
 
-		if (reserved.Contains(v)) return;
-
-		if (Random.Range(0, 101) < 66)
+		// remove player start locations from free positions
+		for (int i = 0; i < transform.childCount; i++)
 		{
-			Instantiate(obstaclePrefabs[obstaclesLevel], v, q, obstaclesParent);
+			freePositions.Remove(transform.GetChild(i).position);
 		}
 	}
 
-	private void CreateNormalBlock(int x, int y)
+	/// <summary>
+	/// Instantiate blocks in rows and columns along the edges of the level with empty spaces in between and
+	/// remove each location from free positions.
+	/// </summary>
+	private void CreateNormalBlocks()
 	{
-		if ((x % 2 == 0 && Mathf.Abs(y) == 3) || (Mathf.Abs(y) == 1) && Mathf.Abs(x) == 6)
+		// copy collection because we can't remove one from original while iterating over it
+		Vector3[] freePositionsCopy = freePositions.ToArray();
+
+		foreach (Vector3 v in freePositionsCopy)
 		{
-			Quaternion q = Quaternion.identity;
-			Vector3 v = new Vector3(x, y, 0);
-			Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
-			reserved.Add(v);
+			if ((v.x % 2 == 0 && Mathf.Abs(v.y) == 3) 
+			    || (Mathf.Abs(v.y) == 1) && Mathf.Abs(v.x) == 6)
+			{
+				Quaternion q = Quaternion.identity;
+				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
+				freePositions.Remove(v);
+			}
 		}
 	}
 
-	private void CreateRandomBlock(int x, int y)
+	/// <summary>
+	/// Create blocks at random and remove them from the free positions. Doesn't create a block if there are
+	/// more than 2 blocks around a location. Removes from free positions if block instantiated.
+	/// </summary>
+	/// <param name="chance">the percentage chance to create a block</param>
+	private void CreateRandomBlocks(int chance)
 	{
-		Quaternion q = Quaternion.identity;
-		Vector3 v = new Vector3(x, y, 0);
+		Vector3[] freePositionsCopy = freePositions.ToArray();
 
-		if (reserved.Contains(v)) return;
-
-		if (Random.Range(0, 101) < 30 && LocationNotSurrounded(v))
+		foreach (Vector3 v in freePositionsCopy)
 		{
-			Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
-			reserved.Add(v);
+			if (Random.Range(0, 101) < chance && LocationNotSurrounded(v))
+			{
+				Quaternion q = Quaternion.identity;
+				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
+				freePositions.Remove(v);
+			}
 		}
 	}
 
+	/// <summary>
+	/// Checks if any location in level is surrounded by blocks in 4 directions. If found, removes one at random.
+	/// </summary>
+	private void CheckForDeadEnds()
+	{
+		for (int y = min.y; y <= max.y; y++)
+		{
+			for (int x = min.x; x <= max.x; x++)
+			{
+				if (CheckPositionForDeadEnd(new Vector3(x, y)))
+				{
+					RemoveOneFromAround(new Vector3(x, y));
+				}
+			}
+		}
+	}
+
+	private bool CheckPositionForDeadEnd(Vector3 pos)
+	{
+		int numberOfBlocks = 0;
+
+		foreach (Vector3 dir in directionsSimple)
+		{
+			Collider2D collider = Physics2D.OverlapPoint(pos + dir);
+			
+			if (collider != null && collider.gameObject.CompareTag("Block")) numberOfBlocks++;
+		}
+
+		return numberOfBlocks == 4;
+	}
+
+	private void RemoveOneFromAround(Vector3 pos)
+	{
+		Vector3 randomDir = directionsSimple[Random.Range(0, directionsSimple.Length)];
+		Collider2D collider = Physics2D.OverlapPoint(pos + randomDir);
+		freePositions.Add(collider.gameObject.transform.position);
+		Destroy(collider.gameObject);
+	}
+
+	/// <summary>
+	/// Creates obstacles at random to free positions and removes it from the list.
+	/// </summary>
+	/// <param name="chance">Percentage chance to create an obstacle</param>
+	private void CreateObstacles(int chance)
+	{
+		Vector3[] freePositionsCopy = freePositions.ToArray();
+
+		foreach (Vector3 v in freePositionsCopy)
+		{
+			if (Random.Range(0, 101) < chance)
+			{
+				Quaternion q = Quaternion.identity;
+				Instantiate(obstaclePrefabs[obstaclesLevel], v, q, obstaclesParent);
+				freePositions.Remove(v);
+			}
+		}
+	}
+	
 	private bool LocationNotSurrounded(Vector3 v)
 	{
 		int blockedDirections = 0;
 
 		foreach (Vector3 dir in directions)
 		{
-			if (reserved.Contains(v + dir)) blockedDirections++;
+			if (!freePositions.Contains(v + dir)) blockedDirections++;
 
-			if (blockedDirections > 1) return false;
+			if (blockedDirections > 2) return false;
 		}
 
 		return true;
