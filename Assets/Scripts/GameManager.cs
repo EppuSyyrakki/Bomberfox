@@ -6,22 +6,37 @@ namespace Bomberfox
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager GM;
+        // NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
+        public static GameManager instance = null;
+
+        public static GameManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    // Add instantiation
+                }
+
+                return instance;
+            }
+        }
 
         private bool keyCreated;
 
         void Awake()
         {
-            if (GM != null)
+            if (instance == null)
             {
-                Destroy(GM);
+                instance = this;
             }
-            else
+            else if (instance != this)
             {
-                GM = this;
+                Destroy(gameObject);
+                return;
             }
 
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
 
         void Update()
