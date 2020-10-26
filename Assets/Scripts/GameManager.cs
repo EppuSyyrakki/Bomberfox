@@ -51,6 +51,16 @@ namespace Bomberfox
             {
                 SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
             }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Time.timeScale = 0f;
+            }
+
+            if (Input.GetKeyUp(KeyCode.P))
+            {
+                Time.timeScale = 1f;
+            }
         }
 
         public static void ChangeLevel(int levelNumber)
