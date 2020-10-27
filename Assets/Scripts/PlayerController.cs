@@ -19,6 +19,10 @@ namespace Bomberfox
         [SerializeField]
         private float speed = 10f;
 
+        // How much health the player has (in the beginning)
+        [SerializeField] 
+        private int playerHealth = 5;
+
         // How many bombs the player can drop at the same time
         [SerializeField] 
         private int maxBombs = 3;
@@ -34,17 +38,31 @@ namespace Bomberfox
         private Rigidbody2D rb;
         private Vector2 movement;
 
+        private Health healthSystem;
+
         private void Start()
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
             rb = GetComponent<Rigidbody2D>();
+            healthSystem = new Health(playerHealth);
+            Debug.Log("Player's HP: " + healthSystem.GetHealth());
         }
 
         private void Update()
         {
             ProcessInput();
             UpdateAnimator();
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                healthSystem.Heal(1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                healthSystem.Damage(1);
+            }
         }
 
         private void FixedUpdate()
@@ -115,6 +133,16 @@ namespace Bomberfox
         public void ChangeCurrentBombs(int change)
         {
 	        currentBombs += change;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
+            {
+                healthSystem.Damage(1);
+                Debug.Log("Ouch, I took damage!");
+                Debug.Log(healthSystem.GetHealth());
+            }
         }
     }
 }
