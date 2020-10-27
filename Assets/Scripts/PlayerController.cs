@@ -35,34 +35,30 @@ namespace Bomberfox
         private Animator animator;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
+        private Collider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
 
         private Health healthSystem;
+        public bool isInvulnerable;    // Is the player invulnerable or not
+
+        [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
+        private float invulnerabilityTimer = 5;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
+            playerCollider = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
             healthSystem = new Health(playerHealth);
-            Debug.Log("Player's HP: " + healthSystem.GetHealth());
+            isInvulnerable = false;
         }
 
         private void Update()
         {
             ProcessInput();
             UpdateAnimator();
-
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                healthSystem.Heal(1);
-            }
-
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                healthSystem.Damage(1);
-            }
         }
 
         private void FixedUpdate()
@@ -140,9 +136,21 @@ namespace Bomberfox
             if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
             {
                 healthSystem.Damage(1);
+                isInvulnerable = true;
+                //playerCollider.enabled = !playerCollider.enabled; -> disables colliding with everything on the level
+                Physics2D.IgnoreLayerCollision(8, 9, true);
                 Debug.Log("Ouch, I took damage!");
                 Debug.Log(healthSystem.GetHealth());
+                Invoke("TurnOnCollider", invulnerabilityTimer);
             }
+        }
+
+        private void TurnOnCollider()
+        {
+            isInvulnerable = false;
+            //playerCollider.enabled = !playerCollider.enabled;
+            Physics2D.IgnoreLayerCollision(8, 9, false);
+            Debug.Log("I can take damage again");
         }
     }
 }
