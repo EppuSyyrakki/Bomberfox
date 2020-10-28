@@ -96,7 +96,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 472
+      x: 402
       y: 4
       width: 0
       height: 0
@@ -110,29 +110,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 12, y: -154}
-  - name: Layer 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 460
-      height: 158
-    spriteID: c55aafb12729a804180d1f8dccd67bd5
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -58, y: -154}
   - name: Layer 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +119,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 170
+      y: 146
       width: 286
       height: 63
     spriteID: db1229e35cf535247b0a662ae83eeb04
@@ -154,7 +132,29 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -114, y: 114}
+    uvTransform: {x: -114, y: 90}
+  - name: Layer 3 copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 390
+      height: 134
+    spriteID: 460b4b2752cd7224fb5447a0ce898d0a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -31, y: -8}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -180,13 +180,13 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: c2ae6c62d42bcdc4887a585efb81d7fd
     layerID: 6
-    mosaicPosition: {x: 472, y: 4}
-  - name: Layer 1
-    spriteName: Layer 1
+    mosaicPosition: {x: 402, y: 4}
+  - name: Layer 3 copy
+    spriteName: Layer 3 copy
     isGroup: 0
     parentIndex: -1
-    spriteID: c55aafb12729a804180d1f8dccd67bd5
-    layerID: 2
+    spriteID: 460b4b2752cd7224fb5447a0ce898d0a
+    layerID: 7
     mosaicPosition: {x: 4, y: 4}
   - name: Layer 2
     spriteName: Layer 2
@@ -194,7 +194,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: db1229e35cf535247b0a662ae83eeb04
     layerID: 3
-    mosaicPosition: {x: 4, y: 170}
+    mosaicPosition: {x: 4, y: 146}
   characterData:
     bones: []
     parts: []
