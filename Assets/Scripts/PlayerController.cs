@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyNamespace;
 using UnityEngine;
 
 namespace Bomberfox
@@ -39,6 +40,9 @@ namespace Bomberfox
         private Rigidbody2D rb;
         private Vector2 movement;
 
+        [SerializeField]
+        private DeathMenuUIController deathMenu;
+
         private Health healthSystem;
         public bool isInvulnerable;    // Is the player invulnerable or not
 
@@ -51,8 +55,7 @@ namespace Bomberfox
             collisionHandler = GetComponent<CollisionHandler>();
             playerCollider = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
-            healthSystem = new Health(playerHealth);
-            isInvulnerable = false;
+            InitiateHealth();
         }
 
         private void Update()
@@ -136,12 +139,20 @@ namespace Bomberfox
             if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
             {
                 healthSystem.Damage(1);
-                isInvulnerable = true;
-                //playerCollider.enabled = !playerCollider.enabled; -> disables colliding with everything on the level
-                Physics2D.IgnoreLayerCollision(8, 9, true);
-                Debug.Log("Ouch, I took damage!");
-                Debug.Log(healthSystem.GetHealth());
-                Invoke("TurnOnCollider", invulnerabilityTimer);
+
+                if (healthSystem.GetHealth() <= 0)
+                {
+                    OnDeath();
+                }
+                else
+                {
+                    isInvulnerable = true;
+                    //playerCollider.enabled = !playerCollider.enabled; -> disables colliding with everything on the level
+                    Physics2D.IgnoreLayerCollision(8, 9, true);
+                    Debug.Log("Ouch, I took damage!");
+                    Debug.Log(healthSystem.GetHealth());
+                    Invoke("TurnOnCollider", invulnerabilityTimer);
+                }
             }
         }
 
@@ -151,6 +162,18 @@ namespace Bomberfox
             //playerCollider.enabled = !playerCollider.enabled;
             Physics2D.IgnoreLayerCollision(8, 9, false);
             Debug.Log("I can take damage again");
+        }
+
+        private void OnDeath()
+        {
+            deathMenu.ToggleEndMenu();
+        }
+
+        private void InitiateHealth()
+        {
+            healthSystem = new Health(playerHealth);
+            isInvulnerable = false;
+            Physics2D.IgnoreLayerCollision(8, 9, false);
         }
     }
 }
