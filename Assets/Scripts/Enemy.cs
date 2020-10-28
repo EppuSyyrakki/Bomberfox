@@ -70,14 +70,19 @@ namespace Bomberfox
 				}
 		        
 		        if (check && check.transform.CompareTag("Player"))
-		        {
-			        // if we see the player, return the players position rounded to whole numbers
-			        Vector3 pos = new Vector3(
-				        Mathf.RoundToInt(check.transform.position.x),
-				        Mathf.RoundToInt(check.transform.position.y),
-				        0);
-			        return pos;
-		        }
+                {
+                    PlayerController player = check.transform.GetComponent<PlayerController>();
+
+                    if (!player.isInvulnerable)
+                    {
+                        // if we see the player, return the players position rounded to whole numbers
+                        Vector3 pos = new Vector3(
+                            Mathf.RoundToInt(check.transform.position.x),
+                            Mathf.RoundToInt(check.transform.position.y),
+                            0);
+                        return pos;
+					}
+                }
 	        }
 
 			// if we can't see the player, return a "null" vector outside game area

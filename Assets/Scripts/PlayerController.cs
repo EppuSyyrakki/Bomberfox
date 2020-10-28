@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyNamespace;
 using UnityEngine;
 
 namespace Bomberfox
@@ -19,6 +20,10 @@ namespace Bomberfox
         [SerializeField]
         private float speed = 10f;
 
+        // How much health the player has (in the beginning)
+        [SerializeField] 
+        private int playerHealth = 5;
+
         // How many bombs the player can drop at the same time
         [SerializeField] 
         private int maxBombs = 3;
@@ -31,14 +36,26 @@ namespace Bomberfox
         private Animator animator;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
+        private Collider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
+
+        [SerializeField]
+        private DeathMenuUIController deathMenu;
+
+        private Health healthSystem;
+        public bool isInvulnerable;    // Is the player invulnerable or not
+
+        [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
+        private float invulnerabilityTimer = 5;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
+            playerCollider = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
+            InitiateHealth();
         }
 
         private void Update()
@@ -115,6 +132,48 @@ namespace Bomberfox
         public void ChangeCurrentBombs(int change)
         {
 	        currentBombs += change;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
+            {
+                healthSystem.Damage(1);
+
+                if (healthSystem.GetHealth() <= 0)
+                {
+                    OnDeath();
+                }
+                else
+                {
+                    isInvulnerable = true;
+                    //playerCollider.enabled = !playerCollider.enabled; -> disables colliding with everything on the level
+                    Physics2D.IgnoreLayerCollision(8, 9, true);
+                    Debug.Log("Ouch, I took damage!");
+                    Debug.Log(healthSystem.GetHealth());
+                    Invoke("TurnOnCollider", invulnerabilityTimer);
+                }
+            }
+        }
+
+        private void TurnOnCollider()
+        {
+            isInvulnerable = false;
+            //playerCollider.enabled = !playerCollider.enabled;
+            Physics2D.IgnoreLayerCollision(8, 9, false);
+            Debug.Log("I can take damage again");
+        }
+
+        private void OnDeath()
+        {
+            deathMenu.ToggleEndMenu();
+        }
+
+        private void InitiateHealth()
+        {
+            healthSystem = new Health(playerHealth);
+            isInvulnerable = false;
+            Physics2D.IgnoreLayerCollision(8, 9, false);
         }
     }
 }

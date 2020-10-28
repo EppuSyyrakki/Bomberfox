@@ -8,6 +8,7 @@ namespace Bomberfox
     {
         // NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
         public static GameManager instance = null;
+        private string scene;
 
         public static GameManager Instance
         {
@@ -37,15 +38,18 @@ namespace Bomberfox
             }
 
             DontDestroyOnLoad(gameObject);
+
+            Scene currentScene = SceneManager.GetActiveScene();
+            scene = currentScene.name;
         }
 
         void Update()
         {
-	        if (!keyCreated)
+	        if (!keyCreated && scene == "TestingGrounds")
 	        {
 		        CreateKeyObstacle();
 		        keyCreated = true;
-	        }
+            }
 
             if (Input.GetKey(KeyCode.R))
             {
