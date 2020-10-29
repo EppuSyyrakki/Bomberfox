@@ -22,7 +22,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Lights
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
   - name: Destructible
     uniqueID: 1733409701
     locked: 0
+  - name: Lantern
+    uniqueID: 119370733
+    locked: 0
   - name: Player
     uniqueID: 1018266871
     locked: 0
@@ -71,4 +74,7 @@ TagManager:
     locked: 0
   - name: top elements
     uniqueID: 3684143257
+    locked: 0
+  - name: Edges
+    uniqueID: 2842825135
     locked: 0

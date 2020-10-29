@@ -7,6 +7,7 @@ namespace Bomberfox
 	public class Fader : MonoBehaviour
 	{
 		private SpriteRenderer spriteRenderer;
+		private Animator thornAnimator;
 		private float lerpTime;
 
 		public bool Fade { private get; set; }
@@ -16,6 +17,7 @@ namespace Bomberfox
 		void Start()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
+			thornAnimator = GetComponentInParent<Animator>();
 		}
 
 		// Update is called once per frame
@@ -31,6 +33,7 @@ namespace Bomberfox
 		{
 			float alpha = Mathf.Lerp(1f, 0f, lerpTime);
 			lerpTime += Time.deltaTime / fadeOutTime;
+			thornAnimator.enabled = false;
 		}
 	}
 }
