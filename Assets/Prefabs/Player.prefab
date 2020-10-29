@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 56051634915622504}
   - component: {fileID: 8993752429593050495}
   m_Layer: 0
-  m_Name: lantern (1)
+  m_Name: lantern LEFT and RIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 8851159129849262926}
   - component: {fileID: 1032592465233119402}
   m_Layer: 0
-  m_Name: lantern
+  m_Name: lantern FRONT and BACK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17d2d3fc9f93db4e94714c106ba00f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 5
   playerHealth: 5
   maxBombs: 3
   currentBombs: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   - {x: -0.4179197, y: -0.16115573, z: 0}
   m_ShapePathHash: 1362743175
   m_Mesh: {fileID: 0}
-  m_InstanceId: 51400
+  m_InstanceId: 143782
 --- !u!50 &5614127677927115204
 Rigidbody2D:
   serializedVersion: 4

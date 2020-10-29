@@ -66,7 +66,7 @@ namespace Bomberfox
 
         private void FixedUpdate()
         {
-	        
+	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Bomberfox
 	            CreateBomb();
             }
 
-            rb.MovePosition(rb.position + movement * (speed * Time.deltaTime));
+           
         }
 
         private void CreateBomb()
