@@ -1334,7 +1334,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 300
+      scalar: 150
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1796,7 +1796,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 49.5
+      value: 42.81
       mode: 0
       spread: 0
       speed:
@@ -2353,7 +2353,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.24313726}
+        key0: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 0.15686275}
         key1: {r: 0.49353904, g: 0.10849059, b: 1, a: 0.13725491}
         key2: {r: 0, g: 0.61293083, b: 0.8773585, a: 0.03529412}
         key3: {r: 1, g: 1, b: 1, a: 0.019607844}
@@ -6863,7 +6863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_InstanceId
-      value: -122282
+      value: -28320
       objectReference: {fileID: 0}
     - target: {fileID: 1241987280838392269, guid: 7a31ed3fff1b6624b9cd0f919289aabc, type: 3}
       propertyPath: m_Mesh
