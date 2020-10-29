@@ -140,7 +140,7 @@ MonoBehaviour:
   - {x: -0.39364696, y: -0.2801351, z: 0}
   m_ShapePathHash: 1887425349
   m_Mesh: {fileID: 0}
-  m_InstanceId: 153172
+  m_InstanceId: 35842
 --- !u!95 &6837414572276254721
 Animator:
   serializedVersion: 3
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 1166348605690895745}
   m_Layer: 0
   m_Name: Root2 Front
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 1166348607110375362}
   m_Layer: 0
   m_Name: Grass Back
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 1166348606023286105}
   m_Layer: 0
   m_Name: Grass Front
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 1166348606536519509}
   m_Layer: 0
   m_Name: Root1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 1166348606237507565}
   m_Layer: 0
   m_Name: Root2 Back
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 1166348605806763585}
   m_Layer: 0
   m_Name: Root3 Back
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 1166348606383111230}
   m_Layer: 0
   m_Name: Root3 Front
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
