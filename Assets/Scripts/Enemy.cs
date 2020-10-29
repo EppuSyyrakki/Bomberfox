@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace Bomberfox
@@ -7,7 +8,7 @@ namespace Bomberfox
     [RequireComponent(typeof(CollisionHandler))]
     public class Enemy : MonoBehaviour
     {
-	    [SerializeField] private float speed = 10f, lookDistance = 5f;
+	    [SerializeField] private float speed = 10f, lookDistance = 5f, spawnTime = 2f;
 	    [SerializeField] private GameObject reservedSpace = null;
 
 	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
@@ -19,6 +20,7 @@ namespace Bomberfox
         private Vector3 currentTarget;
         private CollisionHandler collisionHandler;
         private Animator animator;
+        private float spawnTimer = 0f;
 
         private void Awake()
         {
@@ -36,6 +38,10 @@ namespace Bomberfox
 
         private void Update()
         {
+	        spawnTimer += Time.deltaTime;
+
+	        if (spawnTime > spawnTimer) return;
+
 	        // check if we can see the player somewhere
 			playerLastSeen = LookForPlayer();	
             
