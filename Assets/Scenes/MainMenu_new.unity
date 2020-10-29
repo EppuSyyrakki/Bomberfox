@@ -10369,7 +10369,7 @@ GameObject:
   - component: {fileID: 905537731}
   - component: {fileID: 905537730}
   m_Layer: 0
-  m_Name: fuse bomb audio
+  m_Name: thunder audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10385,9 +10385,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a9e9f338532a1f0439154c03ed3ed825, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ae590720de8f1714388a5669e89ba524, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.73
   m_Pitch: 1
   Loop: 0
   Mute: 0
