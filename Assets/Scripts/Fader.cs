@@ -17,7 +17,10 @@ namespace Bomberfox
 		void Start()
 		{
 			spriteRenderer = GetComponent<SpriteRenderer>();
-			thornAnimator = GetComponentInParent<Animator>();
+			if (this.gameObject.tag == "Obstacle")
+            {
+				thornAnimator = GetComponentInParent<Animator>();
+			}
 		}
 
 		// Update is called once per frame
@@ -33,7 +36,10 @@ namespace Bomberfox
 		{
 			float alpha = Mathf.Lerp(1f, 0f, lerpTime);
 			lerpTime += Time.deltaTime / fadeOutTime;
-			thornAnimator.enabled = false;
+			if (this.gameObject.tag == "Obstacle")
+			{
+				thornAnimator.enabled = false;
+			}
 		}
 	}
 }
