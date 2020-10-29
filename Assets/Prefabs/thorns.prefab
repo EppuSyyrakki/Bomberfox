@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1166348607185489404}
   - component: {fileID: 1166348607185489402}
   - component: {fileID: 7985103445809541226}
-  - component: {fileID: 164536567490824131}
   m_Layer: 0
   m_Name: thorns
   m_TagString: Obstacle
@@ -53,7 +52,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,40 +132,7 @@ MonoBehaviour:
   - {x: 0.008900642, y: -0.32589185, z: 0}
   m_ShapePathHash: 1805921335
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39620
---- !u!60 &164536567490824131
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550303543561753777}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.42313492, y: 0.5031073}
-      - {x: -0.41118383, y: 0.49999484}
-      - {x: -0.5001404, y: 0.3876236}
-      - {x: -0.4968658, y: -0.4013842}
-      - {x: -0.4053325, y: -0.49845916}
-      - {x: 0.41309655, y: -0.49845904}
-      - {x: 0.5014404, y: -0.38301912}
-      - {x: 0.5007477, y: 0.3905385}
+  m_InstanceId: 50856
 --- !u!1 &906821446082912369
 GameObject:
   m_ObjectHideFlags: 0
