@@ -22,7 +22,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Lights
   - 
   - 
   - 
@@ -71,4 +71,7 @@ TagManager:
     locked: 0
   - name: top elements
     uniqueID: 3684143257
+    locked: 0
+  - name: Edges
+    uniqueID: 2842825135
     locked: 0
