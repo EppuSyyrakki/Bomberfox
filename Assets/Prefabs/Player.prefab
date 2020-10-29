@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 56051634915622504}
   - component: {fileID: 8993752429593050495}
   m_Layer: 0
-  m_Name: lantern (1)
+  m_Name: lantern LEFT and RIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 8851159129849262926}
   - component: {fileID: 1032592465233119402}
   m_Layer: 0
-  m_Name: lantern
+  m_Name: lantern FRONT and BACK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1163,7 +1163,7 @@ GameObject:
   - component: {fileID: 325367563}
   - component: {fileID: 5614127677927115204}
   - component: {fileID: 1913034046762169791}
-  - component: {fileID: 926174649196284012}
+  - component: {fileID: 8887661678695959385}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17d2d3fc9f93db4e94714c106ba00f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 5
   playerHealth: 5
   maxBombs: 3
   currentBombs: 0
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   - {x: -0.4179197, y: -0.16115573, z: 0}
   m_ShapePathHash: 1362743175
   m_Mesh: {fileID: 0}
-  m_InstanceId: 21040
+  m_InstanceId: 143782
 --- !u!50 &5614127677927115204
 Rigidbody2D:
   serializedVersion: 4
@@ -1348,8 +1348,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
---- !u!58 &926174649196284012
-CircleCollider2D:
+--- !u!60 &8887661678695959385
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1361,9 +1361,26 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
-  serializedVersion: 2
-  m_Radius: 0.48
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.39392072, y: -0.062039003}
+      - {x: 0.050778985, y: 0.33158833}
+      - {x: -0.07426572, y: 0.33160993}
+      - {x: -0.4311977, y: -0.037555695}
+      - {x: -0.43101582, y: -0.16927844}
+      - {x: -0.078879625, y: -0.5301434}
+      - {x: 0.059793793, y: -0.5258033}
+      - {x: 0.39481193, y: -0.17049456}
 --- !u!1 &4296904739453058913
 GameObject:
   m_ObjectHideFlags: 0
