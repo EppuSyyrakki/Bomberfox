@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Bomberfox;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
@@ -30,7 +31,7 @@ public class LevelBuilder : MonoBehaviour
 	// bottom left and top right corners to limit creation loops
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
 	private Vector3Int max = new Vector3Int(7, 4, 0);
-	
+
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
 	private int randomBlockChance = 50;
@@ -50,12 +51,19 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Start()
 	{
+		CalculateBuildParameters(GameManager.Instance.CurrentLevel);
 		CreateFreePositions();
 		CreatePlayer();
 		CreateNormalBlocks();
 		CreateRandomBlocks(randomBlockChance);
 		CheckForDeadEnds();
 		CreateObstacles(randomObstacleChance);
+		CreateKeyObstacle();
+	}
+
+	private void CalculateBuildParameters(int currentLevel)
+	{
+		// change build parameters according to current level
 	}
 
 	private void FindParentObjects()
@@ -63,6 +71,11 @@ public class LevelBuilder : MonoBehaviour
 		blocksParent = GameObject.Find("Blocks").transform;
 		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
+
+		if (blocksParent == null || obstaclesParent == null || enemiesParent == null)
+		{
+			Debug.Log("One of the required parent GameObjects is missing from scene.");
+		}
 	}
 
 	/// <summary>
@@ -196,7 +209,17 @@ public class LevelBuilder : MonoBehaviour
 			}
 		}
 	}
-	
+
+	public void CreateKeyObstacle()
+	{
+		GameObject[] allObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+		GameObject keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
+		keyObstacle.GetComponent<Obstacle>().IsKey = true;
+		Debug.Log("Key was hidden in " + keyObstacle.transform.position);
+
+		keyObstacle.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+	}
+
 	private bool LocationNotSurrounded(Vector3 v)
 	{
 		int blockedDirections = 0;

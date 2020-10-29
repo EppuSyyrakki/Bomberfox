@@ -9,7 +9,7 @@ namespace Bomberfox.UI
         public void StartGame()
         {
             Debug.Log("Start pressed");
-            GameManager.ChangeLevel(1);
+            GameManager.Instance.ChangeLevel(1);
         }
 
         public void QuitGame()

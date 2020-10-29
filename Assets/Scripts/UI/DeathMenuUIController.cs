@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace MyNamespace
 {
-    public class DeathMenuUIController : MonoBehaviour
-    {
-        void Start()
+	public class DeathMenuUIController : MonoBehaviour
+	{
+		void Start()
         {
             gameObject.SetActive(false);
         }
@@ -25,12 +25,12 @@ namespace MyNamespace
 
         public void Restart()
         {
-            GameManager.ChangeLevel(1);
+            GameManager.Instance.ChangeLevel(1);
         }
 
         public void BackToMenu()
         {
-            GameManager.ChangeLevel(0);
+            GameManager.Instance.ChangeLevel(0);
         }
     }
 }
