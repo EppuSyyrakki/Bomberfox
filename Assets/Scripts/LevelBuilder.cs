@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelBuilder : MonoBehaviour
 {
@@ -35,18 +37,43 @@ public class LevelBuilder : MonoBehaviour
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
 	private int randomBlockChance = 50;
-	private int randomObstacleChance = 75;
-	private List<Vector3> freePositions = new List<Vector3>();
+	private int randomObstacleChance = 50;
+	private int enemyCount = 6;
+	private List<Vector3Int> freePositions = new List<Vector3Int>();
 
 	[SerializeField] private GameObject[] blockPrefabs = null;
 	[SerializeField] private GameObject[] obstaclePrefabs = null;
 	[SerializeField] private GameObject[] enemyPrefabs = null;
 	[SerializeField] private GameObject playerPrefab = null;
 
+	private int framecalc = 0;
+
 	private void Awake()
 	{
 		FindParentObjects();
 		freePositions.Clear();
+	}
+
+	private void Update()
+	{
+		// debugging lines
+
+		//if (framecalc == 1)
+		//	CreateFreePositions();
+		//if (framecalc == 2)
+		//	CreatePlayer();
+		//if (framecalc == 3)
+		//	CreateNormalBlocks();
+		//if (framecalc == 4)
+		//	CreateRandomBlocks(randomBlockChance);
+		//if (framecalc == 5)
+		//	CheckForDeadEnds();
+		//if (framecalc == 6)
+		//	CreateObstacles(randomObstacleChance);
+		//if (framecalc == 7)
+		//	CreateKeyObstacle();
+
+		//framecalc++;
 	}
 
 	private void Start()
@@ -59,6 +86,7 @@ public class LevelBuilder : MonoBehaviour
 		CheckForDeadEnds();
 		CreateObstacles(randomObstacleChance);
 		CreateKeyObstacle();
+		CreateEnemies();
 	}
 
 	private void CalculateBuildParameters(int currentLevel)
@@ -87,7 +115,7 @@ public class LevelBuilder : MonoBehaviour
 		{
 			for (int x = min.x; x <= max.x; x++)
 			{
-				Vector3 pos = new Vector3(x, y);
+				Vector3Int pos = new Vector3Int(x, y, 0);
 				freePositions.Add(pos);
 			}
 		}
@@ -105,10 +133,16 @@ public class LevelBuilder : MonoBehaviour
 		Instantiate(playerPrefab, v, q, null);
 
 		// remove player start locations from free positions
-		for (int i = 0; i < transform.childCount; i++)
+		foreach (Transform child in GetComponentsInChildren<Transform>())
 		{
-			freePositions.Remove(transform.GetChild(i).position);
+			Vector3Int toRemove = Vector3ToInt(child.position);
+			freePositions.Remove(toRemove);
 		}
+	}
+
+	private static Vector3Int Vector3ToInt(Vector3 toChange)
+	{
+		return new Vector3Int(Mathf.RoundToInt(toChange.x), Mathf.RoundToInt(toChange.y), 0);
 	}
 
 	/// <summary>
@@ -118,7 +152,7 @@ public class LevelBuilder : MonoBehaviour
 	private void CreateNormalBlocks()
 	{
 		// copy collection because we can't remove one from original while iterating over it
-		Vector3[] freePositionsCopy = freePositions.ToArray();
+		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
 		{
@@ -127,7 +161,7 @@ public class LevelBuilder : MonoBehaviour
 			{
 				Quaternion q = Quaternion.identity;
 				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
-				freePositions.Remove(v);
+				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
 	}
@@ -139,7 +173,7 @@ public class LevelBuilder : MonoBehaviour
 	/// <param name="chance">the percentage chance to create a block</param>
 	private void CreateRandomBlocks(int chance)
 	{
-		Vector3[] freePositionsCopy = freePositions.ToArray();
+		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
 		{
@@ -147,7 +181,7 @@ public class LevelBuilder : MonoBehaviour
 			{
 				Quaternion q = Quaternion.identity;
 				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
-				freePositions.Remove(v);
+				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
 	}
@@ -187,7 +221,7 @@ public class LevelBuilder : MonoBehaviour
 	{
 		Vector3 randomDir = directionsSimple[Random.Range(0, directionsSimple.Length)];
 		Collider2D collider = Physics2D.OverlapPoint(pos + randomDir);
-		freePositions.Add(collider.gameObject.transform.position);
+		freePositions.Add(Vector3ToInt(collider.gameObject.transform.position));
 		Destroy(collider.gameObject);
 	}
 
@@ -197,7 +231,7 @@ public class LevelBuilder : MonoBehaviour
 	/// <param name="chance">Percentage chance to create an obstacle</param>
 	private void CreateObstacles(int chance)
 	{
-		Vector3[] freePositionsCopy = freePositions.ToArray();
+		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
 		{
@@ -205,19 +239,33 @@ public class LevelBuilder : MonoBehaviour
 			{
 				Quaternion q = Quaternion.identity;
 				Instantiate(obstaclePrefabs[obstaclesLevel], v, q, obstaclesParent);
-				freePositions.Remove(v);
+				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
 	}
 
-	public void CreateKeyObstacle()
+	private void CreateKeyObstacle()
 	{
-		GameObject[] allObstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-		GameObject keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
-		keyObstacle.GetComponent<Obstacle>().IsKey = true;
+		Obstacle[] allObstacles = obstaclesParent.GetComponentsInChildren<Obstacle>();
+		Obstacle keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
+		keyObstacle.IsKey = true;
 		Debug.Log("Key was hidden in " + keyObstacle.transform.position);
 
-		keyObstacle.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+		// keyObstacle.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+	}
+
+	private void CreateEnemies()
+	{
+		if (enemyCount > freePositions.Count) enemyCount = freePositions.Count;
+
+		for (int i = enemyCount; i > 0; i--)
+		{
+			Vector3Int[] freePositionsCopy = freePositions.ToArray();
+			Vector3Int v = freePositionsCopy[Random.Range(0, freePositionsCopy.Length)];
+			Quaternion q = Quaternion.identity;
+			Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], v, q, obstaclesParent);
+			freePositions.Remove(v);
+		}
 	}
 
 	private bool LocationNotSurrounded(Vector3 v)
@@ -226,7 +274,7 @@ public class LevelBuilder : MonoBehaviour
 
 		foreach (Vector3 dir in directions)
 		{
-			if (!freePositions.Contains(v + dir)) blockedDirections++;
+			if (!freePositions.Contains(Vector3ToInt(v + dir))) blockedDirections++;
 
 			if (blockedDirections > 2) return false;
 		}
