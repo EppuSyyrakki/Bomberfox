@@ -45,7 +45,7 @@ namespace Bomberfox
 
             if (!Blocked && collisionHandler.CheckPosition(position))
             {
-	            GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
+                GameObject obj = Instantiate(shockWavePrefab, position, Quaternion.identity, transform);
 	            obj.GetComponent<ShockWave>().SetDelay(fadeDelay);
             }
             else Blocked = true;

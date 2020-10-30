@@ -68,7 +68,7 @@ namespace Bomberfox
         {
 	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
-
+        
         /// <summary>
         /// Checks input and creates a bomb if maxBombs allows.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Bomberfox
 
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
-	            CreateBomb();
+                CreateBomb();
             }
 
            
@@ -96,7 +96,7 @@ namespace Bomberfox
 	        {
 		        GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
 		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
-	        }
+            }
         }
 
         /// <summary>
@@ -111,10 +111,36 @@ namespace Bomberfox
 	        
 	        moveDirection = DefineMoveDirection();
 
-	        if (moveDirection == Direction.Up) animator.SetTrigger("FacingUp");
-            if (moveDirection == Direction.Right) animator.SetTrigger("FacingRight");
-            if (moveDirection == Direction.Down) animator.SetTrigger("FacingDown");
-            if (moveDirection == Direction.Left) animator.SetTrigger("FacingLeft");
+
+            if (moveDirection == Direction.Up)
+            {
+                animator.SetBool("FacingUp", true);
+                animator.SetBool("FacingRight", false);
+                animator.SetBool("FacingDown", false);
+                animator.SetBool("FacingLeft", false);
+            }
+            if (moveDirection == Direction.Down)
+            {
+                animator.SetBool("FacingUp", false);
+                animator.SetBool("FacingRight", false);
+                animator.SetBool("FacingDown", true);
+                animator.SetBool("FacingLeft", false);
+            }
+            if (moveDirection == Direction.Left)
+            {
+                animator.SetBool("FacingUp", false);
+                animator.SetBool("FacingRight", false);
+                animator.SetBool("FacingDown", false);
+                animator.SetBool("FacingLeft", true);
+            }
+            if (moveDirection == Direction.Right)
+            {
+                animator.SetBool("FacingUp", false);
+                animator.SetBool("FacingRight", true);
+                animator.SetBool("FacingDown", false);
+                animator.SetBool("FacingLeft", false);
+            }
+
         }
 
         /// <summary>

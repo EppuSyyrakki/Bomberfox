@@ -44,7 +44,7 @@ MonoBehaviour:
   - {x: -0.0759543, y: 0.45271435, z: 0}
   m_ShapePathHash: -1244844076
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41408
+  m_InstanceId: 74138
 --- !u!1 &2714428111627200752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,6 +4868,7 @@ GameObject:
   - component: {fileID: 1229281652574881727}
   - component: {fileID: 1321268035213715520}
   - component: {fileID: 2094360719}
+  - component: {fileID: 449659128481133803}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -4899,7 +4900,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7126158467214336790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4931,6 +4932,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 1
+--- !u!58 &449659128481133803
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126158467214336790}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8165540124765755338
 GameObject:
   m_ObjectHideFlags: 0
