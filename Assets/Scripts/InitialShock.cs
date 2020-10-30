@@ -35,7 +35,7 @@ namespace Bomberfox
 		{
 			for (int i = 0; i < 4; i++)
 			{
-
+				
 				GameObject obj = Instantiate(shockWavePrefab, transform.position, Quaternion.identity, transform);
 				ShockWave sw = obj.GetComponent<ShockWave>();
 				sw.Direction = directions[i];

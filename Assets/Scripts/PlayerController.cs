@@ -68,7 +68,7 @@ namespace Bomberfox
         {
 	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
-
+        
         /// <summary>
         /// Checks input and creates a bomb if maxBombs allows.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Bomberfox
 
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
-	            CreateBomb();
+                CreateBomb();
             }
 
            
@@ -96,7 +96,7 @@ namespace Bomberfox
 	        {
 		        GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
 		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
-	        }
+            }
         }
 
         /// <summary>
