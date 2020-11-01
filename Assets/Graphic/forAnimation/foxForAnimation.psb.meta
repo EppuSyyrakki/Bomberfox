@@ -245,8 +245,8 @@ ScriptedImporter:
     uvTransform: {x: 749, y: 169}
   - name: RIGHT_legLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.44495702, y: 0.57781124}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -421,8 +421,8 @@ ScriptedImporter:
     uvTransform: {x: -71, y: 509}
   - name: LEFT_legLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.464282, y: 0.3986224}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -443,8 +443,8 @@ ScriptedImporter:
     uvTransform: {x: 842, y: 371}
   - name: LEFT_legRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4806722, y: 0.57497543}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -470,7 +470,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 171
+      x: 173
       y: 169
       width: 157
       height: 201
@@ -536,7 +536,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 5
       y: 4
       width: 218
       height: 157
@@ -553,8 +553,8 @@ ScriptedImporter:
     uvTransform: {x: -28, y: -14}
   - name: BACK_armLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.43933728, y: 0.58443934}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -575,8 +575,8 @@ ScriptedImporter:
     uvTransform: {x: 925, y: 189}
   - name: BACK_armRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5540383, y: 0.55124533}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -597,8 +597,8 @@ ScriptedImporter:
     uvTransform: {x: 697, y: 181}
   - name: BACK_legLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.47856036, y: 0.44514483}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -619,8 +619,8 @@ ScriptedImporter:
     uvTransform: {x: 43, y: 564}
   - name: BACK_legRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.503749, y: 0.501621}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -685,8 +685,8 @@ ScriptedImporter:
     uvTransform: {x: 342, y: -135}
   - name: FRONT_bag
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.58130234, y: 0.41013804}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -751,8 +751,8 @@ ScriptedImporter:
     uvTransform: {x: 591, y: 335}
   - name: FRONT_legLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5383873, y: 0.5378394}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -795,8 +795,8 @@ ScriptedImporter:
     uvTransform: {x: 320, y: 494}
   - name: FRONT_legRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4439708, y: 0.4752908}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -817,8 +817,8 @@ ScriptedImporter:
     uvTransform: {x: 869, y: 481}
   - name: FRONT_armRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5050643, y: 0.52207416}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
