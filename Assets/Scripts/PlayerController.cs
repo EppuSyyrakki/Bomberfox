@@ -77,6 +77,16 @@ namespace Bomberfox
 	        movement.x = Input.GetAxis("Horizontal");
 	        movement.y = Input.GetAxis("Vertical");
 
+	        float pythagoras = ((movement.x * movement.x) + (movement.y * movement.y));
+
+	        if (pythagoras > (speed * speed))
+	        {
+		        float magnitude = Mathf.Sqrt(pythagoras);
+		        float multiplier = speed / magnitude;
+		        movement.x *= multiplier;
+		        movement.y *= multiplier;
+	        }
+
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
                 CreateBomb();
