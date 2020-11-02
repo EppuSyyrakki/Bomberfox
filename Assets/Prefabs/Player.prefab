@@ -1384,11 +1384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  playerHealth: 5
+  playerHealth: 1
   maxBombs: 3
   currentBombs: 0
   bombPrefab: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
-  deathMenu: {fileID: 0}
   isInvulnerable: 0
   invulnerabilityTimer: 5
 --- !u!114 &-8475925279940206486

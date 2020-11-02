@@ -9,7 +9,9 @@ namespace Bomberfox
     {
         // NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
         public static GameManager instance = null;
-        
+
+        public GameObject deathMenu;
+
         public int CurrentLevel { get; set; }
 
         public static GameManager Instance

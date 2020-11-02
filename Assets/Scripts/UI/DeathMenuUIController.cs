@@ -1,30 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using Bomberfox;
 using UnityEngine;
 
-namespace MyNamespace
+namespace Bomberfox.UI
 {
-	public class DeathMenuUIController : MonoBehaviour
-	{
-		void Start()
+    public class DeathMenuUIController : MonoBehaviour
+    {
+        public void RestartGame()
         {
-            gameObject.SetActive(false);
-        }
-
-        void Update()
-        {
-
-        }
-
-        public void ToggleEndMenu()
-        {
-            gameObject.SetActive(true);
-        }
-
-        public void Restart()
-        {
+            Debug.Log("Play again pressed");
             GameManager.Instance.ChangeLevel(1);
         }
 

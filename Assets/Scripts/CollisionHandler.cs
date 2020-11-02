@@ -59,6 +59,8 @@ namespace Bomberfox
 
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Player")) return false;
 
+            if (o.CompareTag("Player") && gameObject.CompareTag("ShockWave")) return TakeDamage(o);
+
             if (o.CompareTag("Obstacle") && gameObject.CompareTag("Enemy")) return false;
 
             if (o.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return false;
@@ -91,6 +93,18 @@ namespace Bomberfox
             enemy.Kill();
             shockWave.Blocked = true;
             return true;
+        }
+
+        private bool TakeDamage(GameObject o)
+        {
+            PlayerController player = o.GetComponent<PlayerController>();
+
+            if (!player.isInvulnerable)
+            {
+                player.TakeDamage();
+            }
+
+            return false;
         }
     }
 }
