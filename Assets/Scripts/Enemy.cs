@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Bomberfox
 {
     [RequireComponent(typeof(CollisionHandler))]
     public class Enemy : MonoBehaviour
     {
-	    [SerializeField] private float speed = 10f, lookDistance = 5f, spawnTime = 2f;
+	    [SerializeField] private float speed = 10f, lookDistance = 5f;
 	    [SerializeField] private GameObject reservedSpace = null;
 
 	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
@@ -16,11 +18,13 @@ namespace Bomberfox
 		private bool spaceIsReserved;
 	    private GameObject space;
 		private Vector3 playerLastSeen;
-        private Vector3 randomDirection;
+        private Vector3 randomDirection = Vector3.zero;
         private Vector3 currentTarget;
         private CollisionHandler collisionHandler;
         private Animator animator;
         private float spawnTimer = 0f;
+		private float spawnTime = 0f;
+
 
         private void Awake()
         {
@@ -30,17 +34,16 @@ namespace Bomberfox
 
         private void Start()
         {
+	        spawnTime = animator.GetCurrentAnimatorStateInfo(0).length + 0.1f;
 	        playerLastSeen = nowhere;
-            DefineRandomDirection();
-            currentTarget = transform.position + randomDirection;
-            animator.SetBool("Moving", true);
+	        currentTarget = transform.position + randomDirection;
         }
 
         private void Update()
         {
 	        spawnTimer += Time.deltaTime;
 
-	        if (spawnTime > spawnTimer) return;
+	        if (spawnTimer < spawnTime) return;
 
 	        // check if we can see the player somewhere
 			playerLastSeen = LookForPlayer();	
@@ -48,15 +51,18 @@ namespace Bomberfox
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == currentTarget)
 			{
-				Destroy(space);
-				spaceIsReserved = false;
+				if (spaceIsReserved)
+				{
+					Destroy(space);
+					spaceIsReserved = false;
+				}
+
 				SetNewTarget();
 				UpdateAnimator();
 			}
 	        
 			// move to our current target
-            MoveToCurrentTarget();
-            
+             MoveToCurrentTarget();
         }
 
         private Vector3 LookForPlayer()
@@ -69,26 +75,17 @@ namespace Bomberfox
 			        directions[i],
 			        lookDistance);
 		        
-		        // draw debug line for the ray TODO remove debug lines
-		        if (check)
+		        if (check && check.transform.gameObject.TryGetComponent(out PlayerController player))
 		        {
-			        Debug.DrawLine(transform.position + directions[i], check.transform.position, Color.cyan);
-				}
-		        
-		        if (check && check.transform.CompareTag("Player"))
-                {
-                    PlayerController player = check.transform.GetComponent<PlayerController>();
+			        if (player.isInvulnerable) return nowhere;
 
-                    if (!player.isInvulnerable)
-                    {
-                        // if we see the player, return the players position rounded to whole numbers
-                        Vector3 pos = new Vector3(
-                            Mathf.RoundToInt(check.transform.position.x),
-                            Mathf.RoundToInt(check.transform.position.y),
-                            0);
-                        return pos;
-					}
-                }
+			        // if we see the player, return the players position rounded to whole numbers
+			        Vector3 pos = new Vector3(
+				        Mathf.RoundToInt(check.transform.position.x),
+				        Mathf.RoundToInt(check.transform.position.y),
+				        0);
+			        return pos;
+		        }
 	        }
 
 			// if we can't see the player, return a "null" vector outside game area
@@ -174,6 +171,9 @@ namespace Bomberfox
 	        if (target == Vector3.right) SetTrigger("FacingRight");
 			if (target == Vector3.down) SetTrigger("FacingDown");
 			if (target == Vector3.left) SetTrigger("FacingLeft");
+			
+			// if the enemy is "stuck", display moving down animation
+			if (target == Vector3.zero) SetTrigger("FacingDown");
         }
 
 		// Set one facing trigger and reset others
