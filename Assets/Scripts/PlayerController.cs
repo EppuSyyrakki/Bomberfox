@@ -186,6 +186,7 @@ namespace Bomberfox
 
         private void OnDeath()
         {
+            GameManager.Instance.ResetLevelCounter();
             GameManager.Instance.ChangeLevel(2);
         }
 

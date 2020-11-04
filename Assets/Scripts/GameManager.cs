@@ -66,5 +66,16 @@ namespace Bomberfox
         {
             SceneManager.LoadScene(levelNumber);
         }
+
+        public void ReloadScene()
+        {
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
+        }
+
+        public void ResetLevelCounter()
+        {
+            Debug.Log("Level counter reset");
+            CurrentLevel = 1;
+        }
     }
 }
