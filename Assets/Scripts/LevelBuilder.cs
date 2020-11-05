@@ -263,7 +263,7 @@ public class LevelBuilder : MonoBehaviour
 			Vector3Int[] freePositionsCopy = freePositions.ToArray();
 			Vector3Int v = freePositionsCopy[Random.Range(0, freePositionsCopy.Length)];
 			Quaternion q = Quaternion.identity;
-			Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], v, q, obstaclesParent);
+			Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], v, q, enemiesParent);
 			freePositions.Remove(v);
 		}
 	}
