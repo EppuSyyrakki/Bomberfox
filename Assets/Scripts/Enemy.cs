@@ -22,10 +22,9 @@ namespace Bomberfox
         private Vector3 currentTarget;
         private CollisionHandler collisionHandler;
         private Animator animator;
-        private float spawnTimer = 0f;
-		private float spawnTime = 0f;
-		private bool isAlive = true;
-
+        private float spawnTimer, spawnTime;
+        private bool isAlive = true;
+		
         private void Awake()
         {
 	        collisionHandler = GetComponent<CollisionHandler>();
@@ -39,16 +38,18 @@ namespace Bomberfox
 	        currentTarget = transform.position + randomDirection;
         }
 
-        private void Update()
+        public virtual void Update()
         {
 	        spawnTimer += Time.deltaTime;
 
 			// if just spawned or dead, don't update at all
 	        if (spawnTimer < spawnTime || isAlive == false) return;
 
-	        // check if we can see the player somewhere
-			playerLastSeen = LookForPlayer();	
-            
+	        // if we are at where the player was last seen
+	        if (transform.position == playerLastSeen) playerLastSeen = nowhere;
+
+	        LookForPlayer();
+
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == currentTarget)
 			{
@@ -66,7 +67,7 @@ namespace Bomberfox
              MoveToCurrentTarget();
         }
 
-        private Vector3 LookForPlayer()
+        private void LookForPlayer()
         {
 	        for (int i = 0; i < 4; i++)
 	        {
@@ -81,19 +82,20 @@ namespace Bomberfox
 					// show sight line in scene view
 					Debug.DrawLine(transform.position + directions[i], player.transform.position, Color.cyan);
 
-			        if (player.isInvulnerable) return nowhere;
+			        if (player.isInvulnerable) playerLastSeen = nowhere;
 
 			        // if we see the player, return the players position rounded to whole numbers
 			        Vector3 pos = new Vector3(
 				        Mathf.RoundToInt(check.transform.position.x),
 				        Mathf.RoundToInt(check.transform.position.y),
 				        0);
-			        return pos;
+
+			        if (pos.x == transform.position.x || pos.y == transform.position.y)
+			        {
+				        playerLastSeen = pos;
+					}
 		        }
 	        }
-
-			// if we can't see the player, return a "null" vector outside game area
-	        return nowhere;
         }
 
         private void SetNewTarget()
