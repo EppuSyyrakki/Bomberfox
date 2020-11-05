@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bomberfox.Enemies;
+using Bomberfox.Player;
 
 namespace Bomberfox
 {

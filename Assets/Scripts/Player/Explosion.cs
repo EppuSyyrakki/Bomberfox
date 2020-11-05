@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Bomberfox
+namespace Bomberfox.Player
 {
     public class Explosion : MonoBehaviour
     {
