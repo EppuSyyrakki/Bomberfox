@@ -91,7 +91,7 @@ namespace Bomberfox
 
 			        if (o.CompareTag("Enemy")) return EnemyGoBack(o);
 
-			        // if (o.CompareTag("Obstacle")) return KillObstacle(o);
+			        if (o.CompareTag("Obstacle")) return KillObstacleWithEnemy(o);
 		        }
 	        }
 
@@ -108,11 +108,18 @@ namespace Bomberfox
         private bool KillObstacle(GameObject o)
         {
 	        Obstacle obstacle = o.GetComponent<Obstacle>();
-	        ShockWave shockWave = gameObject.GetComponent<ShockWave>();
-
-            obstacle.BlowUp(shockWave.Direction);
+	        ShockWave shockWave = GetComponent<ShockWave>();
 	        shockWave.Blocked = true;
+	        obstacle.BlowUp(shockWave.Direction);
 	        return true;
+        }
+
+        private bool KillObstacleWithEnemy(GameObject o)
+        {
+	        Obstacle obstacle = o.GetComponent<Obstacle>();
+	        Enemy enemy = GetComponent<Enemy>();
+	        if (enemy.IsAlive) obstacle.BlowUp(enemy.Direction);
+	        return false;
         }
 
         private bool KillBomb(GameObject o)

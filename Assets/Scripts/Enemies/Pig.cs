@@ -25,44 +25,43 @@ namespace Bomberfox.Enemies
 			}
 
 			// if we haven't seen player, don't do special
-			if (playerLastSeen == Nowhere)
+			if (PlayerLastSeen == Nowhere)
 			{
 				SpecialMove = false;
 				base.Update();
 				return;
 			}
 
-			animator.SetTrigger("Special");
+			Anim.SetTrigger("Special");
 
 			if (!chargeMovementStarted) return;
 			
 			if (transform.position == nextTarget)
 			{
-				if (space != null) Destroy(space);
+				if (Space != null) Destroy(Space);
 
-				lastPosition = transform.position;
+				LastPosition = transform.position;
 				Vector3 checkPos = transform.position + chargeDir;
 
-				if (collisionHandler.CheckPigCharge(checkPos))
+				if (CollisionHandler.CheckPigCharge(checkPos))
 				{
 					nextTarget = checkPos;
 					ReserveSpace(checkPos);
 				}
 				else
 				{
-					animator.SetTrigger("EndSpecial");
+					Anim.SetTrigger("EndSpecial");
 					chargeMovementStarted = false;
 				}
 			}
 			transform.position = Vector3.MoveTowards(transform.position, nextTarget,
 				chargeSpeed * Time.deltaTime);
-			
 		}
 
 		// called from animation event at the end of StartCharge animation clip
 		private void StartCharge()
 		{
-			chargeDir = transform.InverseTransformPoint(playerLastSeen).normalized;
+			chargeDir = transform.InverseTransformPoint(PlayerLastSeen).normalized;
 			nextTarget = transform.position;
 			chargeMovementStarted = true;
 		}
@@ -70,13 +69,14 @@ namespace Bomberfox.Enemies
 		// called from animation event at end of StopCharge animation clip
 		private void EndCharge()
 		{
-			playerLastSeen = Nowhere;
+			PlayerLastSeen = Nowhere;
 			chargeDir = Vector3.zero;
-			animator.ResetTrigger("EndSpecial");
-			animator.ResetTrigger("Special");
+			Anim.ResetTrigger("EndSpecial");
+			Anim.ResetTrigger("Special");
 			chargeMovementStarted = false;
 			SpecialMove = false;
-			specialMoveTimer = 0;
+			SpecialMoveTimer = 0;
+			CurrentTarget = transform.position;
 			DefineRandomDirection();
 			UpdateAnimator();
 		}

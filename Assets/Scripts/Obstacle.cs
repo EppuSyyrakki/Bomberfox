@@ -7,12 +7,14 @@ using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
-	private List<Fader> childFaders;
-	private List<Rigidbody2D> childRbs;
+	private List<Fader> childFaders = new List<Fader>();
+	private List<Rigidbody2D> childRbs = new List<Rigidbody2D>();
 	private BoxCollider2D boxCollider2D;
 
     [SerializeField] 
     private GameObject levelEndKey = null;
+    [SerializeField] 
+    private float explosionForce = 10f;
 
     public bool IsKey
     {
@@ -22,9 +24,9 @@ public class Obstacle : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-    {
-	    childFaders = new List<Fader>(GetComponentsInChildren<Fader>());
-	    childRbs = new List<Rigidbody2D>(GetComponentsInChildren<Rigidbody2D>());
+	{
+		childFaders.AddRange(GetComponentsInChildren<Fader>());
+	    childRbs.AddRange(GetComponentsInChildren<Rigidbody2D>());
 	    boxCollider2D = GetComponent<BoxCollider2D>();
     }
 	
@@ -43,9 +45,9 @@ public class Obstacle : MonoBehaviour
 	    {
 			Vector2 explosionDir = new Vector2(direction.x, direction.y);
 		    Vector2 dir = new Vector2(
-			    Random.Range(-200f, 200f), 
-			    Random.Range(-200f, 200f));
-			rb.AddForce(dir + explosionDir * Random.Range(100f, 200f));
+			    Random.Range(-explosionForce, explosionForce), 
+			    Random.Range(-explosionForce, explosionForce));
+			rb.AddForce(dir + explosionDir * Random.Range(50, 100f));
 		}
 
         if (IsKey)

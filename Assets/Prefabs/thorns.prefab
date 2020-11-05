@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndKey: {fileID: 2098857614433161462, guid: 2c09e25974eef6547918538a033e2dd9, type: 3}
+  explosionForce: 10
 --- !u!114 &1166348607185489402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   - {x: -0.39364696, y: -0.2801351, z: 0}
   m_ShapePathHash: 1887425349
   m_Mesh: {fileID: 0}
-  m_InstanceId: 57278
+  m_InstanceId: 33054
 --- !u!95 &6837414572276254721
 Animator:
   serializedVersion: 3
@@ -278,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &1118519010209736463
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &1901690908969177240
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &3381144480000432827
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0
+  fadeOutTime: 1
 --- !u!1 &4891926561283872644
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &5005811308426442905
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &5849385124924272587
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
 --- !u!1 &6736459528025225553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,4 +1083,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 0.5
+  fadeOutTime: 1
