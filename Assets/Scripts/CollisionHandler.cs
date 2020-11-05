@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using Bomberfox.Enemies;
 using Bomberfox.Player;
+using Debug = UnityEngine.Debug;
 
 namespace Bomberfox
 {
@@ -72,6 +74,37 @@ namespace Bomberfox
             return true;
         }
 
+        public bool CheckPigCharge(Vector3 position)
+        {
+	        Vector2 positionToCheck = new Vector2(position.x, position.y);
+	        Collider2D[] colliders = Physics2D.OverlapCircleAll(positionToCheck, 0.25f);
+
+	        if ((colliders).Length > 0)
+	        {
+		        foreach (Collider2D collider in colliders)
+		        {
+			        GameObject o = collider.gameObject;
+
+			        if (o.CompareTag("Block")) return false;
+
+                    if (o.CompareTag("Bomb")) return KillBomb(o);
+
+			        if (o.CompareTag("Enemy")) return EnemyGoBack(o);
+
+			        if (o.CompareTag("Obstacle")) return KillObstacle(o);
+		        }
+	        }
+
+	        return true;
+        }
+
+        private bool EnemyGoBack(GameObject o)
+        {
+	        Enemy enemy = o.GetComponent<Enemy>();
+            enemy.GoBack();
+            return true;
+        }
+
         private bool KillObstacle(GameObject o)
         {
 	        Obstacle obstacle = o.GetComponent<Obstacle>();
@@ -104,6 +137,11 @@ namespace Bomberfox
             if (!player.isInvulnerable)
             {
                 player.TakeDamage();
+            }
+
+            if (gameObject.TryGetComponent(out ShockWave shockWave))
+            {
+	            shockWave.Blocked = true;
             }
 
             return false;

@@ -11,18 +11,17 @@ namespace Bomberfox.Enemies
 	    [SerializeField] private float speed = 10f, lookDistance = 5f;
 	    [SerializeField] private GameObject reservedSpace = null;
 	    [SerializeField, Range(0, 100)] public int specialMoveChance = 10;
-	    [SerializeField] private float specialMoveCoolDown = 5f;
+	    [SerializeField, Range(4f, 20f)] private float specialMoveCoolDown = 5f;
 
 	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
-		private readonly Vector3 nowhere = Vector2.one * 1000;
-		
 	    private Vector3 randomDirection = Vector3.zero;
         private Vector3 currentTarget;
-        private CollisionHandler collisionHandler;
-        private float spawnTimer, spawnTime, specialMoveTimer;
+        private float spawnTimer, spawnTime;
         private bool isAlive = true;
 
-        public bool SpecialMove { get; set; }
+        public CollisionHandler collisionHandler;
+		public readonly Vector3 Nowhere = Vector2.one * 1000;
+		public bool SpecialMove { get; set; } = false;
         [HideInInspector]
 		public Animator animator;
 		[HideInInspector]
@@ -31,6 +30,10 @@ namespace Bomberfox.Enemies
 		public bool spaceIsReserved;
 		[HideInInspector]
 		public GameObject space;
+		[HideInInspector]
+		public Vector3 lastPosition = Vector3.zero;
+		[HideInInspector]
+		public float specialMoveTimer;
 
 		private void Awake()
         {
@@ -41,7 +44,7 @@ namespace Bomberfox.Enemies
         private void Start()
         {
 	        spawnTime = animator.GetCurrentAnimatorStateInfo(0).length + 0.1f;
-	        playerLastSeen = nowhere;
+	        playerLastSeen = Nowhere;
 	        currentTarget = transform.position + randomDirection;
         }
 
@@ -54,13 +57,15 @@ namespace Bomberfox.Enemies
 	        if (spawnTimer < spawnTime || isAlive == false) return;
 
 	        // if we are at where the player was last seen, reset the player seen position
-	        if (transform.position == playerLastSeen) playerLastSeen = nowhere;
+	        if (transform.position == playerLastSeen) playerLastSeen = Nowhere;
 
 	        LookForPlayer();
 
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == currentTarget)
 			{
+				lastPosition = transform.position;
+
 				if (spaceIsReserved)
 				{
 					Destroy(space);
@@ -80,7 +85,7 @@ namespace Bomberfox.Enemies
 					UpdateAnimator();
 				}
 			}
-	        
+
 			// move to our current target if we are not doing the special move
 	        if (!SpecialMove) MoveToCurrentTarget();
         }
@@ -102,7 +107,7 @@ namespace Bomberfox.Enemies
 					Debug.DrawLine(transform.position + directions[i], player.transform.position, Color.cyan);
 
 					// if the player in invulnerable, we don't "see" them
-			        if (player.isInvulnerable) playerLastSeen = nowhere;
+			        if (player.isInvulnerable) playerLastSeen = Nowhere;
 
 			        // get the player's position rounded to whole numbers
 			        Vector3 pos = new Vector3(
@@ -111,14 +116,14 @@ namespace Bomberfox.Enemies
 				        0);
 
 					// if the player is at the same row or column, save the rounded player position
-			        if (pos.x == Mathf.RoundToInt(transform.position.x) 
-			            || pos.y == Mathf.RoundToInt(transform.position.y))
+			        if (Mathf.RoundToInt(pos.x) == Mathf.RoundToInt(transform.position.x) 
+			            || Mathf.RoundToInt(pos.y) == Mathf.RoundToInt(transform.position.y))
 			        {
 				        playerLastSeen = pos;
-					}
+				        }
 			        else
 			        {
-				        playerLastSeen = nowhere;
+				        playerLastSeen = Nowhere;
 			        }
 		        }
 	        }
@@ -126,7 +131,7 @@ namespace Bomberfox.Enemies
 
         private void SetNewTarget()
         {
-	        if (playerLastSeen != nowhere)	// if we have seen the player
+	        if (playerLastSeen != Nowhere)	// if we have seen the player
 	        {
 				// get the players position as a direction relative to us, with magnitude of 1
 		        Vector3 nextTarget = transform.InverseTransformPoint(playerLastSeen).normalized;
@@ -160,7 +165,7 @@ namespace Bomberfox.Enemies
 	        if (!spaceIsReserved && collisionHandler.CheckPosition(currentTarget))
 	        {
 		        ReserveSpace(currentTarget);
-		        return;
+		        return;		// TODO maybe not needed? check
 	        }
 			
 			// if we got this far, we've reserved a space. Now move toward it
@@ -170,13 +175,13 @@ namespace Bomberfox.Enemies
 				speed * Time.deltaTime);
         }
 
-        public void ReserveSpace(Vector3 pos)
+        protected void ReserveSpace(Vector3 pos)
         {
 	        space = Instantiate(reservedSpace, pos, Quaternion.identity, transform.parent);
 	        spaceIsReserved = true;
         }
 
-        private void DefineRandomDirection()
+        protected void DefineRandomDirection()
         {
 	        int i = 0;
 
@@ -199,7 +204,12 @@ namespace Bomberfox.Enemies
 	        randomDirection = Vector3.zero;
 		}
 
-        private void UpdateAnimator()
+        public void GoBack()
+        {
+	        currentTarget = lastPosition;
+        }
+
+        protected void UpdateAnimator()
         {
 			// change current target into a direction (with magnitude of 1) relative to our location 
 	        Vector3 target = transform.InverseTransformPoint(currentTarget).normalized;
@@ -211,6 +221,11 @@ namespace Bomberfox.Enemies
 			
 			// if the enemy is "stuck", display moving down animation
 			if (target == Vector3.zero) SetTrigger("FacingDown");
+        }
+
+        protected Vector3 RoundVector(Vector3 v)
+        {
+			return new Vector3(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y), 0);
         }
 
 		// Set one facing trigger and reset others
