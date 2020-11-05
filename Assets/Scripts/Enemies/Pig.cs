@@ -7,28 +7,21 @@ namespace Bomberfox.Enemies
 {
 	public class Pig : Enemy
 	{
-		private bool invoked = false;
+		[SerializeField] private float chargeSpeed = 3.5f;
 
 		public override void Update()
 		{
 			if (!SpecialMove)
 			{
+				// If we're not doing the special move, do the regular update
 				base.Update();
 			}
 			else
 			{
-				if (!invoked)
-				{
-					print(gameObject.name + " is doing the special move");
-					Invoke(nameof(ResetSpecial), 1f);
-					invoked = true;
-				}
+				print("enemy at " + transform.position + ", player seen at " + playerLastSeen);
+				SpecialMove = false;
 			}
 		}
 
-		private void ResetSpecial()
-		{
-			SpecialMove = false;
-		}
 	}
 }

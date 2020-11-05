@@ -15,19 +15,24 @@ namespace Bomberfox.Enemies
 
 	    private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
 		private readonly Vector3 nowhere = Vector2.one * 1000;
-		private bool spaceIsReserved;
-	    private GameObject space;
-		private Vector3 playerLastSeen;
-        private Vector3 randomDirection = Vector3.zero;
+		
+	    private Vector3 randomDirection = Vector3.zero;
         private Vector3 currentTarget;
         private CollisionHandler collisionHandler;
-        private Animator animator;
         private float spawnTimer, spawnTime, specialMoveTimer;
         private bool isAlive = true;
 
-		public bool SpecialMove { get; set; }
-		
-        private void Awake()
+        public bool SpecialMove { get; set; }
+        [HideInInspector]
+		public Animator animator;
+		[HideInInspector]
+		public Vector3 playerLastSeen;
+		[HideInInspector]
+		public bool spaceIsReserved;
+		[HideInInspector]
+		public GameObject space;
+
+		private void Awake()
         {
 	        collisionHandler = GetComponent<CollisionHandler>();
 	        animator = GetComponent<Animator>();
@@ -111,6 +116,10 @@ namespace Bomberfox.Enemies
 			        {
 				        playerLastSeen = pos;
 					}
+			        else
+			        {
+				        playerLastSeen = nowhere;
+			        }
 		        }
 	        }
         }
@@ -149,17 +158,22 @@ namespace Bomberfox.Enemies
         {
 			// if we haven't reserved a space and it's free, do that and exit this method
 	        if (!spaceIsReserved && collisionHandler.CheckPosition(currentTarget))
-			{
-				space = Instantiate(reservedSpace, currentTarget, Quaternion.identity, transform.parent);
-				spaceIsReserved = true;
-				return;
-			}
+	        {
+		        ReserveSpace(currentTarget);
+		        return;
+	        }
 			
 			// if we got this far, we've reserved a space. Now move toward it
 			transform.position = Vector3.MoveTowards(
 				transform.position,
 				currentTarget,
 				speed * Time.deltaTime);
+        }
+
+        public void ReserveSpace(Vector3 pos)
+        {
+	        space = Instantiate(reservedSpace, pos, Quaternion.identity, transform.parent);
+	        spaceIsReserved = true;
         }
 
         private void DefineRandomDirection()
@@ -213,6 +227,8 @@ namespace Bomberfox.Enemies
         public void StartDeath()
         {
 	        if (space != null) Destroy(space);
+
+			// TODO Destroy(GetComponent<Collider2D>());
 			animator.SetTrigger("Die");
 			isAlive = false;
         }
