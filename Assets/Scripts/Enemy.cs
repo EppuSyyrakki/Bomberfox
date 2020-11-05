@@ -77,6 +77,9 @@ namespace Bomberfox
 		        
 		        if (check && check.transform.gameObject.TryGetComponent(out PlayerController player))
 		        {
+					// show sight line in scene view
+					Debug.DrawLine(transform.position + directions[i], player.transform.position, Color.cyan);
+
 			        if (player.isInvulnerable) return nowhere;
 
 			        // if we see the player, return the players position rounded to whole numbers

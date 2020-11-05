@@ -29,6 +29,7 @@ public class LevelBuilder : MonoBehaviour
 	private Transform blocksParent = null;
 	private Transform obstaclesParent = null;
 	private Transform enemiesParent = null;
+	private Transform initialObstaclesParent = null;
 
 	// bottom left and top right corners to limit creation loops
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
@@ -46,7 +47,7 @@ public class LevelBuilder : MonoBehaviour
 	[SerializeField] private GameObject[] enemyPrefabs = null;
 	[SerializeField] private GameObject playerPrefab = null;
 
-	private int framecalc = 0;
+	// private int framecalc = 0;
 
 	private void Awake()
 	{
@@ -99,6 +100,7 @@ public class LevelBuilder : MonoBehaviour
 		blocksParent = GameObject.Find("Blocks").transform;
 		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
+		initialObstaclesParent = GameObject.Find("InitialObstacles").transform;
 
 		if (blocksParent == null || obstaclesParent == null || enemiesParent == null)
 		{
@@ -127,6 +129,13 @@ public class LevelBuilder : MonoBehaviour
 	/// </summary>
 	private void CreatePlayer()
 	{
+		// remove initial obstacles from free spots
+		foreach (Transform obstacle in initialObstaclesParent.GetComponentsInChildren<Transform>())
+		{
+			Vector3Int toRemove = Vector3ToInt(obstacle.position);
+			freePositions.Remove(toRemove);
+		}
+
 		// create player
 		Quaternion q = Quaternion.identity;
 		Vector3 v = transform.GetChild(Random.Range(0, transform.childCount)).position;

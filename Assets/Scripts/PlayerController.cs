@@ -38,6 +38,7 @@ namespace Bomberfox
         private Collider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
+        private bool isAlive = true;
 
         private Health healthSystem;
         public bool isInvulnerable;    // Is the player invulnerable or not
@@ -56,13 +57,17 @@ namespace Bomberfox
 
         private void Update()
         {
+            
             ProcessInput();
             UpdateAnimator();
         }
 
         private void FixedUpdate()
         {
-	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+	        if (isAlive)
+	        {
+		        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+            }
         }
         
         /// <summary>
@@ -184,10 +189,18 @@ namespace Bomberfox
             Debug.Log("I can take damage again");
         }
 
-        private void OnDeath()
+        private void StartDeath()
         {
-            GameManager.Instance.ResetLevelCounter();
-            GameManager.Instance.ChangeLevel(2);
+            animator.SetTrigger("Die");
+            isAlive = false;
+        }
+
+
+        // called from animation event at the end of Death animation
+        private void EndDeath()
+        {
+	        GameManager.Instance.ResetLevelCounter();
+	        GameManager.Instance.ChangeLevel(2);
         }
 
         private void InitiateHealth()
@@ -203,7 +216,7 @@ namespace Bomberfox
 
             if (healthSystem.GetHealth() <= 0)
             {
-                OnDeath();
+                StartDeath();
             }
             else
             {
