@@ -24,7 +24,7 @@ namespace Bomberfox
         private Animator animator;
         private float spawnTimer = 0f;
 		private float spawnTime = 0f;
-
+		private bool isAlive = true;
 
         private void Awake()
         {
@@ -43,7 +43,8 @@ namespace Bomberfox
         {
 	        spawnTimer += Time.deltaTime;
 
-	        if (spawnTimer < spawnTime) return;
+			// if just spawned or dead, don't update at all
+	        if (spawnTimer < spawnTime || isAlive == false) return;
 
 	        // check if we can see the player somewhere
 			playerLastSeen = LookForPlayer();	
@@ -190,10 +191,16 @@ namespace Bomberfox
 			if (triggerToSet != "FacingLeft") animator.ResetTrigger("FacingLeft");
 		}
 
-        public void Kill()
+        public void StartDeath()
         {
 	        if (space != null) Destroy(space);
-            Destroy(gameObject);
+			animator.SetTrigger("Die");
         }
+
+		// triggered from animation event
+        private void EndDeath()
+        {
+	        Destroy(gameObject);
+		}
     }
 }
