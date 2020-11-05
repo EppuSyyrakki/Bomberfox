@@ -57,7 +57,7 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Update()
 	{
-		// debugging lines
+		// debugging lines to figure out what is happening in level creation
 
 		//if (framecalc == 1)
 		//	CreateFreePositions();
