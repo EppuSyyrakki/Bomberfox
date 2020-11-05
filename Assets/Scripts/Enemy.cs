@@ -195,6 +195,7 @@ namespace Bomberfox
         {
 	        if (space != null) Destroy(space);
 			animator.SetTrigger("Die");
+			isAlive = false;
         }
 
 		// triggered from animation event
