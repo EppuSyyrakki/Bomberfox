@@ -34,29 +34,29 @@ namespace Bomberfox.Enemies
 
 			animator.SetTrigger("Special");
 
-			if (chargeMovementStarted)
+			if (!chargeMovementStarted) return;
+			
+			if (transform.position == nextTarget)
 			{
 				if (space != null) Destroy(space);
-				
-				if (transform.position == nextTarget)
-				{
-					lastPosition = transform.position;
-					Vector3 checkPos = transform.position + chargeDir;
 
-					if (collisionHandler.CheckPigCharge(checkPos))
-					{
-						nextTarget = checkPos;
-						ReserveSpace(nextTarget);
-					}
-					else
-					{
-						animator.SetTrigger("EndSpecial");
-						chargeMovementStarted = false;
-					}
+				lastPosition = transform.position;
+				Vector3 checkPos = transform.position + chargeDir;
+
+				if (collisionHandler.CheckPigCharge(checkPos))
+				{
+					nextTarget = checkPos;
+					ReserveSpace(checkPos);
 				}
-				transform.position = Vector3.MoveTowards(transform.position, nextTarget,
-					chargeSpeed * Time.deltaTime);
+				else
+				{
+					animator.SetTrigger("EndSpecial");
+					chargeMovementStarted = false;
+				}
 			}
+			transform.position = Vector3.MoveTowards(transform.position, nextTarget,
+				chargeSpeed * Time.deltaTime);
+			
 		}
 
 		// called from animation event at the end of StartCharge animation clip

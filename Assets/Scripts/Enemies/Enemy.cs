@@ -52,14 +52,13 @@ namespace Bomberfox.Enemies
         {
 	        spawnTimer += Time.deltaTime;
 	        specialMoveTimer += Time.deltaTime;
+	        LookForPlayer();
 
 			// if just spawned or are dead, don't update at all
-	        if (spawnTimer < spawnTime || isAlive == false) return;
+			if (spawnTimer < spawnTime || isAlive == false) return;
 
 	        // if we are at where the player was last seen, reset the player seen position
 	        if (transform.position == playerLastSeen) playerLastSeen = Nowhere;
-
-	        LookForPlayer();
 
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == currentTarget)
@@ -120,7 +119,7 @@ namespace Bomberfox.Enemies
 			            || Mathf.RoundToInt(pos.y) == Mathf.RoundToInt(transform.position.y))
 			        {
 				        playerLastSeen = pos;
-				        }
+			        }
 			        else
 			        {
 				        playerLastSeen = Nowhere;
@@ -135,6 +134,7 @@ namespace Bomberfox.Enemies
 	        {
 				// get the players position as a direction relative to us, with magnitude of 1
 		        Vector3 nextTarget = transform.InverseTransformPoint(playerLastSeen).normalized;
+				print(nextTarget);
 
 		        // check that position in case the player left a bomb on the way
 				if (collisionHandler.CheckPosition(nextTarget))	

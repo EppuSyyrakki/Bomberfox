@@ -91,7 +91,7 @@ namespace Bomberfox
 
 			        if (o.CompareTag("Enemy")) return EnemyGoBack(o);
 
-			        if (o.CompareTag("Obstacle")) return KillObstacle(o);
+			        // if (o.CompareTag("Obstacle")) return KillObstacle(o);
 		        }
 	        }
 
