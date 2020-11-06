@@ -89,6 +89,7 @@ MonoBehaviour:
   reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
   specialMoveChance: 10
   specialMoveCoolDown: 5
+  teleportRange: 4
 --- !u!1 &761986132443482370
 GameObject:
   m_ObjectHideFlags: 0
