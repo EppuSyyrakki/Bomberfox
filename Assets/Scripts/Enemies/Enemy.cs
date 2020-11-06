@@ -50,9 +50,6 @@ namespace Bomberfox.Enemies
 			// if just spawned or are dead, don't update at all
 			if (spawnTimer < spawnTime || IsAlive == false) return;
 
-	        // if we are at where the player was last seen, reset the player seen position
-	        if (transform.position == PlayerLastSeen) PlayerLastSeen = Nowhere;
-
 			// if we are at target, get new target and update the animator according to target's direction
 			if (transform.position == CurrentTarget)
 			{
@@ -64,18 +61,21 @@ namespace Bomberfox.Enemies
 				if (Random.Range(1, 101) < specialMoveChance && SpecialMoveTimer > specialMoveCoolDown)
 				{
 					SpecialMove = true;
+					Anim.SetTrigger("Special");
 					SpecialMoveTimer = 0;
+					return;
 				}
-				else
-				{
-					// if no special move, move normally
-					SetNewTarget();
-					UpdateAnimator();
-				}
-			}
 
-			// move to our current target if we are not doing the special move
-	        if (!SpecialMove) MoveToCurrentTarget();
+				// if we are at where the player was last seen, reset the player seen position
+				if (transform.position == PlayerLastSeen) PlayerLastSeen = Nowhere;
+
+				// if no special move, move normally
+				SetNewTarget();
+				UpdateAnimator();
+	        }
+
+			// if we got this far we're not doing special, so move to our current target
+	        MoveToCurrentTarget();
         }
 
         private void LookForPlayer()

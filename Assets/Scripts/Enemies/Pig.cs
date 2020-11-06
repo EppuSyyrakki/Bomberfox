@@ -28,11 +28,11 @@ namespace Bomberfox.Enemies
 			if (PlayerLastSeen == Nowhere)
 			{
 				SpecialMove = false;
+
+				Anim.ResetTrigger("Special");
 				base.Update();
 				return;
 			}
-
-			Anim.SetTrigger("Special");
 
 			if (!chargeMovementStarted) return;
 			
@@ -70,13 +70,10 @@ namespace Bomberfox.Enemies
 		private void EndCharge()
 		{
 			PlayerLastSeen = Nowhere;
-			chargeDir = Vector3.zero;
 			Anim.ResetTrigger("EndSpecial");
 			Anim.ResetTrigger("Special");
-			chargeMovementStarted = false;
 			SpecialMove = false;
 			SpecialMoveTimer = 0;
-			CurrentTarget = transform.position;
 			DefineRandomDirection();
 			UpdateAnimator();
 		}
