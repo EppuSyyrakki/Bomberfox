@@ -53,6 +53,16 @@ namespace Bomberfox.Player
             {
                 Destroy(gameObject);
             }
+
+            if (timer > totalTime * 0.5f)
+            {
+	            Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+
+	            foreach (Collider2D c in colliders)
+	            {
+		            Destroy(c, Time.deltaTime);
+	            }
+            }
         }
 
         private void FetchBombParameters()
