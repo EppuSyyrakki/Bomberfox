@@ -14,6 +14,7 @@ namespace Bomberfox.Enemies
 		private Vector3 nextTarget = Vector3.zero;
 		
 		private bool chargeMovementStarted = false;
+		private bool specialTriggered = false;
 		
 		public override void Update()
 		{
@@ -31,6 +32,12 @@ namespace Bomberfox.Enemies
 				Anim.ResetTrigger("Special");
 				base.Update();
 				return;
+			}
+
+			if (!specialTriggered)
+			{
+				Anim.SetTrigger("Special");
+				specialTriggered = true;
 			}
 
 			if (!chargeMovementStarted) return;
@@ -68,12 +75,14 @@ namespace Bomberfox.Enemies
 		// called from animation event at end of StopCharge animation clip
 		private void EndCharge()
 		{
+			specialTriggered = false;
 			PlayerLastSeen = Nowhere;
 			Anim.ResetTrigger("EndSpecial");
 			Anim.ResetTrigger("Special");
 			SpecialMove = false;
 			SpecialMoveTimer = 0;
 			DefineRandomDirection();
+			CurrentTarget = transform.position + Direction;
 			UpdateAnimator();
 		}
 	}

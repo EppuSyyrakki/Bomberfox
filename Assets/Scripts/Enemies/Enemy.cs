@@ -61,7 +61,6 @@ namespace Bomberfox.Enemies
 				if (Random.Range(1, 101) < specialMoveChance && SpecialMoveTimer > specialMoveCoolDown)
 				{
 					SpecialMove = true;
-					Anim.SetTrigger("Special");
 					SpecialMoveTimer = 0;
 					return;
 				}
