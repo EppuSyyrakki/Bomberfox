@@ -8,12 +8,21 @@ namespace Bomberfox.UI
     {
         public void RestartGame()
         {
+            if (GameManager.Instance.CurrentLevel != 1)
+            {
+                FindObjectOfType<AudioManager>().StopPlayingGameMusic();
+            }
+
+            GameManager.Instance.ResetLevelCounter();
+            FindObjectOfType<AudioManager>().CheckGameMusic();
+
             Debug.Log("Play again pressed");
             GameManager.Instance.ChangeLevel(1);
         }
 
         public void BackToMenu()
         {
+            FindObjectOfType<AudioManager>().StopPlayingGameMusic();
             GameManager.Instance.ChangeLevel(0);
         }
     }

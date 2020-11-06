@@ -9,6 +9,7 @@ namespace Bomberfox.UI
         public void StartGame()
         {
             Debug.Log("Start pressed");
+            FindObjectOfType<AudioManager>().CheckGameMusic();
             GameManager.Instance.ChangeLevel(1);
         }
 
