@@ -15,6 +15,8 @@ MonoBehaviour:
   speed: 3
   lookDistance: 5
   reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
+  specialMoveChance: 10
+  specialMoveCoolDown: 5
 --- !u!1 &673138338548085581
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +299,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
