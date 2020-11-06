@@ -12,11 +12,6 @@ namespace Bomberfox.UI
             AudioManager.instance.PlaySound("Thunder2");
         }
 
-        void Start()
-        {
-            
-        }
-
         public void StartGame()
         {
             Debug.Log("Start pressed");

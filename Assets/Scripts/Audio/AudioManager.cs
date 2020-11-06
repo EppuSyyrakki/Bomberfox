@@ -69,6 +69,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    // Plays sound effects on top of each others
     public void OneShotSound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
