@@ -8,7 +8,6 @@ namespace Bomberfox.Enemies
 	{
 		[SerializeField, Range(2, 5)] private int teleportRange = 3;
 
-		private bool hasMoved = false;
 		private bool disableInvoked = false;
 
 		public override void Update()
@@ -39,8 +38,8 @@ namespace Bomberfox.Enemies
 
 				if (CollisionHandler.CheckPosition(tryDestination))
 				{
+					ReserveSpace(tryDestination);
 					transform.position = tryDestination;
-					hasMoved = true;
 					break;
 				}
 			}
@@ -48,14 +47,15 @@ namespace Bomberfox.Enemies
 
 		private void DisableCollider()
 		{
-			GetComponent<Collider2D>().enabled = false;
+			GetComponent<BoxCollider2D>().enabled = false;
 		}
 
 		private void EndSpecial()
 		{
+			Destroy(Space);
 			disableInvoked = false;
 			SpecialMove = false;
-			GetComponent<Collider2D>().enabled = true;
+			GetComponent<BoxCollider2D>().enabled = true;
 			DefineRandomDirection();
 			CurrentTarget = transform.position + Direction;
 		}
