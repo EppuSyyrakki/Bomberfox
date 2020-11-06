@@ -47,13 +47,13 @@ public class LevelBuilder : MonoBehaviour
 	[SerializeField] private GameObject[] enemyPrefabs = null;
 	[SerializeField] private GameObject playerPrefab = null;
 
-	// private int framecalc = 0;
+    // private int framecalc = 0;
 
 	private void Awake()
 	{
 		FindParentObjects();
 		freePositions.Clear();
-	}
+    }
 
 	private void Update()
 	{
@@ -88,7 +88,7 @@ public class LevelBuilder : MonoBehaviour
 		CreateObstacles(randomObstacleChance);
 		CreateKeyObstacle();
 		CreateEnemies();
-	}
+    }
 
 	private void CalculateBuildParameters(int currentLevel)
 	{

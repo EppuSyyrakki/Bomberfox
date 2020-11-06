@@ -45,7 +45,7 @@ namespace Bomberfox.Player
 
         private void OnDestroy()
         {
-	        owner.ChangeCurrentBombs(-1);
+            owner.ChangeCurrentBombs(-1);
         }
         
         private void OnTriggerExit2D(Collider2D other)

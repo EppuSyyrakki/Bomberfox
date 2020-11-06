@@ -26,7 +26,7 @@ namespace Bomberfox
                 return instance;
             }
         }
-        
+
         void Awake()
         {
             if (instance == null)

@@ -38,6 +38,7 @@ namespace Bomberfox.Player
             initialShock.ReceiveBombParameters(range, speed, fadeDelay);
             initialShock.BeginExploding();
             initialShock.BeginCoroutineToContinue();
+            AudioManager.instance.OneShotSound("Explosion");
         }
 
         private void Update()
