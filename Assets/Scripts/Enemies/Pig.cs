@@ -28,7 +28,6 @@ namespace Bomberfox.Enemies
 			if (PlayerLastSeen == Nowhere)
 			{
 				SpecialMove = false;
-
 				Anim.ResetTrigger("Special");
 				base.Update();
 				return;

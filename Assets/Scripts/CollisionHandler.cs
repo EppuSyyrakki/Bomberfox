@@ -92,6 +92,12 @@ namespace Bomberfox
 			        if (o.CompareTag("Enemy")) return EnemyGoBack(o);
 
 			        if (o.CompareTag("Obstacle")) return KillObstacleWithEnemy(o);
+
+			        if (o.CompareTag("ShockWave"))
+			        {
+                        gameObject.GetComponent<Enemy>().StartDeath();
+                        return false;
+			        }
 		        }
 	        }
 
