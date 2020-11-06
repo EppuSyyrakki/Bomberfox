@@ -15,7 +15,7 @@ public class LevelEndKey : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Key"))
         {
             GameManager.Instance.CurrentLevel++;
-            FindObjectOfType<AudioManager>().CheckGameMusic();
+            AudioManager.instance.CheckGameMusic();
             Debug.Log("Level: " + GameManager.Instance.CurrentLevel);
             GameManager.Instance.ReloadScene();
         }

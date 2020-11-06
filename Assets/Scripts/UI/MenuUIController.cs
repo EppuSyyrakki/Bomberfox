@@ -6,10 +6,21 @@ namespace Bomberfox.UI
 {
     public class MenuUIController : MonoBehaviour
     {
+        void Awake()
+        {
+            AudioManager.instance.PlaySound("Spooky");
+            AudioManager.instance.PlaySound("Thunder2");
+        }
+
+        void Start()
+        {
+            
+        }
+
         public void StartGame()
         {
             Debug.Log("Start pressed");
-            FindObjectOfType<AudioManager>().CheckGameMusic();
+            AudioManager.instance.CheckGameMusic();
             GameManager.Instance.ChangeLevel(1);
         }
 

@@ -10,11 +10,11 @@ namespace Bomberfox.UI
         {
             if (GameManager.Instance.CurrentLevel != 1)
             {
-                FindObjectOfType<AudioManager>().StopPlayingGameMusic();
+                AudioManager.instance.StopGameMusic();
             }
 
             GameManager.Instance.ResetLevelCounter();
-            FindObjectOfType<AudioManager>().CheckGameMusic();
+            AudioManager.instance.CheckGameMusic();
 
             Debug.Log("Play again pressed");
             GameManager.Instance.ChangeLevel(1);
@@ -22,7 +22,7 @@ namespace Bomberfox.UI
 
         public void BackToMenu()
         {
-            FindObjectOfType<AudioManager>().StopPlayingGameMusic();
+            AudioManager.instance.StopGameMusic();
             GameManager.Instance.ChangeLevel(0);
         }
     }

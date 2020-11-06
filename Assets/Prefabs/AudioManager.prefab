@@ -43,19 +43,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26379358ddc6b7e47908b5a34dccef76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  musics:
   - name: GameMusic1
     clip: {fileID: 8300000, guid: d74b63c6fa096c646a49f1775a270a6c, type: 3}
     volume: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: GameMusic2
     clip: {fileID: 8300000, guid: 3433faf24a63ce349871ed1a57b036c5, type: 3}
     volume: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: GameMusic3
     clip: {fileID: 8300000, guid: f8ce2932e8682e74f82d0ba7a14ac551, type: 3}
     volume: 1
+    loop: 1
+    source: {fileID: 0}
+  sounds:
+  - name: Thunder2
+    clip: {fileID: 8300000, guid: ae590720de8f1714388a5669e89ba524, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spooky
+    clip: {fileID: 8300000, guid: 6496d16d65b1ea14cb793db5b86bb3de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BombFuse1
+    clip: {fileID: 8300000, guid: a3f591a7cef69c24890b5163de6d90e9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 539f253da671b86448ee599ecc16b6e9, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
