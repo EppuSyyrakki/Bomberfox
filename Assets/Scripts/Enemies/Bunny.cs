@@ -29,6 +29,7 @@ namespace Bomberfox.Enemies
 		private void ResetSpecial()
 		{
 			SpecialMove = false;
+			SpecialMoveTimer = 0;
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class LevelBuilder : MonoBehaviour
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
 	private int randomBlockChance = 50;
-	private int randomObstacleChance = 50;
+	private int randomObstacleChance = 33;
 	private int enemyCount = 6;
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
 

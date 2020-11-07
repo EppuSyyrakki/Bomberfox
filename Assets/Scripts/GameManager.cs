@@ -1,81 +1,99 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace Bomberfox
 {
-    public class GameManager : MonoBehaviour
-    {
-        // NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
-        public static GameManager instance = null;
+	public class GameManager : MonoBehaviour
+	{
+		// Names of scenes as strings. CHANGE HERE IF BUILD SETTINGS CHANGE
+		public const int MainMenu = 0;
+		public const int Game = 1;
+		public const int DeathMenu = 2;
+		public const int Story = 3;
 
-        public GameObject deathMenu;
+		// NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
+		public static GameManager instance = null;
 
-        public int CurrentLevel { get; set; }
+		public GameObject deathMenu;
 
-        public static GameManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-	                Debug.Log("Game Manager Instance not found! Add it to the scene from the Prefabs folder");
-                }
+		public int CurrentLevel { get; set; }
 
-                return instance;
-            }
-        }
+		private bool isPaused = false;
 
-        void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
+		public static GameManager Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					Debug.Log("Game Manager Instance not found! Add it to the scene from the Prefabs folder");
+				}
 
-            DontDestroyOnLoad(gameObject);
+				return instance;
+			}
+		}
 
-            CurrentLevel = 1;
-        }
+		void Awake()
+		{
+			if (instance == null)
+			{
+				instance = this;
+			}
+			else if (instance != this)
+			{
+				Destroy(gameObject);
+				return;
+			}
 
-        void Update()
-        {
-	        if (Input.GetKey(KeyCode.R))
-            {
-                SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
-            }
+			DontDestroyOnLoad(gameObject);
 
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                Time.timeScale = 0f;
-            }
+			CurrentLevel = 1;
+		}
 
-            if (Input.GetKeyUp(KeyCode.P))
-            {
-                Time.timeScale = 1f;
-            }
-        }
+		void Update()
+		{
+			if (Input.GetKey(KeyCode.R))
+			{
+				ReloadScene();
+			}
 
-        public void ChangeLevel(int levelNumber)
-        {
-            SceneManager.LoadScene(levelNumber);
-        }
+			if (Input.GetKeyDown(KeyCode.P) && !isPaused)
+			{
+				Time.timeScale = 0f;
+				isPaused = true;
+			}
 
-        public void ReloadScene()
-        {
-            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
-        }
+			if (Input.GetKeyUp(KeyCode.P) && isPaused)
+			{
+				Time.timeScale = 1f;
+				isPaused = false;
+			}
+		}
 
-        public void ResetLevelCounter()
-        {
-            Debug.Log("Level counter reset");
-            CurrentLevel = 1;
-        }
-    }
+		public void ChangeLevel(int levelNumber)
+		{
+			SceneManager.LoadScene(levelNumber);
+		}
+
+		public void ReloadScene()
+		{
+			SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
+		}
+
+		public void ResetLevelCounter()
+		{
+			Debug.Log("Level counter reset");
+			CurrentLevel = 1;
+		}
+
+		public void GoToGame() => SceneManager.LoadScene(Game);
+
+		public void GoToMainMenu() => SceneManager.LoadScene(MainMenu);
+
+		public void GoToDeathMenu() => SceneManager.LoadScene(DeathMenu);
+
+		public void GoToStory() => SceneManager.LoadScene(Story);
+	}
+
 }

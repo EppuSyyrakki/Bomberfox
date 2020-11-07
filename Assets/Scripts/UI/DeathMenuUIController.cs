@@ -17,13 +17,13 @@ namespace Bomberfox.UI
             AudioManager.instance.CheckGameMusic();
 
             Debug.Log("Play again pressed");
-            GameManager.Instance.ChangeLevel(1);
+            GameManager.Instance.GoToGame();
         }
 
         public void BackToMenu()
         {
             AudioManager.instance.StopGameMusic();
-            GameManager.Instance.ChangeLevel(0);
+            GameManager.Instance.GoToMainMenu();
         }
     }
 }

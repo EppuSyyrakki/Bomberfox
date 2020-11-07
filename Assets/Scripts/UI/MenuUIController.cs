@@ -16,7 +16,7 @@ namespace Bomberfox.UI
         {
             Debug.Log("Start pressed");
             AudioManager.instance.CheckGameMusic();
-            GameManager.Instance.ChangeLevel(1);
+            GameManager.Instance.GoToStory();
         }
 
         public void QuitGame()

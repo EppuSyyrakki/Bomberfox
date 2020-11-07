@@ -52,6 +52,7 @@ namespace Bomberfox.Enemies
 
 		private void EndSpecial()
 		{
+			SpecialMoveTimer = 0;
 			Destroy(Space);
 			disableInvoked = false;
 			SpecialMove = false;

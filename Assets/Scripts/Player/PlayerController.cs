@@ -57,8 +57,7 @@ namespace Bomberfox.Player
 
         private void Update()
         {
-            
-            ProcessInput();
+	        ProcessInput();
             UpdateAnimator();
         }
 
@@ -92,8 +91,6 @@ namespace Bomberfox.Player
             {
                 CreateBomb();
             }
-
-           
         }
 
         private void CreateBomb()
