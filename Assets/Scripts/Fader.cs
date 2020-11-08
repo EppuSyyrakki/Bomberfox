@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Bomberfox
 {
@@ -38,7 +39,7 @@ namespace Bomberfox
 			lerpTime += Time.deltaTime / fadeOutTime;
 			if (this.gameObject.tag == "Obstacle")
 			{
-				thornAnimator.enabled = false;
+				thornAnimator.SetBool("isActive", false);
 			}
 		}
 	}
