@@ -60,5 +60,11 @@ namespace Bomberfox.Enemies
 			DefineRandomDirection();
 			CurrentTarget = transform.position + Direction;
 		}
+
+        public override void StartDeath()
+        {
+            base.StartDeath();
+            AudioManager.instance.OneShotSound("GoatDeath");
+        }
 	}
 }

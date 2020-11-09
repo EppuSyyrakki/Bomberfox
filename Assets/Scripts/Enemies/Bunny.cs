@@ -31,5 +31,11 @@ namespace Bomberfox.Enemies
 			SpecialMove = false;
 			SpecialMoveTimer = 0;
 		}
-	}
+
+        public override void StartDeath()
+        {
+			base.StartDeath();
+			AudioManager.instance.OneShotSound("RabbitDeath");
+        }
+    }
 }

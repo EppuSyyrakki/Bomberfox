@@ -85,5 +85,11 @@ namespace Bomberfox.Enemies
 			CurrentTarget = transform.position + Direction;
 			UpdateAnimator();
 		}
+
+        public override void StartDeath()
+        {
+            base.StartDeath();
+            AudioManager.instance.OneShotSound("PigDeath");
+        }
 	}
 }

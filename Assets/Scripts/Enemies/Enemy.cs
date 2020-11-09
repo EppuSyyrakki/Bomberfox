@@ -16,8 +16,8 @@ namespace Bomberfox.Enemies
 	    [SerializeField] private GameObject reservedSpace = null;
 	    [SerializeField, Range(0, 100)] private int specialMoveChance = 10;
 	    [SerializeField, Range(4f, 20f)] private float specialMoveCoolDown = 5f;
-		
-	    public bool IsAlive { private set; get; } = true;
+
+        public bool IsAlive { private set; get; } = true;
 	    public Vector3 Direction { get; private set; } = Vector3.zero;
 		public CollisionHandler CollisionHandler { get; private set; }
 		public bool SpecialMove { get; set; }
@@ -204,7 +204,7 @@ namespace Bomberfox.Enemies
 			if (triggerToSet != "FacingLeft") Anim.ResetTrigger("FacingLeft");
 		}
 
-        public void StartDeath()
+        public virtual void StartDeath()
         {
 	        if (Space != null) Destroy(Space);
 
