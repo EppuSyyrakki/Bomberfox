@@ -28,12 +28,12 @@ namespace Bomberfox.Enemies
 			// if we haven't seen player, don't do special
 			if (PlayerLastSeen == Nowhere)
 			{
-				SpecialMove = false;
-				Anim.ResetTrigger("Special");
+				ResetSpecials();
 				base.Update();
 				return;
 			}
 
+			// Do this on the first update of this special move
 			if (!specialTriggered)
 			{
 				Anim.SetTrigger("Special");
@@ -75,12 +75,8 @@ namespace Bomberfox.Enemies
 		// called from animation event at end of StopCharge animation clip
 		private void EndCharge()
 		{
-			specialTriggered = false;
+			ResetSpecials();
 			PlayerLastSeen = Nowhere;
-			Anim.ResetTrigger("EndSpecial");
-			Anim.ResetTrigger("Special");
-			SpecialMove = false;
-			SpecialMoveTimer = 0;
 			DefineRandomDirection();
 			CurrentTarget = transform.position + Direction;
 			UpdateAnimator();
@@ -90,6 +86,16 @@ namespace Bomberfox.Enemies
         {
             base.StartDeath();
             AudioManager.instance.OneShotSound("PigDeath");
+        }
+
+        private void ResetSpecials()
+        {
+	        Anim.ResetTrigger("EndSpecial");
+	        Anim.ResetTrigger("Special");
+			SpecialMove = false;
+	        SpecialMoveTimer = 0;
+	        specialTriggered = false;
+	        chargeMovementStarted = false;
         }
 	}
 }
