@@ -15148,9 +15148,9 @@ MonoBehaviour:
   speed: 1.5
   lookDistance: 5
   reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
-  specialMoveChance: 40
-  specialMoveCoolDown: 5
-  teleportRange: 4
+  specialMoveChance: 30
+  specialMoveCoolDown: 8
+  teleportRange: 5
 --- !u!1 &3492772768661611583
 GameObject:
   m_ObjectHideFlags: 0

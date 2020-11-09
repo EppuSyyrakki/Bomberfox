@@ -292,7 +292,7 @@ namespace Bomberfox.Player
             else
             {
                 isInvulnerable = true;
-                //playerCollider.enabled = !playerCollider.enabled; -> disables colliding with everything on the level
+                // playerCollider.enabled = !playerCollider.enabled; // disables colliding with everything on the level
                 Physics2D.IgnoreLayerCollision(8, 9, true);
                 Debug.Log("Ouch, I took damage!");
                 Debug.Log(healthSystem.GetHealth());

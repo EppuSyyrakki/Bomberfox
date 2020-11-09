@@ -7,36 +7,120 @@ namespace Bomberfox.Enemies
 {
 	public class Bunny : Enemy
 	{
-		private bool invoked = false;
+		[SerializeField, Range(2, 5)] private int jumpRange = 3;
+		[SerializeField] private float jumpSpeed = 10f;
+
+		private bool disableInvoked = false;
+		private bool isJumping = false;
+		private Vector3 startPos;
+		private float lerpT;
+		private float jumpTime;
+		private float endTime;
+
+		public override void Start()
+		{
+			base.Start();
+			
+			// get the animation lengths to set up the special move
+			RuntimeAnimatorController ac = Anim.runtimeAnimatorController;
+
+			for (int i = 0; i < ac.animationClips.Length; i++)
+			{
+				if (ac.animationClips[i].name == "Jump")
+					jumpTime = ac.animationClips[i].length;
+				if (ac.animationClips[i].name == "StopJump")
+					endTime = ac.animationClips[i].length;
+			}
+		}
 
 		public override void Update()
 		{
 			if (!SpecialMove)
 			{
 				base.Update();
+				return;
 			}
-			else
+
+			if (!disableInvoked)
 			{
-				if (!invoked)
+				if (GetDestination())
 				{
-					print(gameObject.name + " is doing the special move");
-					Invoke(nameof(ResetSpecial), 1f);
-					invoked = true;
+					Invoke(nameof(DisableCollider), Time.deltaTime);
+					Anim.SetTrigger("Special");
+					startPos = transform.position;
+					
+				}
+				else
+				{
+					EndSpecial();
+				}
+
+				disableInvoked = true;
+			}
+
+			if (isJumping)
+			{
+				lerpT += Time.deltaTime / jumpTime;
+				transform.position = Vector3.Lerp(startPos, Space.transform.position, lerpT);
+			}
+		}
+
+		private bool GetDestination()
+		{
+			Vector3 startPos = transform.position;
+
+			for (int i = 0; i < 20; i++)    // try 20 times to find a new spot to jump to.
+			{
+				Vector3 tryDestination = startPos + new Vector3(
+					Random.Range(-jumpRange, jumpRange + 1),
+					Random.Range(-jumpRange, jumpRange + 1));
+
+				if (CollisionHandler.CheckPosition(tryDestination))
+				{
+					ReserveSpace(tryDestination);
+					return true;
 				}
 			}
+
+			return false;
 		}
 
-		private void ResetSpecial()
+		// called from animation event at the end of StartJump
+		private void StartJump()
 		{
-			SpecialMove = false;
-			SpecialMoveTimer = 0;
-			invoked = false;
+			isJumping = true;
 		}
 
-        public override void StartDeath()
-        {
+
+		// called from animation event at the end of Jump
+		private void EndJump()
+		{
+			print(jumpTime + " " + endTime);
+			Invoke(nameof(EndSpecial), endTime);
+		}
+
+		private void DisableCollider()
+		{
+			GetComponent<BoxCollider2D>().enabled = false;
+		}
+
+		private void EndSpecial()
+		{
+			isJumping = false;
+			lerpT = 0;
+			SpecialMoveTimer = 0;
+			Destroy(Space);
+			disableInvoked = false;
+			SpecialMove = false;
+			GetComponent<BoxCollider2D>().enabled = true;
+			DefineRandomDirection();
+			CurrentTarget = transform.position + Direction;
+		}
+
+		public override void StartDeath()
+		{
 			base.StartDeath();
 			AudioManager.instance.OneShotSound("RabbitDeath");
-        }
-    }
+		}
+	}
 }

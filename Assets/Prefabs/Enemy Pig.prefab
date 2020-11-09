@@ -247,7 +247,7 @@ MonoBehaviour:
   lookDistance: 5
   reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
   specialMoveChance: 100
-  specialMoveCoolDown: 5
+  specialMoveCoolDown: 1
   chargeSpeed: 5
 --- !u!1001 &3440760863645409371
 PrefabInstance:

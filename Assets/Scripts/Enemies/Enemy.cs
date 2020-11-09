@@ -15,7 +15,7 @@ namespace Bomberfox.Enemies
 		[SerializeField] private float speed = 10f, lookDistance = 5f;
 	    [SerializeField] private GameObject reservedSpace = null;
 	    [SerializeField, Range(0, 100)] private int specialMoveChance = 10;
-	    [SerializeField, Range(4f, 20f)] private float specialMoveCoolDown = 5f;
+	    [SerializeField, Range(1f, 20f)] private float specialMoveCoolDown = 5f;
 
         public bool IsAlive { private set; get; } = true;
 	    public Vector3 Direction { get; private set; } = Vector3.zero;
@@ -34,7 +34,7 @@ namespace Bomberfox.Enemies
 	        Anim = GetComponent<Animator>();
         }
 
-        private void Start()
+        public virtual void Start()
         {
 	        spawnTime = Anim.GetCurrentAnimatorStateInfo(0).length + 0.1f;
 	        PlayerLastSeen = Nowhere;

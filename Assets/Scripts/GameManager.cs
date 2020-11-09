@@ -69,6 +69,11 @@ namespace Bomberfox
 				Time.timeScale = 1f;
 				isPaused = false;
 			}
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				GoToMainMenu();
+			}
 		}
 
 		public void ChangeLevel(int levelNumber)
