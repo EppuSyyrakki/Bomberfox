@@ -35,7 +35,7 @@ namespace Bomberfox.Player
         private Animator animator;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
-        private Collider2D playerCollider;
+        private PolygonCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
         private bool isAlive = true;
@@ -50,7 +50,7 @@ namespace Bomberfox.Player
         {
             animator = GetComponent<Animator>();
             collisionHandler = GetComponent<CollisionHandler>();
-            playerCollider = GetComponent<Collider2D>();
+            playerCollider = GetComponent<PolygonCollider2D>();
             rb = GetComponent<Rigidbody2D>();
             InitiateHealth();
         }
@@ -263,6 +263,7 @@ namespace Bomberfox.Player
         {
             AudioManager.instance.OneShotSound("PlayerDeath");
             animator.SetTrigger("Die");
+            Destroy(playerCollider);
             isAlive = false;
         }
 
