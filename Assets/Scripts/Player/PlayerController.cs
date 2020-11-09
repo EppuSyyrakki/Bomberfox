@@ -261,6 +261,7 @@ namespace Bomberfox.Player
 
         private void StartDeath()
         {
+            AudioManager.instance.OneShotSound("PlayerDeath");
             animator.SetTrigger("Die");
             isAlive = false;
         }

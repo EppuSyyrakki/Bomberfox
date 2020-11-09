@@ -11,13 +11,16 @@ namespace Bomberfox.UI
             if (GameManager.Instance.CurrentLevel != 1)
             {
                 AudioManager.instance.StopGameMusic();
+                GameManager.Instance.ResetLevelCounter();
+                AudioManager.instance.CheckGameMusic();
+
+                GameManager.Instance.GoToGame();
+            } 
+            else if (GameManager.Instance.CurrentLevel == 1)
+            {
+                GameManager.Instance.ResetLevelCounter();
+                GameManager.Instance.GoToGame();
             }
-
-            GameManager.Instance.ResetLevelCounter();
-            AudioManager.instance.CheckGameMusic();
-
-            Debug.Log("Play again pressed");
-            GameManager.Instance.GoToGame();
         }
 
         public void BackToMenu()

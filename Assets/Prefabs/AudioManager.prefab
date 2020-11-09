@@ -86,24 +86,30 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GoatDeath
     clip: {fileID: 8300000, guid: 724912877b7a8a74fbb2bfafe3c03fb4, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PigDeath
     clip: {fileID: 8300000, guid: 0a71fdf77d121a14c9a0e85849eb38fa, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: RabbitDeath
     clip: {fileID: 8300000, guid: ef83c3df6ea62f649b7ff94c6023a4ed, type: 3}
-    volume: 0.5
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Exit
     clip: {fileID: 8300000, guid: 49d8e48de4c7f8f45a6977cae7aa46b2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 3bd76b9fa341a73449f4a19a8bf44e94, type: 3}
     volume: 1
     pitch: 1
     loop: 0
