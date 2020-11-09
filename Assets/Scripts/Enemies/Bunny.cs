@@ -30,6 +30,7 @@ namespace Bomberfox.Enemies
 		{
 			SpecialMove = false;
 			SpecialMoveTimer = 0;
+			invoked = false;
 		}
 
         public override void StartDeath()
