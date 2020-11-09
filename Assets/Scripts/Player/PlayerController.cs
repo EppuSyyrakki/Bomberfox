@@ -269,7 +269,7 @@ namespace Bomberfox.Player
         // called from animation event at the end of Death animation
         private void EndDeath()
         {
-            GameManager.Instance.ChangeLevel(2);
+            GameManager.Instance.GoToDeathMenu();
         }
 
         private void InitiateHealth()
