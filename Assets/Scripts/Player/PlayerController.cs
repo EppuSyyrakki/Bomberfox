@@ -112,7 +112,79 @@ namespace Bomberfox.Player
         /// </summary>
         private void UpdateAnimator()
         {
-	        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            float lastInputX = Input.GetAxis("Horizontal");
+            float lastInputY = Input.GetAxis("Vertical");
+
+            // Movement code for Blend Tree
+            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            {
+                animator.SetBool("Walking", true);
+                if (lastInputX > 0)
+                {
+                    animator.SetFloat("LastMoveX", 1f);
+                }
+                else if (lastInputX < 0)
+                {
+                    animator.SetFloat("LastMoveX", -1f);
+                }
+                else
+                {
+                    animator.SetFloat("LastMoveX", 0f);
+                }
+
+                if (lastInputY > 0)
+                {
+                    animator.SetFloat("LastMoveY", 1f);
+                }
+                else if (lastInputY < 0)
+                {
+                    animator.SetFloat("LastMoveY", -1f);
+                }
+                else
+                {
+                    animator.SetFloat("LastMoveY", 0f);
+                }
+            }
+            else
+            {
+                animator.SetBool("Walking", false);
+            }
+
+            if (((lastInputX == 0)) && ((lastInputY == -1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.down;
+            }
+            if (((lastInputX == -1)) && ((lastInputY == -1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.downleft;
+            }
+            if (((lastInputX == -1)) && ((lastInputY == 0)))
+            {
+                Facing.dirFacing = Facing.directionFacing.left;
+            }
+            if (((lastInputX == -1)) && ((lastInputY == 1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.upleft;
+            }
+            if (((lastInputX == 0)) && ((lastInputY == 1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.up;
+            }
+            if (((lastInputX == 1)) && ((lastInputY == 1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.upright;
+            }
+            if (((lastInputX == 1)) && ((lastInputY == 0)))
+            {
+                Facing.dirFacing = Facing.directionFacing.right;
+            }
+            if (((lastInputX == 1)) && ((lastInputY == -1)))
+            {
+                Facing.dirFacing = Facing.directionFacing.downright;
+            }
+
+            /* --- Old movement system ---
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
 		        animator.SetBool("Running", true);
 	        else
 		        animator.SetBool("Running", false);
@@ -148,6 +220,7 @@ namespace Bomberfox.Player
                 animator.SetBool("FacingDown", false);
                 animator.SetBool("FacingLeft", false);
             }
+            */
 
         }
 
@@ -225,4 +298,10 @@ namespace Bomberfox.Player
             }
         }
     }
+}
+
+public class Facing : MonoBehaviour
+{
+    public enum directionFacing { down, downleft, left, upleft, up, upright, right, downright };
+    public static directionFacing dirFacing;
 }
