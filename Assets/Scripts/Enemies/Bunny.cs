@@ -8,7 +8,6 @@ namespace Bomberfox.Enemies
 	public class Bunny : Enemy
 	{
 		[SerializeField, Range(2, 5)] private int jumpRange = 3;
-		[SerializeField] private float jumpSpeed = 10f;
 
 		private bool disableInvoked = false;
 		private bool isJumping = false;

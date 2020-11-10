@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class LevelBuilder : MonoBehaviour
 {
@@ -35,17 +33,25 @@ public class LevelBuilder : MonoBehaviour
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
 	private Vector3Int max = new Vector3Int(7, 4, 0);
 
+	// private int presetLevel = 0;
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
-	private int randomBlockChance = 50;
-	private int randomObstacleChance = 33;
+	private int randomBlockChance = 33;
+	private int randomObstacleChance = 25;
 	private int enemyCount = 6;
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
 
-	[SerializeField] private GameObject[] blockPrefabs = null;
-	[SerializeField] private GameObject[] obstaclePrefabs = null;
-	[SerializeField] private GameObject[] enemyPrefabs = null;
-	[SerializeField] private GameObject playerPrefab = null;
+	[SerializeField, Header("Level prefabs")] 
+	private GameObject[] presets = null;
+	[SerializeField] 
+	private GameObject[] blocks = null;
+	[SerializeField] 
+	private GameObject[] obstacles = null;
+
+	[SerializeField, Header("Characters")] 
+	private GameObject[] enemies = null;
+	[SerializeField] 
+	private GameObject player = null;
 
     // private int framecalc = 0;
 
@@ -53,65 +59,52 @@ public class LevelBuilder : MonoBehaviour
 	{
 		FindParentObjects();
 		freePositions.Clear();
-    }
-
-	private void Update()
-	{
-		// debugging lines to figure out what is happening in level creation
-
-		//if (framecalc == 1)
-		//	CreateFreePositions();
-		//if (framecalc == 2)
-		//	CreatePlayer();
-		//if (framecalc == 3)
-		//	CreateNormalBlocks();
-		//if (framecalc == 4)
-		//	CreateRandomBlocks(randomBlockChance);
-		//if (framecalc == 5)
-		//	CheckForDeadEnds();
-		//if (framecalc == 6)
-		//	CreateObstacles(randomObstacleChance);
-		//if (framecalc == 7)
-		//	CreateKeyObstacle();
-
-		//framecalc++;
 	}
 
 	private void Start()
 	{
-		CalculateBuildParameters(GameManager.Instance.CurrentLevel);
-		CreateFreePositions();
-		CreatePlayer();
-		CreateNormalBlocks();
-		CreateRandomBlocks(randomBlockChance);
+		GetBuildParameters(GameManager.Instance.CurrentLevel);
+		InitFreePositions();
+		Preset();
+		Player();
+		RandomBlocks();
 		CheckForDeadEnds();
-		CreateObstacles(randomObstacleChance);
-		CreateKeyObstacle();
-		CreateEnemies();
+		Obstacles();
+		KeyObstacle();
+		Enemies();
     }
-
-	private void CalculateBuildParameters(int currentLevel)
-	{
-		// change build parameters according to current level
-	}
-
+	
 	private void FindParentObjects()
 	{
 		blocksParent = GameObject.Find("Blocks").transform;
 		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
-		initialObstaclesParent = GameObject.Find("InitialObstacles").transform;
+		initialObstaclesParent = GameObject.Find("Initial Obstacles").transform;
 
-		if (blocksParent == null || obstaclesParent == null || enemiesParent == null)
+		if (blocksParent == null || obstaclesParent == null || enemiesParent == null || initialObstaclesParent)
 		{
 			Debug.Log("One of the required parent GameObjects is missing from scene.");
 		}
 	}
 
+	private void GetBuildParameters(int currentLevel)
+	{
+		// change build parameters according to current level
+	}
+
+	private void Preset()
+	{
+		Instantiate(
+			presets[Random.Range(0, presets.Length)], 
+			Vector2.zero, 
+			Quaternion.identity, 
+			initialObstaclesParent);
+	}
+
 	/// <summary>
-	/// Populate the free positions list with all coordinates
+	/// Populate the freePositions list with all available coordinates
 	/// </summary>
-	private void CreateFreePositions()
+	private void InitFreePositions()
 	{
 		for (int y = min.y; y <= max.y; y++)
 		{
@@ -127,10 +120,10 @@ public class LevelBuilder : MonoBehaviour
 	/// Instantiate the player to the position of a random child of this game object
 	/// and remove the child positions from free positions.
 	/// </summary>
-	private void CreatePlayer()
+	private void Player()
 	{
-		// remove initial obstacles from free spots
-		foreach (Transform obstacle in initialObstaclesParent.GetComponentsInChildren<Transform>())
+		// remove initial obstacles from freePositions list
+		foreach (Transform obstacle in initialObstaclesParent.GetChild(0).GetComponentsInChildren<Transform>())
 		{
 			Vector3Int toRemove = Vector3ToInt(obstacle.position);
 			freePositions.Remove(toRemove);
@@ -139,9 +132,9 @@ public class LevelBuilder : MonoBehaviour
 		// create player
 		Quaternion q = Quaternion.identity;
 		Vector3 v = transform.GetChild(Random.Range(0, transform.childCount)).position;
-		Instantiate(playerPrefab, v, q, null);
+		Instantiate(player, v, q, null);
 
-		// remove player start locations from free positions
+		// remove player start locations from freePositions
 		foreach (Transform child in GetComponentsInChildren<Transform>())
 		{
 			Vector3Int toRemove = Vector3ToInt(child.position);
@@ -153,43 +146,22 @@ public class LevelBuilder : MonoBehaviour
 	{
 		return new Vector3Int(Mathf.RoundToInt(toChange.x), Mathf.RoundToInt(toChange.y), 0);
 	}
-
-	/// <summary>
-	/// Instantiate blocks in rows and columns along the edges of the level with empty spaces in between and
-	/// remove each location from free positions.
-	/// </summary>
-	private void CreateNormalBlocks()
-	{
-		// copy collection because we can't remove one from original while iterating over it
-		Vector3Int[] freePositionsCopy = freePositions.ToArray();
-
-		foreach (Vector3 v in freePositionsCopy)
-		{
-			if ((v.x % 2 == 0 && Mathf.Abs(v.y) == 3) 
-			    || (Mathf.Abs(v.y) == 1) && Mathf.Abs(v.x) == 6)
-			{
-				Quaternion q = Quaternion.identity;
-				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
-				freePositions.Remove(Vector3ToInt(v));
-			}
-		}
-	}
-
+	
 	/// <summary>
 	/// Create blocks at random and remove them from the free positions. Doesn't create a block if there are
 	/// more than 2 blocks around a location. Removes from free positions if block instantiated.
 	/// </summary>
 	/// <param name="chance">the percentage chance to create a block</param>
-	private void CreateRandomBlocks(int chance)
+	private void RandomBlocks()
 	{
 		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
 		{
-			if (Random.Range(0, 101) < chance && LocationNotSurrounded(v))
+			if (Random.Range(0, 101) < randomBlockChance && LocationNotSurrounded(v))
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(blockPrefabs[blocksLevel], v, q, blocksParent);
+				Instantiate(blocks[blocksLevel], v, q, blocksParent);
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
@@ -238,32 +210,36 @@ public class LevelBuilder : MonoBehaviour
 	/// Creates obstacles at random to free positions and removes it from the list.
 	/// </summary>
 	/// <param name="chance">Percentage chance to create an obstacle</param>
-	private void CreateObstacles(int chance)
+	private void Obstacles()
 	{
 		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
 		{
-			if (Random.Range(0, 101) < chance)
+			if (Random.Range(0, 101) < randomObstacleChance)
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(obstaclePrefabs[obstaclesLevel], v, q, obstaclesParent);
+				Instantiate(obstacles[obstaclesLevel], v, q, obstaclesParent);
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
 	}
 
-	private void CreateKeyObstacle()
+	private void KeyObstacle()
 	{
 		Obstacle[] allObstacles = obstaclesParent.GetComponentsInChildren<Obstacle>();
+
+		if (allObstacles[0] == null)
+		{
+			Debug.LogError("Couldn't find a place to hide the key.");
+			return;
+		}
+
 		Obstacle keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
 		keyObstacle.IsKey = true;
-		Debug.Log("Key was hidden in " + keyObstacle.transform.position);
-
-		// keyObstacle.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 	}
 
-	private void CreateEnemies()
+	private void Enemies()
 	{
 		if (enemyCount > freePositions.Count) enemyCount = freePositions.Count;
 
@@ -272,7 +248,7 @@ public class LevelBuilder : MonoBehaviour
 			Vector3Int[] freePositionsCopy = freePositions.ToArray();
 			Vector3Int v = freePositionsCopy[Random.Range(0, freePositionsCopy.Length)];
 			Quaternion q = Quaternion.identity;
-			Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], v, q, enemiesParent);
+			Instantiate(enemies[Random.Range(0, enemies.Length)], v, q, enemiesParent);
 			freePositions.Remove(v);
 		}
 	}
