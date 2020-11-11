@@ -72,7 +72,8 @@ public class LevelBuilder : MonoBehaviour
 		Obstacles();
 		KeyObstacle();
 		Enemies();
-    }
+        StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
+	}
 	
 	private void FindParentObjects()
 	{

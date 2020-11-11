@@ -84,7 +84,7 @@ namespace Bomberfox
 		public void ReloadScene()
 		{
 			SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
-		}
+        }
 
 		public void ResetLevelCounter()
 		{
