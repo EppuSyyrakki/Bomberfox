@@ -7,7 +7,7 @@ namespace Bomberfox.UI
 {
     public class MenuUIController : MonoBehaviour
     {
-        void Awake()
+        void Start()
         {
             AudioManager.instance.PlaySound("Spooky");
             AudioManager.instance.PlaySound("Thunder2");

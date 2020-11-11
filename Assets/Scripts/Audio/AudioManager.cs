@@ -145,5 +145,19 @@ public class AudioManager : MonoBehaviour
             PlayMusic("GameMusic3");
         }
     }
+
+    public void VictoryMusic()
+    {
+        int sound = UnityEngine.Random.Range(1, 3);
+
+        if (sound == 1)
+        {
+            PlaySound("Victory1");
+        }
+        else if (sound == 2)
+        {
+            PlaySound("Victory2");
+        }
+    }
 }
 

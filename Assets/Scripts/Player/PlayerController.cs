@@ -271,6 +271,8 @@ namespace Bomberfox.Player
         // called from animation event at the end of Death animation
         private void EndDeath()
         {
+            AudioManager.instance.StopGameMusic();
+            AudioManager.instance.PlayMusic("DeathSong");
             GameManager.Instance.GoToDeathMenu();
         }
 
