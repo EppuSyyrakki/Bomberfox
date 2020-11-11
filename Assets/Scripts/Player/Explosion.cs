@@ -6,9 +6,20 @@ namespace Bomberfox.Player
 {
     public class Explosion : MonoBehaviour
     {
-        [SerializeField]
+	    public enum ShockType
+	    {
+            XandY = 0,
+            X,
+            Y,
+            Full
+	    }
+
+	    [SerializeField, Tooltip("Drag the prefab InitialShock here")]
         private GameObject initialShockPrefab = null;
 
+        [SerializeField] 
+        private ShockType shockType;
+        
         private GameObject parentBomb = null;
         private int range;
         private float speed;
@@ -36,7 +47,7 @@ namespace Bomberfox.Player
             GameObject shockCenter = Instantiate(initialShockPrefab, transform);
             InitialShock initialShock = shockCenter.GetComponent<InitialShock>();
             initialShock.ReceiveBombParameters(range, speed, fadeDelay);
-            initialShock.BeginExploding();
+            initialShock.BeginExploding(shockType);
             initialShock.BeginCoroutineToContinue();
             AudioManager.instance.OneShotSound("Explosion");
         }

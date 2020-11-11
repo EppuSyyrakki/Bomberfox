@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Bomberfox.Player
@@ -31,11 +32,19 @@ namespace Bomberfox.Player
 		/// <summary>
 		/// Loops 4 directions, creates shocks and gives them directions to continue in. Adds the initial shocks to list.
 		/// </summary>
-		public void BeginExploding()
+		public void BeginExploding(Explosion.ShockType type)
 		{
-			for (int i = 0; i < 4; i++)
+			Vector3[] directions = new Vector3[0];
+
+			if (type == Explosion.ShockType.XandY || type == Explosion.ShockType.Full) 
+				directions = new Vector3[4] {Vector3.up, Vector3.right, Vector3.down, Vector3.left};
+			else if (type == Explosion.ShockType.X)
+				directions = new Vector3[2] {Vector3.left, Vector3.right};
+			else if (type == Explosion.ShockType.Y)
+				directions = new Vector3[2] {Vector3.up, Vector3.down};
+
+			for (int i = 0; i < directions.Length; i++)
 			{
-				
 				GameObject obj = Instantiate(shockWavePrefab, transform.position, Quaternion.identity, transform);
 				ShockWave sw = obj.GetComponent<ShockWave>();
 				sw.Direction = directions[i];
