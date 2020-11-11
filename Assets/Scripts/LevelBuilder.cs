@@ -24,10 +24,8 @@ public class LevelBuilder : MonoBehaviour
 		Vector3.left,
 	};
 
-	private Transform blocksParent = null;
-	private Transform obstaclesParent = null;
 	private Transform enemiesParent = null;
-	private Transform presetParent = null;
+	private Transform initialObstaclesParent = null;
 
 	// bottom left and top right corners to limit creation loops
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
@@ -56,13 +54,12 @@ public class LevelBuilder : MonoBehaviour
 	private void Awake()
 	{
 		FindParentObjects();
-		freePositions.Clear();
+		InitFreePositions();
 	}
 
 	private void Start()
 	{
 		GetBuildParameters(GameManager.Instance.CurrentLevel);
-		InitFreePositions();
 		Preset();
 		Player();
 		RandomBlocks();
@@ -76,12 +73,10 @@ public class LevelBuilder : MonoBehaviour
 	
 	private void FindParentObjects()
 	{
-		blocksParent = GameObject.Find("Blocks").transform;
-		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
-		presetParent = GameObject.Find("Initial Obstacles").transform;
+		initialObstaclesParent = GameObject.Find("Initial Obstacles").transform;
 
-		if (blocksParent == null || obstaclesParent == null || enemiesParent == null || presetParent)
+		if (enemiesParent == null || initialObstaclesParent == null)
 		{
 			Debug.Log("One of the required parent GameObjects is missing from scene.");
 		}
@@ -100,36 +95,31 @@ public class LevelBuilder : MonoBehaviour
 				presets[Random.Range(0, presets.Length)],
 				Vector2.zero,
 				Quaternion.identity,
-				presetParent);
+				initialObstaclesParent);
 		}
 		else
 		{
 			Debug.LogError("Error loading level presets. Check LevelBuilder for missing references.");
 		}
 
-		if (presetLevel < 1) return;
-
-		MatchPrefabsToLevel(GameObject.FindGameObjectsWithTag("Obstacle"), obstacles[presetLevel], obstaclesParent);
-		MatchPrefabsToLevel(GameObject.FindGameObjectsWithTag("Block"), blocks[presetLevel], blocksParent);
+		ReplaceAndRemove(GameObject.FindGameObjectsWithTag("Obstacle"), obstacles[presetLevel]);
+		ReplaceAndRemove(GameObject.FindGameObjectsWithTag("Block"), blocks[presetLevel]);
 	}
 
-	/// <summary>
-	/// Instantiates new GameObjects in positions of array param, assigns parent. Destroys originals.
-	/// </summary>
-	/// <param name="originals"></param>
-	/// <param name="swapTo"></param>
-	private void MatchPrefabsToLevel(GameObject[] originals, GameObject swapTo, Transform parent)
+	private void ReplaceAndRemove(GameObject[] toRemove, GameObject replacement)
 	{
-		foreach (GameObject original in originals)
+		List<Vector3Int> positions = new List<Vector3Int>();
+
+		for (int i = toRemove.Length - 1; i >= 0; i--)
 		{
-			Vector3 self = original.transform.position;
-			Vector3Int pos = new Vector3Int(Mathf.RoundToInt(self.x), Mathf.RoundToInt(self.y), 0);
-			Instantiate(swapTo, pos, Quaternion.identity, parent);
+			positions.Add(Vector3ToInt(toRemove[i].transform.position));
+			// Destroy(toRemove[i]);
 		}
 
-		foreach (GameObject original in originals)
+		foreach (Vector3Int pos in positions)
 		{
-			Destroy(original);
+			// Instantiate(replacement, pos, Quaternion.identity, initialObstaclesParent.GetChild(0));
+			freePositions.Remove(pos);
 		}
 	}
 
@@ -154,12 +144,12 @@ public class LevelBuilder : MonoBehaviour
 	/// </summary>
 	private void Player()
 	{
-		// remove initial obstacles from freePositions list
-		foreach (Transform obstacle in presetParent.GetChild(0).GetComponentsInChildren<Transform>())
-		{
-			Vector3Int toRemove = Vector3ToInt(obstacle.position);
-			freePositions.Remove(toRemove);
-		}
+		//// remove initial obstacles from freePositions list
+		//foreach (Transform obstacle in initialObstaclesParent.GetChild(0).GetComponentsInChildren<Transform>())
+		//{
+		//	Vector3Int toRemove = Vector3ToInt(obstacle.position);
+		//	freePositions.Remove(toRemove);
+		//}
 
 		// create player
 		Quaternion q = Quaternion.identity;
@@ -193,7 +183,7 @@ public class LevelBuilder : MonoBehaviour
 			if (Random.Range(0, 101) < randomBlockChance && LocationNotSurrounded(v))
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(blocks[blocksLevel], v, q, blocksParent);
+				Instantiate(blocks[blocksLevel], v, q, initialObstaclesParent.GetChild(0));
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
@@ -251,7 +241,7 @@ public class LevelBuilder : MonoBehaviour
 			if (Random.Range(0, 101) < randomObstacleChance)
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(obstacles[obstaclesLevel], v, q, obstaclesParent);
+				Instantiate(obstacles[obstaclesLevel], v, q, initialObstaclesParent.GetChild(0));
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
@@ -259,9 +249,9 @@ public class LevelBuilder : MonoBehaviour
 
 	private void KeyObstacle()
 	{
-		Obstacle[] allObstacles = obstaclesParent.GetComponentsInChildren<Obstacle>();
+		Obstacle[] allObstacles = initialObstaclesParent.GetChild(0).GetComponentsInChildren<Obstacle>();
 
-		if (allObstacles[0] == null)
+		if (allObstacles == null)
 		{
 			Debug.LogError("Couldn't find a place to hide the key.");
 			return;

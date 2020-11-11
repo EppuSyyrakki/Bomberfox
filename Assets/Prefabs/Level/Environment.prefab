@@ -72,50 +72,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!1 &426832449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 426832450}
-  - component: {fileID: 426832451}
-  m_Layer: 0
-  m_Name: KeepFree (12)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &426832450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426832449}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5991717415893836199}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &426832451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426832449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6419b949fb193f94c83ecf1cb352ed17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: 1
 --- !u!1 &308834234807607389
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,7 +532,6 @@ Transform:
   - {fileID: 885822488972966310}
   - {fileID: 479495888003673926}
   - {fileID: 2213384034178524620}
-  - {fileID: 426832450}
   m_Father: {fileID: 5991717415827528186}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -593,7 +548,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   presets:
-  - {fileID: 4619247487117567918, guid: ffd4675ab6ef84d4f9a433103b886e3c, type: 3}
+  - {fileID: 1048197048049301001, guid: a34b2cae210b13247b5b64e16be54e13, type: 3}
+  - {fileID: 1048197048049301001, guid: de1d2fd133bdf4a48b93a62c4a12c84a, type: 3}
+  - {fileID: 1048197048049301001, guid: 0665f74f99788a443888331d486755ed, type: 3}
+  - {fileID: 1048197048049301001, guid: 661aeb890a41a914aae66ad879add2d9, type: 3}
+  - {fileID: 1048197048049301001, guid: 78a834635b2b4d446a6df4573a5c93b0, type: 3}
   blocks:
   - {fileID: 7126158467214336790, guid: a864bff7718f2714ea69411abf0fa9fc, type: 3}
   obstacles:
