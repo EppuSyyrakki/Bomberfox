@@ -27,13 +27,13 @@ public class LevelBuilder : MonoBehaviour
 	private Transform blocksParent = null;
 	private Transform obstaclesParent = null;
 	private Transform enemiesParent = null;
-	private Transform initialObstaclesParent = null;
+	private Transform presetParent = null;
 
 	// bottom left and top right corners to limit creation loops
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
 	private Vector3Int max = new Vector3Int(7, 4, 0);
 
-	private int presetLevel = 1;
+	private int presetLevel = 0;
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
 	private int randomBlockChance = 33;
@@ -42,7 +42,7 @@ public class LevelBuilder : MonoBehaviour
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
 
 	[SerializeField, Header("Level prefabs")] 
-	private GameObject[] easyPresets, mediumPresets, hardPresets = null;
+	private GameObject[] presets = null;
 	[SerializeField] 
 	private GameObject[] blocks = null;
 	[SerializeField] 
@@ -79,9 +79,9 @@ public class LevelBuilder : MonoBehaviour
 		blocksParent = GameObject.Find("Blocks").transform;
 		obstaclesParent = GameObject.Find("Obstacles").transform;
 		enemiesParent = GameObject.Find("Enemies").transform;
-		initialObstaclesParent = GameObject.Find("Initial Obstacles").transform;
+		presetParent = GameObject.Find("Initial Obstacles").transform;
 
-		if (blocksParent == null || obstaclesParent == null || enemiesParent == null || initialObstaclesParent)
+		if (blocksParent == null || obstaclesParent == null || enemiesParent == null || presetParent)
 		{
 			Debug.Log("One of the required parent GameObjects is missing from scene.");
 		}
@@ -94,23 +94,42 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Preset()
 	{
-		List<GameObject> usablePresets = new List<GameObject>();
-
-		if (presetLevel == 1) usablePresets.AddRange(easyPresets);
-		else if (presetLevel == 2) usablePresets.AddRange(mediumPresets);
-		else if (presetLevel == 3) usablePresets.AddRange(hardPresets);
-
-		if (usablePresets[0] != null)
+		if (presets[0] != null)
 		{
 			Instantiate(
-				usablePresets[Random.Range(0, usablePresets.Count)],
+				presets[Random.Range(0, presets.Length)],
 				Vector2.zero,
 				Quaternion.identity,
-				initialObstaclesParent);
+				presetParent);
 		}
 		else
 		{
 			Debug.LogError("Error loading level presets. Check LevelBuilder for missing references.");
+		}
+
+		if (presetLevel < 1) return;
+
+		MatchPrefabsToLevel(GameObject.FindGameObjectsWithTag("Obstacle"), obstacles[presetLevel], obstaclesParent);
+		MatchPrefabsToLevel(GameObject.FindGameObjectsWithTag("Block"), blocks[presetLevel], blocksParent);
+	}
+
+	/// <summary>
+	/// Instantiates new GameObjects in positions of array param, assigns parent. Destroys originals.
+	/// </summary>
+	/// <param name="originals"></param>
+	/// <param name="swapTo"></param>
+	private void MatchPrefabsToLevel(GameObject[] originals, GameObject swapTo, Transform parent)
+	{
+		foreach (GameObject original in originals)
+		{
+			Vector3 self = original.transform.position;
+			Vector3Int pos = new Vector3Int(Mathf.RoundToInt(self.x), Mathf.RoundToInt(self.y), 0);
+			Instantiate(swapTo, pos, Quaternion.identity, parent);
+		}
+
+		foreach (GameObject original in originals)
+		{
+			Destroy(original);
 		}
 	}
 
@@ -136,7 +155,7 @@ public class LevelBuilder : MonoBehaviour
 	private void Player()
 	{
 		// remove initial obstacles from freePositions list
-		foreach (Transform obstacle in initialObstaclesParent.GetChild(0).GetComponentsInChildren<Transform>())
+		foreach (Transform obstacle in presetParent.GetChild(0).GetComponentsInChildren<Transform>())
 		{
 			Vector3Int toRemove = Vector3ToInt(obstacle.position);
 			freePositions.Remove(toRemove);
