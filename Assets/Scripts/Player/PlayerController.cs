@@ -26,12 +26,13 @@ namespace Bomberfox.Player
         // How many bombs the player can drop at the same time
         [SerializeField] 
         private int maxBombs = 3;
-        [SerializeField]
+        
+        public GameObject normalBomb = null;
+        public GameObject specialBomb = null;
+
+        private GameObject special;
         private int currentBombs = 0;   // The amount of bombs currently in the game
-
-        [SerializeField]
-        private GameObject bombPrefab = null;
-
+        private bool specialUsed = false;
         private Animator animator;
         private Direction moveDirection;
         private CollisionHandler collisionHandler;
@@ -89,11 +90,21 @@ namespace Bomberfox.Player
 
             if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
             {
-                CreateBomb();
+                CreateNormalBomb();
+            }
+
+            if (Input.GetButtonDown("Fire2") && specialUsed)
+            {
+	            TryToExplodeSpecial();
+            }
+
+            if (Input.GetButtonDown("Fire2") && !specialUsed)
+            {
+	            CreateSpecialBomb();
             }
         }
 
-        private void CreateBomb()
+        private void CreateNormalBomb()
         {
 	        Vector3 pos = new Vector3(
 		        Mathf.RoundToInt(transform.position.x),
@@ -102,9 +113,33 @@ namespace Bomberfox.Player
 
 	        if (collisionHandler.CheckPosition(pos))
 	        {
-		        GameObject bomb = Instantiate(bombPrefab, pos, Quaternion.identity);
+		        GameObject bomb = Instantiate(normalBomb, pos, Quaternion.identity);
 		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
             }
+        }
+
+        private void CreateSpecialBomb()
+        {
+	        Vector3 pos = new Vector3(
+		        Mathf.RoundToInt(transform.position.x),
+		        Mathf.RoundToInt(transform.position.y),
+		        0);
+
+	        if (collisionHandler.CheckPosition(pos))
+	        {
+		        special = Instantiate(specialBomb, pos, Quaternion.identity);
+		        special.GetComponent<Bomb>().SetOwnerAndInit(this);
+		        specialUsed = true;
+	        }
+        }
+
+        private void TryToExplodeSpecial()
+        {
+	        if (special.TryGetComponent(out Bomb bomb))
+	        {
+                bomb.Explode();
+                special = null;
+	        }
         }
 
         /// <summary>

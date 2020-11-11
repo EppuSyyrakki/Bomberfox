@@ -6200,8 +6200,8 @@ MonoBehaviour:
   speed: 4
   playerHealth: 1
   maxBombs: 3
-  currentBombs: 0
-  bombPrefab: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
+  normalBomb: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
+  specialBomb: {fileID: 4775296925383206451, guid: d6f20328a8b2afa44ab32a682faf0390, type: 3}
   isInvulnerable: 0
   invulnerabilityTimer: 5
 --- !u!114 &-8475925279940206486
