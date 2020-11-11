@@ -73,6 +73,7 @@ public class LevelBuilder : MonoBehaviour
 		KeyObstacle();
 		Enemies();
         StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
+        Physics2D.IgnoreLayerCollision(8, 9, false);
 	}
 	
 	private void FindParentObjects()
