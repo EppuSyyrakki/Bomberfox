@@ -11,7 +11,7 @@ namespace Bomberfox.Player
 		[SerializeField]
 		private GameObject shockWavePrefab = null;
 
-		private readonly Vector3[] directions = { Vector3.up, Vector3.right, Vector3.down, Vector3.left };
+		private Vector3[] directions;
 		private int range;
 		private float speed;
 		private float fadeDelay;
@@ -32,15 +32,37 @@ namespace Bomberfox.Player
 		/// <summary>
 		/// Loops 4 directions, creates shocks and gives them directions to continue in. Adds the initial shocks to list.
 		/// </summary>
-		public void BeginExploding(Explosion.ShockType type)
+		public void BeginExploding(Bomb.ShockType type)
 		{
-			Vector3[] directions = new Vector3[0];
+			if (type == Bomb.ShockType.Full)
+			{
+				Vector3 pos = transform.position;
+				
+				for (int x = -range; x <= range; x++)
+				{
+					for (int y = -range; y <= range; y++)
+					{
+						if (Mathf.Abs(x) == range && Mathf.Abs(y) == range) continue;
 
-			if (type == Explosion.ShockType.XandY || type == Explosion.ShockType.Full) 
+						Vector3 location = new Vector3(pos.x + x, pos.y + y, 0);
+						GameObject obj = Instantiate(shockWavePrefab, location, Quaternion.identity, transform);
+						ShockWave sw = obj.GetComponent<ShockWave>();
+						sw.Direction = Vector3.zero;
+						sw.SetDelay(fadeDelay);
+						shockWaves.Add(sw);
+					}
+				}
+
+				return;
+			}
+
+			directions = new Vector3[0];
+
+			if (type == Bomb.ShockType.XandY || type == Bomb.ShockType.Full) 
 				directions = new Vector3[4] {Vector3.up, Vector3.right, Vector3.down, Vector3.left};
-			else if (type == Explosion.ShockType.X)
+			else if (type == Bomb.ShockType.X)
 				directions = new Vector3[2] {Vector3.left, Vector3.right};
-			else if (type == Explosion.ShockType.Y)
+			else if (type == Bomb.ShockType.Y)
 				directions = new Vector3[2] {Vector3.up, Vector3.down};
 
 			for (int i = 0; i < directions.Length; i++)

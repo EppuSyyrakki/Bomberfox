@@ -6,20 +6,10 @@ namespace Bomberfox.Player
 {
     public class Explosion : MonoBehaviour
     {
-	    public enum ShockType
-	    {
-            XandY = 0,
-            X,
-            Y,
-            Full
-	    }
-
 	    [SerializeField, Tooltip("Drag the prefab InitialShock here")]
-        private GameObject initialShockPrefab = null;
+	    private GameObject initialShockPrefab = null;
 
-        [SerializeField] 
-        private ShockType shockType;
-        
+        private Bomb.ShockType shockType;
         private GameObject parentBomb = null;
         private int range;
         private float speed;
@@ -83,6 +73,7 @@ namespace Bomberfox.Player
             range = bomb.range;
             speed = 1 / bomb.speed;
             fadeDelay = bomb.fadeDelay;
+            shockType = bomb.shockType;
         }
     }
 }

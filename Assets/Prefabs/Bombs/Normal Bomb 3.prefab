@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -890342533728179705}
   - component: {fileID: 3511554595164325982}
   m_Layer: 8
-  m_Name: Bomb
+  m_Name: Bomb normal 3
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fa106b59ce64a44a9e065a63fc29a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  trigger: 0
   range: 3
   speed: 25
   fadeDelay: 0.3

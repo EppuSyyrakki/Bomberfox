@@ -135,8 +135,9 @@ namespace Bomberfox.Player
 
         private void TryToExplodeSpecial()
         {
-	        if (special.TryGetComponent(out Bomb bomb))
+	        if (special != null)
 	        {
+		        Bomb bomb = special.GetComponent<Bomb>();
                 bomb.Explode();
                 special = null;
 	        }

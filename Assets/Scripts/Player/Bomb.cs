@@ -19,11 +19,22 @@ namespace Bomberfox.Player
             Special
 	    }
 
-	    [SerializeField]
+	    public enum ShockType
+	    {
+		    XandY = 0,
+		    X,
+		    Y,
+		    Full
+	    }
+
+        [SerializeField]
 	    private Type type = Type.Normal;
 
 	    [SerializeField]
 	    private Trigger trigger = Trigger.Timer;
+
+	    [SerializeField] 
+	    public ShockType shockType = ShockType.XandY;
 
         [SerializeField, Tooltip("How far the explosion goes"), Range(1, 10)]
         public int range = 3;
