@@ -695,5 +695,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1048197048049301001, guid: a34b2cae210b13247b5b64e16be54e13, type: 3}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1048197048049301001, guid: de1d2fd133bdf4a48b93a62c4a12c84a, type: 3}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.data[2]
+      value: 
+      objectReference: {fileID: 1048197048049301001, guid: 0665f74f99788a443888331d486755ed, type: 3}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1048197048049301001, guid: 661aeb890a41a914aae66ad879add2d9, type: 3}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: easyPresets.Array.data[4]
+      value: 
+      objectReference: {fileID: 1048197048049301001, guid: 78a834635b2b4d446a6df4573a5c93b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}

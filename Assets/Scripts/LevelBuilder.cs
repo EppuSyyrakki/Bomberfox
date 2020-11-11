@@ -33,7 +33,7 @@ public class LevelBuilder : MonoBehaviour
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
 	private Vector3Int max = new Vector3Int(7, 4, 0);
 
-	// private int presetLevel = 0;
+	private int presetLevel = 1;
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
 	private int randomBlockChance = 33;
@@ -42,7 +42,7 @@ public class LevelBuilder : MonoBehaviour
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
 
 	[SerializeField, Header("Level prefabs")] 
-	private GameObject[] presets = null;
+	private GameObject[] easyPresets, mediumPresets, hardPresets = null;
 	[SerializeField] 
 	private GameObject[] blocks = null;
 	[SerializeField] 
@@ -52,9 +52,7 @@ public class LevelBuilder : MonoBehaviour
 	private GameObject[] enemies = null;
 	[SerializeField] 
 	private GameObject player = null;
-
-    // private int framecalc = 0;
-
+	
 	private void Awake()
 	{
 		FindParentObjects();
@@ -96,11 +94,24 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Preset()
 	{
-		Instantiate(
-			presets[Random.Range(0, presets.Length)], 
-			Vector2.zero, 
-			Quaternion.identity, 
-			initialObstaclesParent);
+		List<GameObject> usablePresets = new List<GameObject>();
+
+		if (presetLevel == 1) usablePresets.AddRange(easyPresets);
+		else if (presetLevel == 2) usablePresets.AddRange(mediumPresets);
+		else if (presetLevel == 3) usablePresets.AddRange(hardPresets);
+
+		if (usablePresets[0] != null)
+		{
+			Instantiate(
+				usablePresets[Random.Range(0, usablePresets.Count)],
+				Vector2.zero,
+				Quaternion.identity,
+				initialObstaclesParent);
+		}
+		else
+		{
+			Debug.LogError("Error loading level presets. Check LevelBuilder for missing references.");
+		}
 	}
 
 	/// <summary>
