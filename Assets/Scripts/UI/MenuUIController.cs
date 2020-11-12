@@ -27,5 +27,3 @@ namespace Bomberfox.UI
         }
     }
 }
-
-

@@ -32,8 +32,8 @@ namespace Bomberfox
 		[Header("Enemy difficulty increases:"), SerializeField, Range(1, 5), Tooltip("Additional enemy every n:th level")]
 		private int addEnemyFrequency = 1;
 
-		[SerializeField, Range(0, 0.05f), Tooltip("Added to the enemy speed every level")]
-		private float enemySpeedIncrease = 0.005f;
+		[SerializeField, Range(0.005f, 0.2f), Tooltip("Added to the enemy speed every level")]
+		private float enemySpeedIncrease = 0.01f;
 
 		[SerializeField, Range(0.01f, 0.1f), Tooltip("Added to enemy special chance every level")]
 		private float enemySpecialChanceIncrease = 0.05f;
@@ -63,7 +63,7 @@ namespace Bomberfox
 		/// </summary>
 		public int GetRandomBlockChance(int currentLevel)
 		{
-			return 50;
+			return currentLevel * blockChanceIncrease + blockChance;
 		}
 
 		/// <summary>
@@ -71,7 +71,7 @@ namespace Bomberfox
 		/// </summary>
 		public int GetRandomObstacleChance(int currentLevel)
 		{
-			return 25;
+			return currentLevel * blockChanceIncrease + blockChance;
 		}
 
 		/// <summary>
@@ -97,8 +97,8 @@ namespace Bomberfox
 
 			if (enemies[0] == false && enemies[1] == false && enemies[2] == false)
 			{
-				Debug.LogError("No enemy available. Set at least one enemy to introduce at level " 
-				               + currentLevel + " in the Progression component of LevelBuilder.");
+				Debug.LogError("No enemy available. Set at least one enemy to introduce at level 0" 
+				               + " of the Progression component of LevelBuilder.");
 			}
 
 			return enemies;
@@ -110,6 +110,11 @@ namespace Bomberfox
 		/// <returns></returns>
 		public EnemyData GetEnemyData(int currentLevel, EnemyData data)
 		{
+			float originalSpeed = data.Speed;
+			int originalSpecialChance = data.SpecialChance;
+			float originalSpecialCoolDown = data.SpecialCoolDown;
+			data.Speed = originalSpeed * (enemySpeed + enemySpeedIncrease * currentLevel);
+			
 			return data;
 		}
 	}

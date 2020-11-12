@@ -79,6 +79,9 @@ public class LevelBuilder : MonoBehaviour
 		initialObstaclesParent = GameObject.Find("Initial Obstacles").transform;
 	}
 
+	/// <summary>
+	/// Randomly choose a level preset and replace environment prefabs according to level if needed.
+	/// </summary>
 	private void Preset()
 	{
 		Instantiate(
@@ -96,16 +99,21 @@ public class LevelBuilder : MonoBehaviour
 			foreach (Transform child in initialObstaclesParent.GetChild(0))
 			{
 				if (child.CompareTag("Obstacle")) presetObstacles.Add(child.gameObject);
-				else if (child.CompareTag("Block")) presetObstacles.Add(child.gameObject);
+				if (child.CompareTag("Block")) presetBlocks.Add(child.gameObject);
 			}
 
 			ReplaceAndRemove(presetObstacles.ToArray(), obstacles[presetLevel]);
 			ReplaceAndRemove(presetBlocks.ToArray(), blocks[presetLevel]); 
 		}
+
+		foreach (Transform child in initialObstaclesParent.GetChild(0))
+		{
+			freePositions.Remove(Vector3ToInt(child.position));
+		}
 	}
 
 	/// <summary>
-	/// Remove and replace all GameObjects in an array.
+	/// Destroy and replace all GameObjects in an array.
 	/// </summary>
 	/// <param name="toRemove">The array of GameObjects to remove</param>
 	/// <param name="replacement">The GameObject to replace the originals</param>
@@ -116,7 +124,6 @@ public class LevelBuilder : MonoBehaviour
 			Vector3 pos = toRemove[i].transform.position;
 			Destroy(toRemove[i]);
 			Instantiate(replacement, pos, Quaternion.identity, initialObstaclesParent.GetChild(0));
-			freePositions.Remove(Vector3ToInt(pos));
 		}
 	}
 
@@ -141,13 +148,6 @@ public class LevelBuilder : MonoBehaviour
 	/// </summary>
 	private void Player()
 	{
-		//// remove initial obstacles from freePositions list
-		//foreach (Transform obstacle in initialObstaclesParent.GetChild(0).GetComponentsInChildren<Transform>())
-		//{
-		//	Vector3Int toRemove = Vector3ToInt(obstacle.position);
-		//	freePositions.Remove(toRemove);
-		//}
-
 		// create player
 		Quaternion q = Quaternion.identity;
 		playerStart = transform.GetChild(Random.Range(0, transform.childCount)).position;
@@ -173,6 +173,7 @@ public class LevelBuilder : MonoBehaviour
 	/// <param name="chance">the percentage chance to create a block</param>
 	private void RandomBlocks()
 	{
+		randomBlockChance = progression.GetRandomBlockChance(currentLevel);
 		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
@@ -231,6 +232,7 @@ public class LevelBuilder : MonoBehaviour
 	/// <param name="chance">Percentage chance to create an obstacle</param>
 	private void Obstacles()
 	{
+		randomObstacleChance = progression.GetRandomObstacleChance(currentLevel);
 		Vector3Int[] freePositionsCopy = freePositions.ToArray();
 
 		foreach (Vector3 v in freePositionsCopy)
@@ -298,6 +300,8 @@ public class LevelBuilder : MonoBehaviour
 			EnemyData data = enemy.GetData();
 			enemy.SetData(progression.GetEnemyData(currentLevel, data));
 			freePositions.Remove(v);
+
+			print("Speed: " + data.Speed);
 		}
 	}
 
