@@ -171,8 +171,8 @@ MonoBehaviour:
   reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
   specialMoveChance: 10
   specialMoveCoolDown: 5
+  powerUpChance: 0
   jumpRange: 3
-  jumpSpeed: 10
 --- !u!1 &5710127593981525771
 GameObject:
   m_ObjectHideFlags: 0
