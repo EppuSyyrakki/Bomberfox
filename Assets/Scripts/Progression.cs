@@ -53,7 +53,7 @@ namespace Bomberfox
 		/// <summary>
 		/// What environment "theme" to use. 0 = normal
 		/// </summary>
-		public static int GetPresetLevel(int currentLevel)
+		public int GetPresetLevel(int currentLevel)
 		{
 			return 0;
 		}
@@ -61,7 +61,7 @@ namespace Bomberfox
 		/// <summary>
 		/// Chance of creating a block in a free and not-surrounded position.
 		/// </summary>
-		public static int GetRandomBlockChance(int currentLevel)
+		public int GetRandomBlockChance(int currentLevel)
 		{
 			return 50;
 		}
@@ -69,7 +69,7 @@ namespace Bomberfox
 		/// <summary>
 		/// Chance of creating an obstacle in a free position.
 		/// </summary>
-		public static int GetRandomObstacleChance(int currentLevel)
+		public int GetRandomObstacleChance(int currentLevel)
 		{
 			return 25;
 		}
@@ -77,7 +77,7 @@ namespace Bomberfox
 		/// <summary>
 		/// Number of enemies to be created.
 		/// </summary>
-		public static int GetEnemyCount(int currentLevel)
+		public int GetEnemyCount(int currentLevel)
 		{
 			return 5;
 		}
@@ -85,7 +85,7 @@ namespace Bomberfox
 		/// <summary>
 		/// Type/types of enemies to be created. 0 = Goat, 1 = Pig, 2 = Bunny
 		/// </summary>
-		public static int[] GetEnemyTypes(int currentLevel)
+		public int[] GetEnemyTypes(int currentLevel)
 		{
 			return new int[] {0, 1, 2};
 		}
@@ -94,7 +94,7 @@ namespace Bomberfox
 		/// Adjust EnemyData parameters according to current level.
 		/// </summary>
 		/// <returns></returns>
-		public static EnemyData GetEnemyData(int currentLevel, EnemyData data)
+		public EnemyData GetEnemyData(int currentLevel, EnemyData data)
 		{
 			return data;
 		}
