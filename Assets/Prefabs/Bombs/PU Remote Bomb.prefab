@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 452210154801273152}
   - component: {fileID: 3202745811652806372}
   - component: {fileID: 8867084150556142390}
-  - component: {fileID: -1944092193505576651}
-  - component: {fileID: 1167967915273268887}
+  - component: {fileID: 3139949244034514350}
+  - component: {fileID: 8723711118999542472}
   m_Layer: 0
-  m_Name: PU More Bombs
+  m_Name: PU Remote Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6059507ec22734f4aa15c5aadf2b8d2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39cb7592f3ea1b94eb7db535bd049155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &-1944092193505576651
+--- !u!114 &3139949244034514350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,10 +110,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4048607505023357865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca4e559998d9a2469716d21edc8e593, type: 3}
+  m_Script: {fileID: 11500000, guid: c83ceebab4b49194ba78f9ccc9d040a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1167967915273268887
+  remoteBombPrefab: {fileID: 4775296925383206451, guid: afe2825a2b4b6f74cbbbb16f4aea1f76, type: 3}
+--- !u!114 &8723711118999542472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

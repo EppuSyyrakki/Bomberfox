@@ -32,6 +32,7 @@ namespace Bomberfox.Player
         [SerializeField] 
         private int maxBombLimit = 5;
         
+        // TODO make private. Public is just for prefab testing
         public GameObject normalBomb = null;
         public GameObject specialBomb = null;
 
@@ -101,12 +102,12 @@ namespace Bomberfox.Player
 
             if (Input.GetButtonDown("Fire2") && specialUsed)
             {
-	            TryToExplodeSpecial();
+	            TryExplodeSpecial();
             }
 
             if (Input.GetButtonDown("Fire2") && !specialUsed)
             {
-	            CreateSpecialBomb();
+	            TryCreateSpecial();
             }
         }
 
@@ -124,8 +125,10 @@ namespace Bomberfox.Player
             }
         }
 
-        private void CreateSpecialBomb()
+        private void TryCreateSpecial()
         {
+	        if (specialBomb == null) return;
+
 	        Vector3 pos = new Vector3(
 		        Mathf.RoundToInt(transform.position.x),
 		        Mathf.RoundToInt(transform.position.y),
@@ -139,7 +142,7 @@ namespace Bomberfox.Player
 	        }
         }
 
-        private void TryToExplodeSpecial()
+        private void TryExplodeSpecial()
         {
 	        if (special != null)
 	        {
@@ -350,6 +353,15 @@ namespace Bomberfox.Player
 	        else maxBombs = maxBombLimit;
         }
 
+        public void AddShield()
+        {
+	        if (healthSystem.GetHealth() == 1)
+	        {
+		        healthSystem.Heal(1);
+		        // TODO access animator or gameObject and enable the shield graphic
+            }
+        }
+
         public void ReceiveNewBomb(IPowerUp powerUp)
         {
 	        if (powerUp.Type == Bomb.Type.Normal)
@@ -361,6 +373,8 @@ namespace Bomberfox.Player
 	        {
 		        specialBomb = powerUp.GetPrefab();
 	        }
+
+	        specialUsed = false;
         }
     }
 }
