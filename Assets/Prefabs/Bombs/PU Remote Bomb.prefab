@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83ceebab4b49194ba78f9ccc9d040a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remoteBombPrefab: {fileID: 4775296925383206451, guid: afe2825a2b4b6f74cbbbb16f4aea1f76, type: 3}
+  bombPrefab: {fileID: 4775296925383206451, guid: afe2825a2b4b6f74cbbbb16f4aea1f76, type: 3}
 --- !u!114 &8723711118999542472
 MonoBehaviour:
   m_ObjectHideFlags: 0

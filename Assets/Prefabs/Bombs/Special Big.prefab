@@ -131,8 +131,8 @@ MonoBehaviour:
   trigger: 0
   shockType: 3
   range: 2
-  speed: 25
-  fadeDelay: 0.3
+  speed: 10
+  fadeDelay: 1
   bombTimer: 3
   explosionPrefab: {fileID: 383260934503833478, guid: e68b3510c1abb9f42a8c3e57e2d7c721, type: 3}
 --- !u!61 &-890342533728179705
