@@ -144,11 +144,10 @@ namespace Bomberfox.Player
 
         private void TryExplodeSpecial()
         {
-	        if (special != null)
+	        if (special.TryGetComponent(out Bomb bomb) && bomb.HasRemote)
 	        {
-		        Bomb bomb = special.GetComponent<Bomb>();
-                bomb.Explode();
-                special = null;
+		        bomb.Explode();
+		        special = null;
 	        }
         }
 
