@@ -27,6 +27,15 @@ namespace Bomberfox.Player
 		    Full
 	    }
 
+	    public bool HasRemote
+	    {
+		    get
+		    {
+			    if (trigger == Trigger.Remote) return true;
+			    return false;
+		    }
+	    }
+
         [SerializeField]
 	    private Type type = Type.Normal;
 
