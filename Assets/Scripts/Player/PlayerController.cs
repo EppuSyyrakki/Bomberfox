@@ -200,79 +200,6 @@ namespace Bomberfox.Player
             {
                 animator.SetBool("Walking", false);
             }
-
-            if (((lastInputX == 0)) && ((lastInputY == -1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.down;
-            }
-            if (((lastInputX == -1)) && ((lastInputY == -1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.downleft;
-            }
-            if (((lastInputX == -1)) && ((lastInputY == 0)))
-            {
-                Facing.dirFacing = Facing.directionFacing.left;
-            }
-            if (((lastInputX == -1)) && ((lastInputY == 1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.upleft;
-            }
-            if (((lastInputX == 0)) && ((lastInputY == 1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.up;
-            }
-            if (((lastInputX == 1)) && ((lastInputY == 1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.upright;
-            }
-            if (((lastInputX == 1)) && ((lastInputY == 0)))
-            {
-                Facing.dirFacing = Facing.directionFacing.right;
-            }
-            if (((lastInputX == 1)) && ((lastInputY == -1)))
-            {
-                Facing.dirFacing = Facing.directionFacing.downright;
-            }
-
-            /* --- Old movement system ---
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-		        animator.SetBool("Running", true);
-	        else
-		        animator.SetBool("Running", false);
-	        
-	        moveDirection = DefineMoveDirection();
-
-
-            if (moveDirection == Direction.Up)
-            {
-                animator.SetBool("FacingUp", true);
-                animator.SetBool("FacingRight", false);
-                animator.SetBool("FacingDown", false);
-                animator.SetBool("FacingLeft", false);
-            }
-            if (moveDirection == Direction.Down)
-            {
-                animator.SetBool("FacingUp", false);
-                animator.SetBool("FacingRight", false);
-                animator.SetBool("FacingDown", true);
-                animator.SetBool("FacingLeft", false);
-            }
-            if (moveDirection == Direction.Left)
-            {
-                animator.SetBool("FacingUp", false);
-                animator.SetBool("FacingRight", false);
-                animator.SetBool("FacingDown", false);
-                animator.SetBool("FacingLeft", true);
-            }
-            if (moveDirection == Direction.Right)
-            {
-                animator.SetBool("FacingUp", false);
-                animator.SetBool("FacingRight", true);
-                animator.SetBool("FacingDown", false);
-                animator.SetBool("FacingLeft", false);
-            }
-            */
-
         }
 
         /// <summary>
@@ -383,10 +310,4 @@ namespace Bomberfox.Player
 	        specialUsed = false;
         }
     }
-}
-
-public class Facing : MonoBehaviour
-{
-    public enum directionFacing { down, downleft, left, upleft, up, upright, right, downright };
-    public static directionFacing dirFacing;
 }

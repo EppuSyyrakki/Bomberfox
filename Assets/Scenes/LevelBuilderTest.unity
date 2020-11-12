@@ -644,12 +644,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: enemySpeed
-      value: 0.75
+      propertyPath: specialCooldown
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: enemySpeedIncrease
+      propertyPath: obstacleChance
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: obstacleChanceIncrease
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: speedIncrease
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: specChanceIncrease
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: specCooldownDecrease
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -698,18 +714,6 @@ PrefabInstance:
     - target: {fileID: 5991717415827528187, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_Name
       value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991717416449140363, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991717416449140363, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991717416449140363, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}

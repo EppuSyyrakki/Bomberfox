@@ -576,18 +576,18 @@ MonoBehaviour:
   blockChance: 32
   obstacleChance: 25
   enemies: 2
-  enemySpeed: 0
+  enemySpeed: 0.5
   enemySpecialChance: 0.1
-  enemySpecialCooldown: 2
+  enemySpecialCooldown: 1.5
   blockChanceIncrease: 2
   obstacleChanceIncrease: 4
   addEnemyFrequency: 2
-  enemySpeedIncrease: 0.005
+  enemySpeedIncrease: 0.05
   enemySpecialChanceIncrease: 0.075
   enemySpecialCooldownDecrease: -0.075
   goatLevel: 0
-  pigLevel: 2
-  bunnyLevel: 3
+  pigLevel: 3
+  bunnyLevel: 5
 --- !u!1 &5991717416449140360
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5991717416449140360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4242211, y: -0.5035281, z: 14.195431}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5991717417334844087}

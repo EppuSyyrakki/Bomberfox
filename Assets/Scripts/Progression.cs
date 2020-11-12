@@ -15,13 +15,13 @@ namespace Bomberfox
 		private int enemies = 2;
 
 		[SerializeField, Range(0.1f, 1f), Tooltip("this value * original speed")]
-		private float enemySpeed;
+		private float speed = 0.5f;
 
 		[SerializeField, Range(0.1f, 1f), Tooltip("this value * original chance")]
-		private float enemySpecialChance = 0.5f;
+		private float specialChance = 0.5f;
 
 		[SerializeField, Range( 1f, 2f), Tooltip("this value * original time")]
-		private float enemySpecialCooldown = 1f;
+		private float specialCooldown = 1f;
 
 		[Header("Per-level increases:"), SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")]
 		private int blockChanceIncrease = 2;
@@ -33,13 +33,13 @@ namespace Bomberfox
 		private int addEnemyFrequency = 1;
 
 		[SerializeField, Range(0.005f, 0.2f), Tooltip("Added to the enemy speed every level")]
-		private float enemySpeedIncrease = 0.01f;
+		private float speedIncrease = 0.01f;
 
 		[SerializeField, Range(0.01f, 0.1f), Tooltip("Added to enemy special chance every level")]
-		private float enemySpecialChanceIncrease = 0.05f;
+		private float specChanceIncrease = 0.05f;
 
 		[SerializeField, Range(-0.1f, 0f), Tooltip("Reduced from enemy special cooldown every level")]
-		private float enemySpecialCooldownDecrease = -0.005f;
+		private float specCooldownDecrease = -0.005f;
 
 		[Header("Introduce enemy @ level:"), SerializeField, Range(0, 20)]
 		private int goatLevel = 0;
@@ -113,8 +113,10 @@ namespace Bomberfox
 			float originalSpeed = data.Speed;
 			int originalSpecialChance = data.SpecialChance;
 			float originalSpecialCoolDown = data.SpecialCoolDown;
-			data.Speed = originalSpeed * (enemySpeed + enemySpeedIncrease * currentLevel);
-			
+			data.Speed = originalSpeed * (speed + speedIncrease * currentLevel);
+			data.SpecialChance = Mathf.RoundToInt(
+				originalSpecialChance * (specialChance + specChanceIncrease * currentLevel));
+
 			return data;
 		}
 	}
