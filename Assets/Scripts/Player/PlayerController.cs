@@ -74,7 +74,6 @@ namespace Bomberfox.Player
         {
 	        ProcessInput();
             UpdateAnimator();
-            print(maxBombs);
         }
 
         private void FixedUpdate()

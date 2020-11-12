@@ -24,13 +24,13 @@ public class LevelBuilder : MonoBehaviour
 		Vector3.left,
 	};
 
-	private Transform enemiesParent = null;
-	private Transform initialObstaclesParent = null;
-
 	// bottom left and top right corners to limit creation loops
 	private Vector3Int min = new Vector3Int(-7, -4, 0);
 	private Vector3Int max = new Vector3Int(7, 4, 0);
 
+	private Vector3 playerStart;
+	private Transform enemiesParent = null;
+	private Transform initialObstaclesParent = null;
 	private int presetLevel = 0;
 	private int blocksLevel = 0;
 	private int obstaclesLevel = 0;
@@ -153,8 +153,8 @@ public class LevelBuilder : MonoBehaviour
 
 		// create player
 		Quaternion q = Quaternion.identity;
-		Vector3 v = transform.GetChild(Random.Range(0, transform.childCount)).position;
-		Instantiate(player, v, q, null);
+		playerStart = transform.GetChild(Random.Range(0, transform.childCount)).position;
+		Instantiate(player, playerStart, q, null);
 
 		// remove player start locations from freePositions
 		foreach (Transform child in GetComponentsInChildren<Transform>())
@@ -250,15 +250,39 @@ public class LevelBuilder : MonoBehaviour
 	private void KeyObstacle()
 	{
 		Obstacle[] allObstacles = initialObstaclesParent.GetChild(0).GetComponentsInChildren<Obstacle>();
+		Vector3 player = playerStart;
 
 		if (allObstacles == null)
 		{
-			Debug.LogError("Couldn't find a place to hide the key.");
+			Debug.LogError(name + " couldn't find a place to hide the key.");
 			return;
 		}
 
-		Obstacle keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
-		keyObstacle.IsKey = true;
+		int loopAttempts = 0;
+
+		while (true)
+		{
+			loopAttempts++;
+
+			if (loopAttempts > 100)
+			{
+				Debug.LogError(name + " couldn't move the key away from player start.");
+				break;
+			}
+
+			Obstacle keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
+			Vector3 key = keyObstacle.transform.position;
+
+			// check if key is in the same quarter of the map as player. If so, try again
+			if ((player.x < 0 && key.x < 0) && (player.y < 0 && key.y < 0)) continue;
+			if ((player.x < 0 && key.x < 0) && (player.y > 0 && key.y > 0)) continue;
+			if ((player.x > 0 && key.x > 0) && (player.y > 0 && key.y > 0)) continue;
+			if ((player.x > 0 && key.x > 0) && (player.y < 0 && key.y < 0)) continue;
+
+			keyObstacle.IsKey = true;
+			print("Key is in " + key);
+			break;
+		}
 	}
 
 	private void Enemies()
