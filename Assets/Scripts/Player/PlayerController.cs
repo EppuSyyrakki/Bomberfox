@@ -17,6 +17,14 @@ namespace Bomberfox.Player
             Left
         }
 
+        public bool IsSpecialNull
+        {
+	        get
+	        {
+		        return special == null;
+	        }
+        }
+
         [SerializeField]
         private float speed = 10f;
 
@@ -358,17 +366,17 @@ namespace Bomberfox.Player
 	        {
 		        healthSystem.Heal(1);
 		        // TODO access animator or gameObject and enable the shield graphic
-            }
+	        }
         }
 
-        public void ReceiveNewBomb(IPowerUp powerUp)
+        public void ReceiveNewBomb(PowerUpBase powerUp, Bomb.Type type)
         {
-	        if (powerUp.Type == Bomb.Type.Normal)
+	        if (type == Bomb.Type.Normal)
 	        {
 		        normalBomb = powerUp.GetPrefab();
 	        }
 
-	        if (powerUp.Type == Bomb.Type.Special)
+	        if (type == Bomb.Type.Special)
 	        {
 		        specialBomb = powerUp.GetPrefab();
 	        }
