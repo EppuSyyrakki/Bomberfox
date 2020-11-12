@@ -214,6 +214,18 @@ namespace Bomberfox.Enemies
 			IsAlive = false;
         }
 
+        public EnemyData GetData()
+        {
+			return new EnemyData(speed, specialMoveChance, specialMoveCoolDown);
+        }
+
+        public void SetData(EnemyData data)
+        {
+	        speed = data.Speed;
+	        specialMoveChance = data.SpecialChance;
+	        specialMoveCoolDown = data.SpecialCoolDown;
+        }
+
 		// triggered from animation event
         private void EndDeath()
         {

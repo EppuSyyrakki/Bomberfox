@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
+using Bomberfox.Enemies;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
@@ -31,9 +32,8 @@ public class LevelBuilder : MonoBehaviour
 	private Vector3 playerStart;
 	private Transform enemiesParent = null;
 	private Transform initialObstaclesParent = null;
+	private int currentLevel = 0;
 	private int presetLevel = 0;
-	private int blocksLevel = 0;
-	private int obstaclesLevel = 0;
 	private int randomBlockChance = 33;
 	private int randomObstacleChance = 25;
 	private int enemyCount = 6;
@@ -59,7 +59,8 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Start()
 	{
-		GetBuildParameters(GameManager.Instance.CurrentLevel);
+		currentLevel = GameManager.Instance.CurrentLevel;
+		GetBuildParameters(currentLevel);
 		Preset();
 		Player();
 		RandomBlocks();
@@ -183,7 +184,7 @@ public class LevelBuilder : MonoBehaviour
 			if (Random.Range(0, 101) < randomBlockChance && LocationNotSurrounded(v))
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(blocks[blocksLevel], v, q, initialObstaclesParent.GetChild(0));
+				Instantiate(blocks[presetLevel], v, q, initialObstaclesParent.GetChild(0));
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
@@ -241,7 +242,7 @@ public class LevelBuilder : MonoBehaviour
 			if (Random.Range(0, 101) < randomObstacleChance)
 			{
 				Quaternion q = Quaternion.identity;
-				Instantiate(obstacles[obstaclesLevel], v, q, initialObstaclesParent.GetChild(0));
+				Instantiate(obstacles[presetLevel], v, q, initialObstaclesParent.GetChild(0));
 				freePositions.Remove(Vector3ToInt(v));
 			}
 		}
@@ -280,21 +281,27 @@ public class LevelBuilder : MonoBehaviour
 			if ((player.x > 0 && key.x > 0) && (player.y < 0 && key.y < 0)) continue;
 
 			keyObstacle.IsKey = true;
-			print("Key is in " + key);
 			break;
 		}
 	}
 
 	private void Enemies()
 	{
-		if (enemyCount > freePositions.Count) enemyCount = freePositions.Count;
+		int count = 0;
+
+		if (enemyCount > freePositions.Count) count = freePositions.Count;
+		else count = enemyCount;
 
 		for (int i = enemyCount; i > 0; i--)
 		{
+
 			Vector3Int[] freePositionsCopy = freePositions.ToArray();
 			Vector3Int v = freePositionsCopy[Random.Range(0, freePositionsCopy.Length)];
 			Quaternion q = Quaternion.identity;
-			Instantiate(enemies[Random.Range(0, enemies.Length)], v, q, enemiesParent);
+			GameObject enemyObject = Instantiate(enemies[Random.Range(0, enemies.Length)], v, q, enemiesParent);
+			Enemy enemy = enemyObject.GetComponent<Enemy>();
+			EnemyData data = enemy.GetData();
+			enemy.SetData(Progression.GetEnemyData(currentLevel, data));
 			freePositions.Remove(v);
 		}
 	}

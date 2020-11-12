@@ -502,6 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5991717415893836199}
   - component: {fileID: 5991717415893836196}
+  - component: {fileID: 3026984248622871282}
   m_Layer: 0
   m_Name: LevelBuilder
   m_TagString: Untagged
@@ -562,6 +563,33 @@ MonoBehaviour:
   - {fileID: 1624624116390228550, guid: 31c1f25d8fe4a7a4ab26974221d5a326, type: 3}
   - {fileID: 4199868195564517738, guid: 1e9539fb2975cc14ebf481d26df5ce3b, type: 3}
   player: {fileID: 4221481442910844420, guid: 3e09df83c59b9fe488c621506b833dfb, type: 3}
+--- !u!114 &3026984248622871282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5991717415893836197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2f8ab24b54c384cb476ac796bc57e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockChance: 32
+  obstacleChance: 25
+  enemies: 2
+  enemySpeed: 0
+  enemySpecialChance: 0.1
+  enemySpecialCooldown: 2
+  blockChanceIncrease: 2
+  obstacleChanceIncrease: 4
+  addEnemyFrequency: 1
+  enemySpeedIncrease: 0.005
+  enemySpecialChanceIncrease: 0.075
+  enemySpecialCooldownDecrease: -0.075
+  goat: 0
+  pig: 3
+  bunny: 6
 --- !u!1 &5991717416150725095
 GameObject:
   m_ObjectHideFlags: 0
