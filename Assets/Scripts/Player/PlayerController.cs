@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bomberfox.PowerUp;
 using UnityEngine;
 
 namespace Bomberfox.Player
@@ -25,7 +26,11 @@ namespace Bomberfox.Player
 
         // How many bombs the player can drop at the same time
         [SerializeField] 
-        private int maxBombs = 3;
+        private int maxBombs = 1;
+
+        // the ultimate maximum how many bombs player can achieve through powerups
+        [SerializeField] 
+        private int maxBombLimit = 5;
         
         public GameObject normalBomb = null;
         public GameObject specialBomb = null;
@@ -60,6 +65,7 @@ namespace Bomberfox.Player
         {
 	        ProcessInput();
             UpdateAnimator();
+            print(maxBombs);
         }
 
         private void FixedUpdate()
@@ -274,11 +280,6 @@ namespace Bomberfox.Player
             return Direction.None;
         }
 
-        public void ChangeCurrentBombs(int change)
-        {
-	        currentBombs += change;
-        }
-
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
@@ -336,6 +337,30 @@ namespace Bomberfox.Player
                 Debug.Log(healthSystem.GetHealth());
                 Invoke("TurnOnCollider", invulnerabilityTimer);
             }
+        }
+        
+        public void ChangeCurrentBombs(int change)
+        {
+	        currentBombs += change;
+        }
+
+        public void AddMaxBombs()
+        {
+	        if (maxBombs < maxBombLimit) maxBombs++;
+	        else maxBombs = maxBombLimit;
+        }
+
+        public void ReceiveNewBomb(IPowerUp powerUp)
+        {
+	        if (powerUp.Type == Bomb.Type.Normal)
+	        {
+		        normalBomb = powerUp.GetPrefab();
+	        }
+
+	        if (powerUp.Type == Bomb.Type.Special)
+	        {
+		        specialBomb = powerUp.GetPrefab();
+	        }
         }
     }
 }

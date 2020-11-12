@@ -6199,7 +6199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   playerHealth: 1
-  maxBombs: 3
+  maxBombs: 1
   normalBomb: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
   specialBomb: {fileID: 4775296925383206451, guid: d6f20328a8b2afa44ab32a682faf0390, type: 3}
   isInvulnerable: 0
