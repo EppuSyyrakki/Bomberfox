@@ -100,7 +100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5991717415827528186}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185453990075444487
 GameObject:
@@ -483,8 +483,6 @@ Transform:
   m_Children:
   - {fileID: 5991717416449140363}
   - {fileID: 5991717415980963092}
-  - {fileID: 5991717416150725094}
-  - {fileID: 5991717416471972831}
   - {fileID: 5991717417102221040}
   - {fileID: 6255346854202186259}
   - {fileID: 5991717416119105506}
@@ -534,7 +532,7 @@ Transform:
   - {fileID: 479495888003673926}
   - {fileID: 2213384034178524620}
   m_Father: {fileID: 5991717415827528186}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5991717415893836196
 MonoBehaviour:
@@ -583,43 +581,13 @@ MonoBehaviour:
   enemySpecialCooldown: 2
   blockChanceIncrease: 2
   obstacleChanceIncrease: 4
-  addEnemyFrequency: 1
+  addEnemyFrequency: 2
   enemySpeedIncrease: 0.005
   enemySpecialChanceIncrease: 0.075
   enemySpecialCooldownDecrease: -0.075
-  goat: 0
-  pig: 3
-  bunny: 6
---- !u!1 &5991717416150725095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5991717416150725094}
-  m_Layer: 0
-  m_Name: Blocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5991717416150725094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5991717416150725095}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5991717415827528186}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  goatLevel: 0
+  pigLevel: 2
+  bunnyLevel: 3
 --- !u!1 &5991717416449140360
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,36 +619,6 @@ Transform:
   - {fileID: 118680194}
   m_Father: {fileID: 5991717415827528186}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5991717416471972828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5991717416471972831}
-  m_Layer: 0
-  m_Name: Obstacles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5991717416471972831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5991717416471972828}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5991717415827528186}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5991717416649207877
 GameObject:
@@ -805,7 +743,7 @@ Transform:
   - {fileID: 7733666635717537635}
   - {fileID: 7733666635592861345}
   m_Father: {fileID: 5991717415827528186}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5991717417334844084
 GameObject:
@@ -2076,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207540095209766837, guid: 336849433da4d954987539f3ee6ced7b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5207540095209766837, guid: 336849433da4d954987539f3ee6ced7b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

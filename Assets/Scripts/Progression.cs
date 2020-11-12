@@ -42,13 +42,13 @@ namespace Bomberfox
 		private float enemySpecialCooldownDecrease = -0.005f;
 
 		[Header("Introduce enemy @ level:"), SerializeField, Range(0, 20)]
-		private int goat = 0;
+		private int goatLevel = 0;
 
 		[SerializeField, Range(0, 20)]
-		private int pig = 0;
+		private int pigLevel = 0;
 
 		[SerializeField, Range(0, 20)]
-		private int bunny = 0;
+		private int bunnyLevel = 0;
 
 		/// <summary>
 		/// What environment "theme" to use. 0 = normal
@@ -79,15 +79,29 @@ namespace Bomberfox
 		/// </summary>
 		public int GetEnemyCount(int currentLevel)
 		{
-			return 5;
+			return Mathf.FloorToInt(currentLevel / addEnemyFrequency + enemies);
 		}
 
 		/// <summary>
-		/// Type/types of enemies to be created. 0 = Goat, 1 = Pig, 2 = Bunny
+		/// Types of enemies to be created. index 0 = Goat, 1 = Pig, 2 = Bunny.
 		/// </summary>
-		public int[] GetEnemyTypes(int currentLevel)
+		public bool[] GetEnemyTypes(int currentLevel)
 		{
-			return new int[] {0, 1, 2};
+			bool[] enemies = new bool[3];
+
+			if (currentLevel >= goatLevel) enemies[0] = true;
+
+			if (currentLevel >= pigLevel) enemies[1] = true;
+
+			if (currentLevel >= bunnyLevel) enemies[2] = true;
+
+			if (enemies[0] == false && enemies[1] == false && enemies[2] == false)
+			{
+				Debug.LogError("No enemy available. Set at least one enemy to introduce at level " 
+				               + currentLevel + " in the Progression component of LevelBuilder.");
+			}
+
+			return enemies;
 		}
 
 		/// <summary>
