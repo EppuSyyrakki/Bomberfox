@@ -21,6 +21,9 @@ namespace Bomberfox
 
 		private bool isPaused = false;
 
+		// Power ups will be stored here
+        [SerializeField] private GameObject[] allPowerUps = null;
+
 		public static GameManager Instance
 		{
 			get
@@ -99,6 +102,12 @@ namespace Bomberfox
 		public void GoToDeathMenu() => SceneManager.LoadScene(DeathMenu);
 
 		public void GoToStory() => SceneManager.LoadScene(Story);
-	}
+
+        public GameObject GetPowerUp()
+        {
+            GameObject pu = allPowerUps[Random.Range(0, allPowerUps.Length)];
+            return pu;
+        }
+    }
 
 }

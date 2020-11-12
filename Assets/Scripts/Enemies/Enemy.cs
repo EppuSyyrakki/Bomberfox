@@ -16,6 +16,7 @@ namespace Bomberfox.Enemies
 	    [SerializeField] private GameObject reservedSpace = null;
 	    [SerializeField, Range(0, 100)] private int specialMoveChance = 10;
 	    [SerializeField, Range(1f, 20f)] private float specialMoveCoolDown = 5f;
+        [SerializeField, Range(0f, 100f)] private float powerUpChance = 100f;
 
         public bool IsAlive { private set; get; } = true;
 	    public Vector3 Direction { get; private set; } = Vector3.zero;
@@ -216,7 +217,25 @@ namespace Bomberfox.Enemies
 		// triggered from animation event
         private void EndDeath()
         {
-	        Destroy(gameObject);
+            PowerUp();
+			Destroy(gameObject);
 		}
+
+        private void PowerUp()
+        {
+            float chance = Random.Range(0.0f, 100.0f);
+
+            if (chance < powerUpChance)
+            {
+				Debug.Log("No power up this time!");
+            } 
+            else if (chance >= powerUpChance)
+            {
+				Debug.Log("Enemy dropped a power up!");
+
+                GameObject powerUp = GameManager.Instance.GetPowerUp();
+				Instantiate(powerUp, transform.position, Quaternion.identity);
+			}
+        }
     }
 }
