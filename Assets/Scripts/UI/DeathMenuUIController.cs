@@ -6,9 +6,15 @@ namespace Bomberfox.UI
 {
     public class DeathMenuUIController : MonoBehaviour
     {
+        public void Start()
+        {
+            GameManager.Instance.PrintStats();
+        }
+
         public void RestartGame()
         {
             GameManager.Instance.ResetLevelCounter();
+            GameManager.Instance.ResetPlayThroughStats();
             AudioManager.instance.StopMusic("DeathSong");
             AudioManager.instance.CheckGameMusic();
             GameManager.Instance.GoToGame();

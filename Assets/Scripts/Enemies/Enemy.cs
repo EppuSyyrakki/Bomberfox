@@ -218,7 +218,8 @@ namespace Bomberfox.Enemies
 			Anim.SetTrigger("Die");
 			IsAlive = false;
 			PowerUp();
-		}
+            GameManager.Instance.KilledEnemies++;
+        }
 
         public EnemyData GetData()
         {

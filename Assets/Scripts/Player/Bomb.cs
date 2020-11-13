@@ -104,6 +104,7 @@ namespace Bomberfox.Player
         // Creates the explosion that destroys this gameObject
         public void Explode()
         {
+            GameManager.Instance.ExplodedBombs++;
 	        Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
         }
 
