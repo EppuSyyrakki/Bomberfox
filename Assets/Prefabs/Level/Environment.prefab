@@ -574,17 +574,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockChance: 32
-  obstacleChance: 25
+  obstacleChance: 16
   enemies: 2
-  enemySpeed: 0.5
-  enemySpecialChance: 0.1
-  enemySpecialCooldown: 1.5
+  speed: 0.5
+  specialChance: 0.5
+  specialCooldown: 1.5
   blockChanceIncrease: 2
-  obstacleChanceIncrease: 4
+  obstacleChanceIncrease: 3
   addEnemyFrequency: 2
-  enemySpeedIncrease: 0.05
-  enemySpecialChanceIncrease: 0.075
-  enemySpecialCooldownDecrease: -0.075
+  speedIncrease: 0.05
+  specChanceIncrease: 0.075
+  specCooldownDecrease: -0.05
   goatLevel: 0
   pigLevel: 3
   bunnyLevel: 5

@@ -51,7 +51,7 @@ public class LevelBuilder : MonoBehaviour
 	private GameObject[] enemies = null;
 	[SerializeField] 
 	private GameObject player = null;
-	
+
 	private void Awake()
 	{
 		FindParentObjects();
@@ -61,7 +61,7 @@ public class LevelBuilder : MonoBehaviour
 
 	private void Start()
 	{
-		currentLevel = GameManager.Instance.CurrentLevel;
+		currentLevel = progression.GetStartingLevel();
 		Preset();
 		Player();
 		RandomBlocks();
@@ -300,8 +300,6 @@ public class LevelBuilder : MonoBehaviour
 			EnemyData data = enemy.GetData();
 			enemy.SetData(progression.GetEnemyData(currentLevel, data));
 			freePositions.Remove(v);
-
-			print("Speed: " + data.Speed);
 		}
 	}
 

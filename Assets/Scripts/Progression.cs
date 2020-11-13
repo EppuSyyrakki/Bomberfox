@@ -5,39 +5,39 @@ namespace Bomberfox
 {
 	public class Progression : MonoBehaviour
 	{
-		[Header("Starting values:"), SerializeField, Range(0, 100), Tooltip("Percentage chance")]
+		[Header("Environment:"), SerializeField, Range(0, 100), Tooltip("Percentage chance")]
 		private int blockChance = 25;
+
+		[SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")]
+		private int blockChanceIncrease = 2;
 
 		[SerializeField, Range(0, 100), Tooltip("Percentage chance")] 
 		private int obstacleChance = 25;
 
-		[SerializeField, Range(1, 20), Tooltip("Enemies in first level")] 
+		[SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")]
+		private int obstacleChanceIncrease = 3;
+
+		[Header("Enemies:"), SerializeField, Range(1, 20), Tooltip("Enemies in first level")] 
 		private int enemies = 2;
+
+		[SerializeField, Range(1, 5), Tooltip("Additional enemy every n:th level")]
+		private int addEnemyFrequency = 1;
 
 		[SerializeField, Range(0.1f, 1f), Tooltip("this value * original speed")]
 		private float speed = 0.5f;
 
-		[SerializeField, Range(0.1f, 1f), Tooltip("this value * original chance")]
-		private float specialChance = 0.5f;
-
-		[SerializeField, Range( 1f, 2f), Tooltip("this value * original time")]
-		private float specialCooldown = 1f;
-
-		[Header("Per-level increases:"), SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")]
-		private int blockChanceIncrease = 2;
-
-		[SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")] 
-		private int obstacleChanceIncrease = 3;
-
-		[Header("Enemy difficulty increases:"), SerializeField, Range(1, 5), Tooltip("Additional enemy every n:th level")]
-		private int addEnemyFrequency = 1;
-
 		[SerializeField, Range(0.005f, 0.2f), Tooltip("Added to the enemy speed every level")]
 		private float speedIncrease = 0.01f;
+
+		[SerializeField, Range(0.1f, 1f), Tooltip("this value * original chance")]
+		private float specialChance = 0.5f;
 
 		[SerializeField, Range(0.01f, 0.1f), Tooltip("Added to enemy special chance every level")]
 		private float specChanceIncrease = 0.05f;
 
+		[SerializeField, Range( 1f, 2f), Tooltip("this value * original time")]
+		private float specialCooldown = 1f;
+		
 		[SerializeField, Range(-0.1f, 0f), Tooltip("Reduced from enemy special cooldown every level")]
 		private float specCooldownDecrease = -0.005f;
 
@@ -49,6 +49,19 @@ namespace Bomberfox
 
 		[SerializeField, Range(0, 20)]
 		private int bunnyLevel = 0;
+
+		// Change this if you want to test the difficulty or other things on a given level. Value of 0 will be ignored.
+		[Header("Debug tool for starting level. 0 = off"), SerializeField]
+		private int debugStartingLevel = 0;
+
+		public int GetStartingLevel()
+		{
+			int level = GameManager.Instance.CurrentLevel;
+
+			if (debugStartingLevel > 0) return level - 1 + debugStartingLevel; 
+			
+			return level;
+		}
 
 		/// <summary>
 		/// What environment "theme" to use. 0 = normal

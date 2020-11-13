@@ -60,6 +60,9 @@ namespace Bomberfox.Enemies
 					chargeMovementStarted = false;
 				}
 			}
+
+			if (!IsAlive) return;
+
 			transform.position = Vector3.MoveTowards(transform.position, nextTarget,
 				chargeSpeed * Time.deltaTime);
 		}

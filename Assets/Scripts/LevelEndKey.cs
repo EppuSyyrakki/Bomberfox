@@ -19,7 +19,6 @@ public class LevelEndKey : MonoBehaviour
             StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
             GameManager.Instance.CurrentLevel++;
             AudioManager.instance.CheckGameMusic();
-            Debug.Log("Level: " + GameManager.Instance.CurrentLevel);
             GameManager.Instance.Invoke("ReloadScene", 1.0f);
         }
     }

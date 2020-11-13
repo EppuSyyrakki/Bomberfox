@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7781308819080854921, guid: 1aee8463323a1454db5036dfe268156f, type: 3}
+      propertyPath: debugStartingLevel
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7781308819080854934, guid: 1aee8463323a1454db5036dfe268156f, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -644,28 +648,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: specialCooldown
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: obstacleChance
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: obstacleChanceIncrease
-      value: 3
+      propertyPath: debugStartingLevel
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: speedIncrease
-      value: 0.05
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: specChanceIncrease
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: specCooldownDecrease
-      value: -0.05
+      propertyPath: obstacleChanceIncrease
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -40,14 +40,13 @@ namespace Bomberfox.Enemies
 				return;
 			}
 
-			if (!disableInvoked)
+			if (!disableInvoked && IsAlive)
 			{
 				if (GetDestination())
 				{
 					Invoke(nameof(DisableCollider), Time.deltaTime);
 					Anim.SetTrigger("Special");
 					startPos = transform.position;
-					
 				}
 				else
 				{
@@ -94,7 +93,6 @@ namespace Bomberfox.Enemies
 		// called from animation event at the end of Jump
 		private void EndJump()
 		{
-			print(jumpTime + " " + endTime);
 			Invoke(nameof(EndSpecial), endTime);
 		}
 
