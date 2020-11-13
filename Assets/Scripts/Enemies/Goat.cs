@@ -18,7 +18,7 @@ namespace Bomberfox.Enemies
 				return;
 			}
 
-			if (!disableInvoked)
+			if (!disableInvoked && IsAlive)
 			{
 				Anim.SetTrigger("Special");
 				Invoke(nameof(DisableCollider), 0.25f);

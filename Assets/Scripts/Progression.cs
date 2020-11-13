@@ -71,7 +71,7 @@ namespace Bomberfox
 		/// </summary>
 		public int GetRandomObstacleChance(int currentLevel)
 		{
-			return currentLevel * blockChanceIncrease + blockChance;
+			return currentLevel * obstacleChanceIncrease + obstacleChance;
 		}
 
 		/// <summary>
@@ -116,7 +116,7 @@ namespace Bomberfox
 			data.Speed = originalSpeed * (speed + speedIncrease * currentLevel);
 			data.SpecialChance = Mathf.RoundToInt(
 				originalSpecialChance * (specialChance + specChanceIncrease * currentLevel));
-
+			data.SpecialCoolDown = originalSpecialCoolDown * (specialCooldown + specCooldownDecrease * currentLevel);
 			return data;
 		}
 	}
