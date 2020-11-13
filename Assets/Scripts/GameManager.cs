@@ -24,7 +24,7 @@ namespace Bomberfox
         public int DestroyedBlocks { get; set; }
         public int CollectedPU { get; set; }
 
-		private bool isPaused = false;
+        private bool isPaused = false;
 
 		// Power ups will be stored here
         [SerializeField] private GameObject[] allPowerUps = null;
