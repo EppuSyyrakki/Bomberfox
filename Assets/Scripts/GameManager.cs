@@ -26,6 +26,9 @@ namespace Bomberfox
 
         public bool isPaused = false;
 
+        public bool isMusicOn = true;
+        public bool isSoundOn = true;
+
 		// Power ups will be stored here
         [SerializeField] private GameObject[] allPowerUps = null;
 
@@ -82,7 +85,7 @@ namespace Bomberfox
 			{
 				GoToMainMenu();
 			}*/
-		}
+        }
 
 		public void ChangeLevel(int levelNumber)
 		{

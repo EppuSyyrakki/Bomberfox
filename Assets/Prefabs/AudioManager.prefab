@@ -64,6 +64,16 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: ThunderMenu
+    clip: {fileID: 8300000, guid: ae590720de8f1714388a5669e89ba524, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpookyMenu
+    clip: {fileID: 8300000, guid: 6496d16d65b1ea14cb793db5b86bb3de, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
   sounds:
   - name: Thunder2
     clip: {fileID: 8300000, guid: ae590720de8f1714388a5669e89ba524, type: 3}
@@ -125,3 +135,5 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  maxMusic: 1
+  maxSound: 0.75

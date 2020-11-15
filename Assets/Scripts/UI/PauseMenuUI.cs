@@ -50,5 +50,15 @@ namespace Bomberfox.UI
             AudioManager.instance.StopGameMusic();
             GameManager.Instance.GoToMainMenu();
         }
+
+        public void ToggleMusic()
+        {
+            AudioManager.instance.ToggleMusic();
+        }
+
+        public void ToggleSound()
+        {
+            AudioManager.instance.ToggleSound();
+        }
     }
 }
