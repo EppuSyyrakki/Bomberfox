@@ -9,8 +9,13 @@ namespace Bomberfox.UI
     {
         void Start()
         {
-            AudioManager.instance.PlaySound("Spooky");
-            AudioManager.instance.PlaySound("Thunder2");
+            AudioManager.instance.PlayMusic("SpookyMenu");
+            AudioManager.instance.PlayMusic("ThunderMenu");
+        }
+
+        public void Update()
+        {
+
         }
 
         public void StartGame()
@@ -24,6 +29,16 @@ namespace Bomberfox.UI
         {
             Debug.Log("Quit pressed");
             Application.Quit();
+        }
+
+        public void ToggleMusic()
+        {
+            AudioManager.instance.ToggleMusic();
+        }
+
+        public void ToggleSound()
+        {
+            AudioManager.instance.ToggleSound();
         }
     }
 }
