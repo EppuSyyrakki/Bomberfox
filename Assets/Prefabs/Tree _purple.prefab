@@ -44,7 +44,7 @@ MonoBehaviour:
   - {x: -0.0759543, y: 0.45271435, z: 0}
   m_ShapePathHash: -1244844076
   m_Mesh: {fileID: 0}
-  m_InstanceId: 95564
+  m_InstanceId: 122280
 --- !u!1 &2714428111627200752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,7 +4811,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 77a208f944bf8894ea55eb927f6df620, type: 2}
+  - {fileID: 2100000, guid: eb9383b2fedbe3e429f5b008d2401749, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
