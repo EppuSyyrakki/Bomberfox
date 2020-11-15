@@ -24,7 +24,7 @@ namespace Bomberfox
         public int DestroyedBlocks { get; set; }
         public int CollectedPU { get; set; }
 
-        private bool isPaused = false;
+        public bool isPaused = false;
 
 		// Power ups will be stored here
         [SerializeField] private GameObject[] allPowerUps = null;
@@ -78,10 +78,10 @@ namespace Bomberfox
 				isPaused = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Escape))
+			/*if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GoToMainMenu();
-			}
+			}*/
 		}
 
 		public void ChangeLevel(int levelNumber)
@@ -124,7 +124,7 @@ namespace Bomberfox
 
         public void PrintStats()
         {
-            Debug.Log("Cleared levels: " + CurrentLevel);
+            Debug.Log("Cleared levels: " + (CurrentLevel - 1));
             Debug.Log("Exploded bombs: " + ExplodedBombs);
             Debug.Log("Killed enemies: " + KilledEnemies);
 			Debug.Log("Destroyed obstacles: " + DestroyedBlocks);

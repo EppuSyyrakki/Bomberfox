@@ -8,7 +8,7 @@ namespace Bomberfox.UI
     {
         public void Start()
         {
-            GameManager.Instance.PrintStats();
+            //GameManager.Instance.PrintStats();
         }
 
         public void RestartGame()
