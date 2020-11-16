@@ -19,7 +19,15 @@ namespace Bomberfox
 
 		public int CurrentLevel { get; set; }
 
-		private bool isPaused = false;
+        public int ExplodedBombs { get; set; }
+        public int KilledEnemies { get; set; }
+        public int DestroyedBlocks { get; set; }
+        public int CollectedPU { get; set; }
+
+        public bool isPaused = false;
+
+        public bool isMusicOn = true;
+        public bool isSoundOn = true;
 
 		// Power ups will be stored here
         [SerializeField] private GameObject[] allPowerUps = null;
@@ -73,11 +81,11 @@ namespace Bomberfox
 				isPaused = false;
 			}
 
-			if (Input.GetKeyDown(KeyCode.Escape))
+			/*if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				GoToMainMenu();
-			}
-		}
+			}*/
+        }
 
 		public void ChangeLevel(int levelNumber)
 		{
@@ -107,6 +115,24 @@ namespace Bomberfox
         {
             GameObject pu = allPowerUps[Random.Range(0, allPowerUps.Length)];
             return pu;
+        }
+
+        public void ResetPlayThroughStats()
+        {
+            ExplodedBombs = 0;
+            KilledEnemies = 0;
+            DestroyedBlocks = 0;
+            CollectedPU = 0;
+        }
+
+        public void PrintStats()
+        {
+            Debug.Log("Cleared levels: " + (CurrentLevel - 1));
+            Debug.Log("Exploded bombs: " + ExplodedBombs);
+            Debug.Log("Killed enemies: " + KilledEnemies);
+			Debug.Log("Destroyed obstacles: " + DestroyedBlocks);
+			Debug.Log("Collected power ups: " + CollectedPU);
+            Debug.Log("Bomb accuracy: " + ((double)KilledEnemies / ExplodedBombs * 100) + "%");
         }
     }
 

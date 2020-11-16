@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public float maxMusic = 1f;
+    public float maxSound = 0.75f;
+
     void Awake()
     {
         if (instance == null)
@@ -42,6 +45,27 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.volume;
             s.source.loop = s.loop;
+        }
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.isMusicOn)
+        {
+            EnableMusic();
+        }
+        else if (!GameManager.Instance.isMusicOn)
+        {
+            MuteMusic();
+        }
+
+        if (GameManager.Instance.isSoundOn)
+        {
+            EnableSound();
+        }
+        else if (!GameManager.Instance.isSoundOn)
+        {
+            MuteSound();
         }
     }
 
@@ -157,6 +181,48 @@ public class AudioManager : MonoBehaviour
         else if (sound == 2)
         {
             PlaySound("Victory2");
+        }
+    }
+
+    public void ToggleMusic()
+    {
+        GameManager.Instance.isMusicOn = !GameManager.Instance.isMusicOn;
+    }
+
+    public void ToggleSound()
+    {
+        GameManager.Instance.isSoundOn = !GameManager.Instance.isSoundOn;
+    }
+
+    public void MuteMusic()
+    {
+        foreach (Music m in musics)
+        {
+            m.source.volume = 0f;
+        }
+    }
+
+    public void MuteSound()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.volume = 0f;
+        }
+    }
+
+    public void EnableMusic()
+    {
+        foreach (Music m in musics)
+        {
+            m.source.volume = maxMusic;
+        }
+    }
+
+    public void EnableSound()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.volume = maxSound;
         }
     }
 }

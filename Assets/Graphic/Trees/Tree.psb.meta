@@ -89,72 +89,6 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: LeavesR
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 342
-      width: 290
-      height: 243
-    spriteID: a371709b55b3027418d936767742695c
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -200, y: 213}
-  - name: LeavesL
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 593
-      width: 239
-      height: 203
-    spriteID: 8f4f3ebd426f49e4fb41840a811ed8e8
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -13, y: 492}
-  - name: LeavesTop
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 370
-      y: 4
-      width: 375
-      height: 249
-    spriteID: 2cc78063233eb6746b31d74c08b0c894
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 271, y: -232}
   - name: Bark
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -162,11 +96,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 489
       y: 4
       width: 358
       height: 330
-    spriteID: 4b9062c4d5e8ca342925cbfd1237991d
+    spriteID: df334c2351cedd44fadb83e77bba185f
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -176,54 +110,178 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -41, y: -20}
+    uvTransform: {x: 444, y: -20}
+  - name: Leaves _green
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 477
+      height: 384
+    spriteID: da9411b7ca43ffe45b7f7b4a16f94fb5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -13, y: -97}
+  - name: Leaves _yellow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 396
+      width: 477
+      height: 384
+    spriteID: 370330cb28d04f548a3a45b4752cb552
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -13, y: 295}
+  - name: Leaves _blue
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 788
+      width: 477
+      height: 384
+    spriteID: 6b727b0aae5ec6b438061d54ce5edbe0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -13, y: 687}
+  - name: Leaves _red
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1180
+      width: 477
+      height: 384
+    spriteID: 8c6bbd868c720984482845744e7be025
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -13, y: 1079}
+  - name: Leaves _purple
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1572
+      width: 477
+      height: 384
+    spriteID: 242f62368e2046c4ea9bbf649692d3a4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -13, y: 1471}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
   importedTextureWidth: 1024
-  importedTextureHeight: 1024
+  importedTextureHeight: 2048
   documentSize: {x: 512, y: 512}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
   textureActualWidth: 1024
-  textureActualHeight: 1024
+  textureActualHeight: 2048
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: LeavesR
-    spriteName: LeavesR
+  - name: Leaves _green
+    spriteName: Leaves _green
     isGroup: 0
     parentIndex: -1
-    spriteID: a371709b55b3027418d936767742695c
+    spriteID: da9411b7ca43ffe45b7f7b4a16f94fb5
     layerID: 0
-    mosaicPosition: {x: 4, y: 342}
-  - name: LeavesL
-    spriteName: LeavesL
+    mosaicPosition: {x: 4, y: 4}
+  - name: Leaves _yellow
+    spriteName: Leaves _yellow
     isGroup: 0
     parentIndex: -1
-    spriteID: 8f4f3ebd426f49e4fb41840a811ed8e8
-    layerID: -1675899174
-    mosaicPosition: {x: 4, y: 593}
-  - name: LeavesTop
-    spriteName: LeavesTop
+    spriteID: 370330cb28d04f548a3a45b4752cb552
+    layerID: 1905979435
+    mosaicPosition: {x: 4, y: 396}
+  - name: Leaves _blue
+    spriteName: Leaves _blue
     isGroup: 0
     parentIndex: -1
-    spriteID: 2cc78063233eb6746b31d74c08b0c894
-    layerID: -1654533349
-    mosaicPosition: {x: 370, y: 4}
+    spriteID: 6b727b0aae5ec6b438061d54ce5edbe0
+    layerID: -1056454983
+    mosaicPosition: {x: 4, y: 788}
+  - name: Leaves _red
+    spriteName: Leaves _red
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8c6bbd868c720984482845744e7be025
+    layerID: 1531252182
+    mosaicPosition: {x: 4, y: 1180}
+  - name: Leaves _purple
+    spriteName: Leaves _purple
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 242f62368e2046c4ea9bbf649692d3a4
+    layerID: -1474817147
+    mosaicPosition: {x: 4, y: 1572}
   - name: Bark
     spriteName: Bark
     isGroup: 0
     parentIndex: -1
-    spriteID: 4b9062c4d5e8ca342925cbfd1237991d
+    spriteID: df334c2351cedd44fadb83e77bba185f
     layerID: -1516408768
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 489, y: 4}
   characterData:
     bones: []
     parts: []

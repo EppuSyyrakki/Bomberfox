@@ -107,15 +107,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c28fbeabcc4cb741865f88eb1ec6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefabs:
+  presets: []
+  blocks:
   - {fileID: 7126158467214336790, guid: a864bff7718f2714ea69411abf0fa9fc, type: 3}
-  obstaclePrefabs:
+  - {fileID: 7126158467214336790, guid: 27ae72ee53500a845bf6eb0c0506a86e, type: 3}
+  - {fileID: 7126158467214336790, guid: cd6381da2329e0c4d9f0ef044e8d5f8b, type: 3}
+  - {fileID: 7126158467214336790, guid: 016d911846ff4774885ebb4926119a4f, type: 3}
+  - {fileID: 7126158467214336790, guid: ae750c73953fe2842ba6f02b9995cdf0, type: 3}
+  obstacles:
   - {fileID: 550303543561753777, guid: f9b3bef5d51b0a448ba2fb0acc806151, type: 3}
-  enemyPrefabs:
-  - {fileID: 3486247639766016245, guid: 9b03992341f1a43468b400f53eadb573, type: 3}
-  - {fileID: 4199868195564517738, guid: 1e9539fb2975cc14ebf481d26df5ce3b, type: 3}
-  - {fileID: 1624624116390228550, guid: 31c1f25d8fe4a7a4ab26974221d5a326, type: 3}
-  playerPrefab: {fileID: 4221481442910844420, guid: 3e09df83c59b9fe488c621506b833dfb, type: 3}
+  - {fileID: 550303543561753777, guid: f19ded4d95153bf4898a15a54ede8a81, type: 3}
+  - {fileID: 550303543561753777, guid: 53587eabcdcbad24192afe757ceca574, type: 3}
+  - {fileID: 550303543561753777, guid: d6cd98f27e64dd446a52a0b2303a992a, type: 3}
+  - {fileID: 550303543561753777, guid: 380b166fe80646c47847584ba18852ad, type: 3}
+  enemies: []
+  player: {fileID: 0}
 --- !u!1 &1190039652619130241
 GameObject:
   m_ObjectHideFlags: 0
