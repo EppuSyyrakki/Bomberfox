@@ -246,6 +246,7 @@ namespace Bomberfox.Player
         {
             AudioManager.instance.StopGameMusic();
             AudioManager.instance.PlayMusic("DeathSong");
+            GameManager.Instance.TotalDeaths++;
             GameManager.Instance.GoToDeathMenu();
         }
 

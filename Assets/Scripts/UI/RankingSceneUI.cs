@@ -15,14 +15,42 @@ namespace Bomberfox.UI
             PrintStats();
         }
 
+        public void RestartGame()
+        {
+            GameManager.Instance.ResetLevelCounter();
+            AudioManager.instance.StopMusic("DeathSong");
+            AudioManager.instance.CheckGameMusic();
+            GameManager.Instance.GoToGame();
+        }
+
+        public void BackToMenu()
+        {
+            AudioManager.instance.StopMusic("DeathSong");
+            GameManager.Instance.GoToMainMenu();
+        }
+
         public void PrintStats()
         {
+            double killPercentage;
+
+            if (GameManager.Instance.ExplodedBombs == 0)
+            {
+                killPercentage = 0;
+            }
+            else
+            {
+                killPercentage = (double)GameManager.Instance.KilledEnemies / GameManager.Instance.ExplodedBombs * 100;
+            }
+
             levelsCleared.text = (GameManager.Instance.CurrentLevel - 1).ToString();
             enemiesBombed.text = (GameManager.Instance.KilledEnemies).ToString();
 
-            statistics.text = "Dropped bombs: " + (GameManager.Instance.ExplodedBombs).ToString() + 
+            statistics.text = "Dropped bombs: " + (GameManager.Instance.ExplodedBombs).ToString() +
+                              "\nKill percentage: " + killPercentage.ToString() + "%" +
                                 "\nDestroyed obstacles: " + (GameManager.Instance.DestroyedBlocks).ToString() +
-                                "\nKill percentage: xx%";
+                              "\nCollected power ups: " + (GameManager.Instance.CollectedPU).ToString() +
+                                "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString() +
+                                "\nFinished levels in total: " + (GameManager.Instance.FinishedLevels).ToString();
         }
     }
 }

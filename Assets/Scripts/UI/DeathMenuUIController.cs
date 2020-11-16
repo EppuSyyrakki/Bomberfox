@@ -14,7 +14,6 @@ namespace Bomberfox.UI
         public void RestartGame()
         {
             GameManager.Instance.ResetLevelCounter();
-            GameManager.Instance.ResetPlayThroughStats();
             AudioManager.instance.StopMusic("DeathSong");
             AudioManager.instance.CheckGameMusic();
             GameManager.Instance.GoToGame();
