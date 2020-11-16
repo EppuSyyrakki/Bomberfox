@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public AudioMixer masterMixer;
+
     public float maxMusic = 1f;
     public float maxSound = 0.75f;
 
@@ -208,6 +210,8 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume = s.volume = 0f;
         }
+
+        MuteBomb();
     }
 
     public void EnableMusic()
@@ -224,6 +228,18 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume = s.volume = maxSound;
         }
+
+        EnableBomb();
+    }
+
+    public void MuteBomb()
+    {
+        masterMixer.SetFloat("Bomb", -80f);
+    }
+
+    public void EnableBomb()
+    {
+        masterMixer.SetFloat("Bomb", 0f);
     }
 }
 

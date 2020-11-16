@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -890342533728179705}
   - component: {fileID: 3511554595164325982}
   m_Layer: 8
-  m_Name: Bomb normal 3
+  m_Name: Normal Bomb 3
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   trigger: 0
+  shockType: 0
   range: 3
   speed: 25
   fadeDelay: 0.3
@@ -170,7 +171,7 @@ AudioSource:
   m_GameObject: {fileID: 4775296925383206451}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8443857887239763539, guid: 8e3a8f8a136aaaa41a48ee0f57a3cd0e, type: 2}
   m_audioClip: {fileID: 8300000, guid: a3f591a7cef69c24890b5163de6d90e9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

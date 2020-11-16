@@ -31,7 +31,7 @@ namespace Bomberfox.UI
 
         public void PrintStats()
         {
-            double killPercentage;
+            float killPercentage;
 
             if (GameManager.Instance.ExplodedBombs == 0)
             {
@@ -39,7 +39,8 @@ namespace Bomberfox.UI
             }
             else
             {
-                killPercentage = (double)GameManager.Instance.KilledEnemies / GameManager.Instance.ExplodedBombs * 100;
+                killPercentage = (float)GameManager.Instance.KilledEnemies / GameManager.Instance.ExplodedBombs * 100;
+                killPercentage = Mathf.Round(killPercentage * 100) / 100;
             }
 
             levelsCleared.text = (GameManager.Instance.CurrentLevel - 1).ToString();
