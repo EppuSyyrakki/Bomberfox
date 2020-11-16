@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
 using Bomberfox.Enemies;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelBuilder : MonoBehaviour
 {
@@ -39,6 +41,7 @@ public class LevelBuilder : MonoBehaviour
 	private int randomObstacleChance = 25;
 	private int enemyCount = 6;
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
+	private bool keyChosen = false;
 
 	[SerializeField, Header("Level prefabs")] 
 	private GameObject[] presets = null;
@@ -67,12 +70,19 @@ public class LevelBuilder : MonoBehaviour
 		RandomBlocks();
 		CheckForDeadEnds();
 		Obstacles();
-		KeyObstacle();
 		Enemies();
         StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
         Physics2D.IgnoreLayerCollision(8, 9, false);
 	}
-	
+
+	private void Update()
+	{
+		if (!keyChosen)
+		{
+			KeyObstacle();
+		}
+	}
+
 	private void FindParentObjects()
 	{
 		enemiesParent = GameObject.Find("Enemies").transform;
@@ -285,7 +295,8 @@ public class LevelBuilder : MonoBehaviour
 			if ((player.x > 0 && key.x > 0) && (player.y < 0 && key.y < 0)) continue;
 
 			keyObstacle.IsKey = true;
-			print("Key created in " + keyObstacle.transform.position);
+			keyChosen = true;
+			Debug.Log("Key hidden in " + key);
 			break;
 		}
 	}
