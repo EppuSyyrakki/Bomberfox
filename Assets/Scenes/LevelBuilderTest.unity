@@ -2053,28 +2053,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: debugStartingLevel
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: speedIncrease
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: obstacleChanceIncrease
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: bunnyLevel
+      propertyPath: goatLevel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: goatLevel
-      value: 14
+      propertyPath: pigLevel
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: pigLevel
-      value: 14
+      propertyPath: bunnyLevel
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: debugStartingLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: changeThemeFrequency
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x

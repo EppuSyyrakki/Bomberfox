@@ -89,7 +89,13 @@ public class LevelBuilder : MonoBehaviour
 				Vector3.zero,
 				Quaternion.identity,
 				initialObstaclesParent);
-		presetLevel = progression.GetPresetLevel(currentLevel);
+
+		if (blocks.Length != obstacles.Length)
+		{
+			Debug.LogError("Different number of Blocks and Obstacles prefabs in LevelBuilder");
+		}
+
+		presetLevel = progression.GetPresetLevel(currentLevel, blocks.Length);
 
 		if (presetLevel > 0)
 		{
@@ -279,6 +285,7 @@ public class LevelBuilder : MonoBehaviour
 			if ((player.x > 0 && key.x > 0) && (player.y < 0 && key.y < 0)) continue;
 
 			keyObstacle.IsKey = true;
+			print("Key created in " + keyObstacle.transform.position);
 			break;
 		}
 	}
