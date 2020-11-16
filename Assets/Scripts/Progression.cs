@@ -17,6 +17,9 @@ namespace Bomberfox
 		[SerializeField, Range(0, 50), Tooltip("Added to the chance on every level")]
 		private int obstacleChanceIncrease = 3;
 
+		[SerializeField, Range(1, 5), Tooltip("Change theme every n:th level")]
+		private int changeThemeFrequency = 2;
+
 		[Header("Enemies:"), SerializeField, Range(1, 20), Tooltip("Enemies in first level")] 
 		private int enemies = 2;
 
@@ -66,9 +69,17 @@ namespace Bomberfox
 		/// <summary>
 		/// What environment "theme" to use. 0 = normal
 		/// </summary>
-		public int GetPresetLevel(int currentLevel)
+		public int GetPresetLevel(int currentLevel, int totalThemes)
 		{
-			return 0;
+			int themeChanges = 0;
+
+			for (int i = 1; i <= currentLevel; i++)
+			{
+				if (i % changeThemeFrequency == 0) themeChanges++;
+			}
+
+			int presetLevel = Mathf.Clamp(themeChanges, 0, totalThemes - 1);
+			return presetLevel;
 		}
 
 		/// <summary>
