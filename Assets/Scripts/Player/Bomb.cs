@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Bomberfox.Player
 {
@@ -113,6 +114,11 @@ namespace Bomberfox.Player
 	        this.owner = owner;
 	        
             if (type == Type.Normal) owner.ChangeCurrentBombs(1);
+        }
+
+        public void MuteBomb()
+        {
+            
         }
     }
 }

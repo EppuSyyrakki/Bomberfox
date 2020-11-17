@@ -18,6 +18,7 @@ public class LevelEndKey : MonoBehaviour
             AudioManager.instance.VictoryMusic();
             StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
             GameManager.Instance.CurrentLevel++;
+            GameManager.Instance.FinishedLevels++;
             AudioManager.instance.CheckGameMusic();
             GameManager.Instance.Invoke("ReloadScene", 1.0f);
         }

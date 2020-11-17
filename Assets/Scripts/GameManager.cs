@@ -23,8 +23,11 @@ namespace Bomberfox
         public int KilledEnemies { get; set; }
         public int DestroyedBlocks { get; set; }
         public int CollectedPU { get; set; }
+        public int TotalDeaths { get; set; }
+        public float PlayTime { get; set; }
+        public int FinishedLevels { get; set; }
 
-        public bool isPaused = false;
+		public bool isPaused = false;
 
         public bool isMusicOn = true;
         public bool isSoundOn = true;
@@ -115,14 +118,6 @@ namespace Bomberfox
         {
             GameObject pu = allPowerUps[Random.Range(0, allPowerUps.Length)];
             return pu;
-        }
-
-        public void ResetPlayThroughStats()
-        {
-            ExplodedBombs = 0;
-            KilledEnemies = 0;
-            DestroyedBlocks = 0;
-            CollectedPU = 0;
         }
 
         public void PrintStats()
