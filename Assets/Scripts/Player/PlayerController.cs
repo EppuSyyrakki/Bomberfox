@@ -17,8 +17,6 @@ namespace Bomberfox.Player
             Left
         }
 
-        private PlayerData player = null;
-
        [SerializeField]
         private float speed = 10f;
 
@@ -30,7 +28,10 @@ namespace Bomberfox.Player
         [SerializeField] 
         private int maxBombs = 1;
 
+        // the range of player's normal bomb
         public int bombRange = 2;
+        [SerializeField]
+        private int maxBombRange = 5;
 
         // the ultimate maximum how many bombs player can achieve through powerups
         [SerializeField] 
@@ -294,10 +295,14 @@ namespace Bomberfox.Player
 
         public void AddShield()
         {
-	        if (healthSystem.GetHealth() == 1)
+			// enable shield object in the player object
+        }
+
+        public void AddMoreRange()
+        {
+	        if (bombRange + 1 <= maxBombRange)
 	        {
-		        healthSystem.Heal(1);
-		        // TODO access animator or gameObject and enable the shield graphic
+		        bombRange++;
 	        }
         }
 
