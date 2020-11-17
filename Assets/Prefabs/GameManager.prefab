@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 0}
+  isPaused: 0
+  isMusicOn: 1
+  isSoundOn: 1
   allPowerUps:
   - {fileID: 4048607505023357865, guid: 97e73679839a01048a2878251659228c, type: 3}
   - {fileID: 4048607505023357865, guid: 20b8a457d0d979a4c8df27cce2fb8f8b, type: 3}
   - {fileID: 4048607505023357865, guid: 876e65ebad5ca51479b155c399aa1771, type: 3}
+  - {fileID: 4048607505023357865, guid: 02dcb7254ddcea04eaf6663f11ed0483, type: 3}
+  - {fileID: 4048607505023357865, guid: 03e54bf2bbbf99d49993fc5c2b4c43c5, type: 3}
+  - {fileID: 4048607505023357865, guid: ea1e1ef8f7e63b74391235dd7f375f7b, type: 3}

@@ -306,7 +306,12 @@ namespace Bomberfox.Player
 	        }
         }
 
-        public void ReceiveNewBomb(PowerUpBase powerUp, Bomb.Type type)
+        public void AddHealth()
+        {
+            // add 1 health
+        }
+
+        public void ReceiveNewBomb(PowerUpBase powerUp)
         {
 	        specialBomb = powerUp.GetPrefab();
 	        specialUsed = false;

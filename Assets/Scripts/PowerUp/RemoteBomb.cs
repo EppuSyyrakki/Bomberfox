@@ -8,7 +8,7 @@ namespace Bomberfox.PowerUp
 
 		public override void AddToPlayer(PlayerController pc)
 		{
-			pc.ReceiveNewBomb(this, Type);
+			pc.ReceiveNewBomb(this);
 		}
 	}
 }

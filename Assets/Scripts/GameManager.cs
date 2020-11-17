@@ -134,5 +134,4 @@ namespace Bomberfox
             Debug.Log("Bomb accuracy: " + ((double)KilledEnemies / ExplodedBombs * 100) + "%");
         }
     }
-
 }
