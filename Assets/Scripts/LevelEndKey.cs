@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
+using Bomberfox.Player;
 using UnityEngine;
 
 public class LevelEndKey : MonoBehaviour
@@ -14,7 +15,9 @@ public class LevelEndKey : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Key"))
         {
-            Physics2D.IgnoreLayerCollision(8, 9, true);
+	        PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+	        GameManager.Instance.Player = pc.GetPlayerData();
+	        Physics2D.IgnoreLayerCollision(8, 9, true);
             AudioManager.instance.VictoryMusic();
             StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
             GameManager.Instance.CurrentLevel++;

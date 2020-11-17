@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using Bomberfox.Player;
 
 namespace Bomberfox
 {
@@ -16,6 +17,8 @@ namespace Bomberfox
 		public static GameManager instance = null;
 
 		public GameObject deathMenu;
+
+		public PlayerData Player { get; set; }
 
 		public int CurrentLevel { get; set; }
 
@@ -63,6 +66,7 @@ namespace Bomberfox
 			DontDestroyOnLoad(gameObject);
 
 			CurrentLevel = 1;
+			Player = new PlayerData();
 		}
 
 		void Update()

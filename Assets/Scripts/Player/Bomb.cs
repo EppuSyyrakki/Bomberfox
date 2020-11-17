@@ -71,10 +71,17 @@ namespace Bomberfox.Player
 	        collider2d = GetComponent<Collider2D>();
         }
 
+        private void Start()
+        {
+	        if (type == Type.Normal)
+	        {
+		        range = owner.bombRange;
+	        }
+        }
+
         // Update is called once per frame
         private void Update()
         {
-
 			if (trigger == Trigger.Timer)
 			{
 				if (bombTimer > 0)
@@ -85,10 +92,6 @@ namespace Bomberfox.Player
 				{
 					Explode();
 				} 
-			}
-            else if (trigger == Trigger.Remote && IsTriggered)
-			{
-				 Explode();
 			}
         }
 

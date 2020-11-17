@@ -21,9 +21,13 @@ namespace Bomberfox.Player
         {
 	        get
 	        {
-		        return special == null;
+		        return Special == null;
 	        }
         }
+
+        private PlayerData player = null;
+
+       
 
         [SerializeField]
         private float speed = 10f;
@@ -36,38 +40,51 @@ namespace Bomberfox.Player
         [SerializeField] 
         private int maxBombs = 1;
 
+        public int bombRange = 2;
+
         // the ultimate maximum how many bombs player can achieve through powerups
         [SerializeField] 
         private int maxBombLimit = 5;
         
-        // TODO make private. Public is just for prefab testing
-        public GameObject normalBomb = null;
+        // the prefab of the basic normal bomb
+        [SerializeField]
+        private GameObject normalBomb = null;
+        // the prefab of the special bomb
         public GameObject specialBomb = null;
+        // reference to the special bomb instantiated on the map
+        public GameObject Special { get; set; }
 
-        private GameObject special;
         private int currentBombs = 0;   // The amount of bombs currently in the game
-        private bool specialUsed = false;
         private Animator animator;
-        private Direction moveDirection;
         private CollisionHandler collisionHandler;
         private PolygonCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
         private bool isAlive = true;
-
+        
         private Health healthSystem;
-        public bool isInvulnerable;    // Is the player invulnerable or not
+        public bool isInvulnerable = false;    // Is the player invulnerable or not
+        public bool specialUsed = false;
 
         [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
         private float invulnerabilityTimer = 5;
 
+        private void Awake()
+        {
+	        animator = GetComponent<Animator>();
+	        collisionHandler = GetComponent<CollisionHandler>();
+	        playerCollider = GetComponent<PolygonCollider2D>();
+	        rb = GetComponent<Rigidbody2D>();
+        }
+
         private void Start()
         {
-            animator = GetComponent<Animator>();
-            collisionHandler = GetComponent<CollisionHandler>();
-            playerCollider = GetComponent<PolygonCollider2D>();
-            rb = GetComponent<Rigidbody2D>();
-            InitiateHealth();
+	        PlayerData data = GameManager.Instance.Player;
+	        playerHealth = data.Health;
+	        maxBombs = data.BombCount;
+	        bombRange = data.BombRange;
+	        specialBomb = data.SpecialBomb;
+	        healthSystem = new Health(playerHealth);
         }
 
         private void Update()
@@ -143,18 +160,24 @@ namespace Bomberfox.Player
 
 	        if (collisionHandler.CheckPosition(pos))
 	        {
-		        special = Instantiate(specialBomb, pos, Quaternion.identity);
-		        special.GetComponent<Bomb>().SetOwnerAndInit(this);
+		        Special = Instantiate(specialBomb, pos, Quaternion.identity);
+		        Special.GetComponent<Bomb>().SetOwnerAndInit(this);
 		        specialUsed = true;
 	        }
         }
 
         private void TryExplodeSpecial()
         {
-	        if (special.TryGetComponent(out Bomb bomb) && bomb.HasRemote)
+	        if (Special != null)
 	        {
-		        bomb.Explode();
-		        special = null;
+		        Bomb bomb = Special.GetComponent<Bomb>();
+		        
+		        if (bomb.HasRemote)
+		        {
+			        bomb.Explode();
+			        Special = null;
+			        specialUsed = false;
+		        }
 	        }
         }
 
@@ -250,13 +273,6 @@ namespace Bomberfox.Player
             GameManager.Instance.GoToDeathMenu();
         }
 
-        private void InitiateHealth()
-        {
-            healthSystem = new Health(playerHealth);
-            isInvulnerable = false;
-            Physics2D.IgnoreLayerCollision(8, 9, false);
-        }
-
         public void TakeDamage()
         {
             healthSystem.Damage(1);
@@ -298,17 +314,13 @@ namespace Bomberfox.Player
 
         public void ReceiveNewBomb(PowerUpBase powerUp, Bomb.Type type)
         {
-	        if (type == Bomb.Type.Normal)
-	        {
-		        normalBomb = powerUp.GetPrefab();
-	        }
-
-	        if (type == Bomb.Type.Special)
-	        {
-		        specialBomb = powerUp.GetPrefab();
-	        }
-
+	        specialBomb = powerUp.GetPrefab();
 	        specialUsed = false;
+        }
+
+        public PlayerData GetPlayerData()
+        {
+            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, specialBomb);
         }
     }
 }
