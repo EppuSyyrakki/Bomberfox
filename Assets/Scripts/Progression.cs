@@ -73,7 +73,7 @@ namespace Bomberfox
 		{
 			int themeChanges = 0;
 
-			for (int i = 1; i <= currentLevel; i++)
+			for (int i = 1; i < currentLevel; i++)
 			{
 				if (i % changeThemeFrequency == 0) themeChanges++;
 			}

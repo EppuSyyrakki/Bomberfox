@@ -75,7 +75,7 @@ public class LevelBuilder : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, false);
 	}
 
-	private void Update()
+	private void LateUpdate()
 	{
 		if (!keyChosen)
 		{
