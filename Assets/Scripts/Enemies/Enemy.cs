@@ -243,7 +243,7 @@ namespace Bomberfox.Enemies
         {
             int chance = Random.Range(0, 101);
 
-            if (chance >= powerUpChance)
+            if (chance <= powerUpChance)
             {
                 GameObject powerUp = GameManager.Instance.GetPowerUp();
 				Instantiate(powerUp, transform.position, Quaternion.identity);
