@@ -110,6 +110,8 @@ namespace Bomberfox.Player
         {
             GameManager.Instance.ExplodedBombs++;
 	        Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+
+	        if (type == Type.Special) owner.specialBomb = null;
         }
 
         public void SetOwnerAndInit(PlayerController owner)

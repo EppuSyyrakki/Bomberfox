@@ -17,19 +17,9 @@ namespace Bomberfox.Player
             Left
         }
 
-        public bool IsSpecialNull
-        {
-	        get
-	        {
-		        return Special == null;
-	        }
-        }
-
         private PlayerData player = null;
 
-       
-
-        [SerializeField]
+       [SerializeField]
         private float speed = 10f;
 
         // How much health the player has (in the beginning)
@@ -176,7 +166,6 @@ namespace Bomberfox.Player
 		        {
 			        bomb.Explode();
 			        Special = null;
-			        specialUsed = false;
 		        }
 	        }
         }

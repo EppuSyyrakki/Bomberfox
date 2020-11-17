@@ -28,7 +28,7 @@ namespace Bomberfox.PowerUp
 		{
 			if (other.gameObject.CompareTag("Player")
 			    && other.gameObject.TryGetComponent(out PlayerController pc)
-			    && pc.IsSpecialNull)
+			    && pc.specialBomb == null)
             {
                 GameManager.Instance.CollectedPU++;
 				AddToPlayer(pc);
