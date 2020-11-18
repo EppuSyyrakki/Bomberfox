@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Bomberfox.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ namespace Bomberfox.UI
 
         public void StartGame()
         {
-            Debug.Log("Start pressed");
+            GameManager.Instance.Player = new PlayerData();
             AudioManager.instance.CheckGameMusic();
             GameManager.Instance.GoToStory();
         }

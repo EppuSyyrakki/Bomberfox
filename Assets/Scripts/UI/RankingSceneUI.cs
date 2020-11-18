@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Bomberfox.Player;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Bomberfox.UI
@@ -19,7 +20,7 @@ namespace Bomberfox.UI
 
         public void RestartGame()
         {
-            GameManager.Instance.ResetLevelCounter();
+            GameManager.Instance.RestartForNewGame();
             AudioManager.instance.StopMusic("DeathSong");
             AudioManager.instance.CheckGameMusic();
             GameManager.Instance.GoToGame();
@@ -28,6 +29,7 @@ namespace Bomberfox.UI
         public void BackToMenu()
         {
             AudioManager.instance.StopMusic("DeathSong");
+            GameManager.Instance.RestartForNewGame();
             GameManager.Instance.GoToMainMenu();
         }
 

@@ -261,9 +261,18 @@ namespace Bomberfox.Enemies
 	        Destroy(GetComponent<Collider2D>());
 			Anim.SetTrigger("Die");
 			IsAlive = false;
-			PowerUp();
             GameManager.Instance.KilledEnemies++;
             GameManager.Instance.LevelProgression += 5;
+
+            if (GameManager.Instance.IsFirstKill)
+            {
+                ExtraBombPowerUp();
+                GameManager.Instance.IsFirstKill = false;
+            }
+            else
+            {
+                PowerUp();
+			}
         }
 
         public EnemyData GetData()
@@ -293,6 +302,12 @@ namespace Bomberfox.Enemies
                 GameObject powerUp = GameManager.Instance.GetPowerUp();
 				Instantiate(powerUp, transform.position, Quaternion.identity);
 			}
+        }
+
+        private void ExtraBombPowerUp()
+        {
+            GameObject pu = GameManager.Instance.GetFirstExtraBomb();
+            Instantiate(pu, transform.position, Quaternion.identity);
         }
     }
 }

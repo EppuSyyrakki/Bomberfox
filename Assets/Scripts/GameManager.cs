@@ -35,6 +35,8 @@ namespace Bomberfox
         public bool isMusicOn = true;
         public bool isSoundOn = true;
 
+        public bool IsFirstKill { get; set; } = true;
+
         public int LevelProgression { get; set; }
         public int XpForNextLevel = 100;
         public int PlayerLevel { get; set; } = 1;
@@ -125,6 +127,12 @@ namespace Bomberfox
             return pu;
         }
 
+        public GameObject GetFirstExtraBomb()
+        {
+            GameObject pu = allPowerUps[1];
+            return pu;
+        }
+
         public void PrintStats()
         {
             Debug.Log("Cleared levels: " + (CurrentLevel - 1));
@@ -148,6 +156,15 @@ namespace Bomberfox
                     XpForNextLevel += 100;
                 }
             }
+        }
+
+		// Resets the most common variables for the next game.
+		// Located at PauseMenu and RankingSceneUI script.
+        public void RestartForNewGame()
+        {
+            IsFirstKill = true;
+			Player = new PlayerData();
+            ResetLevelCounter();
         }
     }
 }

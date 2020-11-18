@@ -52,7 +52,7 @@ namespace Bomberfox.UI
         {
             GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
             GameManager.Instance.TotalDeaths++;
-            GameManager.Instance.ResetLevelCounter();
+            GameManager.Instance.RestartForNewGame();
             AudioManager.instance.StopGameMusic();
             GameManager.Instance.GoToMainMenu();
         }
