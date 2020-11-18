@@ -55,6 +55,9 @@ public class LevelBuilder : MonoBehaviour
 	[SerializeField] 
 	private GameObject player = null;
 
+    [SerializeField] private GameObject rainPrefab;
+    [SerializeField] private GameObject fogPrefab;
+
 	private void Awake()
 	{
 		FindParentObjects();
@@ -73,6 +76,7 @@ public class LevelBuilder : MonoBehaviour
 		Enemies();
         StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
         Physics2D.IgnoreLayerCollision(8, 9, false);
+		Weather();
 	}
 
 	private void LateUpdate()
@@ -345,4 +349,20 @@ public class LevelBuilder : MonoBehaviour
 
 		return true;
 	}
+
+    private void Weather()
+    {
+        float chance = Random.Range(0f, 101f);
+
+        if (chance >= 75f)
+        {
+			Debug.Log("Time to rain!");
+            Instantiate(rainPrefab);
+        }
+		else if (chance <= 25f)
+        {
+            Debug.Log("Time for fog!");
+			Instantiate(fogPrefab);
+        }
+    }
 }
