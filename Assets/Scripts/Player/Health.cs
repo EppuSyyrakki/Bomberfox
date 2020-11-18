@@ -10,10 +10,10 @@ namespace Bomberfox.Player
 		private int health;
 		private int healthMax;
 
-		public Health(int healthMax)
+		public Health(int healthMax, int startingHealth)
 		{
 			this.healthMax = healthMax;
-			health = healthMax;
+			health = startingHealth;
 		}
 
 		public int GetHealth()

@@ -119,13 +119,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Victory1
     clip: {fileID: 8300000, guid: 4cdb9be47c1472349b661f71f2acfaac, type: 3}
-    volume: 0.8
+    volume: 0.75
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: 3bd76b9fa341a73449f4a19a8bf44e94, type: 3}
-    volume: 0.8
+    volume: 2
     pitch: 1
     loop: 0
     source: {fileID: 0}
