@@ -402,7 +402,7 @@ ScriptedImporter:
     uvTransform: {x: -66, y: 597}
   - name: FRONT_upperArmRIght
     originalName: 
-    pivot: {x: 0.8160905, y: 0.7911361}
+    pivot: {x: 0.8660578, y: 0.79113597}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -490,8 +490,8 @@ ScriptedImporter:
     uvTransform: {x: 97, y: 84}
   - name: FRONT_lowerLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.30522007, y: 0.8929618}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -578,8 +578,8 @@ ScriptedImporter:
     uvTransform: {x: 92, y: -46}
   - name: BACK_lowerLegLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.27098083, y: 0.89914507}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -600,8 +600,8 @@ ScriptedImporter:
     uvTransform: {x: 183, y: 178}
   - name: BACK_lowerLegRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.7540645, y: 0.87229943}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -688,8 +688,8 @@ ScriptedImporter:
     uvTransform: {x: 255, y: -57}
   - name: BACK_lowerArmLeft
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.86193883, y: 0.07244534}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -730,10 +730,10 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 146, y: -9}
-  - name: BACK_upperArmLeft_1
+  - name: BACK_lowerArmRight
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.1580288, y: 0.0792451}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -864,7 +864,7 @@ ScriptedImporter:
     uvTransform: {x: 67, y: -29}
   - name: RIGHT_upperArmLeft
     originalName: 
-    pivot: {x: 0.17805594, y: 0.73493254}
+    pivot: {x: 0.15260936, y: 0.8215868}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1138,8 +1138,8 @@ ScriptedImporter:
     spriteID: 32a82dae6601ffa498708d725517bd18
     layerID: 53
     mosaicPosition: {x: 302, y: 95}
-  - name: BACK_upperArmLeft
-    spriteName: BACK_upperArmLeft_1
+  - name: BACK_lowerArmRight
+    spriteName: BACK_lowerArmRight
     isGroup: 0
     parentIndex: 11
     spriteID: e5805d95fdf7d1a4da483888252f0dfa
