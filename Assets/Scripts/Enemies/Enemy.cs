@@ -263,6 +263,7 @@ namespace Bomberfox.Enemies
 			IsAlive = false;
 			PowerUp();
             GameManager.Instance.KilledEnemies++;
+            GameManager.Instance.LevelProgression += 5;
         }
 
         public EnemyData GetData()

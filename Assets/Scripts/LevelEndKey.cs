@@ -17,6 +17,7 @@ public class LevelEndKey : MonoBehaviour
         {
 	        PlayerController pc = other.gameObject.GetComponent<PlayerController>();
 	        GameManager.Instance.Player = pc.GetPlayerData();
+            GameManager.Instance.LevelProgression += 20;
 	        Physics2D.IgnoreLayerCollision(8, 9, true);
             AudioManager.instance.VictoryMusic();
             StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());

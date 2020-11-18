@@ -51,7 +51,9 @@ namespace Bomberfox.UI
                                 "\nDestroyed obstacles: " + (GameManager.Instance.DestroyedBlocks).ToString() +
                               "\nCollected power ups: " + (GameManager.Instance.CollectedPU).ToString() +
                                 "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString() +
-                                "\nFinished levels in total: " + (GameManager.Instance.FinishedLevels).ToString();
+                                "\nFinished levels in total: " + (GameManager.Instance.FinishedLevels).ToString() +
+                                "\n\nPlayer level: " + (GameManager.Instance.PlayerLevel).ToString() +
+                                "\nXP until next level: " + (GameManager.Instance.XpForNextLevel - GameManager.Instance.LevelProgression).ToString();
         }
     }
 }

@@ -160,12 +160,12 @@ public class AudioManager : MonoBehaviour
         {
             PlayMusic("GameMusic1");
         }
-        else if (GameManager.Instance.CurrentLevel == 2)
+        else if (GameManager.Instance.CurrentLevel == 4)
         {
             StopMusic("GameMusic1");
             PlayMusic("GameMusic2");
         }
-        else if (GameManager.Instance.CurrentLevel == 3)
+        else if (GameManager.Instance.CurrentLevel == 7)
         {
             StopMusic("GameMusic2");
             PlayMusic("GameMusic3");

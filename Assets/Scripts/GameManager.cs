@@ -35,7 +35,11 @@ namespace Bomberfox
         public bool isMusicOn = true;
         public bool isSoundOn = true;
 
-		// Power ups will be stored here
+        public int LevelProgression { get; set; }
+        public int XpForNextLevel = 100;
+        public int PlayerLevel { get; set; } = 1;
+
+        // Power ups will be stored here
         [SerializeField] private GameObject[] allPowerUps = null;
 
 		public static GameManager Instance
@@ -88,10 +92,7 @@ namespace Bomberfox
 				isPaused = false;
 			}
 
-			/*if (Input.GetKeyDown(KeyCode.Escape))
-			{
-				GoToMainMenu();
-			}*/
+			CheckLevelProgression();
         }
 
 		public void ChangeLevel(int levelNumber)
@@ -132,6 +133,21 @@ namespace Bomberfox
 			Debug.Log("Destroyed obstacles: " + DestroyedBlocks);
 			Debug.Log("Collected power ups: " + CollectedPU);
             Debug.Log("Bomb accuracy: " + ((double)KilledEnemies / ExplodedBombs * 100) + "%");
+        }
+
+        public void CheckLevelProgression()
+        {
+            if (LevelProgression >= XpForNextLevel)
+            {
+                PlayerLevel++;
+                Debug.Log("New level");
+                LevelProgression = LevelProgression - XpForNextLevel;
+
+                if (PlayerLevel < 11)
+                {
+                    XpForNextLevel += 100;
+                }
+            }
         }
     }
 }
