@@ -141,7 +141,8 @@ namespace Bomberfox.Enemies
 			// if we haven't reserved a space and it's free, do that and exit this method
 	        if (Space == null && CollisionHandler.CheckPosition(CurrentTarget))
 	        {
-		        ReserveSpace(CurrentTarget);
+				UpdateAnimator();
+				ReserveSpace(CurrentTarget);
 		        return;		// TODO maybe not needed? check
 	        }
 			
@@ -188,29 +189,72 @@ namespace Bomberfox.Enemies
         protected void UpdateAnimator()
         {
 			// change current target into a direction (with magnitude of 1) relative to our location 
-	        Vector3 target = transform.InverseTransformPoint(CurrentTarget).normalized;
+	        Vector3 target = transform.InverseTransformPoint(CurrentTarget);
 
-	        if (target == Vector3.up) SetTrigger("FacingUp");
-	        if (target == Vector3.right) SetTrigger("FacingRight");
-			if (target == Vector3.down) SetTrigger("FacingDown");
-			if (target == Vector3.left) SetTrigger("FacingLeft");
+			if (target.y > 0)
+			{
+				Anim.SetBool("FacingUp", true);
+				Anim.SetBool("FacingRight", false);
+				Anim.SetBool("FacingDown", false);
+				Anim.SetBool("FacingLeft", false);
+			}
+			if (target.y < 0)
+			{
+				Anim.SetBool("FacingUp", false);
+				Anim.SetBool("FacingRight", false);
+				Anim.SetBool("FacingDown", true);
+				Anim.SetBool("FacingLeft", false);
+			}
+			if (target.x > 0)
+			{
+				Anim.SetBool("FacingUp", false);
+				Anim.SetBool("FacingRight", true);
+				Anim.SetBool("FacingDown", false);
+				Anim.SetBool("FacingLeft", false);
+			}
+			if (target.x < 0) 
+			{
+				Anim.SetBool("FacingUp", false);
+				Anim.SetBool("FacingRight", false);
+				Anim.SetBool("FacingDown", false);
+				Anim.SetBool("FacingLeft", true);
+			}
 			
 			// if the enemy is "stuck", display moving down animation
-			if (target == Vector3.zero) SetTrigger("FacingDown");
-        }
-
-		// Set one facing trigger and reset others
-        private void SetTrigger(string triggerToSet)
-        {
-			Anim.SetTrigger(triggerToSet);
-
-			if (triggerToSet != "FacingUp") Anim.ResetTrigger("FacingUp");
-			if (triggerToSet != "FacingRight") Anim.ResetTrigger("FacingRight");
-			if (triggerToSet != "FacingDown") Anim.ResetTrigger("FacingDown");
-			if (triggerToSet != "FacingLeft") Anim.ResetTrigger("FacingLeft");
+			if (target == Vector3.zero)
+			{
+				Anim.SetBool("FacingUp", false);
+				Anim.SetBool("FacingRight", false);
+				Anim.SetBool("FacingDown", true);
+				Anim.SetBool("FacingLeft", false);
+			}
+			
 		}
 
-        public virtual void StartDeath()
+
+		/* Old Trigger -method for animation
+		if (target == Vector3.up) SetTrigger("FacingUp");
+		if (target == Vector3.right) SetTrigger("FacingRight");
+		if (target == Vector3.down) SetTrigger("FacingDown");
+		if (target == Vector3.left) SetTrigger("FacingLeft");
+
+		// if the enemy is "stuck", display moving down animation
+		if (target == Vector3.zero) SetTrigger("FacingDown");
+	}
+
+	// Set one facing trigger and reset others
+	private void SetTrigger(string triggerToSet)
+	{
+		Anim.SetTrigger(triggerToSet);
+
+		if (triggerToSet != "FacingUp") Anim.ResetTrigger("FacingUp");
+		if (triggerToSet != "FacingRight") Anim.ResetTrigger("FacingRight");
+		if (triggerToSet != "FacingDown") Anim.ResetTrigger("FacingDown");
+		if (triggerToSet != "FacingLeft") Anim.ResetTrigger("FacingLeft");
+	}
+		*/
+
+		public virtual void StartDeath()
         {
 	        if (Space != null) Destroy(Space);
 

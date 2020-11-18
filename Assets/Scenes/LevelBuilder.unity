@@ -2786,6 +2786,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: debugStartingLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: pigLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: bunnyLevel
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
