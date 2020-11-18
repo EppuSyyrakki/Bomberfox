@@ -296,6 +296,33 @@ namespace Bomberfox.Player
             }
         }
 
+        /*
+        private void TransParencyOn(float newAlpha)
+        {
+            foreach (Transform child in transform)
+            {
+                if (TryGetComponent(out SpriteRenderer sr))
+                {
+                    Color old = sr.color;
+                    Color newColor = new Color(old.r, old.g, old.b, newAlpha);
+                    sr.color = newColor;
+                }
+            }
+        }
+
+        private void TransParencyOff(Color old)
+        {
+            foreach (Transform child in transform)
+            {
+                if (TryGetComponent(out SpriteRenderer sr))
+                {
+                    Color backToNormal = new Color(old.r, old.g, old.b, 1f);
+                    sr.color = backToNormal;
+                }
+            }
+        }
+        */
+
         public void ChangeCurrentBombs(int change)
         {
 	        currentBombs += change;

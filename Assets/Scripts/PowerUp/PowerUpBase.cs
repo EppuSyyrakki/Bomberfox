@@ -26,15 +26,23 @@ namespace Bomberfox.PowerUp
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.gameObject.CompareTag("Player")
-			    && other.gameObject.TryGetComponent(out PlayerController pc)
-			    && pc.Special == null)
+            if (other.gameObject.CompareTag("Player") 
+                && other.gameObject.TryGetComponent(out PlayerController pc)
+                && Type == Bomb.Type.Normal)
             {
-	            // TODO allow Type == normal to be collected while pc.special != null
                 GameManager.Instance.CollectedPU++;
 				AddToPlayer(pc);
 				Remove();
-			}
+            }
+			else if (other.gameObject.CompareTag("Player")
+                     && other.gameObject.TryGetComponent(out pc)
+                     && pc.Special == null)
+            {
+                // TODO allow Type == normal to be collected while pc.special != null
+                GameManager.Instance.CollectedPU++;
+                AddToPlayer(pc);
+                Remove();
+            }
 		}
 	}
 }
