@@ -8,6 +8,8 @@ namespace Bomberfox.UI
         public Text levelsCleared;
         public Text enemiesBombed;
         public Text statistics;
+        public Text playerLevel;
+        public Text xpLeft;
 
         // Start is called before the first frame update
         void Start()
@@ -43,17 +45,17 @@ namespace Bomberfox.UI
                 killPercentage = Mathf.Round(killPercentage * 100) / 100;
             }
 
-            levelsCleared.text = (GameManager.Instance.CurrentLevel - 1).ToString();
+            levelsCleared.text = (GameManager.Instance.FinishedLevels).ToString();
             enemiesBombed.text = (GameManager.Instance.KilledEnemies).ToString();
+            playerLevel.text = (GameManager.Instance.PlayerLevel).ToString();
+            xpLeft.text = "XP until next level: " +
+                          (GameManager.Instance.XpForNextLevel - GameManager.Instance.LevelProgression).ToString();
 
             statistics.text = "Dropped bombs: " + (GameManager.Instance.ExplodedBombs).ToString() +
                               "\nKill percentage: " + killPercentage.ToString() + "%" +
                                 "\nDestroyed obstacles: " + (GameManager.Instance.DestroyedBlocks).ToString() +
                               "\nCollected power ups: " + (GameManager.Instance.CollectedPU).ToString() +
-                                "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString() +
-                                "\nFinished levels in total: " + (GameManager.Instance.FinishedLevels).ToString() +
-                                "\n\nPlayer level: " + (GameManager.Instance.PlayerLevel).ToString() +
-                                "\nXP until next level: " + (GameManager.Instance.XpForNextLevel - GameManager.Instance.LevelProgression).ToString();
+                                "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString();
         }
     }
 }
