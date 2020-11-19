@@ -352,17 +352,20 @@ public class LevelBuilder : MonoBehaviour
 
     private void Weather()
     {
-        float chance = Random.Range(0f, 101f);
+        if (GameManager.Instance.CurrentLevel > 1)
+        {
+            float chance = Random.Range(0f, 101f);
 
-        if (chance >= 75f)
-        {
-			Debug.Log("Time to rain!");
-            Instantiate(rainPrefab);
-        }
-		else if (chance <= 25f)
-        {
-            Debug.Log("Time for fog!");
-			Instantiate(fogPrefab);
-        }
+            if (chance >= 75f)
+            {
+                Debug.Log("Time to rain!");
+                Instantiate(rainPrefab);
+            }
+            else if (chance <= 25f)
+            {
+                Debug.Log("Time for fog!");
+                Instantiate(fogPrefab);
+            }
+		}
     }
 }
