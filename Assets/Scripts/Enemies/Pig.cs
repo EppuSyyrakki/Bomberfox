@@ -36,12 +36,13 @@ namespace Bomberfox.Enemies
 			// Do this on the first update of this special move
 			if (!specialTriggered)
 			{
+				UpdateAnimator(PlayerLastSeen);
 				Anim.SetTrigger("Special");
 				specialTriggered = true;
 			}
 
 			if (!chargeMovementStarted) return;
-			
+
 			if (transform.position == nextTarget)
 			{
 				if (Space != null) Destroy(Space);
@@ -82,7 +83,7 @@ namespace Bomberfox.Enemies
 			PlayerLastSeen = Nowhere;
 			DefineRandomDirection();
 			CurrentTarget = transform.position + Direction;
-			UpdateAnimator();
+			UpdateAnimator(CurrentTarget);
 		}
 
         public override void StartDeath()

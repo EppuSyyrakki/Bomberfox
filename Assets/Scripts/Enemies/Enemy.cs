@@ -27,7 +27,7 @@ namespace Bomberfox.Enemies
 		public Vector3 PlayerLastSeen { get; set; }
 		public Vector3 LastPosition { private get; set; } = Vector3.zero;
 		public float SpecialMoveTimer { private get; set; }
-		public Vector3 CurrentTarget { private get; set; }
+		public Vector3 CurrentTarget { get; set; }
 
 		private void Awake()
         {
@@ -75,7 +75,7 @@ namespace Bomberfox.Enemies
 
 				// if no special move, move normally
 				SetNewTarget();
-				UpdateAnimator();
+				// UpdateAnimator(CurrentTarget);
 	        }
 
 			// if we got this far we're not doing special, so move to our current target
@@ -141,7 +141,7 @@ namespace Bomberfox.Enemies
 			// if we haven't reserved a space and it's free, do that and exit this method
 	        if (Space == null && CollisionHandler.CheckPosition(CurrentTarget))
 	        {
-				UpdateAnimator();
+				UpdateAnimator(CurrentTarget);
 				ReserveSpace(CurrentTarget);
 		        return;		// TODO maybe not needed? check
 	        }
@@ -186,10 +186,10 @@ namespace Bomberfox.Enemies
 	        CurrentTarget = LastPosition;
         }
 
-        protected void UpdateAnimator()
+        protected void UpdateAnimator(Vector3 moveTarget)
         {
-			// change current target into a direction (with magnitude of 1) relative to our location 
-	        Vector3 target = transform.InverseTransformPoint(CurrentTarget);
+			// change moveTarget into a vector relative to our location 
+	        Vector3 target = transform.InverseTransformPoint(moveTarget);
 
 			if (target.y > 0)
 			{
@@ -228,8 +228,7 @@ namespace Bomberfox.Enemies
 				Anim.SetBool("FacingDown", true);
 				Anim.SetBool("FacingLeft", false);
 			}
-			
-		}
+        }
 
 
 		/* Old Trigger -method for animation
