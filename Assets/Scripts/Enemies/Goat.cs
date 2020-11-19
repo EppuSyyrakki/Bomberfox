@@ -6,7 +6,11 @@ namespace Bomberfox.Enemies
 {
 	public class Goat : Enemy
 	{
-		[SerializeField, Range(2, 5)] private int teleportRange = 3;
+		[SerializeField, Range(2, 5)] 
+		private int teleportRange = 3;
+
+		[SerializeField, Range(2f, 5f)]
+		private float specialMinDist = 2f;
 
 		private bool disableInvoked = false;
 		private Vector3 playerPosition = Vector3.zero;
@@ -39,7 +43,7 @@ namespace Bomberfox.Enemies
 					Random.Range(-teleportRange, teleportRange + 1));
 
 				if (CollisionHandler.CheckPosition(tryDestination) 
-				    && Vector3.Distance(tryDestination, playerPosition) > 2f)
+				    && Vector3.Distance(tryDestination, playerPosition) > specialMinDist)
 				{
 					ReserveSpace(tryDestination);
 					transform.position = tryDestination;

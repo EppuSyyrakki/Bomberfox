@@ -7,7 +7,11 @@ namespace Bomberfox.Enemies
 {
 	public class Bunny : Enemy
 	{
-		[SerializeField, Range(2, 5)] private int jumpRange = 3;
+		[SerializeField, Range(2, 5)] 
+		private int jumpRange = 3;
+
+		[SerializeField, Range(2f, 5f)]
+		private float specialMinDist = 2f;
 
 		private bool disableInvoked = false;
 		private bool isJumping = false;
@@ -76,7 +80,7 @@ namespace Bomberfox.Enemies
 					Random.Range(-jumpRange, jumpRange + 1));
 
 				if (CollisionHandler.CheckPosition(tryDestination) 
-				    && Vector3.Distance(tryDestination, playerPosition) > 2f)
+				    && Vector3.Distance(tryDestination, playerPosition) > specialMinDist)
 				{
 					ReserveSpace(tryDestination);
 					return true;

@@ -72,6 +72,25 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &6493008843509003912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486247639766016245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019a8cfa2f64e1f459cd6692d48a5c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  lookDistance: 5
+  reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
+  specialMoveChance: 30
+  specialMoveCoolDown: 8
+  powerUpChance: 30
+  teleportRange: 5
 --- !u!1 &761986132443482370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,9 +4957,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -745551177
+  m_SortingLayer: 5
+  m_SortingOrder: 100
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15105,9 +15124,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -745551177
+  m_SortingLayer: 5
+  m_SortingOrder: 100
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15133,25 +15152,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6493008843509003912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3486247639766016245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019a8cfa2f64e1f459cd6692d48a5c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  lookDistance: 5
-  reservedSpace: {fileID: 8360727981588547203, guid: f9b741894aca49c42899e84098f21084, type: 3}
-  specialMoveChance: 30
-  specialMoveCoolDown: 8
-  powerUpChance: 30
-  teleportRange: 5
 --- !u!1 &3492772768661611583
 GameObject:
   m_ObjectHideFlags: 0
@@ -26229,9 +26229,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -745551177
+  m_SortingLayer: 5
+  m_SortingOrder: 100
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
