@@ -75,8 +75,7 @@ namespace Bomberfox.Enemies
 
 				// if no special move, move normally
 				SetNewTarget();
-				// UpdateAnimator(CurrentTarget);
-	        }
+			}
 
 			// if we got this far we're not doing special, so move to our current target
 	        MoveToCurrentTarget();

@@ -15,6 +15,7 @@ namespace Bomberfox.Enemies
 		private float lerpT;
 		private float jumpTime;
 		private float endTime;
+		private Vector3 playerPosition = Vector3.zero;
 
 		public override void Start()
 		{
@@ -44,6 +45,7 @@ namespace Bomberfox.Enemies
 			{
 				if (GetDestination())
 				{
+					playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 					Invoke(nameof(DisableCollider), Time.deltaTime);
 					Anim.SetTrigger("Special");
 					startPos = transform.position;
@@ -73,7 +75,8 @@ namespace Bomberfox.Enemies
 					Random.Range(-jumpRange, jumpRange + 1),
 					Random.Range(-jumpRange, jumpRange + 1));
 
-				if (CollisionHandler.CheckPosition(tryDestination))
+				if (CollisionHandler.CheckPosition(tryDestination) 
+				    && Vector3.Distance(tryDestination, playerPosition) > 2f)
 				{
 					ReserveSpace(tryDestination);
 					return true;

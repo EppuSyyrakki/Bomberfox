@@ -9,6 +9,7 @@ namespace Bomberfox.Enemies
 		[SerializeField, Range(2, 5)] private int teleportRange = 3;
 
 		private bool disableInvoked = false;
+		private Vector3 playerPosition = Vector3.zero;
 
 		public override void Update()
 		{
@@ -20,6 +21,7 @@ namespace Bomberfox.Enemies
 
 			if (!disableInvoked && IsAlive)
 			{
+				playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 				Anim.SetTrigger("Special");
 				Invoke(nameof(DisableCollider), 0.25f);
 				disableInvoked = true;
@@ -30,13 +32,14 @@ namespace Bomberfox.Enemies
 		{
 			Vector3 startPos = transform.position;
 
-			for (int i = 0; i < 20; i++)	// try 20 times to find a new spot to move to.
+			for (int i = 0; i < 40; i++)	// try 20 times to find a new spot to move to.
 			{
 				Vector3 tryDestination = startPos + new Vector3(
 					Random.Range(-teleportRange, teleportRange + 1), 
 					Random.Range(-teleportRange, teleportRange + 1));
 
-				if (CollisionHandler.CheckPosition(tryDestination))
+				if (CollisionHandler.CheckPosition(tryDestination) 
+				    && Vector3.Distance(tryDestination, playerPosition) > 2f)
 				{
 					ReserveSpace(tryDestination);
 					transform.position = tryDestination;
