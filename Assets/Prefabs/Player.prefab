@@ -6230,13 +6230,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  playerHealth: 1
+  playerStartingHealth: 1
+  playerMaxHealth: 5
   maxBombs: 1
+  bombRange: 2
+  maxBombRange: 5
   maxBombLimit: 5
   normalBomb: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
   specialBomb: {fileID: 4775296925383206451, guid: d6f20328a8b2afa44ab32a682faf0390, type: 3}
   isInvulnerable: 0
-  invulnerabilityTimer: 5
+  specialUsed: 0
+  isShieldOn: 0
+  invulnerabilityTimer: 2
 --- !u!114 &-8475925279940206486
 MonoBehaviour:
   m_ObjectHideFlags: 0
