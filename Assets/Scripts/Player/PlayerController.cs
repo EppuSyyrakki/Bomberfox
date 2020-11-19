@@ -63,7 +63,7 @@ namespace Bomberfox.Player
         public bool isShieldOn = false;
 
         [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
-        private float invulnerabilityTimer = 5;
+        private float invulnerabilityTimer = 2;
 
         private void Awake()
         {
