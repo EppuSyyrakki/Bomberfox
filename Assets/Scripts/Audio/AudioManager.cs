@@ -208,7 +208,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            s.source.volume = s.volume = 0f;
+            s.source.volume = 0f;
         }
 
         MuteBomb();
@@ -226,7 +226,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            s.source.volume = s.volume = maxSound;
+            s.source.volume = s.volume;
         }
 
         EnableBomb();

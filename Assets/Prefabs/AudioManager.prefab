@@ -74,6 +74,11 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 486986be4db7db64da3103258070438d, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
   sounds:
   - name: Thunder2
     clip: {fileID: 8300000, guid: ae590720de8f1714388a5669e89ba524, type: 3}
@@ -124,8 +129,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: PlayerDeath
-    clip: {fileID: 8300000, guid: 3bd76b9fa341a73449f4a19a8bf44e94, type: 3}
-    volume: 2
+    clip: {fileID: 8300000, guid: 96a76b520bfa22b408c18aaa8aac6d3b, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

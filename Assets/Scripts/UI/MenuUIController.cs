@@ -10,7 +10,7 @@ namespace Bomberfox.UI
     {
         void Start()
         {
-            AudioManager.instance.PlayMusic("SpookyMenu");
+            AudioManager.instance.PlayMusic("MainMenu");
             AudioManager.instance.PlayMusic("ThunderMenu");
         }
 
@@ -23,6 +23,8 @@ namespace Bomberfox.UI
         {
             GameManager.Instance.Player = new PlayerData();
             AudioManager.instance.CheckGameMusic();
+            AudioManager.instance.StopMusic("ThunderMenu");
+            AudioManager.instance.StopMusic("MainMenu");
             GameManager.Instance.GoToStory();
         }
 
