@@ -55,7 +55,7 @@ namespace Bomberfox
 
             if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
 
-	        if (o.CompareTag("Enemy") && gameObject.CompareTag("ShockWave")) return KillEnemy(o);
+	        if (o.CompareTag("Enemy") && gameObject.CompareTag("ShockWave") && collider.isTrigger) return KillEnemy(o);
 
 	        if (o.CompareTag("Obstacle") && gameObject.CompareTag("ShockWave")) return KillObstacle(o);
 

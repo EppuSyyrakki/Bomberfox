@@ -91,6 +91,7 @@ MonoBehaviour:
   specialMoveCoolDown: 8
   powerUpChance: 30
   teleportRange: 5
+  specialMinDist: 2
 --- !u!1 &761986132443482370
 GameObject:
   m_ObjectHideFlags: 0
