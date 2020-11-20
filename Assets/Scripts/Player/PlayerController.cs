@@ -49,6 +49,9 @@ namespace Bomberfox.Player
         // reference to the special bomb instantiated on the map
         public GameObject Special { get; set; }
 
+        [SerializeField]
+        private GameObject shield;
+
         private int currentBombs = 0;   // The amount of bombs currently in the game
         private Animator animator;
         private CollisionHandler collisionHandler;
@@ -56,6 +59,7 @@ namespace Bomberfox.Player
         private Rigidbody2D rb;
         private Vector2 movement;
         private bool isAlive = true;
+        
         
         public Health healthSystem;
         public bool isInvulnerable = false;    // Is the player invulnerable or not
@@ -79,6 +83,7 @@ namespace Bomberfox.Player
 	        playerStartingHealth = data.Health;
 	        maxBombs = data.BombCount;
 	        bombRange = data.BombRange;
+	        hasShield = data.HasShield;
 	        specialBomb = data.SpecialBomb;
 	        healthSystem = new Health(playerMaxHealth, playerStartingHealth);
         }
@@ -95,6 +100,9 @@ namespace Bomberfox.Player
                 movement.x = 0;
                 movement.y = 0;
             }
+
+            if (hasShield && !shield.activeSelf) shield.SetActive(true);
+            else if (!hasShield && shield.activeSelf) shield.SetActive(false);
         }
 
         private void FixedUpdate()

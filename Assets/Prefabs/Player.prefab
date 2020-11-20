@@ -5881,7 +5881,7 @@ GameObject:
   - component: {fileID: 6723131276618628141}
   m_Layer: 8
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6238,9 +6238,10 @@ MonoBehaviour:
   maxBombLimit: 5
   normalBomb: {fileID: 4775296925383206451, guid: 53714a123badc994a886c9fa85e65b9b, type: 3}
   specialBomb: {fileID: 4775296925383206451, guid: d6f20328a8b2afa44ab32a682faf0390, type: 3}
+  shield: {fileID: 3716574354251850754}
   isInvulnerable: 0
   specialUsed: 0
-  isShieldOn: 0
+  hasShield: 0
   invulnerabilityTimer: 2
 --- !u!114 &-8475925279940206486
 MonoBehaviour:
