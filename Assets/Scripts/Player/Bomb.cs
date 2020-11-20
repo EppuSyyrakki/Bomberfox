@@ -90,7 +90,7 @@ namespace Bomberfox.Player
 				}
 				else
 				{
-					Explode();
+                    Explode();
 				} 
 			}
         }
@@ -109,7 +109,17 @@ namespace Bomberfox.Player
         public void Explode()
         {
             GameManager.Instance.ExplodedBombs++;
-	        Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
+
+            if (type == Type.Normal)
+            {
+                AudioManager.instance.OneShotSound("Explosion");
+            }
+            else if (type == Type.Special)
+            {
+                AudioManager.instance.OneShotSound("ExplosionBigger");
+            }
+
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
 
 	        if (type == Type.Special) owner.specialBomb = null;
         }

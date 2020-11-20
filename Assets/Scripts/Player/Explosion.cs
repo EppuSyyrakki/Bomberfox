@@ -40,7 +40,7 @@ namespace Bomberfox.Player
             initialShock.ReceiveBombParameters(range, speed, fadeDelay);
             initialShock.BeginExploding(shockType);
             initialShock.BeginCoroutineToContinue();
-            AudioManager.instance.OneShotSound("Explosion");
+            
         }
 
         private void Update()

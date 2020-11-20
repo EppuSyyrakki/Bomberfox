@@ -140,6 +140,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ExplosionBigger
+    clip: {fileID: 8300000, guid: 6cef5b782962f4b42ab0fcb7b8557873, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   masterMixer: {fileID: 24100000, guid: 8e3a8f8a136aaaa41a48ee0f57a3cd0e, type: 2}
   maxMusic: 1
   maxSound: 0.75
