@@ -36,9 +36,8 @@ namespace Bomberfox.PowerUp
             }
 			else if (other.gameObject.CompareTag("Player")
                      && other.gameObject.TryGetComponent(out pc)
-                     && pc.Special == null)
+                     && pc.Special == null && pc.specialBomb == null)
             {
-                // TODO allow Type == normal to be collected while pc.special != null
                 GameManager.Instance.CollectedPU++;
                 AddToPlayer(pc);
                 Remove();

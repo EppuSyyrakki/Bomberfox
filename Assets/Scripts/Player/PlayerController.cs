@@ -371,5 +371,10 @@ namespace Bomberfox.Player
         {
             return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, specialBomb);
         }
+
+        public int ReturnHealth()
+        {
+            return healthSystem.GetHealth();
+        }
     }
 }

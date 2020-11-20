@@ -30,7 +30,7 @@ namespace Bomberfox.UI
         {
             PlayerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-            playerHealth.text = pc.healthSystem.GetHealth().ToString();
+            playerHealth.text = pc.ReturnHealth().ToString();
 
             bombAmount.text = pc.maxBombs.ToString();
         }

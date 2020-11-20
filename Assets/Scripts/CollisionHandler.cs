@@ -139,7 +139,12 @@ namespace Bomberfox
         {
 	        Enemy enemy = o.GetComponent<Enemy>();
 	        ShockWave shockWave = gameObject.GetComponent<ShockWave>();
-            enemy.StartDeath();
+
+            if (enemy.IsAlive)
+            {
+                enemy.StartDeath();
+            }
+
             shockWave.Blocked = true;
             return true;
         }
