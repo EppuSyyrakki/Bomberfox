@@ -148,7 +148,9 @@ namespace Bomberfox
                 enemy.StartDeath();
             }
 
-            shockWave.Blocked = true;
+            if (shockWave.Penetration) shockWave.Blocked = false;
+            else shockWave.Blocked = true;
+
             return true;
         }
 

@@ -650,6 +650,8 @@ MonoBehaviour:
   - {fileID: 1624624116390228550, guid: 31c1f25d8fe4a7a4ab26974221d5a326, type: 3}
   - {fileID: 4199868195564517738, guid: 1e9539fb2975cc14ebf481d26df5ce3b, type: 3}
   player: {fileID: 4221481442910844420, guid: 3e09df83c59b9fe488c621506b833dfb, type: 3}
+  rainPrefab: {fileID: 0}
+  fogPrefab: {fileID: 0}
 --- !u!114 &3026984248622871282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +668,7 @@ MonoBehaviour:
   blockChanceIncrease: 2
   obstacleChance: 16
   obstacleChanceIncrease: 2
-  changeThemeFrequency: 2
+  changeThemeFrequency: 3
   enemies: 2
   addEnemyFrequency: 2
   speed: 0.5
