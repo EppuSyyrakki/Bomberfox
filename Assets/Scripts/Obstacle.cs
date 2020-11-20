@@ -12,6 +12,7 @@ public class Obstacle : MonoBehaviour
 	private List<Fader> childFaders = new List<Fader>();
 	private List<Rigidbody2D> childRbs = new List<Rigidbody2D>();
 	private BoxCollider2D boxCollider2D;
+	private bool lightDestroyed = false;
 
     [SerializeField] 
     private GameObject levelEndKey = null;
@@ -33,7 +34,7 @@ public class Obstacle : MonoBehaviour
 	    childRbs.AddRange(GetComponentsInChildren<Rigidbody2D>());
 	    boxCollider2D = GetComponent<BoxCollider2D>();
 
-	    if (enemiesParent = null)
+	    if (enemiesParent == null)
 	    {
 		    enemiesParent = GameObject.FindWithTag("EnemyParent");
 	    }
@@ -41,7 +42,7 @@ public class Obstacle : MonoBehaviour
 
 	private void Update()
 	{
-		if (IsKey && enemiesParent.transform.childCount == 0)
+		if (IsKey && enemiesParent.transform.childCount == 0 && !lightDestroyed)
 		{
 			light.SetActive(true);
 		}
@@ -51,8 +52,10 @@ public class Obstacle : MonoBehaviour
     {
 	    float waitTime = 1f;
 		Destroy(boxCollider2D);
+		Destroy(light);
+		lightDestroyed = true;
 
-	    foreach (Fader fader in childFaders)
+		foreach (Fader fader in childFaders)
 	    {
 		    fader.Fade = true;
 		    waitTime = fader.fadeOutTime;
