@@ -12,10 +12,15 @@ namespace Bomberfox.UI
         public Text playerLevel;
         public Text xpLeft;
 
+        public GameObject shieldBronze;
+        public GameObject shieldSilver;
+        public GameObject shieldGold;
+
         // Start is called before the first frame update
         void Start()
         {
             PrintStats();
+            SetShield();
         }
 
         public void RestartGame()
@@ -58,6 +63,28 @@ namespace Bomberfox.UI
                                 "\nDestroyed obstacles: " + (GameManager.Instance.DestroyedBlocks).ToString() +
                               "\nCollected power ups: " + (GameManager.Instance.CollectedPU).ToString() +
                                 "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString();
+        }
+
+        public void SetShield()
+        {
+            if (GameManager.Instance.PlayerLevel < 5)
+            {
+                shieldBronze.SetActive(true);
+                shieldSilver.SetActive(false);
+                shieldGold.SetActive(false);
+            }
+            else if (GameManager.Instance.PlayerLevel < 10)
+            {
+                shieldBronze.SetActive(false);
+                shieldSilver.SetActive(true);
+                shieldGold.SetActive(false);
+            }
+            else if (GameManager.Instance.PlayerLevel >= 10)
+            {
+                shieldBronze.SetActive(false);
+                shieldSilver.SetActive(false);
+                shieldGold.SetActive(true);
+            }
         }
     }
 }

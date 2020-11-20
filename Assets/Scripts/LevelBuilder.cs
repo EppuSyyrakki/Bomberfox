@@ -55,8 +55,8 @@ public class LevelBuilder : MonoBehaviour
 	[SerializeField] 
 	private GameObject player = null;
 
-    [SerializeField] private GameObject rainPrefab;
-    [SerializeField] private GameObject fogPrefab;
+    [SerializeField] private GameObject rainPrefab = null;
+    [SerializeField] private GameObject fogPrefab = null;
 
 	private void Awake()
 	{

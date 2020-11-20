@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1453573 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2434602807436769592, guid: fa0e9a8419079ff4c88b5e7a4b6fe178, type: 3}
+  m_PrefabInstance: {fileID: 2434602806934861672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &43755300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8532899273581589103, guid: 45850e60a657b9940a934c3fadbdcb13, type: 3}
@@ -225,6 +230,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &145155805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102670101001831441, guid: cf349d65f7f8f284cb31cf50abfe7cb1, type: 3}
+  m_PrefabInstance: {fileID: 8102670099930686320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &204681745
 GameObject:
   m_ObjectHideFlags: 0
@@ -11493,6 +11503,9 @@ MonoBehaviour:
   statistics: {fileID: 1973634745}
   playerLevel: {fileID: 1867335047}
   xpLeft: {fileID: 1974830371}
+  shieldBronze: {fileID: 1453573}
+  shieldSilver: {fileID: 2136147291}
+  shieldGold: {fileID: 145155805}
 --- !u!114 &1547761924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16877,6 +16890,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095787593}
   m_CullTransparentMesh: 0
+--- !u!1 &2136147291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8532899273581589096, guid: 45850e60a657b9940a934c3fadbdcb13, type: 3}
+  m_PrefabInstance: {fileID: 8532899273558152523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2434602806934861672
 PrefabInstance:
   m_ObjectHideFlags: 0
