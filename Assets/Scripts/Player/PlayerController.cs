@@ -22,7 +22,7 @@ namespace Bomberfox.Player
 
         // How much health the player has in the beginning
         [SerializeField] 
-        private int playerStartingHealth = 1;
+        public int playerStartingHealth = 1;
 
         // What is the player's max health
         [SerializeField] 
@@ -30,7 +30,7 @@ namespace Bomberfox.Player
 
         // How many bombs the player can drop at the same time
         [SerializeField] 
-        private int maxBombs = 1;
+        public int maxBombs = 1;
 
         // the range of player's normal bomb
         public int bombRange = 2;
