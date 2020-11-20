@@ -193,7 +193,7 @@ namespace Bomberfox.Player
             float lastInputY = Input.GetAxis("Vertical");
 
             // Movement code for Blend Tree
-            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0)
             {
                 animator.SetBool("Walking", true);
                 if (lastInputX > 0)
