@@ -37,6 +37,8 @@ namespace Bomberfox.Player
 		    }
 	    }
 
+        public bool penetration = false;
+
         [SerializeField]
 	    private Type type = Type.Normal;
 

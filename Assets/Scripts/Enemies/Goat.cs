@@ -27,7 +27,7 @@ namespace Bomberfox.Enemies
 			{
 				playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 				Anim.SetTrigger("Special");
-				Invoke(nameof(DisableCollider), 0.25f);
+				ToggleCollider(false);
 				disableInvoked = true;
 			}
 		}
@@ -52,9 +52,9 @@ namespace Bomberfox.Enemies
 			}
 		}
 
-		private void DisableCollider()
+		private void ToggleCollider(bool toggle)
 		{
-			GetComponent<BoxCollider2D>().enabled = false;
+			GetComponent<BoxCollider2D>().enabled = toggle;
 		}
 
 		private void EndSpecial()
@@ -63,7 +63,7 @@ namespace Bomberfox.Enemies
 			Destroy(Space);
 			disableInvoked = false;
 			SpecialMove = false;
-			GetComponent<BoxCollider2D>().enabled = true;
+			ToggleCollider(true);
 			DefineRandomDirection();
 			CurrentTarget = transform.position + Direction;
 		}

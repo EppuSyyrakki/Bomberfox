@@ -17,7 +17,8 @@ namespace Bomberfox.Player
 		private float fadeDelay;
 		private CollisionHandler collisionHandler;
 		private List<ShockWave> shockWaves = new List<ShockWave>();
-		public bool[] Blocked { get; set; } = {true, true, true, true};
+		public bool Penetration { get; private set; }
+		// public bool[] Blocked { get; set; } = {true, true, true, true};
 
 		private void Awake()
 		{
@@ -48,7 +49,7 @@ namespace Bomberfox.Player
 						GameObject obj = Instantiate(shockWavePrefab, location, Quaternion.identity, transform);
 						ShockWave sw = obj.GetComponent<ShockWave>();
 						sw.Direction = Vector3.zero;
-						sw.SetDelay(fadeDelay);
+						sw.SetParameters(fadeDelay, Penetration);
 						shockWaves.Add(sw);
 					}
 				}
@@ -70,7 +71,7 @@ namespace Bomberfox.Player
 				GameObject obj = Instantiate(shockWavePrefab, transform.position, Quaternion.identity, transform);
 				ShockWave sw = obj.GetComponent<ShockWave>();
 				sw.Direction = directions[i];
-				sw.SetDelay(fadeDelay);
+				sw.SetParameters(fadeDelay, Penetration);
 				shockWaves.Add(sw);
 			}
 		}
@@ -94,11 +95,12 @@ namespace Bomberfox.Player
 			}
 		}
 
-		public void ReceiveBombParameters(int range, float speed, float fadeDelay)
+		public void ReceiveBombParameters(int range, float speed, float fadeDelay, bool penetration)
 		{
 			this.range = range;
 			this.speed = speed;
 			this.fadeDelay = fadeDelay;
+			this.Penetration = penetration;
 		}
 	}
 }

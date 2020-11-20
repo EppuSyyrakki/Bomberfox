@@ -11,6 +11,7 @@ namespace Bomberfox.Player
 	    private GameObject initialShockPrefab = null;
 
         private Bomb.ShockType shockType;
+        private bool penetration = false;
         private GameObject parentBomb = null;
         private int range;
         private float speed;
@@ -18,7 +19,7 @@ namespace Bomberfox.Player
         private float totalTime;
         private float timer;
 
-        private BoxCollider2D boxCollider;
+        // private BoxCollider2D boxCollider;
         
         private Fader fader;
 
@@ -37,10 +38,9 @@ namespace Bomberfox.Player
 
             GameObject shockCenter = Instantiate(initialShockPrefab, transform);
             InitialShock initialShock = shockCenter.GetComponent<InitialShock>();
-            initialShock.ReceiveBombParameters(range, speed, fadeDelay);
+            initialShock.ReceiveBombParameters(range, speed, fadeDelay, penetration);
             initialShock.BeginExploding(shockType);
             initialShock.BeginCoroutineToContinue();
-            
         }
 
         private void Update()
@@ -74,6 +74,7 @@ namespace Bomberfox.Player
             range = bomb.range;
             speed = 1 / bomb.speed;
             fadeDelay = bomb.fadeDelay;
+            penetration = bomb.penetration;
             shockType = bomb.shockType;
         }
     }

@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
+	private static GameObject enemiesParent;
+
 	private List<Fader> childFaders = new List<Fader>();
 	private List<Rigidbody2D> childRbs = new List<Rigidbody2D>();
 	private BoxCollider2D boxCollider2D;
@@ -15,6 +17,8 @@ public class Obstacle : MonoBehaviour
     private GameObject levelEndKey = null;
     [SerializeField] 
     private float explosionForce = 10f;
+    [SerializeField]
+    private GameObject light;
 
     public bool IsKey
     {
@@ -23,14 +27,27 @@ public class Obstacle : MonoBehaviour
     }
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
 	{
 		childFaders.AddRange(GetComponentsInChildren<Fader>());
 	    childRbs.AddRange(GetComponentsInChildren<Rigidbody2D>());
 	    boxCollider2D = GetComponent<BoxCollider2D>();
-    }
-	
-    public void BlowUp(Vector3 direction)
+
+	    if (enemiesParent = null)
+	    {
+		    enemiesParent = GameObject.FindWithTag("EnemyParent");
+	    }
+	}
+
+	private void Update()
+	{
+		if (IsKey && enemiesParent.transform.childCount == 0)
+		{
+			light.SetActive(true);
+		}
+	}
+
+	public void BlowUp(Vector3 direction)
     {
 	    float waitTime = 1f;
 		Destroy(boxCollider2D);

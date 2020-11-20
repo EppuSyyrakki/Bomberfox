@@ -115,10 +115,13 @@ namespace Bomberfox
         {
 	        Obstacle obstacle = o.GetComponent<Obstacle>();
 	        ShockWave shockWave = GetComponent<ShockWave>();
-	        shockWave.Blocked = true;
-            GameManager.Instance.DestroyedBlocks++;
+	        GameManager.Instance.DestroyedBlocks++;
 	        obstacle.BlowUp(shockWave.Direction);
-	        return true;
+
+	        if (shockWave.Penetration) shockWave.Blocked = false;
+	        else shockWave.Blocked = true;
+
+            return true;
         }
 
         private bool KillObstacleWithEnemy(GameObject o)

@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class LevelEndKey : MonoBehaviour
 {
-    void Start()
+	void Start()
     {
         Physics2D.IgnoreLayerCollision(12, 9, true);
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
