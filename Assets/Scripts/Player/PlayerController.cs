@@ -60,7 +60,7 @@ namespace Bomberfox.Player
         public Health healthSystem;
         public bool isInvulnerable = false;    // Is the player invulnerable or not
         public bool specialUsed = false;
-        public bool isShieldOn = false;
+        public bool hasShield = false;
 
         [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
         private float invulnerabilityTimer = 2;
@@ -85,7 +85,7 @@ namespace Bomberfox.Player
 
         private void Update()
         {
-            if (!GameManager.Instance.isAtExit)
+            if (!GameManager.Instance.isAtExit && !GameManager.Instance.isPaused)
             {
                 ProcessInput();
                 UpdateAnimator();
@@ -277,12 +277,12 @@ namespace Bomberfox.Player
 
         public void TakeDamage()
         {
-            if (isShieldOn)
+            if (hasShield)
             {
                 isInvulnerable = true;
                 Physics2D.IgnoreLayerCollision(8, 9, true);
                 Debug.Log("Ha, I had a shield!");
-                isShieldOn = false;
+                hasShield = false;
                 Invoke("TurnOnCollider", invulnerabilityTimer);
             }
             else
@@ -344,7 +344,7 @@ namespace Bomberfox.Player
 
         public void AddShield()
         {
-            isShieldOn = true;
+            hasShield = true;
         }
 
         public void AddMoreRange()
@@ -369,7 +369,7 @@ namespace Bomberfox.Player
 
         public PlayerData GetPlayerData()
         {
-            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, specialBomb);
+            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, hasShield, specialBomb);
         }
 
         public int ReturnHealth()

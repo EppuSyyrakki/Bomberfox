@@ -74,7 +74,7 @@ public class LevelBuilder : MonoBehaviour
 		CheckForDeadEnds();
 		Obstacles();
 		Enemies();
-        StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
+        
         Physics2D.IgnoreLayerCollision(8, 9, false);
 		Weather();
         GameManager.Instance.isAtExit = false;
@@ -85,6 +85,7 @@ public class LevelBuilder : MonoBehaviour
 		if (!keyChosen)
 		{
 			KeyObstacle();
+			StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
 		}
 	}
 
