@@ -57,7 +57,7 @@ namespace Bomberfox.Player
         private Vector2 movement;
         private bool isAlive = true;
         
-        private Health healthSystem;
+        public Health healthSystem;
         public bool isInvulnerable = false;    // Is the player invulnerable or not
         public bool specialUsed = false;
         public bool isShieldOn = false;
