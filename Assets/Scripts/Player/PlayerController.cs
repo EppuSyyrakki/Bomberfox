@@ -85,8 +85,16 @@ namespace Bomberfox.Player
 
         private void Update()
         {
-	        ProcessInput();
-            UpdateAnimator();
+            if (!GameManager.Instance.isAtExit)
+            {
+                ProcessInput();
+                UpdateAnimator();
+            }
+            else
+            {
+                movement.x = 0;
+                movement.y = 0;
+            }
         }
 
         private void FixedUpdate()

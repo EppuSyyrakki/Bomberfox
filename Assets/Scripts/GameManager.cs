@@ -31,6 +31,7 @@ namespace Bomberfox
         public int FinishedLevels { get; set; }
 
 		public bool isPaused = false;
+        public bool isAtExit = false;
 
         public bool isMusicOn = true;
         public bool isSoundOn = true;

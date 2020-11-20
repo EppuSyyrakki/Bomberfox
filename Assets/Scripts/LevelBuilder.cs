@@ -77,7 +77,8 @@ public class LevelBuilder : MonoBehaviour
         StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
         Physics2D.IgnoreLayerCollision(8, 9, false);
 		Weather();
-	}
+        GameManager.Instance.isAtExit = false;
+    }
 
 	private void LateUpdate()
 	{
