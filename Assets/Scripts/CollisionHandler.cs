@@ -51,7 +51,7 @@ namespace Bomberfox
 
 	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Player")) return false;
 	        	        
-	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return false;
+	        if (o.CompareTag("Bomb") && gameObject.CompareTag("Enemy")) return CheckBombType(o);
 
             if (o.CompareTag("Bomb") && gameObject.CompareTag("ShockWave")) return KillBomb(o);
 
@@ -72,6 +72,16 @@ namespace Bomberfox
             if (o.CompareTag("Reserved") && gameObject.CompareTag("Enemy")) return false;
 
             return true;
+        }
+
+        private bool CheckBombType(GameObject o)
+        {
+	        if (o.TryGetComponent(out Bomb bomb))
+	        {
+		        if (bomb.type == Bomb.Type.Mine) return true;
+	        }
+
+	        return false;
         }
 
         public bool CheckPigCharge(Vector3 position)

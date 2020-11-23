@@ -24,6 +24,8 @@ namespace Bomberfox.Player
 		    Full
 	    }
 
+	    private readonly Vector3[] mineTriggerDir = {Vector3.zero, Vector3.up, Vector3.right, Vector3.down, Vector3.left};
+
         public bool penetration = false;
 
 	    public Type type = Type.Normal;
@@ -65,7 +67,7 @@ namespace Bomberfox.Player
         // Update is called once per frame
         private void Update()
         {
-			if (type == Type.Normal && type == Type.Mega)
+			if (type == Type.Normal || type == Type.Mega)
 			{
 				if (bombTimer > 0)
 				{
@@ -75,6 +77,17 @@ namespace Bomberfox.Player
 				{
                     Explode();
 				} 
+			}
+            else if (type == Type.Mine)
+			{
+				Vector3 pos = transform.position;
+
+				foreach (Vector3 dir in mineTriggerDir)
+				{
+					Collider2D collider = Physics2D.OverlapCircle(pos + dir * 0.75f, 0.25f);
+
+					if (collider != null && collider.gameObject.CompareTag("Enemy")) Explode();
+				}
 			}
         }
 
@@ -87,15 +100,6 @@ namespace Bomberfox.Player
         private void OnTriggerExit2D(Collider2D other)
         {
 	        boxCollider2d.isTrigger = false;
-        }
-
-        // blow up the bomb if an enemy walks over the trigger
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-	        if (type == Type.Mine && other.gameObject.CompareTag("Enemy"))
-	        {
-                Explode();
-	        }
         }
 
         // Creates the explosion that destroys this gameObject

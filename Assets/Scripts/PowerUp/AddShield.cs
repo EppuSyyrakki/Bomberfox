@@ -8,13 +8,10 @@ namespace Bomberfox.PowerUp
 
 		public override bool AddToPlayer(PlayerController pc)
 		{
-			if (!pc.hasShield)
-			{
-				pc.AddShield();
-				return true;
-			}
+			if (pc.hasShield) return false;
 
-			return false;
+			pc.AddShield();
+			return true;
 		}
 	}
 }

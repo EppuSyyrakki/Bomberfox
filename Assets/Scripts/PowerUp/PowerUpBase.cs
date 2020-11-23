@@ -11,6 +11,7 @@ namespace Bomberfox.PowerUp
 
 		public virtual bool AddToPlayer(PlayerController pc)
 		{
+			print("called from base");
 			return false;
 		}
 

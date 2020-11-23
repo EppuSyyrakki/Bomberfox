@@ -8,16 +8,7 @@ namespace Bomberfox.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        private enum Direction  // helper for animator to decide which facing to use
-        {
-            None,
-            Up,
-            Right,
-            Down,
-            Left
-        }
-
-       [SerializeField]
+	    [SerializeField]
         private float speed = 10f;
 
         // How much health the player has in the beginning
@@ -134,12 +125,13 @@ namespace Bomberfox.Player
 
             if (Input.GetButtonDown("NormalBomb") && currentBombs < maxBombs)
             {
-                CreateNormalBomb();
+                CreateBomb(normalBomb);
             }
 
             if (Input.GetButtonDown("MegaBomb") && megaBomb != null)
             {
-	            CreateSpecialBomb(megaBomb);
+	            CreateBomb(megaBomb);
+	            megaBomb = null;
             }
 
             if (Input.GetButtonDown("RemoteBomb") && remote != null)
@@ -149,31 +141,18 @@ namespace Bomberfox.Player
             }
             else if (Input.GetButtonDown("RemoteBomb") && remoteBomb != null && remote == null)
             {
-	            CreateSpecialBomb(remoteBomb);
+	            CreateBomb(remoteBomb);
+	            remoteBomb = null;
             }
 
             if (Input.GetButtonDown("MineBomb") && mineBomb != null)
             {
-	            Debug.Log("Mine bomb not implemented");
-                // CreateSpecialBomb(mineBomb);
+	            CreateBomb(mineBomb);
+	            mineBomb = null;
             }
         }
 
-        private void CreateNormalBomb()
-        {
-	        Vector3 pos = new Vector3(
-		        Mathf.RoundToInt(transform.position.x),
-		        Mathf.RoundToInt(transform.position.y),
-		        0);
-
-	        if (collisionHandler.CheckPosition(pos))
-	        {
-		        GameObject bomb = Instantiate(normalBomb, pos, Quaternion.identity);
-		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
-            }
-        }
-
-        private void CreateSpecialBomb(GameObject special)
+        private void CreateBomb(GameObject special)
         {
 	        Vector3 pos = new Vector3(
 		        Mathf.RoundToInt(transform.position.x),
@@ -344,8 +323,9 @@ namespace Bomberfox.Player
 
         public void ReceiveNewBomb(PowerUpBase powerUp)
         {
-            // TODO add to correct field depending on type
-	        megaBomb = powerUp.GetPrefab();
+	        if (powerUp.Type == Bomb.Type.Mega) megaBomb = powerUp.GetPrefab();
+            else if (powerUp.Type == Bomb.Type.Remote) remoteBomb = powerUp.GetPrefab();
+            else if (powerUp.Type == Bomb.Type.Mine) mineBomb = powerUp.GetPrefab();
         }
 
         public PlayerData GetPlayerData()
