@@ -1717,21 +1717,28 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 4.6
-    functionName: 
+    functionName: Pause
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 11.466666
-    functionName: 
+    functionName: Pause
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 17.95
-    functionName: 
+    functionName: Pause
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 24.133333
+    functionName: End
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
