@@ -31,7 +31,7 @@ namespace Bomberfox.UI
 
         public void ShowStats()
         {
-            playerHealth.text = pc.ReturnHealth().ToString();
+            playerHealth.text = pc.healthSystem.GetHealth().ToString();
             bombAmount.text = pc.maxBombs.ToString();
         }
 

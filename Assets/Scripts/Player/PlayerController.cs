@@ -76,7 +76,9 @@ namespace Bomberfox.Player
 	        maxBombs = data.BombCount;
 	        bombRange = data.BombRange;
 	        hasShield = data.HasShield;
-	        megaBomb = data.SpecialBomb;
+	        megaBomb = data.Specials[0];
+	        remoteBomb = data.Specials[1];
+	        mineBomb = data.Specials[2];
 	        healthSystem = new Health(playerMaxHealth, playerStartingHealth);
         }
 
@@ -330,12 +332,8 @@ namespace Bomberfox.Player
 
         public PlayerData GetPlayerData()
         {
-            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, hasShield, megaBomb);
-        }
-
-        public int ReturnHealth()
-        {
-            return healthSystem.GetHealth();
+	        GameObject[] specials = {megaBomb, remoteBomb, mineBomb};
+            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, hasShield, specials);
         }
     }
 }

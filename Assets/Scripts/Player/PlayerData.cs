@@ -9,18 +9,18 @@ namespace Bomberfox.Player
 		public int BombCount { get; }
 		public int BombRange { get; }
 		public bool HasShield { get; }
-		public GameObject SpecialBomb { get; }
+		public GameObject[] Specials { get; } = new GameObject[3];
 
 		/// <summary>
 		/// Use when transitioning between levels to store Player data
 		/// </summary>
-		public PlayerData(int health, int bombCount, int bombRange, bool hasShield, GameObject specialBomb)
+		public PlayerData(int health, int bombCount, int bombRange, bool hasShield, GameObject[] specials)
 		{
 			Health = health;
 			BombCount = bombCount;
 			BombRange = bombRange;
 			HasShield = hasShield;
-			SpecialBomb = specialBomb;
+			Specials = specials;
 		}
 
 		/// <summary>
@@ -32,7 +32,7 @@ namespace Bomberfox.Player
 			BombCount = 1;
 			BombRange = 2;
 			HasShield = false;
-			SpecialBomb = null;
+			Specials = new GameObject[3];
 		}
 	}
 }
