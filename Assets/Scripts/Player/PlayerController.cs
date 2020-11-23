@@ -53,7 +53,7 @@ namespace Bomberfox.Player
         private GameObject remote = null;
 
         [SerializeField]
-        private GameObject shield;
+        private GameObject shield = null;
 
         private int currentBombs = 0;   // The amount of bombs currently in the game
         private Animator animator;
@@ -155,6 +155,7 @@ namespace Bomberfox.Player
             if (Input.GetButtonDown("MineBomb") && mineBomb != null)
             {
 	            Debug.Log("Mine bomb not implemented");
+                // CreateSpecialBomb(mineBomb);
             }
         }
 
