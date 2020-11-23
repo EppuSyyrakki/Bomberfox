@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4775296925383206451, guid: afe2825a2b4b6f74cbbbb16f4aea1f76, type: 3}
+  floatingText: REMOTE BOMB ADDED
+  textObject: {fileID: 2590669334019015051, guid: 9cb1f0ca4e6d89e4d9bbb8faff38fbd0, type: 3}
 --- !u!114 &8723711118999542472
 MonoBehaviour:
   m_ObjectHideFlags: 0

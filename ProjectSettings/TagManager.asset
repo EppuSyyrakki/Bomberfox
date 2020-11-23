@@ -15,6 +15,7 @@ TagManager:
   - ThornShadow
   - PowerUp
   - EnemyParent
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -81,4 +82,7 @@ TagManager:
     locked: 0
   - name: Edges
     uniqueID: 2842825135
+    locked: 0
+  - name: Floating text
+    uniqueID: 2054019647
     locked: 0

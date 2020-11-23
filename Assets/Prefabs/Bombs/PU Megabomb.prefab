@@ -65,6 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4775296925383206451, guid: 8ff8c40844458da41ad02a7bff78c4d9, type: 3}
+  floatingText: MEGA BOMB ADDED
+  textObject: {fileID: 2590669334019015051, guid: 9cb1f0ca4e6d89e4d9bbb8faff38fbd0, type: 3}
 --- !u!114 &-7663685980610364745
 MonoBehaviour:
   m_ObjectHideFlags: 0

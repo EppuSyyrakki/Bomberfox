@@ -5,13 +5,19 @@ namespace Bomberfox.PowerUp
 {
 	public abstract class PowerUpBase : MonoBehaviour
 	{
-		[SerializeField] private GameObject bombPrefab = null;
+		[SerializeField] 
+		private GameObject bombPrefab = null;
+
+		[SerializeField]
+		private string floatingText = "";
+
+		[SerializeField]
+		private GameObject textObject = null;
 
 		public virtual Bomb.Type Type { get; }
 
 		public virtual bool AddToPlayer(PlayerController pc)
 		{
-			print("called from base");
 			return false;
 		}
 
@@ -22,6 +28,9 @@ namespace Bomberfox.PowerUp
 
 		public void Remove()
 		{
+			GameObject help = Instantiate(textObject, transform.position, Quaternion.identity);
+			PowerUpText puText = help.GetComponent<PowerUpText>();
+			puText.SetText(floatingText);
 			Destroy(gameObject);
 		}
 

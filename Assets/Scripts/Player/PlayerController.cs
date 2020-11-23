@@ -258,6 +258,8 @@ namespace Bomberfox.Player
                 Debug.Log("Ha, I had a shield!");
                 hasShield = false;
                 Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
+                SetTransparency(0.5f);
+                Invoke(nameof(DisableTransparency), invulnerabilityTimer);
             }
             else
             {
@@ -272,8 +274,8 @@ namespace Bomberfox.Player
                     isInvulnerable = true;
                     Physics2D.IgnoreLayerCollision(8, 9, true);
                     Debug.Log("Ouch, I took damage!");
-                    SetTransparency(0.5f);
                     Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
+                    SetTransparency(0.5f);
                     Invoke(nameof(DisableTransparency), invulnerabilityTimer);
                 }
             }
