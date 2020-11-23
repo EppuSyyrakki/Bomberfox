@@ -31,15 +31,14 @@ namespace Bomberfox.Player
         // How many bombs the player can drop at the same time
         [SerializeField] 
         public int maxBombs = 1;
+        // the ultimate maximum how many bombs player can achieve through powerups
+        [SerializeField]
+        private int maxBombLimit = 5;
 
         // the range of player's normal bomb
-        public int bombRange = 2;
+        public int bombRange = 1;
         [SerializeField]
-        private int maxBombRange = 5;
-
-        // the ultimate maximum how many bombs player can achieve through powerups
-        [SerializeField] 
-        private int maxBombLimit = 5;
+        private int maxBombRange = 3;
         
         // the prefab of the basic normal bomb
         [SerializeField]
@@ -49,7 +48,7 @@ namespace Bomberfox.Player
         public GameObject megaBomb = null;
         public GameObject remoteBomb = null;
         public GameObject mineBomb = null;
-        // reference to the remote bomb instantiated on the map
+        // reference to the remote bomb instantiated on the map - needed to be able to blow it up
         private GameObject remote = null;
 
         [SerializeField]
@@ -143,13 +142,14 @@ namespace Bomberfox.Player
 	            CreateSpecialBomb(megaBomb);
             }
 
-            if (Input.GetButtonDown("RemoteBomb") && remoteBomb != null && remote == null)
+            if (Input.GetButtonDown("RemoteBomb") && remote != null)
             {
-                CreateSpecialBomb(remoteBomb);
+	            remote.GetComponent<Bomb>().Explode();
+	            remote = null;
             }
-            else if (Input.GetButtonDown("RemoteBomb") && remote != null)
+            else if (Input.GetButtonDown("RemoteBomb") && remoteBomb != null && remote == null)
             {
-	            ExplodeRemote();
+	            CreateSpecialBomb(remoteBomb);
             }
 
             if (Input.GetButtonDown("MineBomb") && mineBomb != null)
@@ -187,12 +187,6 @@ namespace Bomberfox.Player
 
 		        if (newBomb.GetComponent<Bomb>().type == Bomb.Type.Remote) remote = newBomb;
             }
-        }
-
-        private void ExplodeRemote()
-        {
-	        remote.GetComponent<Bomb>().Explode();
-			remote = null;
         }
 
         /// <summary>

@@ -47,11 +47,11 @@ namespace Bomberfox.Player
         private GameObject explosionPrefab = null;
 
         private PlayerController owner = null;
-        private Collider2D collider2d;
-        
+        private BoxCollider2D boxCollider2d;
+
         private void Awake()
         {
-	        collider2d = GetComponent<Collider2D>();
+	        boxCollider2d = GetComponent<BoxCollider2D>();
         }
 
         private void Start()
@@ -83,9 +83,19 @@ namespace Bomberfox.Player
             if (type == Type.Normal) owner.ChangeCurrentBombs(-1);
         }
         
+        // change the collider from trigger to real collider when player moves away from over it.
         private void OnTriggerExit2D(Collider2D other)
         {
-	        collider2d.isTrigger = false;
+	        boxCollider2d.isTrigger = false;
+        }
+
+        // blow up the bomb if an enemy walks over the trigger
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+	        if (type == Type.Mine && other.gameObject.CompareTag("Enemy"))
+	        {
+                Explode();
+	        }
         }
 
         // Creates the explosion that destroys this gameObject
@@ -118,11 +128,6 @@ namespace Bomberfox.Player
 	        this.owner = owner;
 	        
             if (type == Type.Normal) owner.ChangeCurrentBombs(1);
-        }
-
-        public void MuteBomb()
-        {
-            
         }
     }
 }
