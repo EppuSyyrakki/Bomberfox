@@ -311,7 +311,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7933a43f650266f4f94a55aad2479f20, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6320754, g: 0.31305623, b: 0.31305623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: -890342533728179705}
   - component: {fileID: -7035864613790035459}
   m_Layer: 8
-  m_Name: Special Remote
+  m_Name: Special Mine
   m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,9 +388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penetration: 1
-  type: 2
+  type: 3
   shockType: 0
-  range: 4
+  range: 3
   speed: 25
   fadeDelay: 0.3
   bombTimer: 5

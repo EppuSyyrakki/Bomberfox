@@ -6,9 +6,15 @@ namespace Bomberfox.PowerUp
 	{
 		public override Bomb.Type Type { get; } = Bomb.Type.Normal;
 
-		public override void AddToPlayer(PlayerController pc)
+		public override bool AddToPlayer(PlayerController pc)
 		{
-			pc.AddHealth();
+			if (pc.healthSystem.GetHealth() < pc.healthSystem.GetHealthMax())
+			{
+				pc.AddHealth();
+				return true;
+			}
+
+			return false;
 		}
 	}
 }

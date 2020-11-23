@@ -4,11 +4,17 @@ namespace Bomberfox.PowerUp
 {
 	public class RemoteBomb : PowerUpBase
 	{
-		public override Bomb.Type Type { get; } = Bomb.Type.Special;
+		public override Bomb.Type Type { get; } = Bomb.Type.Remote;
 
-		public override void AddToPlayer(PlayerController pc)
+		public override bool AddToPlayer(PlayerController pc)
 		{
-			pc.ReceiveNewBomb(this);
+			if (pc.remoteBomb == null)
+			{
+				pc.ReceiveNewBomb(this);
+				return true;
+			}
+
+			return false;
 		}
 	}
 }

@@ -20,6 +20,10 @@ namespace Bomberfox.Player
 		{
 			return health;
 		}
+		public int GetHealthMax()
+		{
+			return healthMax;
+		}
 
 		public void Damage(int damageAmount)
 		{

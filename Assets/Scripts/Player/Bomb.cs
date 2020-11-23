@@ -8,16 +8,12 @@ namespace Bomberfox.Player
 {
     public class Bomb : MonoBehaviour
     {
-	    private enum Trigger
-	    {
-            Timer = 0,
-            Remote
-	    }
-
 	    public enum Type
 	    {
             Normal = 0,
-            Special
+            Mega,
+            Remote,
+            Mine
 	    }
 
 	    public enum ShockType
@@ -28,22 +24,11 @@ namespace Bomberfox.Player
 		    Full
 	    }
 
-	    public bool HasRemote
-	    {
-		    get
-		    {
-			    if (trigger == Trigger.Remote) return true;
-			    return false;
-		    }
-	    }
+	    private readonly Vector3[] mineTriggerDir = {Vector3.zero, Vector3.up, Vector3.right, Vector3.down, Vector3.left};
 
         public bool penetration = false;
 
-        [SerializeField]
-	    private Type type = Type.Normal;
-
-	    [SerializeField]
-	    private Trigger trigger = Trigger.Timer;
+	    public Type type = Type.Normal;
 
 	    [SerializeField] 
 	    public ShockType shockType = ShockType.XandY;
@@ -63,14 +48,12 @@ namespace Bomberfox.Player
         [SerializeField]
         private GameObject explosionPrefab = null;
 
-        public bool IsTriggered { private get; set; }
-
         private PlayerController owner = null;
-        private Collider2D collider2d;
-        
+        private BoxCollider2D boxCollider2d;
+
         private void Awake()
         {
-	        collider2d = GetComponent<Collider2D>();
+	        boxCollider2d = GetComponent<BoxCollider2D>();
         }
 
         private void Start()
@@ -84,7 +67,7 @@ namespace Bomberfox.Player
         // Update is called once per frame
         private void Update()
         {
-			if (trigger == Trigger.Timer)
+			if (type == Type.Normal || type == Type.Mega)
 			{
 				if (bombTimer > 0)
 				{
@@ -95,6 +78,17 @@ namespace Bomberfox.Player
                     Explode();
 				} 
 			}
+            else if (type == Type.Mine)
+			{
+				Vector3 pos = transform.position;
+
+				foreach (Vector3 dir in mineTriggerDir)
+				{
+					Collider2D collider = Physics2D.OverlapCircle(pos + dir * 0.75f, 0.25f);
+
+					if (collider != null && collider.gameObject.CompareTag("Enemy")) Explode();
+				}
+			}
         }
 
         private void OnDestroy()
@@ -102,9 +96,10 @@ namespace Bomberfox.Player
             if (type == Type.Normal) owner.ChangeCurrentBombs(-1);
         }
         
+        // change the collider from trigger to real collider when player moves away from over it.
         private void OnTriggerExit2D(Collider2D other)
         {
-	        collider2d.isTrigger = false;
+	        boxCollider2d.isTrigger = false;
         }
 
         // Creates the explosion that destroys this gameObject
@@ -116,14 +111,20 @@ namespace Bomberfox.Player
             {
                 AudioManager.instance.OneShotSound("Explosion");
             }
-            else if (type == Type.Special)
+            else if (type == Type.Mega)
             {
                 AudioManager.instance.OneShotSound("ExplosionBigger");
             }
+            else if (type == Type.Remote)
+            {
+	            AudioManager.instance.OneShotSound("ExplosionBigger");
+            }
+            else if (type == Type.Mine)
+            {
+	            AudioManager.instance.OneShotSound("ExplosionBigger");
+            }
 
             Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
-
-	        if (type == Type.Special) owner.specialBomb = null;
         }
 
         public void SetOwnerAndInit(PlayerController owner)
@@ -131,11 +132,6 @@ namespace Bomberfox.Player
 	        this.owner = owner;
 	        
             if (type == Type.Normal) owner.ChangeCurrentBombs(1);
-        }
-
-        public void MuteBomb()
-        {
-            
         }
     }
 }

@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] 
     private float explosionForce = 10f;
     [SerializeField]
-    private GameObject light;
+    private GameObject guideLight = null;
 
     public bool IsKey
     {
@@ -44,7 +44,7 @@ public class Obstacle : MonoBehaviour
 	{
 		if (IsKey && enemiesParent.transform.childCount == 0 && !lightDestroyed)
 		{
-			light.SetActive(true);
+			guideLight.SetActive(true);
 		}
 	}
 
@@ -52,7 +52,7 @@ public class Obstacle : MonoBehaviour
     {
 	    float waitTime = 1f;
 		Destroy(boxCollider2D);
-		Destroy(light);
+		Destroy(guideLight);
 		lightDestroyed = true;
 
 		foreach (Fader fader in childFaders)

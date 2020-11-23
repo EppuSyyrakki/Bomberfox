@@ -8,16 +8,7 @@ namespace Bomberfox.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        private enum Direction  // helper for animator to decide which facing to use
-        {
-            None,
-            Up,
-            Right,
-            Down,
-            Left
-        }
-
-       [SerializeField]
+	    [SerializeField]
         private float speed = 10f;
 
         // How much health the player has in the beginning
@@ -31,26 +22,28 @@ namespace Bomberfox.Player
         // How many bombs the player can drop at the same time
         [SerializeField] 
         public int maxBombs = 1;
+        // the ultimate maximum how many bombs player can achieve through powerups
+        [SerializeField]
+        private int maxBombLimit = 5;
 
         // the range of player's normal bomb
-        public int bombRange = 2;
+        public int bombRange = 1;
         [SerializeField]
-        private int maxBombRange = 5;
-
-        // the ultimate maximum how many bombs player can achieve through powerups
-        [SerializeField] 
-        private int maxBombLimit = 5;
+        private int maxBombRange = 3;
         
         // the prefab of the basic normal bomb
         [SerializeField]
         private GameObject normalBomb = null;
-        // the prefab of the special bomb
-        public GameObject specialBomb = null;
-        // reference to the special bomb instantiated on the map
-        public GameObject Special { get; set; }
+        
+        // The special bomb storage
+        public GameObject megaBomb = null;
+        public GameObject remoteBomb = null;
+        public GameObject mineBomb = null;
+        // reference to the remote bomb instantiated on the map - needed to be able to blow it up
+        private GameObject remote = null;
 
         [SerializeField]
-        private GameObject shield;
+        private GameObject shield = null;
 
         private int currentBombs = 0;   // The amount of bombs currently in the game
         private Animator animator;
@@ -63,7 +56,6 @@ namespace Bomberfox.Player
         
         public Health healthSystem;
         public bool isInvulnerable = false;    // Is the player invulnerable or not
-        public bool specialUsed = false;
         public bool hasShield = false;
 
         [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
@@ -84,7 +76,7 @@ namespace Bomberfox.Player
 	        maxBombs = data.BombCount;
 	        bombRange = data.BombRange;
 	        hasShield = data.HasShield;
-	        specialBomb = data.SpecialBomb;
+	        megaBomb = data.SpecialBomb;
 	        healthSystem = new Health(playerMaxHealth, playerStartingHealth);
         }
 
@@ -131,23 +123,36 @@ namespace Bomberfox.Player
 		        movement.y *= multiplier;
 	        }
 
-            if (Input.GetButtonDown("Fire1") && currentBombs < maxBombs)
+            if (Input.GetButtonDown("NormalBomb") && currentBombs < maxBombs)
             {
-                CreateNormalBomb();
+                CreateBomb(normalBomb);
             }
 
-            if (Input.GetButtonDown("Fire2") && specialUsed)
+            if (Input.GetButtonDown("MegaBomb") && megaBomb != null)
             {
-	            TryExplodeSpecial();
+	            CreateBomb(megaBomb);
+	            megaBomb = null;
             }
 
-            if (Input.GetButtonDown("Fire2") && !specialUsed)
+            if (Input.GetButtonDown("RemoteBomb") && remote != null)
             {
-	            TryCreateSpecial();
+	            remote.GetComponent<Bomb>().Explode();
+	            remote = null;
+            }
+            else if (Input.GetButtonDown("RemoteBomb") && remoteBomb != null && remote == null)
+            {
+	            CreateBomb(remoteBomb);
+	            remoteBomb = null;
+            }
+
+            if (Input.GetButtonDown("MineBomb") && mineBomb != null)
+            {
+	            CreateBomb(mineBomb);
+	            mineBomb = null;
             }
         }
 
-        private void CreateNormalBomb()
+        private void CreateBomb(GameObject special)
         {
 	        Vector3 pos = new Vector3(
 		        Mathf.RoundToInt(transform.position.x),
@@ -156,40 +161,11 @@ namespace Bomberfox.Player
 
 	        if (collisionHandler.CheckPosition(pos))
 	        {
-		        GameObject bomb = Instantiate(normalBomb, pos, Quaternion.identity);
-		        bomb.GetComponent<Bomb>().SetOwnerAndInit(this);
+		        GameObject newBomb = Instantiate(special, pos, Quaternion.identity);
+		        newBomb.GetComponent<Bomb>().SetOwnerAndInit(this);
+
+		        if (newBomb.GetComponent<Bomb>().type == Bomb.Type.Remote) remote = newBomb;
             }
-        }
-
-        private void TryCreateSpecial()
-        {
-	        if (specialBomb == null) return;
-
-	        Vector3 pos = new Vector3(
-		        Mathf.RoundToInt(transform.position.x),
-		        Mathf.RoundToInt(transform.position.y),
-		        0);
-
-	        if (collisionHandler.CheckPosition(pos))
-	        {
-		        Special = Instantiate(specialBomb, pos, Quaternion.identity);
-		        Special.GetComponent<Bomb>().SetOwnerAndInit(this);
-		        specialUsed = true;
-	        }
-        }
-
-        private void TryExplodeSpecial()
-        {
-	        if (Special != null)
-	        {
-		        Bomb bomb = Special.GetComponent<Bomb>();
-		        
-		        if (bomb.HasRemote)
-		        {
-			        bomb.Explode();
-			        Special = null;
-		        }
-	        }
         }
 
         /// <summary>
@@ -234,20 +210,6 @@ namespace Bomberfox.Player
             {
                 animator.SetBool("Walking", false);
             }
-        }
-
-        /// <summary>
-        /// Sets the moveDirection animation helper according to input.
-        /// </summary>
-        /// <returns>the direction which the player should be facing</returns>
-        private Direction DefineMoveDirection()
-        {
-	        if (Input.GetAxis("Vertical") > 0) return Direction.Up;
-            if (Input.GetAxis("Horizontal") > 0) return Direction.Right;
-            if (Input.GetAxis("Vertical") < 0) return Direction.Down;
-            if (Input.GetAxis("Horizontal") < 0) return Direction.Left;
-
-            return Direction.None;
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -329,8 +291,7 @@ namespace Bomberfox.Player
 		        sr.color = newColor;
 	        }
         }
-
-
+        
         public void ChangeCurrentBombs(int change)
         {
 	        currentBombs += change;
@@ -358,18 +319,18 @@ namespace Bomberfox.Player
         public void AddHealth()
         {
             healthSystem.Heal(1);
-
         }
 
         public void ReceiveNewBomb(PowerUpBase powerUp)
         {
-	        specialBomb = powerUp.GetPrefab();
-	        specialUsed = false;
+	        if (powerUp.Type == Bomb.Type.Mega) megaBomb = powerUp.GetPrefab();
+            else if (powerUp.Type == Bomb.Type.Remote) remoteBomb = powerUp.GetPrefab();
+            else if (powerUp.Type == Bomb.Type.Mine) mineBomb = powerUp.GetPrefab();
         }
 
         public PlayerData GetPlayerData()
         {
-            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, hasShield, specialBomb);
+            return new PlayerData(healthSystem.GetHealth(), maxBombs, bombRange, hasShield, megaBomb);
         }
 
         public int ReturnHealth()

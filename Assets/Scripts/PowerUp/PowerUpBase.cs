@@ -9,9 +9,10 @@ namespace Bomberfox.PowerUp
 
 		public virtual Bomb.Type Type { get; }
 
-		public virtual void AddToPlayer(PlayerController pc)
+		public virtual bool AddToPlayer(PlayerController pc)
 		{
-			return;
+			print("called from base");
+			return false;
 		}
 
 		public GameObject GetPrefab()
@@ -26,22 +27,13 @@ namespace Bomberfox.PowerUp
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-            if (other.gameObject.CompareTag("Player") 
-                && other.gameObject.TryGetComponent(out PlayerController pc)
-                && Type == Bomb.Type.Normal)
+			if (!other.gameObject.TryGetComponent(out PlayerController pc)) return;
+            
+            if (AddToPlayer(pc))
             {
-                GameManager.Instance.CollectedPU++;
-				AddToPlayer(pc);
-				Remove();
-            }
-			else if (other.gameObject.CompareTag("Player")
-                     && other.gameObject.TryGetComponent(out pc)
-                     && pc.Special == null && pc.specialBomb == null)
-            {
-                GameManager.Instance.CollectedPU++;
-                AddToPlayer(pc);
-                Remove();
-            }
+	            GameManager.Instance.CollectedPU++;
+	            Remove();
+			}
 		}
 	}
 }
