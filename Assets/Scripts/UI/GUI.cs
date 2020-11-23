@@ -38,7 +38,7 @@ namespace Bomberfox.UI
         public void ShowSpecialBombs()
         {
             PlayerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            GameObject bomb = pc.specialBomb;
+            GameObject bomb = pc.megaBomb;
 
             if (bomb == null)
             {
