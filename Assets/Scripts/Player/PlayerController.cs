@@ -112,6 +112,8 @@ namespace Bomberfox.Player
         /// </summary>
         private void ProcessInput()
         {
+	        if (GameManager.Instance.isPaused) return;
+
 	        movement.x = Input.GetAxis("Horizontal");
 	        movement.y = Input.GetAxis("Vertical");
 

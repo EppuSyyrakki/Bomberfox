@@ -10,7 +10,7 @@ namespace Bomberfox.UI
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown("Menu"))
             {
                 GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
             }
