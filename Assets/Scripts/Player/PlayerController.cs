@@ -291,7 +291,7 @@ namespace Bomberfox.Player
                 Physics2D.IgnoreLayerCollision(8, 9, true);
                 Debug.Log("Ha, I had a shield!");
                 hasShield = false;
-                Invoke("TurnOnCollider", invulnerabilityTimer);
+                Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
             }
             else
             {
@@ -306,38 +306,30 @@ namespace Bomberfox.Player
                     isInvulnerable = true;
                     Physics2D.IgnoreLayerCollision(8, 9, true);
                     Debug.Log("Ouch, I took damage!");
-                    Debug.Log(healthSystem.GetHealth());
-                    Invoke("TurnOnCollider", invulnerabilityTimer);
+                    SetTransparency(0.5f);
+                    Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
+                    Invoke(nameof(DisableTransparency), invulnerabilityTimer);
                 }
             }
         }
 
-        /*
-        private void TransParencyOn(float newAlpha)
+        private void DisableTransparency()
         {
-            foreach (Transform child in transform)
-            {
-                if (TryGetComponent(out SpriteRenderer sr))
-                {
-                    Color old = sr.color;
-                    Color newColor = new Color(old.r, old.g, old.b, newAlpha);
-                    sr.color = newColor;
-                }
-            }
+			SetTransparency(1f);
         }
 
-        private void TransParencyOff(Color old)
+        private void SetTransparency(float alpha)
         {
-            foreach (Transform child in transform)
-            {
-                if (TryGetComponent(out SpriteRenderer sr))
-                {
-                    Color backToNormal = new Color(old.r, old.g, old.b, 1f);
-                    sr.color = backToNormal;
-                }
-            }
+	        SpriteRenderer[] renderers = GetComponentsInChildren<SpriteRenderer>(true);
+
+	        foreach (SpriteRenderer sr in renderers)
+	        {
+		        Color old = sr.color;
+		        Color newColor = new Color(old.r, old.g, old.b, alpha);
+		        sr.color = newColor;
+	        }
         }
-        */
+
 
         public void ChangeCurrentBombs(int change)
         {
