@@ -3226,10 +3226,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3879003043145295124, guid: c39c436b4b91b46448efea9422b6037b, type: 3}
-      propertyPath: m_Name
-      value: MegaKey
-      objectReference: {fileID: 0}
     - target: {fileID: 3879003043551818293, guid: c39c436b4b91b46448efea9422b6037b, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3388,6 +3384,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1961600767884403417, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: debugStartingLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3436,13 +3456,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
-    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: rainPrefab
-      value: 
-      objectReference: {fileID: 2315829820458473463, guid: 646a888a7f7718e4a8c3be1b8b51a956, type: 3}
-    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: fogPrefab
-      value: 
-      objectReference: {fileID: 5337283942630911301, guid: 017e69bc625fcd448b25f2214a047b29, type: 3}
+    - target: {fileID: 8990152423194894884, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}

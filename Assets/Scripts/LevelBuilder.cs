@@ -35,6 +35,7 @@ public class LevelBuilder : MonoBehaviour
 	private Vector3 playerStart;
 	private Transform enemiesParent = null;
 	private Transform initialObstaclesParent = null;
+	private GameObject edgeSprite = null;
 	private int currentLevel = 0;	// start from 1 on first level
 	private int presetLevel = 0;	// start from 0 on first level (used as index)
 	private int randomBlockChance = 33;
@@ -49,6 +50,8 @@ public class LevelBuilder : MonoBehaviour
 	private GameObject[] blocks = null;
 	[SerializeField] 
 	private GameObject[] obstacles = null;
+	[SerializeField]
+	private Sprite[] borders = null;
 
 	[SerializeField, Header("Characters")] 
 	private GameObject[] enemies = null;
@@ -93,6 +96,7 @@ public class LevelBuilder : MonoBehaviour
 	{
 		enemiesParent = GameObject.Find("Enemies").transform;
 		initialObstaclesParent = GameObject.Find("Initial Obstacles").transform;
+		edgeSprite = GameObject.Find("EdgeSprite");
 	}
 
 	/// <summary>
@@ -132,6 +136,9 @@ public class LevelBuilder : MonoBehaviour
 		{
 			freePositions.Remove(Vector3ToInt(child.position));
 		}
+
+		SpriteRenderer edgeRenderer = edgeSprite.GetComponent<SpriteRenderer>();
+		edgeRenderer.sprite = borders[presetLevel];
 	}
 
 	/// <summary>
