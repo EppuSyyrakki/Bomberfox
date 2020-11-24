@@ -26,9 +26,14 @@ namespace Bomberfox
         public int KilledEnemies { get; set; }
         public int DestroyedBlocks { get; set; }
         public int CollectedPU { get; set; }
-        public int TotalDeaths { get; set; }
-        public float PlayTime { get; set; }
         public int FinishedLevels { get; set; }
+        public int TotalDeaths { get; set; }
+
+        public int TotalExplodedBombs { get; set; }
+        public int TotalKilledEnemies { get; set; }
+        public int TotalDestroyedBlocks { get; set; }
+        public int TotalCollectedPU { get; set; }
+        public int TotalFinishedLevels { get; set; }
 
 		public bool isPaused = false;
         public bool isAtExit = false;
@@ -134,16 +139,6 @@ namespace Bomberfox
             return pu;
         }
 
-        public void PrintStats()
-        {
-            Debug.Log("Cleared levels: " + (CurrentLevel - 1));
-            Debug.Log("Exploded bombs: " + ExplodedBombs);
-            Debug.Log("Killed enemies: " + KilledEnemies);
-			Debug.Log("Destroyed obstacles: " + DestroyedBlocks);
-			Debug.Log("Collected power ups: " + CollectedPU);
-            Debug.Log("Bomb accuracy: " + ((double)KilledEnemies / ExplodedBombs * 100) + "%");
-        }
-
         public void CheckLevelProgression()
         {
             if (LevelProgression >= XpForNextLevel)
@@ -166,6 +161,25 @@ namespace Bomberfox
             IsFirstKill = true;
 			Player = new PlayerData();
             ResetLevelCounter();
+			ResetStatCounters();
+        }
+
+        public void UpdateTotalStats()
+        {
+            TotalExplodedBombs += ExplodedBombs;
+            TotalKilledEnemies += KilledEnemies;
+            TotalDestroyedBlocks += DestroyedBlocks;
+            TotalCollectedPU += CollectedPU;
+            TotalFinishedLevels += FinishedLevels;
+		}
+
+        public void ResetStatCounters()
+        {
+            ExplodedBombs = 0;
+            KilledEnemies = 0;
+            DestroyedBlocks = 0;
+            CollectedPU = 0;
+            FinishedLevels = 0;
         }
     }
 }

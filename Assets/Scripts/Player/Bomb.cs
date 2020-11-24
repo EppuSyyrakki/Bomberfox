@@ -113,7 +113,7 @@ namespace Bomberfox.Player
             }
             else if (type == Type.Mega)
             {
-                AudioManager.instance.OneShotSound("ExplosionBigger");
+                AudioManager.instance.OneShotSound("ExplosionBiggest");
             }
             else if (type == Type.Remote)
             {

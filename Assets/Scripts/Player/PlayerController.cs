@@ -246,6 +246,7 @@ namespace Bomberfox.Player
             AudioManager.instance.StopGameMusic();
             AudioManager.instance.PlayMusic("DeathSong");
             GameManager.Instance.TotalDeaths++;
+            GameManager.Instance.UpdateTotalStats();
             GameManager.Instance.GoToDeathMenu();
         }
 
@@ -271,6 +272,7 @@ namespace Bomberfox.Player
                 }
                 else
                 {
+                    AudioManager.instance.OneShotSound("PlayerHurt");
                     isInvulnerable = true;
                     Physics2D.IgnoreLayerCollision(8, 9, true);
                     Debug.Log("Ouch, I took damage!");

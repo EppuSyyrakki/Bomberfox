@@ -4940,8 +4940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fa106b59ce64a44a9e065a63fc29a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetration: 0
   type: 1
-  trigger: 0
   shockType: 3
   range: 3
   speed: 25
@@ -4984,7 +4984,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8443857887239763539, guid: 8e3a8f8a136aaaa41a48ee0f57a3cd0e, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a3f591a7cef69c24890b5163de6d90e9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9e9f338532a1f0439154c03ed3ed825, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

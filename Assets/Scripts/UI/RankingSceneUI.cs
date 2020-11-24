@@ -40,18 +40,6 @@ namespace Bomberfox.UI
 
         public void PrintStats()
         {
-            float killPercentage;
-
-            if (GameManager.Instance.ExplodedBombs == 0)
-            {
-                killPercentage = 0;
-            }
-            else
-            {
-                killPercentage = (float)GameManager.Instance.KilledEnemies / GameManager.Instance.ExplodedBombs * 100;
-                killPercentage = Mathf.Round(killPercentage * 100) / 100;
-            }
-
             levelsCleared.text = (GameManager.Instance.FinishedLevels).ToString();
             enemiesBombed.text = (GameManager.Instance.KilledEnemies).ToString();
             playerLevel.text = (GameManager.Instance.PlayerLevel).ToString();
@@ -59,9 +47,13 @@ namespace Bomberfox.UI
                           (GameManager.Instance.XpForNextLevel - GameManager.Instance.LevelProgression).ToString();
 
             statistics.text = "Dropped bombs: " + (GameManager.Instance.ExplodedBombs).ToString() +
-                              "\nKill percentage: " + killPercentage.ToString() + "%" +
+                              "\nKilled enemies: " + (GameManager.Instance.KilledEnemies).ToString() +
                                 "\nDestroyed obstacles: " + (GameManager.Instance.DestroyedBlocks).ToString() +
                               "\nCollected power ups: " + (GameManager.Instance.CollectedPU).ToString() +
+                              "\n\nDropped bombs in total: " + (GameManager.Instance.TotalExplodedBombs).ToString() +
+                              "\nKilled enemies in total: " + (GameManager.Instance.TotalKilledEnemies).ToString() +
+                              "\nDestroyed obstacles in total: " + (GameManager.Instance.TotalDestroyedBlocks).ToString() +
+                              "\nCollected power ups in total: " + (GameManager.Instance.TotalCollectedPU).ToString() +
                                 "\nPlayer deaths in total: " + (GameManager.Instance.TotalDeaths).ToString();
         }
 

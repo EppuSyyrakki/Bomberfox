@@ -128,8 +128,14 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: PlayerDeath
+  - name: PlayerHurt
     clip: {fileID: 8300000, guid: 96a76b520bfa22b408c18aaa8aac6d3b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 9790188dae6bc0a4ab830f08b1a794e8, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -142,6 +148,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ExplosionBigger
     clip: {fileID: 8300000, guid: 6cef5b782962f4b42ab0fcb7b8557873, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ExplosionBiggest
+    clip: {fileID: 8300000, guid: 061d3fa9643bae04a9b8d71a56a56355, type: 3}
     volume: 0.8
     pitch: 1
     loop: 0
