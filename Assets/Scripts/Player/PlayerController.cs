@@ -51,7 +51,7 @@ namespace Bomberfox.Player
         private PolygonCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
-        private bool isAlive = true;
+        private bool moveEnabled = true;
         
         
         public Health healthSystem;
