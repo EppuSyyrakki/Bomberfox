@@ -51,7 +51,7 @@ namespace Bomberfox.Player
         private CircleCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
-        private bool moveEnabled = true;
+        private bool moveEnabled = false;
         
         
         public Health healthSystem;
@@ -84,16 +84,19 @@ namespace Bomberfox.Player
 
         private void Update()
         {
-            if (!GameManager.Instance.isAtExit && !GameManager.Instance.isPaused)
-            {
-                ProcessInput();
-                UpdateAnimator();
-            }
-            else
-            {
-                movement.x = 0;
-                movement.y = 0;
-            }
+	        if (Input.GetButtonDown("Menu"))
+	        {
+		        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
+	        }
+
+	        if (GameManager.Instance.isPaused && moveEnabled) DisableMovement();
+
+                if (!moveEnabled) return;
+
+           
+            
+	        ProcessInput();
+	        UpdateAnimator();
 
             if (hasShield && !shield.activeSelf) shield.SetActive(true);
             else if (!hasShield && shield.activeSelf) shield.SetActive(false);
@@ -101,10 +104,9 @@ namespace Bomberfox.Player
 
         private void FixedUpdate()
         {
-	        if (isAlive)
-	        {
-		        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
-            }
+	        if (!moveEnabled) return;
+	        
+	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
         
         /// <summary>
@@ -112,8 +114,6 @@ namespace Bomberfox.Player
         /// </summary>
         private void ProcessInput()
         {
-	        if (GameManager.Instance.isPaused) return;
-
 	        movement.x = Input.GetAxis("Horizontal");
 	        movement.y = Input.GetAxis("Vertical");
 
@@ -236,7 +236,7 @@ namespace Bomberfox.Player
             AudioManager.instance.OneShotSound("PlayerDeath");
             animator.SetTrigger("Die");
             Destroy(playerCollider);
-            isAlive = false;
+            DisableMovement();
         }
 
 
@@ -248,6 +248,18 @@ namespace Bomberfox.Player
             GameManager.Instance.TotalDeaths++;
             GameManager.Instance.UpdateTotalStats();
             GameManager.Instance.GoToDeathMenu();
+        }
+
+        // called from animation event at the end of Spawn animation
+        private void EnableMovement()
+        {
+	        moveEnabled = true;
+        }
+
+        // called from LevelEndKey to prevent movement
+        public void DisableMovement()
+        {
+	        moveEnabled = false;
         }
 
         public void TakeDamage()
