@@ -3208,6 +3208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4221481442910844420, guid: c3eade02aeee8f54992ccf796247c12e, type: 3}
     - target: {fileID: 8990152423194894884, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_IsActive
       value: 1

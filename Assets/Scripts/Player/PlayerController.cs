@@ -48,7 +48,7 @@ namespace Bomberfox.Player
         private int currentBombs = 0;   // The amount of bombs currently in the game
         private Animator animator;
         private CollisionHandler collisionHandler;
-        private PolygonCollider2D playerCollider;
+        private CircleCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
         private bool moveEnabled = true;
@@ -65,7 +65,7 @@ namespace Bomberfox.Player
         {
 	        animator = GetComponent<Animator>();
 	        collisionHandler = GetComponent<CollisionHandler>();
-	        playerCollider = GetComponent<PolygonCollider2D>();
+	        playerCollider = GetComponent<CircleCollider2D>();
 	        rb = GetComponent<Rigidbody2D>();
         }
 
