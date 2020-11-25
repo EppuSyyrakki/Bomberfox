@@ -14,7 +14,7 @@ namespace Bomberfox
 		public const int Story = 3;
 
 		// NOTE TO SELF: If you need to call manager from somewhere, use GameManager.Instance.something
-		public static GameManager instance = null;
+		private static GameManager instance = null;
 
 		public GameObject deathMenu;
 

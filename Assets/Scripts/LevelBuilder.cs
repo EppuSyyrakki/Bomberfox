@@ -77,11 +77,9 @@ public class LevelBuilder : MonoBehaviour
 		CheckForDeadEnds();
 		Obstacles();
 		Enemies();
-        
-        Physics2D.IgnoreLayerCollision(8, 9, false);
 		Weather();
-        GameManager.Instance.isAtExit = false;
-    }
+		Physics2D.IgnoreLayerCollision(8, 9, false);
+	}
 
 	private void LateUpdate()
 	{

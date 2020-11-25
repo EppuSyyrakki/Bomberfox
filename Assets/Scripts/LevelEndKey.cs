@@ -16,8 +16,8 @@ public class LevelEndKey : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Key"))
         {
-            GameManager.Instance.isAtExit = true;
-            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+	        PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+            pc.DisableMovement();
 	        GameManager.Instance.Player = pc.GetPlayerData();
             GameManager.Instance.LevelProgression += 20;
 	        Physics2D.IgnoreLayerCollision(8, 9, true);

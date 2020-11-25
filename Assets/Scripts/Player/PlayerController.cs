@@ -51,7 +51,7 @@ namespace Bomberfox.Player
         private CircleCollider2D playerCollider;
         private Rigidbody2D rb;
         private Vector2 movement;
-        private bool moveEnabled = false;
+        private bool movementEnabled = false;
         
         
         public Health healthSystem;
@@ -87,13 +87,13 @@ namespace Bomberfox.Player
 	        if (Input.GetButtonDown("Menu"))
 	        {
 		        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
+		        return; // if menu pressed, exit Update to prevent bomb placing on same frame.
 	        }
 
-	        if (GameManager.Instance.isPaused && moveEnabled) DisableMovement();
+	        if (GameManager.Instance.isPaused && movementEnabled) DisableMovement();
+            else if (!GameManager.Instance.isPaused && !movementEnabled) EnableMovement();
 
-                if (!moveEnabled) return;
-
-           
+	        if (!movementEnabled) return;
             
 	        ProcessInput();
 	        UpdateAnimator();
@@ -104,7 +104,7 @@ namespace Bomberfox.Player
 
         private void FixedUpdate()
         {
-	        if (!moveEnabled) return;
+	        if (!movementEnabled) return;
 	        
 	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
@@ -253,13 +253,13 @@ namespace Bomberfox.Player
         // called from animation event at the end of Spawn animation
         private void EnableMovement()
         {
-	        moveEnabled = true;
+	        movementEnabled = true;
         }
 
         // called from LevelEndKey to prevent movement
         public void DisableMovement()
         {
-	        moveEnabled = false;
+	        movementEnabled = false;
         }
 
         public void TakeDamage()
