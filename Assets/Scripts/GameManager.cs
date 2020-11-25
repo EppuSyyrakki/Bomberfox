@@ -80,28 +80,6 @@ namespace Bomberfox
 			Player = new PlayerData();
 		}
 
-		void Update()
-		{
-			if (Input.GetKey(KeyCode.R))
-			{
-				ReloadScene();
-			}
-
-			if (Input.GetKeyDown(KeyCode.P) && !isPaused)
-			{
-				Time.timeScale = 0f;
-				isPaused = true;
-			}
-
-			if (Input.GetKeyUp(KeyCode.P) && isPaused)
-			{
-				Time.timeScale = 1f;
-				isPaused = false;
-			}
-
-			CheckLevelProgression();
-        }
-
 		public void ChangeLevel(int levelNumber)
 		{
 			SceneManager.LoadScene(levelNumber);
@@ -170,6 +148,7 @@ namespace Bomberfox
             TotalDestroyedBlocks += DestroyedBlocks;
             TotalCollectedPU += CollectedPU;
             TotalFinishedLevels += FinishedLevels;
+            CheckLevelProgression();
 		}
 
         public void ResetStatCounters()
