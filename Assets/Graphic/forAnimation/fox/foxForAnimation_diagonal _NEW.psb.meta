@@ -1,0 +1,1233 @@
+fileFormatVersion: 2
+guid: 7dafb9c03cd97334c8717b0e382cdaa0
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 256
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    ignorePngGamma: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: DiagFrontRight_head
+    originalName: 
+    pivot: {x: 0.37273183, y: 0.17405225}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 440
+      width: 149
+      height: 154
+    spriteID: 331fa1da0f3b9dd4d87b1eb5832c7c26
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -86, y: 303}
+  - name: DiagFrontRight_hood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 848
+      width: 120
+      height: 64
+    spriteID: 3c5457eaf7e5e674499eaaa4e796acd9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 414, y: 694}
+  - name: DiagFrontRight_collar
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 945
+      width: 129
+      height: 62
+    spriteID: 47dae861caed61c478159fc4cf41c305
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 84, y: 828}
+  - name: DiagFrontRight_capeside
+    originalName: 
+    pivot: {x: 0.51412, y: 0.8560008}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 550
+      width: 79
+      height: 141
+    spriteID: 38c1f17b5283b614683922c0de6a78d3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 409, y: 517}
+  - name: DiagFrontRight_armRight
+    originalName: 
+    pivot: {x: 0.21566473, y: 0.8289208}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 940
+      width: 51
+      height: 78
+    spriteID: 70554a09b34119e42894e08da0854986
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 583, y: 859}
+  - name: DiagFrontRight_body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 310
+      width: 124
+      height: 112
+    spriteID: f8229ef0ed41e004a8ba76ed0942625b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 388, y: 263}
+  - name: DiagFrontRight_legLeft
+    originalName: 
+    pivot: {x: 0.39623597, y: 0.7992725}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 584
+      y: 550
+      width: 43
+      height: 82
+    spriteID: d5039eb46dd091d4aa17ab54459477c3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 397, y: 540}
+  - name: DiagFrontRight_armLeft
+    originalName: 
+    pivot: {x: 0.22602496, y: 0.8361691}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 778
+      width: 57
+      height: 73
+    spriteID: 9bcc1600801b7f34a8800e2944f12b3a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 510, y: 689}
+  - name: DiagFrontRight_legRight
+    originalName: 
+    pivot: {x: 0.44328076, y: 0.7965173}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 422
+      width: 59
+      height: 79
+    spriteID: 273b3254de7453b4bab821dde06872e1
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 584, y: 410}
+  - name: DiagFrontRight_cape
+    originalName: 
+    pivot: {x: 0.53035295, y: 0.8384871}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 764
+      width: 147
+      height: 145
+    spriteID: b60af93e5ee47af4b8f11faca126e9c4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -73, y: 729}
+  - name: DiagFrontRight_tail
+    originalName: 
+    pivot: {x: 0.8837212, y: 0.11105387}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 785
+      width: 125
+      height: 152
+    spriteID: cfa162fe24e7f554a89cd788dd05396b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 157, y: 683}
+  - name: DiagFrontLeft_head
+    originalName: 
+    pivot: {x: 0.6647001, y: 0.16680829}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 602
+      width: 149
+      height: 154
+    spriteID: f565425382e2ded46bf416d928e1e647
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -37, y: 465}
+  - name: DiagFrontLeft_hood
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 920
+      width: 120
+      height: 64
+    spriteID: cf98504f580f5b4429c7a7b58a9b2a13
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 420, y: 766}
+  - name: DiagFrontLeft_collar
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 917
+      width: 129
+      height: 62
+    spriteID: 0c869e4ff767ed94eba4179f58b8dcba
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -49, y: 800}
+  - name: DiagFrontLeft_capeside
+    originalName: 
+    pivot: {x: 0.45764005, y: 0.8243564}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 699
+      width: 79
+      height: 141
+    spriteID: 90cc2977fccaa8c428fadfbad6b5613d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 384, y: 666}
+  - name: DiagFrontLeft_armLeft
+    originalName: 
+    pivot: {x: 0.740591, y: 0.8289208}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 636
+      y: 444
+      width: 51
+      height: 78
+    spriteID: 5ef591c7bb22fcd4b94bb347a64d7fcc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 526, y: 363}
+  - name: DiagFrontLeft_body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 430
+      width: 124
+      height: 112
+    spriteID: 022faeb825fbebb4d8a8df51e63c5910
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 450, y: 383}
+  - name: DiagFrontLeft_legRight
+    originalName: 
+    pivot: {x: 0.55188274, y: 0.82647926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 584
+      y: 699
+      width: 43
+      height: 82
+    spriteID: 0ead1e3e554731b49a7d9c67e3e2351a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 534, y: 689}
+  - name: DiagFrontLeft_armright
+    originalName: 
+    pivot: {x: 0.8326834, y: 0.8514496}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 859
+      width: 57
+      height: 73
+    spriteID: 424d663a7ab2e6f44b9374058567baff
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 671, y: 770}
+  - name: DiagFrontLeft_legLeft
+    originalName: 
+    pivot: {x: 0.5189064, y: 0.76827735}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 509
+      width: 59
+      height: 79
+    spriteID: dffad3a948c94384c98f478b7f9d387c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 599, y: 497}
+  - name: DiagFrontLeft_cape
+    originalName: 
+    pivot: {x: 0.49241182, y: 0.86156595}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 354
+      width: 147
+      height: 145
+    spriteID: 6c131dce794a310478d68ac3333eada9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 126, y: 319}
+  - name: DiagFrontLeft_tail
+    originalName: 
+    pivot: {x: 0.10735522, y: 0.09637691}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 4
+      width: 125
+      height: 152
+    spriteID: 91d70f4d2d286c14b9d1ebd56494176f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 234, y: -98}
+  - name: DiagBackLeft_tail
+    originalName: 
+    pivot: {x: 0.09737535, y: 0.0803716}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 222
+      width: 169
+      height: 210
+    spriteID: 06583d679ed818746b82ff8ecef13e70
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -124, y: 161}
+  - name: DiagBackLeft_hood
+    originalName: 
+    pivot: {x: 0.50684345, y: 0.2808906}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 636
+      y: 4
+      width: 163
+      height: 112
+    spriteID: 7681c77f5598b214f900d8bd78a51ab9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 594, y: -116}
+  - name: DiagBackLeft_cape
+    originalName: 
+    pivot: {x: 0.5, y: 0.87404954}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 4
+      width: 174
+      height: 167
+    spriteID: 5ad4b3a772a35a8428111cb3d914098d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 137, y: -7}
+  - name: DiagBackLeft_armLeft
+    originalName: 
+    pivot: {x: 0.6923218, y: 0.8637403}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 636
+      y: 244
+      width: 58
+      height: 92
+    spriteID: fbe4ffd31b47a744cb000dbc3a1a6c96
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 616, y: 168}
+  - name: DiagBackLeft_body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 507
+      width: 152
+      height: 131
+    spriteID: 62c91bda5f42db7468fdda1da84d346e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 133, y: 462}
+  - name: DiagBackLeft_legLeft
+    originalName: 
+    pivot: {x: 0.44602522, y: 0.84428084}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 244
+      width: 62
+      height: 81
+    spriteID: 70529c62ffde2be4da43c43308def6c9
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 630, y: 235}
+  - name: DiagBackLeft_legRight
+    originalName: 
+    pivot: {x: 0.47812787, y: 0.7956668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 701
+      y: 596
+      width: 51
+      height: 83
+    spriteID: 4f9d33cc4cc497d4c8de7f43a3dc8762
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 568, y: 586}
+  - name: DiagBackLeft_head
+    originalName: 
+    pivot: {x: 0.5085151, y: 0.1615134}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 4
+      width: 131
+      height: 145
+    spriteID: ab95027f6f918bd4f81bac7e0d78fb3a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 439, y: -139}
+  - name: DiagBackRight_tail
+    originalName: 
+    pivot: {x: 0.9068179, y: 0.09099517}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 170
+      height: 210
+    spriteID: 5e5f095f50937884a999068749e1cabe
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -57}
+  - name: DiagBackRight_hood
+    originalName: 
+    pivot: {x: 0.49315658, y: 0.31076923}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 636
+      y: 124
+      width: 163
+      height: 112
+    spriteID: 9bcd230c44b2905479a159a89eb6fc3e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 544, y: 4}
+  - name: DiagBackRight_cape
+    originalName: 
+    pivot: {x: 0.5064108, y: 0.8807291}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 179
+      width: 174
+      height: 167
+    spriteID: 6674740170236214c9bf06499e56285c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 103, y: 168}
+  - name: DiagBackRight_armRight
+    originalName: 
+    pivot: {x: 0.21151628, y: 0.86374}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 636
+      y: 344
+      width: 58
+      height: 92
+    spriteID: 4c46e733d45b5aa42ba955dc454db559
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 416, y: 268}
+  - name: DiagBackRight_body
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 646
+      width: 152
+      height: 131
+    spriteID: e56e56f0b7bb9b04bb374141868b1dd0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 85, y: 601}
+  - name: DiagBackRight_legRight
+    originalName: 
+    pivot: {x: 0.5, y: 0.7754249}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 333
+      width: 62
+      height: 81
+    spriteID: 2007e278dc7143440a2d8b172f2f7300
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 538, y: 324}
+  - name: DiagBackRight_legLeft
+    originalName: 
+    pivot: {x: 0.5656152, y: 0.8225458}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 687
+      width: 51
+      height: 83
+    spriteID: 2af5f9981872dc54db9584a2b453db3f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 589, y: 677}
+  - name: DiagBackRight_head
+    originalName: 
+    pivot: {x: 0.4914849, y: 0.14612764}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 497
+      y: 158
+      width: 131
+      height: 145
+    spriteID: 6f5ca3b6e58888146af1243902314b16
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 388, y: 14}
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 297, y: 300}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: DiagFrontRight_head
+    spriteName: DiagFrontRight_head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 331fa1da0f3b9dd4d87b1eb5832c7c26
+    layerID: 252
+    mosaicPosition: {x: 4, y: 440}
+  - name: DiagFrontRight_hood
+    spriteName: DiagFrontRight_hood
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3c5457eaf7e5e674499eaaa4e796acd9
+    layerID: 250
+    mosaicPosition: {x: 497, y: 848}
+  - name: DiagFrontRight_collar
+    spriteName: DiagFrontRight_collar
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 47dae861caed61c478159fc4cf41c305
+    layerID: 249
+    mosaicPosition: {x: 182, y: 945}
+  - name: DiagFrontRight_capeside
+    spriteName: DiagFrontRight_capeside
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 38c1f17b5283b614683922c0de6a78d3
+    layerID: 248
+    mosaicPosition: {x: 497, y: 550}
+  - name: DiagFrontRight_armRight
+    spriteName: DiagFrontRight_armRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 70554a09b34119e42894e08da0854986
+    layerID: 247
+    mosaicPosition: {x: 702, y: 940}
+  - name: DiagFrontRight_body
+    spriteName: DiagFrontRight_body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f8229ef0ed41e004a8ba76ed0942625b
+    layerID: 244
+    mosaicPosition: {x: 497, y: 310}
+  - name: DiagFrontRight_legLeft
+    spriteName: DiagFrontRight_legLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d5039eb46dd091d4aa17ab54459477c3
+    layerID: 243
+    mosaicPosition: {x: 584, y: 550}
+  - name: DiagFrontRight_armLeft
+    spriteName: DiagFrontRight_armLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9bcc1600801b7f34a8800e2944f12b3a
+    layerID: 242
+    mosaicPosition: {x: 702, y: 778}
+  - name: DiagFrontRight_legRight
+    spriteName: DiagFrontRight_legRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 273b3254de7453b4bab821dde06872e1
+    layerID: 241
+    mosaicPosition: {x: 702, y: 422}
+  - name: DiagFrontRight_cape
+    spriteName: DiagFrontRight_cape
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b60af93e5ee47af4b8f11faca126e9c4
+    layerID: 240
+    mosaicPosition: {x: 4, y: 764}
+  - name: DiagFrontRight_tail
+    spriteName: DiagFrontRight_tail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cfa162fe24e7f554a89cd788dd05396b
+    layerID: 239
+    mosaicPosition: {x: 182, y: 785}
+  - name: DiagFrontLeft_head
+    spriteName: DiagFrontLeft_head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f565425382e2ded46bf416d928e1e647
+    layerID: 229
+    mosaicPosition: {x: 4, y: 602}
+  - name: DiagFrontLeft_hood
+    spriteName: DiagFrontLeft_hood
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cf98504f580f5b4429c7a7b58a9b2a13
+    layerID: 219
+    mosaicPosition: {x: 497, y: 920}
+  - name: DiagFrontLeft_collar
+    spriteName: DiagFrontLeft_collar
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0c869e4ff767ed94eba4179f58b8dcba
+    layerID: 231
+    mosaicPosition: {x: 4, y: 917}
+  - name: DiagFrontLeft_capeside
+    spriteName: DiagFrontLeft_capeside
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 90cc2977fccaa8c428fadfbad6b5613d
+    layerID: 227
+    mosaicPosition: {x: 497, y: 699}
+  - name: DiagFrontLeft_armLeft
+    spriteName: DiagFrontLeft_armLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5ef591c7bb22fcd4b94bb347a64d7fcc
+    layerID: 221
+    mosaicPosition: {x: 636, y: 444}
+  - name: DiagFrontLeft_body
+    spriteName: DiagFrontLeft_body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 022faeb825fbebb4d8a8df51e63c5910
+    layerID: 225
+    mosaicPosition: {x: 497, y: 430}
+  - name: DiagFrontLeft_legRight
+    spriteName: DiagFrontLeft_legRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0ead1e3e554731b49a7d9c67e3e2351a
+    layerID: 234
+    mosaicPosition: {x: 584, y: 699}
+  - name: DiagFrontLeft_armright
+    spriteName: DiagFrontLeft_armright
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 424d663a7ab2e6f44b9374058567baff
+    layerID: 222
+    mosaicPosition: {x: 702, y: 859}
+  - name: DiagFrontLeft_legLeft
+    spriteName: DiagFrontLeft_legLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dffad3a948c94384c98f478b7f9d387c
+    layerID: 232
+    mosaicPosition: {x: 702, y: 509}
+  - name: DiagFrontLeft_cape
+    spriteName: DiagFrontLeft_cape
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6c131dce794a310478d68ac3333eada9
+    layerID: 224
+    mosaicPosition: {x: 182, y: 354}
+  - name: DiagFrontLeft_tail
+    spriteName: DiagFrontLeft_tail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 91d70f4d2d286c14b9d1ebd56494176f
+    layerID: 223
+    mosaicPosition: {x: 364, y: 4}
+  - name: DiagBackLeft_tail
+    spriteName: DiagBackLeft_tail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 06583d679ed818746b82ff8ecef13e70
+    layerID: 215
+    mosaicPosition: {x: 4, y: 222}
+  - name: DiagBackLeft_hood
+    spriteName: DiagBackLeft_hood
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7681c77f5598b214f900d8bd78a51ab9
+    layerID: 214
+    mosaicPosition: {x: 636, y: 4}
+  - name: DiagBackLeft_cape
+    spriteName: DiagBackLeft_cape
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5ad4b3a772a35a8428111cb3d914098d
+    layerID: 213
+    mosaicPosition: {x: 182, y: 4}
+  - name: DiagBackLeft_armLeft
+    spriteName: DiagBackLeft_armLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: fbe4ffd31b47a744cb000dbc3a1a6c96
+    layerID: 212
+    mosaicPosition: {x: 636, y: 244}
+  - name: DiagBackLeft_body
+    spriteName: DiagBackLeft_body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 62c91bda5f42db7468fdda1da84d346e
+    layerID: 211
+    mosaicPosition: {x: 182, y: 507}
+  - name: DiagBackLeft_legLeft
+    spriteName: DiagBackLeft_legLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 70529c62ffde2be4da43c43308def6c9
+    layerID: 210
+    mosaicPosition: {x: 702, y: 244}
+  - name: DiagBackLeft_legRight
+    spriteName: DiagBackLeft_legRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f9d33cc4cc497d4c8de7f43a3dc8762
+    layerID: 209
+    mosaicPosition: {x: 702, y: 596}
+  - name: DiagBackLeft_head
+    spriteName: DiagBackLeft_head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ab95027f6f918bd4f81bac7e0d78fb3a
+    layerID: 208
+    mosaicPosition: {x: 497, y: 4}
+  - name: DiagBackRight_tail
+    spriteName: DiagBackRight_tail
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5e5f095f50937884a999068749e1cabe
+    layerID: 198
+    mosaicPosition: {x: 4, y: 4}
+  - name: DiagBackRight_hood
+    spriteName: DiagBackRight_hood
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9bcd230c44b2905479a159a89eb6fc3e
+    layerID: 205
+    mosaicPosition: {x: 636, y: 124}
+  - name: DiagBackRight_cape
+    spriteName: DiagBackRight_cape
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6674740170236214c9bf06499e56285c
+    layerID: 200
+    mosaicPosition: {x: 182, y: 179}
+  - name: DiagBackRight_armRight
+    spriteName: DiagBackRight_armRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4c46e733d45b5aa42ba955dc454db559
+    layerID: 204
+    mosaicPosition: {x: 636, y: 344}
+  - name: DiagBackRight_body
+    spriteName: DiagBackRight_body
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e56e56f0b7bb9b04bb374141868b1dd0
+    layerID: 203
+    mosaicPosition: {x: 182, y: 646}
+  - name: DiagBackRight_legRight
+    spriteName: DiagBackRight_legRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2007e278dc7143440a2d8b172f2f7300
+    layerID: 202
+    mosaicPosition: {x: 702, y: 333}
+  - name: DiagBackRight_legLeft
+    spriteName: DiagBackRight_legLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2af5f9981872dc54db9584a2b453db3f
+    layerID: 201
+    mosaicPosition: {x: 702, y: 687}
+  - name: DiagBackRight_head
+    spriteName: DiagBackRight_head
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f5ca3b6e58888146af1243902314b16
+    layerID: 206
+    mosaicPosition: {x: 497, y: 157}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: foxForAnimation_diagonal Texture
+  prefabAssetName: foxForAnimation_diagonal Prefab
+  spriteLibAssetName: foxForAnimation_diagonal Sprite Lib
+  secondarySpriteTextures: []
