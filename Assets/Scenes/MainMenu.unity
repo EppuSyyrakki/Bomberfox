@@ -10595,7 +10595,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1026549254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1128944734}
+        m_TargetAssemblyTypeName: Bomberfox.UI.HelpUI, Assembly-CSharp
+        m_MethodName: ActivateMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1026549254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10809,7 +10821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1093715972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1128944734}
+        m_TargetAssemblyTypeName: Bomberfox.UI.HelpUI, Assembly-CSharp
+        m_MethodName: DeactivateMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1093715972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10995,6 +11019,7 @@ GameObject:
   - component: {fileID: 1128944730}
   - component: {fileID: 1128944729}
   - component: {fileID: 1128944733}
+  - component: {fileID: 1128944734}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -11107,6 +11132,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17867a802b85546449d3bf8da45069b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1128944734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128944728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c99f8a855328a478b30568e138440e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  help: {fileID: 1656072759}
 --- !u!1 &1139818490
 GameObject:
   m_ObjectHideFlags: 0
