@@ -295,11 +295,35 @@ namespace Bomberfox.Enemies
         {
             int chance = Random.Range(0, 101);
 
-            if (chance <= powerUpChance)
+            if (GameManager.Instance.CurrentLevel < 6)
             {
-                GameObject powerUp = GameManager.Instance.GetPowerUp();
-				Instantiate(powerUp, transform.position, Quaternion.identity);
+                if (chance <= powerUpChance)
+                {
+                    GameObject powerUp = GameManager.Instance.GetPowerUp();
+                    Instantiate(powerUp, transform.position, Quaternion.identity);
+					Debug.Log("Normal PU chance");
+                }
+			} 
+            else if (GameManager.Instance.CurrentLevel < 11)
+            {
+                if (chance <= (powerUpChance - 5))
+                {
+                    GameObject powerUp = GameManager.Instance.GetPowerUp();
+                    Instantiate(powerUp, transform.position, Quaternion.identity);
+                    Debug.Log("Smaller PU chance");
+				}
 			}
+			else
+            {
+                if (chance <= (powerUpChance - 10))
+                {
+                    GameObject powerUp = GameManager.Instance.GetPowerUp();
+                    Instantiate(powerUp, transform.position, Quaternion.identity);
+                    Debug.Log("Smallest PU chance");
+				}
+			}
+
+
         }
 
         private void ExtraBombPowerUp()
