@@ -29,7 +29,7 @@ namespace Bomberfox.PowerUp
 		public void Remove()
 		{
 			GameObject help = Instantiate(textObject, transform.position, Quaternion.identity);
-			PowerUpText puText = help.GetComponent<PowerUpText>();
+			PowerUpText puText = help.GetComponentInChildren<PowerUpText>();
 			puText.SetText(floatingText);
 			Destroy(gameObject);
 		}

@@ -9,8 +9,28 @@ namespace Bomberfox.UI
 {
     public class GUI : MonoBehaviour
     {
-        public Text playerHealth;
-        public Text bombAmount;
+        // Health gauge
+        public GameObject healthBase;
+        public GameObject health1;
+        public GameObject health2;
+        public GameObject health3;
+        public GameObject health4;
+        public GameObject health5;
+
+        // Bomb amount gauge
+        public GameObject bombBase;
+        public GameObject bomb1;
+        public GameObject bomb2;
+        public GameObject bomb3;
+        public GameObject bomb4;
+        public GameObject bomb5;
+
+        // Bomb's range gauge
+        public GameObject rangeBase;
+        public GameObject range3;
+        public GameObject range4;
+        public GameObject range5;
+
 
         public GameObject bigBombEmpty;
         public GameObject remoteEmpty;
@@ -21,6 +41,9 @@ namespace Bomberfox.UI
         private void Start()
         {
 	        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            healthBase.SetActive(true);
+            bombBase.SetActive(true);
+            rangeBase.SetActive(true);
         }
 
         void Update()
@@ -31,8 +54,92 @@ namespace Bomberfox.UI
 
         public void ShowStats()
         {
-            playerHealth.text = pc.healthSystem.GetHealth().ToString();
-            bombAmount.text = pc.maxBombs.ToString();
+            // Health gauge
+            if (pc.healthSystem.GetHealth() == 0)
+            {
+                health1.SetActive(false);
+            }
+            else if (pc.healthSystem.GetHealth() == 1)
+            {
+                health1.SetActive(true);
+                health2.SetActive(false);
+                health3.SetActive(false);
+                health4.SetActive(false);
+                health5.SetActive(false);
+            }
+            else if (pc.healthSystem.GetHealth() == 2)
+            {
+                health2.SetActive(true);
+                health3.SetActive(false);
+            }
+            else if (pc.healthSystem.GetHealth() == 3)
+            {
+                health3.SetActive(true);
+                health4.SetActive(false);
+            }
+            else if (pc.healthSystem.GetHealth() == 4)
+            {
+                health4.SetActive(true);
+                health5.SetActive(false);
+            }
+            else if (pc.healthSystem.GetHealth() == 5)
+            {
+                health5.SetActive(true);
+            }
+
+            // Bomb amount gauge
+            if (pc.maxBombs == 0)
+            {
+                bomb1.SetActive(false);
+            }
+            else if (pc.maxBombs == 1)
+            {
+                bomb1.SetActive(true);
+                bomb2.SetActive(false);
+                bomb3.SetActive(false);
+                bomb4.SetActive(false);
+                bomb5.SetActive(false);
+            }
+            else if (pc.maxBombs == 2)
+            {
+                bomb2.SetActive(true);
+                bomb3.SetActive(false);
+            }
+            else if (pc.maxBombs == 3)
+            {
+                bomb3.SetActive(true);
+                bomb4.SetActive(false);
+            }
+            else if (pc.maxBombs == 4)
+            {
+                bomb4.SetActive(true);
+                bomb5.SetActive(false);
+            }
+            else if (pc.maxBombs == 5)
+            {
+                bomb5.SetActive(true);
+            }
+
+            // Range gauge
+            if (pc.bombRange == 2)
+            {
+                range3.SetActive(false);
+            }
+            else if (pc.bombRange == 3)
+            {
+                range3.SetActive(true);
+                range4.SetActive(false);
+                range5.SetActive(false);
+            }
+            else if (pc.bombRange == 4)
+            {
+                range4.SetActive(true);
+                range5.SetActive(false);
+            }
+            else if (pc.bombRange == 5)
+            {
+                range5.SetActive(true);
+            }
         }
 
         public void ShowSpecialBombs()

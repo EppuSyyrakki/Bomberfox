@@ -106,8 +106,26 @@ namespace Bomberfox
 
         public GameObject GetPowerUp()
         {
-            GameObject pu = allPowerUps[Random.Range(0, allPowerUps.Length)];
-            return pu;
+            if (CurrentLevel < 6)
+            {
+                GameObject pu = allPowerUps[Random.Range(0, allPowerUps.Length)];
+                Debug.Log("Normal PU list");
+				return pu;
+			}
+			else if (CurrentLevel < 11)
+            {
+                GameObject pu = allPowerUps[Random.Range(0, (allPowerUps.Length - 3))];
+                Debug.Log("Smaller PU list");
+				return pu;
+			}
+            else
+            {
+                GameObject pu = allPowerUps[Random.Range(0, (allPowerUps.Length - 6))];
+                Debug.Log("Smallest PU list");
+				return pu;
+			}
+
+
         }
 
         public GameObject GetFirstExtraBomb()
