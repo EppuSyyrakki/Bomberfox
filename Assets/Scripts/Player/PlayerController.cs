@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Bomberfox.PowerUp;
+using Bomberfox.UI;
 using UnityEngine;
 
 namespace Bomberfox.Player
@@ -86,12 +87,9 @@ namespace Bomberfox.Player
         {
 	        if (Input.GetButtonDown("Menu"))
 	        {
-		        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
-		        return; // if menu pressed, exit Update to prevent bomb placing on same frame.
+		        TogglePauseMenu();
+		        return;
 	        }
-
-	        if (GameManager.Instance.isPaused && movementEnabled) DisableMovement();
-            else if (!GameManager.Instance.isPaused && !movementEnabled) EnableMovement();
 
 	        if (!movementEnabled) return;
             
@@ -108,7 +106,28 @@ namespace Bomberfox.Player
 	        
 	        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
         }
-        
+
+        private void TogglePauseMenu()
+        {
+	        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
+	        GameObject player = GameObject.FindGameObjectWithTag("Player");
+	        GameObject inGameCanvas = GameObject.FindGameObjectWithTag("InGameCanvas");
+
+	        if (player != null && inGameCanvas != null)
+	        {
+		        if (GameManager.Instance.isPaused)
+		        {
+			        inGameCanvas.GetComponent<PauseMenuUI>().ActivateMenu();
+			        player.GetComponent<PlayerController>().DisableMovement();
+		        }
+		        else
+		        {
+			        inGameCanvas.GetComponent<PauseMenuUI>().DeactivateMenu();
+			        player.GetComponent<PlayerController>().EnableMovement();
+		        }
+	        }
+        }
+
         /// <summary>
         /// Checks input and creates a bomb if maxBombs allows.
         /// </summary>
@@ -129,7 +148,7 @@ namespace Bomberfox.Player
 
             if (Input.GetButtonDown("NormalBomb") && currentBombs < maxBombs)
             {
-                CreateBomb(normalBomb);
+	            CreateBomb(normalBomb);
             }
 
             if (Input.GetButtonDown("MegaBomb") && megaBomb != null)
@@ -251,12 +270,14 @@ namespace Bomberfox.Player
         }
 
         // called from animation event at the end of Spawn animation
-        private void EnableMovement()
+        // and from GameManager when menu button pressed
+        public void EnableMovement()
         {
 	        movementEnabled = true;
         }
 
-        // called from LevelEndKey to prevent movement
+        // called from LevelEndKey to prevent movement and from GameManager
+        // when menu button pressed
         public void DisableMovement()
         {
 	        movementEnabled = false;
