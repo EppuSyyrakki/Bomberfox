@@ -10,14 +10,14 @@ public class LevelEndKey : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(12, 9, true);
     }
-
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("Key"))
         {
 	        PlayerController pc = other.gameObject.GetComponent<PlayerController>();
             pc.DisableMovement();
+            pc.isInvulnerable = true;
 	        GameManager.Instance.Player = pc.GetPlayerData();
             GameManager.Instance.LevelProgression += 20;
 	        Physics2D.IgnoreLayerCollision(8, 9, true);

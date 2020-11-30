@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using Bomberfox.Player;
+using Bomberfox.UI;
+using Random = UnityEngine.Random;
 
 namespace Bomberfox
 {

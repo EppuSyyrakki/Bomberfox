@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Bomberfox.Player;
 using UnityEngine;
 
 namespace Bomberfox.UI
@@ -8,16 +10,9 @@ namespace Bomberfox.UI
     {
         [SerializeField] private GameObject pauseMenuUI;
 
-        void Update()
+        private void Start()
         {
-            if (GameManager.Instance.isPaused)
-            {
-                ActivateMenu();
-            }
-            else
-            {
-                DeactivateMenu();
-            }
+	        DeactivateMenu();
         }
 
         public void ActivateMenu()
@@ -31,7 +26,7 @@ namespace Bomberfox.UI
         {
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);
-
+            
             if (GameManager.Instance.isSoundOn)
             {
                 AudioManager.instance.EnableBomb();
@@ -40,7 +35,9 @@ namespace Bomberfox.UI
 
         public void Continue()
         {
-            GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
+	        PlayerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            pc.EnableMovement();
+            DeactivateMenu();
         }
 
         public void QuitToMenu()
