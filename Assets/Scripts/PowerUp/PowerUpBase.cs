@@ -40,7 +40,8 @@ namespace Bomberfox.PowerUp
             
             if (AddToPlayer(pc))
             {
-	            GameManager.Instance.CollectedPU++;
+                GameManager.Instance.CollectedPU++;
+				AudioManager.instance.OneShotSound("PickPU");
 	            Remove();
 			}
 		}

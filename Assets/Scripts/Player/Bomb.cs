@@ -121,7 +121,7 @@ namespace Bomberfox.Player
             }
             else if (type == Type.Mine)
             {
-	            AudioManager.instance.OneShotSound("ExplosionBigger");
+	            AudioManager.instance.OneShotSound("Landmine");
             }
 
             Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);

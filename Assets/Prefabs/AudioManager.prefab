@@ -158,6 +158,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: PickPU
+    clip: {fileID: 8300000, guid: c71385626c711d449b79f09b6e79d76c, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landmine
+    clip: {fileID: 8300000, guid: 816b7c8f33b737e4e9921f4436784446, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   masterMixer: {fileID: 24100000, guid: 8e3a8f8a136aaaa41a48ee0f57a3cd0e, type: 2}
   maxMusic: 1
   maxSound: 0.75

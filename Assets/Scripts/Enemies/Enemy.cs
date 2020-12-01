@@ -291,6 +291,7 @@ namespace Bomberfox.Enemies
 	        Destroy(gameObject);
 		}
 
+		// When enemy dies, this determines if the enemy will randomly drop a power up or not
         private void PowerUp()
         {
             int chance = Random.Range(0, 101);
@@ -301,7 +302,6 @@ namespace Bomberfox.Enemies
                 {
                     GameObject powerUp = GameManager.Instance.GetPowerUp();
                     Instantiate(powerUp, transform.position, Quaternion.identity);
-					Debug.Log("Normal PU chance");
                 }
 			} 
             else if (GameManager.Instance.CurrentLevel < 11)
@@ -310,8 +310,7 @@ namespace Bomberfox.Enemies
                 {
                     GameObject powerUp = GameManager.Instance.GetPowerUp();
                     Instantiate(powerUp, transform.position, Quaternion.identity);
-                    Debug.Log("Smaller PU chance");
-				}
+                }
 			}
 			else
             {
@@ -319,8 +318,7 @@ namespace Bomberfox.Enemies
                 {
                     GameObject powerUp = GameManager.Instance.GetPowerUp();
                     Instantiate(powerUp, transform.position, Quaternion.identity);
-                    Debug.Log("Smallest PU chance");
-				}
+                }
 			}
 
 
