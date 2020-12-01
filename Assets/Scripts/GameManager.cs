@@ -81,6 +81,8 @@ namespace Bomberfox
 
 			CurrentLevel = 1;
 			Player = new PlayerData();
+
+            FetchPrefs();
 		}
 
 		public void ChangeLevel(int levelNumber)
@@ -107,6 +109,8 @@ namespace Bomberfox
 
 		public void GoToStory() => SceneManager.LoadScene(Story);
 
+        // Returns a random power up for the dying enemy.
+        // Depending on the current level, extracts few power ups from the list to balance the game.
         public GameObject GetPowerUp()
         {
             if (CurrentLevel < 6)
@@ -134,6 +138,7 @@ namespace Bomberfox
             return pu;
         }
 
+        // Checks the player's level progression and if new level was reached, acts according to it.
         public void CheckLevelProgression()
         {
             if (LevelProgression >= XpForNextLevel)
@@ -159,6 +164,7 @@ namespace Bomberfox
 			ResetStatCounters();
         }
 
+        // Updates total statistics according to the latest game and saves them to PlayerPrefs
         public void UpdateTotalStats()
         {
             TotalExplodedBombs += ExplodedBombs;
@@ -167,8 +173,19 @@ namespace Bomberfox
             TotalCollectedPU += CollectedPU;
             TotalFinishedLevels += FinishedLevels;
             CheckLevelProgression();
+
+            PlayerPrefs.SetInt("TotalBombs", TotalExplodedBombs);
+            PlayerPrefs.SetInt("TotalEnemies", TotalKilledEnemies);
+            PlayerPrefs.SetInt("TotalBlocks", TotalDestroyedBlocks);
+            PlayerPrefs.SetInt("CollectedPU", TotalCollectedPU);
+            PlayerPrefs.SetInt("TotalLevels", TotalFinishedLevels);
+
+            PlayerPrefs.SetInt("PlayerLevel", PlayerLevel);
+            PlayerPrefs.SetInt("LevelProgression", LevelProgression);
+            PlayerPrefs.SetInt("XP", XpForNextLevel);
         }
 
+        // Resets temporary stats
         public void ResetStatCounters()
         {
             ExplodedBombs = 0;
@@ -176,6 +193,21 @@ namespace Bomberfox
             DestroyedBlocks = 0;
             CollectedPU = 0;
             FinishedLevels = 0;
+        }
+
+        // When the game starts, this method gets all permanent stats and player's level
+        // progression from PlayerPrefs
+        public void FetchPrefs()
+        {
+            TotalExplodedBombs = PlayerPrefs.GetInt("TotalBombs");
+            TotalKilledEnemies = PlayerPrefs.GetInt("TotalEnemies");
+            TotalDestroyedBlocks = PlayerPrefs.GetInt("TotalBlocks");
+            TotalCollectedPU = PlayerPrefs.GetInt("CollectedPU");
+            TotalFinishedLevels = PlayerPrefs.GetInt("TotalLevels");
+
+            PlayerLevel = PlayerPrefs.GetInt("PlayerLevel");
+            LevelProgression = PlayerPrefs.GetInt("LevelProgression");
+            XpForNextLevel = PlayerPrefs.GetInt("XP");
         }
     }
 }
