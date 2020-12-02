@@ -246,7 +246,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5918127991010664139}
   - component: {fileID: 2375900403705872953}
-  - component: {fileID: 5716618094509412067}
   m_Layer: 0
   m_Name: Remotebomb
   m_TagString: Untagged
@@ -321,25 +320,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5716618094509412067
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4406871718754574992}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e74887e2fbcc8d744b5aca41537df5eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4775296925383206451
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +332,7 @@ GameObject:
   - component: {fileID: 4990535661042964309}
   - component: {fileID: -890342533728179705}
   - component: {fileID: -7035864613790035459}
+  - component: {fileID: 864047139643494223}
   m_Layer: 8
   m_Name: Special Remote
   m_TagString: Bomb
@@ -517,3 +498,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &864047139643494223
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775296925383206451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e74887e2fbcc8d744b5aca41537df5eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
