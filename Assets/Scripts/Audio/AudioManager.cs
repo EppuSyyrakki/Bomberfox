@@ -186,16 +186,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PauseAllSounds(bool pause)
+    {
+	    foreach (Sound sound in sounds)
+	    {
+		    if (pause) sound.source.Pause();
+		    else sound.source.UnPause();
+	    }
+
+	    if (pause) MuteBomb();
+	    else EnableBomb();
+    }
+
     public void ToggleMusic()
     {
 	    if (GameManager.Instance.isMusicOn) GameManager.Instance.isMusicOn = false;
-	    if (!GameManager.Instance.isMusicOn) GameManager.Instance.isMusicOn = true;
+	    else GameManager.Instance.isMusicOn = true;
     }
 
     public void ToggleSound()
     {
 	    if (GameManager.Instance.isSoundOn) GameManager.Instance.isSoundOn = false;
-        if (GameManager.Instance.isSoundOn) GameManager.Instance.isSoundOn = true;
+        else GameManager.Instance.isSoundOn = true;
     }
 
     public void MuteMusic()

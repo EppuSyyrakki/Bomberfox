@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bomberfox.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Bomberfox.UI
 {
@@ -12,13 +13,12 @@ namespace Bomberfox.UI
         {
             AudioManager.instance.PlayMusic("MainMenu");
             AudioManager.instance.PlayMusic("ThunderMenu");
+            Button btn = GameObject.Find("StartGameButton").GetComponent<Button>();
+            EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+            es.SetSelectedGameObject(null);
+            es.SetSelectedGameObject(btn.gameObject);
         }
-
-        public void Update()
-        {
-
-        }
-
+        
         public void StartGame()
         {
             GameManager.Instance.Player = new PlayerData();

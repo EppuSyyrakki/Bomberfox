@@ -25,8 +25,7 @@ namespace Bomberfox.UI
             EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
             es.SetSelectedGameObject(null);
             es.SetSelectedGameObject(btn.gameObject);
-
-            if (GameManager.Instance.isSoundOn) AudioManager.instance.MuteSound();
+            AudioManager.instance.PauseAllSounds(true);
         }
 
         public void DeactivateMenu()
@@ -34,12 +33,11 @@ namespace Bomberfox.UI
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);
             GameManager.Instance.isPaused = false;
+            AudioManager.instance.PauseAllSounds(false);
 
             // delay the movementEnabled on PlayerController for a frame to prevent leaving a bomb
             // when using controller button to exit menu
             Invoke(nameof(Continue), Time.deltaTime);
-
-            if (!GameManager.Instance.isSoundOn) AudioManager.instance.EnableSound();
         }
         
         private void Continue()
