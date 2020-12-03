@@ -13721,6 +13721,14 @@ PrefabInstance:
       propertyPath: debugStartingLevel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: obstacleChanceIncrease
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: obstacleChance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.95

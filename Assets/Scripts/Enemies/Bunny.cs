@@ -124,6 +124,7 @@ namespace Bomberfox.Enemies
 		public override void StartDeath()
 		{
 			base.StartDeath();
+			CancelInvoke();
 			AudioManager.instance.OneShotSound("RabbitDeath");
 		}
 	}
