@@ -109,21 +109,22 @@ namespace Bomberfox.Player
 
         private void TogglePauseMenu()
         {
-	        GameManager.Instance.isPaused = !GameManager.Instance.isPaused;
-	        GameObject player = GameObject.FindGameObjectWithTag("Player");
+	        if (GameManager.Instance.isPaused) GameManager.Instance.isPaused = false;
+	        else GameManager.Instance.isPaused = true;
+
 	        GameObject inGameCanvas = GameObject.FindGameObjectWithTag("InGameCanvas");
 
-	        if (player != null && inGameCanvas != null)
+	        if (inGameCanvas != null)
 	        {
 		        if (GameManager.Instance.isPaused)
 		        {
 			        inGameCanvas.GetComponent<PauseMenuUI>().ActivateMenu();
-			        player.GetComponent<PlayerController>().DisableMovement();
+			        DisableMovement();
 		        }
 		        else
 		        {
 			        inGameCanvas.GetComponent<PauseMenuUI>().DeactivateMenu();
-			        player.GetComponent<PlayerController>().EnableMovement();
+			        Invoke(nameof(EnableMovement), Time.deltaTime);
 		        }
 	        }
         }

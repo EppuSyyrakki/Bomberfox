@@ -235,11 +235,13 @@ public class AudioManager : MonoBehaviour
     public void MuteBomb()
     {
         masterMixer.SetFloat("Bomb", -80f);
+        GameManager.Instance.isSoundOn = false;
     }
 
     public void EnableBomb()
     {
         masterMixer.SetFloat("Bomb", 0f);
+        GameManager.Instance.isSoundOn = true;
     }
 }
 

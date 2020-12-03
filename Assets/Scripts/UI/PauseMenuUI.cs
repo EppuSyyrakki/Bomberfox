@@ -19,18 +19,17 @@ namespace Bomberfox.UI
         {
             Time.timeScale = 0;
             pauseMenuUI.SetActive(true);
-            AudioManager.instance.MuteBomb();
+            
+            if (GameManager.Instance.isSoundOn) AudioManager.instance.MuteBomb();
         }
 
         public void DeactivateMenu()
         {
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);
+            GameManager.Instance.isPaused = false;
             
-            if (GameManager.Instance.isSoundOn)
-            {
-                AudioManager.instance.EnableBomb();
-            }
+            if (!GameManager.Instance.isSoundOn) AudioManager.instance.EnableBomb();
         }
 
         public void Continue()
