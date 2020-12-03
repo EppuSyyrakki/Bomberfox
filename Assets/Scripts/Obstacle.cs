@@ -9,7 +9,6 @@ public class Obstacle : MonoBehaviour
 {
 	private static GameObject enemiesParent;
 
-	//private List<Fader> childFaders = new List<Fader>();
 	private List<Rigidbody2D> childRbs = new List<Rigidbody2D>();
 	private BoxCollider2D boxCollider2D;
 	private bool lightDestroyed = false;
@@ -33,7 +32,6 @@ public class Obstacle : MonoBehaviour
 	// Start is called before the first frame update
 	private void Start()
 	{
-		//childFaders.AddRange(GetComponentsInChildren<Fader>());
 	    childRbs.AddRange(GetComponentsInChildren<Rigidbody2D>());
 	    boxCollider2D = GetComponent<BoxCollider2D>();
 
@@ -54,7 +52,6 @@ public class Obstacle : MonoBehaviour
 	public void BlowUp(Vector3 direction)
     {
 		Animator a = GetComponent<Animator>();
-		a.SetBool("isActive", false);
 		Destroy(a);
 		shadow.SetActive(false);
 		shadowCaster.SetActive(false);
@@ -62,12 +59,6 @@ public class Obstacle : MonoBehaviour
 		Destroy(boxCollider2D);
 		Destroy(guideLight);
 		lightDestroyed = true;
-
-		/*foreach (Fader fader in childFaders)
-	    {
-		    fader.Fade = true;
-		    waitTime = fader.fadeOutTime;
-	    }*/
 
 	    foreach (Rigidbody2D rb in childRbs)
 	    {
