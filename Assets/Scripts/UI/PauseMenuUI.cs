@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Bomberfox.Player;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Bomberfox.UI
 {
@@ -19,8 +21,12 @@ namespace Bomberfox.UI
         {
             Time.timeScale = 0;
             pauseMenuUI.SetActive(true);
-            
-            if (GameManager.Instance.isSoundOn) AudioManager.instance.MuteBomb();
+            Button btn = GameObject.Find("Continue Button").GetComponent<Button>();
+            EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+            es.SetSelectedGameObject(null);
+            es.SetSelectedGameObject(btn.gameObject);
+
+            if (GameManager.Instance.isSoundOn) AudioManager.instance.MuteSound();
         }
 
         public void DeactivateMenu()
@@ -28,15 +34,18 @@ namespace Bomberfox.UI
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);
             GameManager.Instance.isPaused = false;
-            
-            if (!GameManager.Instance.isSoundOn) AudioManager.instance.EnableBomb();
-        }
 
-        public void Continue()
+            // delay the movementEnabled on PlayerController for a frame to prevent leaving a bomb
+            // when using controller button to exit menu
+            Invoke(nameof(Continue), Time.deltaTime);
+
+            if (!GameManager.Instance.isSoundOn) AudioManager.instance.EnableSound();
+        }
+        
+        private void Continue()
         {
 	        PlayerController pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             pc.EnableMovement();
-            DeactivateMenu();
         }
 
         public void QuitToMenu()

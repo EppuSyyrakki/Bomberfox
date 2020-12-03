@@ -188,12 +188,14 @@ public class AudioManager : MonoBehaviour
 
     public void ToggleMusic()
     {
-        GameManager.Instance.isMusicOn = !GameManager.Instance.isMusicOn;
+	    if (GameManager.Instance.isMusicOn) GameManager.Instance.isMusicOn = false;
+	    if (!GameManager.Instance.isMusicOn) GameManager.Instance.isMusicOn = true;
     }
 
     public void ToggleSound()
     {
-        GameManager.Instance.isSoundOn = !GameManager.Instance.isSoundOn;
+	    if (GameManager.Instance.isSoundOn) GameManager.Instance.isSoundOn = false;
+        if (GameManager.Instance.isSoundOn) GameManager.Instance.isSoundOn = true;
     }
 
     public void MuteMusic()

@@ -124,7 +124,7 @@ namespace Bomberfox.Player
 		        else
 		        {
 			        inGameCanvas.GetComponent<PauseMenuUI>().DeactivateMenu();
-			        Invoke(nameof(EnableMovement), Time.deltaTime);
+			        EnableMovement();
 		        }
 	        }
         }
