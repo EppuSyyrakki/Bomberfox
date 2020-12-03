@@ -8,11 +8,13 @@ namespace Bomberfox.UI
 {
     public class LevelNumberUI : MonoBehaviour
     {
-        [SerializeField] public TextMeshProUGUI levelNumber;
+        [SerializeField] public TextMeshProUGUI levelNumberText;
+        [SerializeField] public TextMeshProUGUI levelNumberNumber;
 
         public void Start()
         {
-            levelNumber.text = "LEVEL";
+            levelNumberText.text = "Level";
+            levelNumberNumber.text = levelNumberNumber.text = "~ " + (GameManager.Instance.CurrentLevel).ToString() + " ~";
         }
 
         void Update()

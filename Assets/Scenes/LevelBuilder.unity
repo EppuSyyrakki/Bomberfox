@@ -190,8 +190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: 540}
-  m_SizeDelta: {x: 79, y: 36.8}
+  m_AnchoredPosition: {x: 0, y: -79}
+  m_SizeDelta: {x: 143.40823, y: 36.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &92254252
 MonoBehaviour:
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 138
+  m_text: ~ 1 ~
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5aa3bb8ef807d02428f1c41b8114d172, type: 2}
   m_sharedMaterial: {fileID: 4464306578555882472, guid: 5aa3bb8ef807d02428f1c41b8114d172, type: 2}
@@ -1049,7 +1049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e28868ac99fd6448f7f87fb7b97ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: {fileID: 2107970031}
+  levelNumberText: {fileID: 2107970031}
+  levelNumberNumber: {fileID: 92254252}
 --- !u!1 &395660622
 GameObject:
   m_ObjectHideFlags: 0
@@ -7250,7 +7251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1301641653}
   - component: {fileID: 1301641654}
-  - component: {fileID: 1301641655}
   m_Layer: 5
   m_Name: LevelNumber (number)
   m_TagString: Untagged
@@ -7298,19 +7298,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1301641655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301641652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837d4444eaa470141939f27d145e1aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelNumber: {fileID: 92254252}
 --- !u!1 &1402419328
 GameObject:
   m_ObjectHideFlags: 0
@@ -13360,7 +13347,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: 720}
+  m_AnchoredPosition: {x: -0.5, y: 101.00006}
   m_SizeDelta: {x: 105.32181, y: 33.130463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107970031
@@ -13383,7 +13370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LEVEL
+  m_text: Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5aa3bb8ef807d02428f1c41b8114d172, type: 2}
   m_sharedMaterial: {fileID: 4464306578555882472, guid: 5aa3bb8ef807d02428f1c41b8114d172, type: 2}
