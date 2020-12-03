@@ -63,6 +63,7 @@ public class Obstacle : MonoBehaviour
 
 	    foreach (Rigidbody2D rb in childRbs)
 	    {
+			Debug.Log(rb.gameObject.name);
 			Vector2 explosionDir = new Vector2(direction.x, direction.y);
 		    Vector2 dir = new Vector2(
 			    Random.Range(-explosionForce, explosionForce), 
