@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 namespace Bomberfox.UI
 {
-    public class LevelNumberUI : MonoBehaviour
+    public class LevelNumberUI2 : MonoBehaviour
     {
         [SerializeField] public TextMeshProUGUI levelNumber;
 
         public void Start()
         {
-            levelNumber.text = "LEVEL";
+            levelNumber.text = "~ " + (GameManager.Instance.CurrentLevel).ToString() + " ~";
         }
 
         void Update()
