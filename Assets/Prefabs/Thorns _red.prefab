@@ -99,6 +99,8 @@ MonoBehaviour:
   levelEndKey: {fileID: 2098857614433161462, guid: 2c09e25974eef6547918538a033e2dd9, type: 3}
   explosionForce: 10
   guideLight: {fileID: 6267160217963965991}
+  shadow: {fileID: 3381144480000432827}
+  shadowCaster: {fileID: 4967666251526124392}
 --- !u!114 &1166348607185489402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +143,6 @@ GameObject:
   - component: {fileID: 2263634742867715479}
   - component: {fileID: 1550781624645865050}
   - component: {fileID: 1166348605690895744}
-  - component: {fileID: 1166348605690895745}
   m_Layer: 0
   m_Name: Root2 Front
   m_TagString: Obstacle
@@ -235,19 +236,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348605690895745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906821446082912369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &1118519010209736463
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +247,6 @@ GameObject:
   - component: {fileID: 6874541507205585130}
   - component: {fileID: 7431627333741204262}
   - component: {fileID: 1166348607110375365}
-  - component: {fileID: 1166348607110375362}
   m_Layer: 0
   m_Name: Grass Back
   m_TagString: Obstacle
@@ -353,19 +340,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348607110375362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118519010209736463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &1901690908969177240
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +351,6 @@ GameObject:
   - component: {fileID: 4747179069888125989}
   - component: {fileID: 1170056384566318030}
   - component: {fileID: 1166348606023286104}
-  - component: {fileID: 1166348606023286105}
   m_Layer: 0
   m_Name: Grass Front
   m_TagString: Obstacle
@@ -471,19 +444,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348606023286105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901690908969177240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &3381144480000432827
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +454,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2710349071140901518}
   - component: {fileID: 1003482423440990710}
-  - component: {fileID: 1174845570520518047}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Obstacle
@@ -567,19 +526,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1174845570520518047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381144480000432827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &4891926561283872644
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +537,6 @@ GameObject:
   - component: {fileID: 1359684375571965820}
   - component: {fileID: 730419378346593103}
   - component: {fileID: 1166348606536519508}
-  - component: {fileID: 1166348606536519509}
   m_Layer: 0
   m_Name: Root1
   m_TagString: Obstacle
@@ -685,19 +630,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348606536519509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4891926561283872644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &4967666251526124392
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +694,7 @@ MonoBehaviour:
   - {x: -0.39364696, y: -0.2801351, z: 0}
   m_ShapePathHash: 1887425349
   m_Mesh: {fileID: 0}
-  m_InstanceId: 205702
+  m_InstanceId: 146026
 --- !u!1 &5005811308426442905
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +706,6 @@ GameObject:
   - component: {fileID: 8464348871154192626}
   - component: {fileID: 539397166334667553}
   - component: {fileID: 1166348606237507564}
-  - component: {fileID: 1166348606237507565}
   m_Layer: 0
   m_Name: Root2 Back
   m_TagString: Obstacle
@@ -868,19 +799,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348606237507565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5005811308426442905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &5849385124924272587
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +810,6 @@ GameObject:
   - component: {fileID: 2285180571351172673}
   - component: {fileID: 7183333707816960565}
   - component: {fileID: 1166348605806763584}
-  - component: {fileID: 1166348605806763585}
   m_Layer: 0
   m_Name: Root3 Back
   m_TagString: Obstacle
@@ -986,19 +903,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348605806763585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5849385124924272587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
 --- !u!1 &6267160217963965991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1010,6 @@ GameObject:
   - component: {fileID: 4622946511361907623}
   - component: {fileID: 3921027467081222864}
   - component: {fileID: 1166348606383111169}
-  - component: {fileID: 1166348606383111230}
   m_Layer: 0
   m_Name: Root3 Front
   m_TagString: Obstacle
@@ -1200,16 +1103,3 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1166348606383111230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736459528025225553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423b4061b5262e49af932e5b85bbb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTime: 1
