@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -8,6 +9,11 @@ namespace Bomberfox.UI
 	{
 		[SerializeField]
 		private Button[] buttons = null;
+
+		private void Awake()
+		{
+			GetComponent<Animator>().keepAnimatorControllerStateOnDisable = true;
+		}
 
 		private void EnableButtons()
 		{
@@ -29,11 +35,6 @@ namespace Bomberfox.UI
 			{
 				button.interactable = false;
 			}
-		}
-
-		private void DisableButtonAnimation()
-		{
-			GetComponent<Animator>().enabled = false;
 		}
 	}
 }
