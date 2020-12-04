@@ -40,9 +40,6 @@ namespace Bomberfox
 
 		public bool isPaused = false;
 
-		public bool isMusicOn = true;
-        public bool isSoundOn = true;
-
         public bool IsFirstKill { get; set; } = true;
 
         public int LevelProgression { get; set; }

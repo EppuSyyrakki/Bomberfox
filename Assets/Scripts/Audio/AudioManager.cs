@@ -49,28 +49,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-
-    void Update()
-    {
-        if (GameManager.Instance.isMusicOn)
-        {
-            EnableMusic();
-        }
-        else if (!GameManager.Instance.isMusicOn)
-        {
-            MuteMusic();
-        }
-
-        if (GameManager.Instance.isSoundOn)
-        {
-            EnableSound();
-        }
-        else if (!GameManager.Instance.isSoundOn)
-        {
-            MuteSound();
-        }
-    }
-
+    
     public void PlayMusic(string name)
     {
         Music m = Array.Find(musics, music => music.name == name);
@@ -198,18 +177,6 @@ public class AudioManager : MonoBehaviour
 	    }
     }
 
-    public void ToggleMusic()
-    {
-	    if (GameManager.Instance.isMusicOn) GameManager.Instance.isMusicOn = false;
-	    else GameManager.Instance.isMusicOn = true;
-    }
-
-    public void ToggleSound()
-    {
-	    if (GameManager.Instance.isSoundOn) GameManager.Instance.isSoundOn = false;
-        else GameManager.Instance.isSoundOn = true;
-    }
-
     public void MuteMusic()
     {
         foreach (Music m in musics)
@@ -249,7 +216,6 @@ public class AudioManager : MonoBehaviour
     public void MuteBomb()
     {
         masterMixer.SetFloat("Bomb", -80f);
-        print("bomb channel at -80");
     }
 
     public void EnableBomb()

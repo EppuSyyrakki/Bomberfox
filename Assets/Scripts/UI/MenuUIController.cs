@@ -34,14 +34,16 @@ namespace Bomberfox.UI
             Application.Quit();
         }
 
-        public void ToggleMusic()
+        public void EnableMusic(bool enable)
         {
-            AudioManager.instance.ToggleMusic();
+	        if (enable) AudioManager.instance.EnableMusic();
+	        else AudioManager.instance.MuteMusic();
         }
 
-        public void ToggleSound()
+        public void EnableSound(bool enable)
         {
-            AudioManager.instance.ToggleSound();
+	        if (enable) AudioManager.instance.EnableSound();
+	        else AudioManager.instance.MuteSound();
         }
     }
 }
