@@ -605,8 +605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockChance: 32
   blockChanceIncrease: 2
-  obstacleChance: 16
-  obstacleChanceIncrease: 2
+  obstacleChance: 30
+  obstacleChanceIncrease: 0
   changeThemeFrequency: 2
   enemies: 2
   addEnemyFrequency: 2
@@ -619,7 +619,7 @@ MonoBehaviour:
   goatLevel: 0
   pigLevel: 3
   bunnyLevel: 6
-  debugStartingLevel: 15
+  debugStartingLevel: 0
 --- !u!1 &5991717416449140360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,6 +3608,22 @@ PrefabInstance:
     - target: {fileID: 3011160130516807139, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
       propertyPath: m_Name
       value: Edges
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321186096029526661, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321186096029526661, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321186096029526661, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321186096029526661, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 6040515988735722211, guid: 8fd905ee072a94d48a9d9ead9d12eb32, type: 3}
       propertyPath: m_LocalScale.x

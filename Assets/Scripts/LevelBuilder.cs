@@ -41,6 +41,7 @@ public class LevelBuilder : MonoBehaviour
 	private int enemyCount = 6;
 	private List<Vector3Int> freePositions = new List<Vector3Int>();
 	private bool keyChosen = false;
+	private FadeOutUI fadeOutUi;
 
 	[SerializeField, Header("Level prefabs")] 
 	private GameObject[] presets = null;
@@ -77,6 +78,7 @@ public class LevelBuilder : MonoBehaviour
 		Enemies();
 		Weather();
 		Physics2D.IgnoreLayerCollision(8, 9, false);
+		fadeOutUi = FindObjectOfType<FadeOutUI>();
 	}
 
 	private void LateUpdate()
@@ -84,7 +86,7 @@ public class LevelBuilder : MonoBehaviour
 		if (!keyChosen)
 		{
 			KeyObstacle();
-			FindObjectOfType<FadeOutUI>().FadeFromBlack(1f);
+			fadeOutUi.FadeFromBlack(1.5f);
 		}
 	}
 

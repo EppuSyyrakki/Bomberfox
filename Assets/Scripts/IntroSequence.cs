@@ -23,8 +23,15 @@ public class IntroSequence : MonoBehaviour
 		// press any key to...
         if (Input.anyKeyDown)
         {
+	        if (end)
+	        {
+		        Invoke(nameof(InvokeGame), 1f);
+		        FindObjectOfType<FadeOutUI>().FadeBlackOutSquare(1f);
+		        return;
+	        }
+
 			// go to next if ready
-	        if (ready)
+			if (ready)
 	        {
 		        a.SetTrigger("NextAnimation");
 		        ready = false;
@@ -48,9 +55,8 @@ public class IntroSequence : MonoBehaviour
     // called from animation event
     private void End()
     {
-		Invoke(nameof(InvokeGame), 1f);
-		StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
-	}
+	    end = true;
+    }
 
 	private void InvokeGame()
 	{

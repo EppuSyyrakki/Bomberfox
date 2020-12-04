@@ -14122,37 +14122,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1961600767884403417, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: changeThemeFrequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
+      propertyPath: blockChanceIncrease
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: debugStartingLevel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: obstacleChanceIncrease
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3026984248622871282, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: obstacleChance
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3690620310610154099, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1
+      propertyPath: blockChance
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5991717415827528186, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14201,14 +14181,6 @@ PrefabInstance:
     - target: {fileID: 5991717415827528187, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
       propertyPath: m_Name
       value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991717415893836196, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 4221481442910844420, guid: c3eade02aeee8f54992ccf796247c12e, type: 3}
-    - target: {fileID: 8990152423194894884, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b85d0cf13988014a8b4d9bd7a340eb9, type: 3}
