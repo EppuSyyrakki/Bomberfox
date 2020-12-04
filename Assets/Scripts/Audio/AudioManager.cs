@@ -188,14 +188,14 @@ public class AudioManager : MonoBehaviour
 
     public void PauseAllSounds(bool pause)
     {
-	    foreach (Sound sound in sounds)
+	    if (pause) MuteBomb();
+	    if (!pause) EnableBomb();
+
+        foreach (Sound sound in sounds)
 	    {
 		    if (pause) sound.source.Pause();
 		    else sound.source.UnPause();
 	    }
-
-	    if (pause) MuteBomb();
-	    else EnableBomb();
     }
 
     public void ToggleMusic()
@@ -249,13 +249,12 @@ public class AudioManager : MonoBehaviour
     public void MuteBomb()
     {
         masterMixer.SetFloat("Bomb", -80f);
-        GameManager.Instance.isSoundOn = false;
+        print("bomb channel at -80");
     }
 
     public void EnableBomb()
     {
         masterMixer.SetFloat("Bomb", 0f);
-        GameManager.Instance.isSoundOn = true;
     }
 }
 

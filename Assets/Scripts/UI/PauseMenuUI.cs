@@ -12,11 +12,6 @@ namespace Bomberfox.UI
     {
         [SerializeField] private GameObject pauseMenuUI;
 
-        private void Start()
-        {
-	        DeactivateMenu();
-        }
-
         public void ActivateMenu()
         {
             Time.timeScale = 0;
