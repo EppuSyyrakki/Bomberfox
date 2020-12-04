@@ -7,20 +7,20 @@ public class FadeOutUI : MonoBehaviour
     [SerializeField]
     public GameObject blackOutSquare;
 
-    void Update()
-    {
+    //void Update()
+    //{
         
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartCoroutine(FadeBlackOutSquare());
-        }
+    //    if (Input.GetKeyDown(KeyCode.B))
+    //    {
+    //        StartCoroutine(FadeBlackOutSquare());
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartCoroutine(ShowBlackOutSquare());
-        }
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        StartCoroutine(ShowBlackOutSquare());
+    //    }
         
-    }
+    //}
 
     /// <summary>
     /// Fades the screen to black when called. FadeSpeed tells how quickly it happens.
@@ -62,5 +62,15 @@ public class FadeOutUI : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void StartFadeOut(bool fadeToBlack = true, int fadeSpeed = 1)
+    {
+	    StartCoroutine(FadeBlackOutSquare(fadeToBlack, fadeSpeed));
+    }
+
+    public void StartFadeIn(bool fadeToBlack = true, int fadeSpeed = 3)
+    {
+	    StartCoroutine(FadeBlackOutSquare(fadeToBlack, fadeSpeed));
     }
 }

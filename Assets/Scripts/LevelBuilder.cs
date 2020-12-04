@@ -84,7 +84,7 @@ public class LevelBuilder : MonoBehaviour
 		if (!keyChosen)
 		{
 			KeyObstacle();
-			StartCoroutine(FindObjectOfType<FadeOutUI>().ShowBlackOutSquare());
+			StartCoroutine(FindObjectOfType<FadeOutUI>().StartFadeIn());
 		}
 	}
 

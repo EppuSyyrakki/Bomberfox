@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class IntroSequence : MonoBehaviour
 {
-	private bool paused;
+	private bool end = false;
+	private bool ready = false;
+	private Animator a;
+
+	private void Awake()
+	{
+		a = GetComponent<Animator>();
+	}
 
     // Update is called once per frame
     private void Update()
@@ -13,27 +20,40 @@ public class IntroSequence : MonoBehaviour
         // press menu button to skip to game
         if (Input.GetButtonDown("Menu")) GameManager.Instance.GoToGame();
 
-        if (paused)
+		// press any key to...
+        if (Input.anyKeyDown)
         {
-	        Time.timeScale = 0f;
-
-	        if (Input.anyKeyDown)
+			// go to next if ready
+	        if (ready)
 	        {
-		        paused = false;
-		        Time.timeScale = 1f;
-            }
-        }
-    }
+		        a.SetTrigger("NextAnimation");
+		        ready = false;
+		        return;
+	        }
 
-    // called from animation event
-    private void Pause()
+	        AnimatorClipInfo[] info = a.GetCurrentAnimatorClipInfo(0);
+	        a.Play(info[0].clip.name, 0, 1f);
+	        ready = true;
+        }
+
+        a.ResetTrigger("NextAnimation");
+	}
+
+	// called from animation event
+    private void ReadyToContinue()
     {
-	    paused = true;
+	    ready = true;
     }
 
     // called from animation event
     private void End()
     {
-	    GameManager.Instance.GoToGame();
-    }
+		Invoke(nameof(InvokeGame), 1f);
+		StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
+	}
+
+	private void InvokeGame()
+	{
+		GameManager.Instance.GoToGame();
+	}
 }
