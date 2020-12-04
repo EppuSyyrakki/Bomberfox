@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Bomberfox;
 using Bomberfox.Enemies;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class LevelBuilder : MonoBehaviour
 {

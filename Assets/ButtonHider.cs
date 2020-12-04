@@ -2,21 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonHider : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject startButton, quitButton;
+	private Button[] buttons = null;
 
 	private void EnableButtons()
 	{
-		startButton.SetActive(true);
-		quitButton.SetActive(true);
+		foreach (Button b in buttons)
+		{
+			b.interactable = true;
+		}
 	}
 
-	private void DiableButtons()
+	private void DisableButtons()
 	{
-		startButton.SetActive(false);
-		quitButton.SetActive(false);
+		foreach (var button in buttons)
+		{
+			button.interactable = false;
+		}
 	}
 }

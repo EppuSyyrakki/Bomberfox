@@ -10,7 +10,7 @@ namespace Bomberfox.UI
 {
     public class PauseMenuUI : MonoBehaviour
     {
-        [SerializeField] private GameObject pauseMenuUI;
+        [SerializeField] private GameObject pauseMenuUI = null;
 
         public void ActivateMenu()
         {
@@ -25,7 +25,7 @@ namespace Bomberfox.UI
 
         public void DeactivateMenu()
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             pauseMenuUI.SetActive(false);
             GameManager.Instance.isPaused = false;
             AudioManager.instance.PauseAllSounds(false);
@@ -49,6 +49,7 @@ namespace Bomberfox.UI
             GameManager.Instance.RestartForNewGame();
             AudioManager.instance.StopGameMusic();
             GameManager.Instance.GoToMainMenu();
+            Time.timeScale = 1f;
         }
 
         public void EnableMusic(bool enable)

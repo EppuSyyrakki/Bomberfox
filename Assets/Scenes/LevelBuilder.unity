@@ -1034,6 +1034,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1556723141}
   - {fileID: 926496258}
   - {fileID: 2014129285}
   - {fileID: 1202043949}
@@ -1157,7 +1158,7 @@ GameObject:
   - component: {fileID: 395660624}
   m_Layer: 5
   m_Name: MusicOn
-  m_TagString: Untagged
+  m_TagString: AudioButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1227,8 +1228,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330425196}
         m_TargetAssemblyTypeName: Bomberfox.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: ToggleMusic
-        m_Mode: 1
+        m_MethodName: EnableMusic
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1677,7 +1678,7 @@ GameObject:
   - component: {fileID: 537782099}
   m_Layer: 5
   m_Name: SoundOn
-  m_TagString: Untagged
+  m_TagString: AudioButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1747,8 +1748,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330425196}
         m_TargetAssemblyTypeName: Bomberfox.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: ToggleSound
-        m_Mode: 1
+        m_MethodName: EnableSound
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2315,7 +2316,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 330425195}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7363,7 +7364,7 @@ GameObject:
   - component: {fileID: 1032712332}
   m_Layer: 5
   m_Name: MusicOff
-  m_TagString: Untagged
+  m_TagString: AudioButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7434,15 +7435,15 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330425196}
         m_TargetAssemblyTypeName: Bomberfox.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: ToggleMusic
-        m_Mode: 1
+        m_MethodName: EnableMusic
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 395660622}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -7684,7 +7685,7 @@ RectTransform:
   m_Children:
   - {fileID: 216565791}
   m_Father: {fileID: 330425195}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8527,6 +8528,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540539407}
   m_CullTransparentMesh: 0
+--- !u!1 &1556723139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556723141}
+  - component: {fileID: 1556723140}
+  m_Layer: 0
+  m_Name: AudioUICheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1556723140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556723139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd17e5dc4469f01488f28ace2f2217bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicOn: {fileID: 395660622}
+  MusicOff: {fileID: 1032712330}
+  SoundOn: {fileID: 537782097}
+  SoundOff: {fileID: 1856106065}
+--- !u!4 &1556723141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556723139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 330425195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701152771
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,7 +13890,7 @@ GameObject:
   - component: {fileID: 1856106067}
   m_Layer: 5
   m_Name: SoundOff
-  m_TagString: Untagged
+  m_TagString: AudioButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13913,15 +13961,15 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 330425196}
         m_TargetAssemblyTypeName: Bomberfox.UI.PauseMenuUI, Assembly-CSharp
-        m_MethodName: ToggleSound
-        m_Mode: 1
+        m_MethodName: EnableSound
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 537782097}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -14047,7 +14095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2014129285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14065,7 +14113,7 @@ RectTransform:
   - {fileID: 1824683983}
   - {fileID: 1729226982}
   m_Father: {fileID: 330425195}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

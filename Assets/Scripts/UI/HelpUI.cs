@@ -6,7 +6,7 @@ namespace Bomberfox.UI
 {
     public class HelpUI : MonoBehaviour
     {
-        [SerializeField] private GameObject help;
+        [SerializeField] private GameObject help = null;
 
         void Start()
         {

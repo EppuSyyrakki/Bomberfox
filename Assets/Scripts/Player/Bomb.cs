@@ -133,5 +133,11 @@ namespace Bomberfox.Player
 	        
             if (type == Type.Normal) owner.ChangeCurrentBombs(1);
         }
+
+        public void PauseSound(bool enable)
+        {
+	        if (enable) GetComponent<AudioSource>().Pause();
+	        else GetComponent<AudioSource>().UnPause();
+        }
     }
 }

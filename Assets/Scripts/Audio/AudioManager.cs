@@ -1,6 +1,7 @@
 ﻿using UnityEngine.Audio;
 using System;
 using Bomberfox;
+using Bomberfox.Player;
 using UnityEngine;
 
 
@@ -15,6 +16,9 @@ public class AudioManager : MonoBehaviour
 
     public float maxMusic = 1f;
     public float maxSound = 0.75f;
+
+    public bool musicEnabled = true;
+    public bool soundsEnabled = true;
 
     void Awake()
     {
@@ -49,7 +53,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-    
+
     public void PlayMusic(string name)
     {
         Music m = Array.Find(musics, music => music.name == name);
@@ -167,8 +171,12 @@ public class AudioManager : MonoBehaviour
 
     public void PauseAllSounds(bool pause)
     {
-	    if (pause) MuteBomb();
-	    if (!pause) EnableBomb();
+	    Bomb[] bombs = FindObjectsOfType<Bomb>();
+
+	    foreach (Bomb bomb in bombs)
+	    {
+		    bomb.PauseSound(pause);
+	    }
 
         foreach (Sound sound in sounds)
 	    {
@@ -183,6 +191,8 @@ public class AudioManager : MonoBehaviour
         {
             m.source.volume = 0f;
         }
+
+        musicEnabled = false;
     }
 
     public void MuteSound()
@@ -192,7 +202,8 @@ public class AudioManager : MonoBehaviour
             s.source.volume = 0f;
         }
 
-        MuteBomb();
+        masterMixer.SetFloat("Bomb", -80f);
+        soundsEnabled = false;
     }
 
     public void EnableMusic()
@@ -201,6 +212,8 @@ public class AudioManager : MonoBehaviour
         {
             m.source.volume = maxMusic;
         }
+
+        musicEnabled = true;
     }
 
     public void EnableSound()
@@ -210,17 +223,8 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
         }
 
-        EnableBomb();
-    }
-
-    public void MuteBomb()
-    {
-        masterMixer.SetFloat("Bomb", -80f);
-    }
-
-    public void EnableBomb()
-    {
         masterMixer.SetFloat("Bomb", 0f);
+        soundsEnabled = true;
     }
 }
 

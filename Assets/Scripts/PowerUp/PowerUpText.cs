@@ -11,7 +11,7 @@ namespace Bomberfox.PowerUp
 	    private float lifeTime = 1f;
 
         [SerializeField]
-	    private TMP_Text textField;
+	    private TMP_Text textField = null;
 
         // Start is called before the first frame update
         private void Start()
