@@ -1,4 +1,5 @@
-﻿using Bomberfox.Player;
+﻿using System;
+using Bomberfox.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -7,6 +8,9 @@ namespace Bomberfox.UI
 {
     public class MenuUIController : MonoBehaviour
     {
+	    private Animator[] animators;
+	    private bool skipped = false;
+
         void Start()
         {
             AudioManager.instance.PlayMusic("MainMenu");
@@ -15,8 +19,24 @@ namespace Bomberfox.UI
             EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
             es.SetSelectedGameObject(null);
             es.SetSelectedGameObject(btn.gameObject);
+            animators = FindObjectsOfType<Animator>();
         }
-        
+
+        private void Update()
+        {
+	        if (!skipped && Input.anyKeyDown)
+	        {
+		        foreach (var a in animators)
+		        {
+			        AnimatorClipInfo[] info = a.GetCurrentAnimatorClipInfo(0);
+			        a.Play(info[0].clip.name, 0, 1f);
+                }
+
+		        skipped = true;
+	        }
+	        
+        }
+
         public void StartGame()
         {
             GameManager.Instance.Player = new PlayerData();

@@ -22,11 +22,11 @@ public class LevelEndKey : MonoBehaviour
             GameManager.Instance.LevelProgression += 20;
 	        Physics2D.IgnoreLayerCollision(8, 9, true);
             AudioManager.instance.VictoryMusic();
-            StartCoroutine(FindObjectOfType<FadeOutUI>().FadeBlackOutSquare());
+            FindObjectOfType<FadeOutUI>().FadeToBlack(1.5f);
             GameManager.Instance.CurrentLevel++;
             GameManager.Instance.FinishedLevels++;
             AudioManager.instance.CheckGameMusic();
-            GameManager.Instance.Invoke("ReloadScene", 1.0f);
+            GameManager.Instance.Invoke("ReloadScene", 1.5f);
         }
     }
 }
