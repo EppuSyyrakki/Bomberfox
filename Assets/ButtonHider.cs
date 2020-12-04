@@ -1,27 +1,39 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonHider : MonoBehaviour
+namespace Bomberfox.UI
 {
-	[SerializeField]
-	private Button[] buttons = null;
-
-	private void EnableButtons()
+	public class ButtonHider : MonoBehaviour
 	{
-		foreach (Button b in buttons)
+		[SerializeField]
+		private Button[] buttons = null;
+
+		private void EnableButtons()
 		{
-			b.interactable = true;
+			foreach (Button b in buttons)
+			{
+				b.interactable = true;
+			}
+
+			// set start game button as default selected
+			Button btn = GameObject.Find("StartGameButton").GetComponent<Button>();
+			EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+			es.SetSelectedGameObject(null);
+			es.SetSelectedGameObject(btn.gameObject);
 		}
-	}
 
-	private void DisableButtons()
-	{
-		foreach (var button in buttons)
+		private void DisableButtons()
 		{
-			button.interactable = false;
+			foreach (var button in buttons)
+			{
+				button.interactable = false;
+			}
+		}
+
+		private void DisableButtonAnimation()
+		{
+			GetComponent<Animator>().enabled = false;
 		}
 	}
 }

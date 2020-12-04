@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Bomberfox.Player;
+﻿using Bomberfox.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
