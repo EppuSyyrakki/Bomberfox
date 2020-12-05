@@ -8,6 +8,7 @@ namespace Bomberfox.UI
     public class PauseMenuUI : MonoBehaviour
     {
         [SerializeField] private GameObject pauseMenuUI = null;
+        public bool HelpActive { get; set; } = false;
 
         public void ActivateMenu()
         {

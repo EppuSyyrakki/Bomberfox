@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Bomberfox.PowerUp;
 using Bomberfox.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bomberfox.Player
 {
@@ -87,6 +88,8 @@ namespace Bomberfox.Player
         {
 	        if (Input.GetButtonDown("Menu"))
 	        {
+		        if (FindObjectOfType<PauseMenuUI>().HelpActive) return;
+
 		        TogglePauseMenu();
 		        return;
 	        }
