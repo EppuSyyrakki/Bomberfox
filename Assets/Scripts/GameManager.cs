@@ -180,6 +180,7 @@ namespace Bomberfox
             PlayerPrefs.SetInt("PlayerLevel", PlayerLevel);
             PlayerPrefs.SetInt("LevelProgression", LevelProgression);
             PlayerPrefs.SetInt("XP", XpForNextLevel);
+            PlayerPrefs.Save();
         }
 
         // Resets temporary stats
