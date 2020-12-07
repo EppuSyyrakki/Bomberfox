@@ -98,7 +98,7 @@ namespace Bomberfox
 
 			       if (o.CompareTag("Bomb")) collided = KillBomb(o);
 
-			       if (o.CompareTag("Enemy")) collided = EnemyGoBack(o);
+			       if (o.CompareTag("Enemy")) collided = false;
 
 			       if (o.CompareTag("Obstacle")) collided = KillObstacleWithEnemy(o);
 
