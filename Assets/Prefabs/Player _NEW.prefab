@@ -23248,6 +23248,7 @@ MonoBehaviour:
   shield: {fileID: 3716574354251850754}
   isInvulnerable: 0
   hasShield: 0
+  stepTime: 1.5
   invulnerabilityTimer: 2
 --- !u!114 &-8475925279940206486
 MonoBehaviour:
