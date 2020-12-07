@@ -86,7 +86,7 @@ namespace Bomberfox
         {
 	        Vector2 positionToCheck = new Vector2(position.x, position.y);
 	        Collider2D[] colliders = Physics2D.OverlapCircleAll(positionToCheck, 0.25f);
-	        bool collided = true;
+	        bool isFree = true;
 
             if ((colliders).Length > 0)
 	        {
@@ -94,25 +94,25 @@ namespace Bomberfox
 		       {
 			       GameObject o = collider.gameObject;
 
-			       if (o.CompareTag("Block")) collided = false;
+			       if (o.CompareTag("Block")) isFree = false;
 
-			       if (o.CompareTag("Bomb")) collided = KillBomb(o);
+			       if (o.CompareTag("Bomb")) isFree = KillBomb(o);
 
-			       if (o.CompareTag("Enemy")) collided = false;
+			       if (o.CompareTag("Enemy")) isFree = false;
 
-			       if (o.CompareTag("Obstacle")) collided = KillObstacleWithEnemy(o);
+			       if (o.CompareTag("Obstacle")) isFree = KillObstacleWithEnemy(o);
 
 			       if (o.CompareTag("ShockWave"))
 			       {
 				       gameObject.GetComponent<Enemy>().StartDeath();
-				       collided = false;
+				       isFree = false;
 			       }
 
-			       if (!collided) break;
+			       if (!isFree) break;
 		       }
 	        }
 
-	        return collided;
+	        return isFree;
         }
 
         private bool EnemyGoBack(GameObject o)
