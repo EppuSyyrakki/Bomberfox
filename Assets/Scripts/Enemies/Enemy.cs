@@ -283,6 +283,8 @@ namespace Bomberfox.Enemies
 	        speed = data.Speed;
 	        specialMoveChance = data.SpecialChance;
 	        specialMoveCoolDown = data.SpecialCoolDown;
+
+	        if (specialMoveCoolDown < 0) specialMoveCoolDown = 0;
         }
 
 		// triggered from animation event
