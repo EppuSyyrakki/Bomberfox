@@ -58,6 +58,10 @@ namespace Bomberfox.UI
             if (pc.healthSystem.GetHealth() == 0)
             {
                 health1.SetActive(false);
+                health2.SetActive(false);
+                health3.SetActive(false);
+                health4.SetActive(false);
+                health5.SetActive(false);
             }
             else if (pc.healthSystem.GetHealth() == 1)
             {
@@ -69,21 +73,34 @@ namespace Bomberfox.UI
             }
             else if (pc.healthSystem.GetHealth() == 2)
             {
+                health1.SetActive(true);
                 health2.SetActive(true);
                 health3.SetActive(false);
+                health4.SetActive(false);
+                health5.SetActive(false);
             }
             else if (pc.healthSystem.GetHealth() == 3)
             {
+                health1.SetActive(true);
+                health2.SetActive(true);
                 health3.SetActive(true);
                 health4.SetActive(false);
+                health5.SetActive(false);
             }
             else if (pc.healthSystem.GetHealth() == 4)
             {
+                health1.SetActive(true);
+                health2.SetActive(true);
+                health3.SetActive(true);
                 health4.SetActive(true);
                 health5.SetActive(false);
             }
             else if (pc.healthSystem.GetHealth() == 5)
             {
+                health1.SetActive(true);
+                health2.SetActive(true);
+                health3.SetActive(true);
+                health4.SetActive(true);
                 health5.SetActive(true);
             }
 
@@ -91,6 +108,10 @@ namespace Bomberfox.UI
             if (pc.maxBombs == 0)
             {
                 bomb1.SetActive(false);
+                bomb2.SetActive(false);
+                bomb3.SetActive(false);
+                bomb4.SetActive(false);
+                bomb5.SetActive(false);
             }
             else if (pc.maxBombs == 1)
             {
@@ -102,21 +123,34 @@ namespace Bomberfox.UI
             }
             else if (pc.maxBombs == 2)
             {
+                bomb1.SetActive(true);
                 bomb2.SetActive(true);
                 bomb3.SetActive(false);
+                bomb4.SetActive(false);
+                bomb5.SetActive(false);
             }
             else if (pc.maxBombs == 3)
             {
+                bomb1.SetActive(true);
+                bomb2.SetActive(true);
                 bomb3.SetActive(true);
                 bomb4.SetActive(false);
+                bomb5.SetActive(false);
             }
             else if (pc.maxBombs == 4)
             {
+                bomb1.SetActive(true);
+                bomb2.SetActive(true);
+                bomb3.SetActive(true);
                 bomb4.SetActive(true);
                 bomb5.SetActive(false);
             }
             else if (pc.maxBombs == 5)
             {
+                bomb1.SetActive(true);
+                bomb2.SetActive(true);
+                bomb3.SetActive(true);
+                bomb4.SetActive(true);
                 bomb5.SetActive(true);
             }
 
@@ -124,6 +158,8 @@ namespace Bomberfox.UI
             if (pc.bombRange == 2)
             {
                 range3.SetActive(false);
+                range4.SetActive(false);
+                range5.SetActive(false);
             }
             else if (pc.bombRange == 3)
             {
@@ -133,11 +169,14 @@ namespace Bomberfox.UI
             }
             else if (pc.bombRange == 4)
             {
+                range3.SetActive(true);
                 range4.SetActive(true);
                 range5.SetActive(false);
             }
             else if (pc.bombRange == 5)
             {
+                range3.SetActive(true);
+                range4.SetActive(true);
                 range5.SetActive(true);
             }
         }
