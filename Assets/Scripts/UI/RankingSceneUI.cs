@@ -43,7 +43,7 @@ namespace Bomberfox.UI
             levelsCleared.text = (GameManager.Instance.FinishedLevels).ToString();
             enemiesBombed.text = (GameManager.Instance.TotalFinishedLevels).ToString();
             playerLevel.text = (GameManager.Instance.PlayerLevel).ToString();
-            xpLeft.text = "XP until next level: " +
+            xpLeft.text = "Score until next rank: " +
                           (GameManager.Instance.XpForNextLevel - GameManager.Instance.LevelProgression).ToString();
 
             statistics.text = "Dropped bombs: " + (GameManager.Instance.ExplodedBombs).ToString() +

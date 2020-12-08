@@ -275,6 +275,9 @@ namespace Bomberfox.Player
             }
         }
 
+        /// <summary>
+        /// Checks whether the player collided with an enemy and if so, calls for the correct method.
+        /// </summary>
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Player"))
@@ -283,11 +286,13 @@ namespace Bomberfox.Player
             }
         }
 
+        /// <summary>
+        /// Turns on the collider after player's invulnerability has ended.
+        /// </summary>
         private void TurnOnCollider()
         {
             isInvulnerable = false;
             Physics2D.IgnoreLayerCollision(8, 9, false);
-            Debug.Log("I can take damage again");
         }
 
         private void StartDeath()
@@ -323,13 +328,17 @@ namespace Bomberfox.Player
 	        movementEnabled = false;
         }
 
+        /// <summary>
+        /// Checks if the player should take damage.
+        /// If the player is shielded, removes the shield from the player and starts the invulnerability.
+        /// If the player is not shielded, player takes damage before they become invulnerable for a moment.
+        /// </summary>
         public void TakeDamage()
         {
             if (hasShield)
             {
                 isInvulnerable = true;
                 Physics2D.IgnoreLayerCollision(8, 9, true);
-                Debug.Log("Ha, I had a shield!");
                 hasShield = false;
                 Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
                 SetTransparency(0.5f);
@@ -348,7 +357,6 @@ namespace Bomberfox.Player
                     AudioManager.instance.OneShotSound("PlayerHurt");
                     isInvulnerable = true;
                     Physics2D.IgnoreLayerCollision(8, 9, true);
-                    Debug.Log("Ouch, I took damage!");
                     Invoke(nameof(TurnOnCollider), invulnerabilityTimer);
                     SetTransparency(0.5f);
                     Invoke(nameof(DisableTransparency), invulnerabilityTimer);
