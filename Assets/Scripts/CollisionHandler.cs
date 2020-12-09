@@ -16,7 +16,7 @@ namespace Bomberfox
         public bool CheckPosition(Vector3 position)
         {
             Vector2 positionToCheck = new Vector2(position.x, position.y);
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(positionToCheck, 0.25f);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(positionToCheck, 0.4f);
 
             // draw debug line to checked place TODO remove debug tool
             Debug.DrawLine(transform.position, position, Color.red, 0.1f);  
