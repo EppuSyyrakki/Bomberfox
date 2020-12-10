@@ -365,12 +365,10 @@ public class LevelBuilder : MonoBehaviour
 
             if (chance >= 75f)
             {
-                Debug.Log("Time to rain!");
                 Instantiate(rainPrefab);
             }
             else if (chance <= 25f)
             {
-                Debug.Log("Time for fog!");
                 Instantiate(fogPrefab);
             }
 		}

@@ -93,8 +93,7 @@ namespace Bomberfox
 
 		public void ResetLevelCounter()
 		{
-			Debug.Log("Level counter reset");
-			CurrentLevel = 1;
+            CurrentLevel = 1;
 		}
 
 		public void GoToGame() => SceneManager.LoadScene(Game);
@@ -140,7 +139,6 @@ namespace Bomberfox
             if (LevelProgression >= XpForNextLevel)
             {
                 PlayerLevel++;
-                Debug.Log("New level");
                 LevelProgression = LevelProgression - XpForNextLevel;
 
                 if (PlayerLevel < 11)
