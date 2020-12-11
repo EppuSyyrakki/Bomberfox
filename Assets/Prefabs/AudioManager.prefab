@@ -170,18 +170,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Step1
-    clip: {fileID: 8300000, guid: ad3b4d39a8712df468e8cdaa96f7d66e, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Step2
-    clip: {fileID: 8300000, guid: 3a06f306d69e8bb4e88e6e57f7d36225, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   masterMixer: {fileID: 24100000, guid: 8e3a8f8a136aaaa41a48ee0f57a3cd0e, type: 2}
   maxMusic: 1
   maxSound: 0.75

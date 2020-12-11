@@ -60,12 +60,6 @@ namespace Bomberfox.Player
         public bool isInvulnerable = false;    // Is the player invulnerable or not
         public bool hasShield = false;
 
-        [SerializeField, Tooltip("Time interval for step sounds")]
-        private float stepTime = 1;
-        private float stepTimer;
-        private bool step1 = true;
-        private bool step2 = false;
-
         [SerializeField, Tooltip("How long the player is invulnerable after taking damage")]
         private float invulnerabilityTimer = 2;
 
@@ -88,7 +82,6 @@ namespace Bomberfox.Player
 	        remoteBomb = data.Specials[1];
 	        mineBomb = data.Specials[2];
 	        healthSystem = new Health(playerMaxHealth, playerStartingHealth);
-            stepTimer = stepTime;
         }
 
         private void Update()
@@ -108,35 +101,6 @@ namespace Bomberfox.Player
 
             if (hasShield && !shield.activeSelf) shield.SetActive(true);
             else if (!hasShield && shield.activeSelf) shield.SetActive(false);
-
-            if (Math.Abs(movement.x) >= 1 || Math.Abs(movement.y) >= 1)
-            {
-                StepSounds();
-            }
-        }
-
-        private void StepSounds()
-        {
-            stepTimer -= Time.deltaTime;
-
-            if (stepTimer < 0)
-            {
-                stepTimer = stepTime;
-
-                if (step1)
-                {
-                    AudioManager.instance.PlaySound("Step1");
-                    step1 = false;
-                    step2 = true;
-                }
-                else if (step2)
-                {
-                    AudioManager.instance.PlaySound("Step2");
-                    step1 = true;
-                    step2 = false;
-                }
-            }
-
         }
 
         private void FixedUpdate()
