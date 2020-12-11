@@ -108,11 +108,6 @@ public class LevelBuilder : MonoBehaviour
 				Quaternion.identity,
 				initialObstaclesParent);
 
-		if (blocks.Length != obstacles.Length)
-		{
-			Debug.LogError("Different number of Blocks and Obstacles prefabs in LevelBuilder");
-		}
-
 		presetLevel = progression.GetPresetLevel(currentLevel, blocks.Length);
 
 		if (presetLevel > 0)
@@ -278,11 +273,7 @@ public class LevelBuilder : MonoBehaviour
 		Obstacle[] allObstacles = initialObstaclesParent.GetChild(0).GetComponentsInChildren<Obstacle>();
 		Vector3 player = playerStart;
 
-		if (allObstacles == null)
-		{
-			Debug.LogError(name + " couldn't find a place to hide the key.");
-			return;
-		}
+		if (allObstacles == null) return;
 
 		int loopAttempts = 0;
 
@@ -290,11 +281,7 @@ public class LevelBuilder : MonoBehaviour
 		{
 			loopAttempts++;
 
-			if (loopAttempts > 100)
-			{
-				Debug.LogError(name + " couldn't move the key away from player start.");
-				break;
-			}
+			if (loopAttempts > 100) break;
 
 			Obstacle keyObstacle = allObstacles[Random.Range(0, allObstacles.Length)];
 			Vector3 key = keyObstacle.transform.position;
@@ -307,7 +294,6 @@ public class LevelBuilder : MonoBehaviour
 
 			keyObstacle.IsKey = true;
 			keyChosen = true;
-			Debug.Log("Key hidden in " + key);
 			break;
 		}
 	}
@@ -363,16 +349,8 @@ public class LevelBuilder : MonoBehaviour
         {
             float chance = Random.Range(0f, 101f);
 
-            if (chance >= 75f)
-            {
-                Debug.Log("Time to rain!");
-                Instantiate(rainPrefab);
-            }
-            else if (chance <= 25f)
-            {
-                Debug.Log("Time for fog!");
-                Instantiate(fogPrefab);
-            }
-		}
+            if (chance >= 75f) Instantiate(rainPrefab);
+            else if (chance <= 25f) Instantiate(fogPrefab);
+        }
     }
 }

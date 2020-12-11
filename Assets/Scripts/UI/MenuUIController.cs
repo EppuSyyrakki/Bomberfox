@@ -48,8 +48,7 @@ namespace Bomberfox.UI
 
         public void QuitGame()
         {
-            Debug.Log("Quit pressed");
-            Application.Quit();
+	        Application.Quit();
         }
 
         public void EnableMusic(bool enable)
